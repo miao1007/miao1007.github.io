@@ -1,0 +1,569 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Sleuth与日志收集 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../other/reference.html" />
+    
+    
+    <link rel="prev" href="ribbon.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../introduce/">
+    
+    <a href="../introduce/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Eureka简介
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../client/">
+    
+    <a href="../client/">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    Eureka客户端
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../client/eureka-client-springboot.html">
+    
+    <a href="../client/eureka-client-springboot.html">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    EurekaClient与SpringBoot
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../client/eureka-client-rpc.html">
+    
+    <a href="../client/eureka-client-rpc.html">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    EurekaClient的RPC流程与心跳
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../client/eureka-client-without-spring-boot.html">
+    
+    <a href="../client/eureka-client-without-spring-boot.html">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    Eureka集成遗留项目
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4" data-path="../client/generate-stub-by-swagger.html">
+    
+    <a href="../client/generate-stub-by-swagger.html">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    使用Swagger生成Feign桩
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.5" data-path="../client/eureka-client-with-quartz.html">
+    
+    <a href="../client/eureka-client-with-quartz.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    基于Eureka的分布式定时任务
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../server/">
+    
+    <a href="../server/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Eureka服务端
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../server/eureka-server-naming.html">
+    
+    <a href="../server/eureka-server-naming.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    命名服务
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="../server/replicate.html">
+    
+    <a href="../server/replicate.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    Replicate
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    第三方组件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="feign.html">
+    
+    <a href="feign.html">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    Feign简介与Spring代理自动注入
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="ribbon.html">
+    
+    <a href="ribbon.html">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    Ribbon与负载均衡
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.5.3" data-path="sleuth-log-collector.html">
+    
+    <a href="sleuth-log-collector.html">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    Sleuth与日志收集
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    
+    <li class="divider"></li>
+    
+    
+
+<li class="chapter " data-level="2.1" data-path="../other/reference.html">
+    
+    <a href="../other/reference.html">
+        
+                    
+                        <b>2.1.</b>
+                    
+                    参考文献与Wiki
+            
+        </a>
+        
+
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Sleuth与日志收集</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sleuth&#x4E0E;&#x670D;&#x52A1;&#x8C03;&#x7528;&#x65E5;&#x5FD7;&#x6536;&#x96C6;">Sleuth&#x4E0E;&#x670D;&#x52A1;&#x8C03;&#x7528;&#x65E5;&#x5FD7;&#x6536;&#x96C6;</h1>
+<p>&#x5728;SpringCloud&#x4E2D;&#xFF0C;&#x5B98;&#x65B9;&#x63A8;&#x8350;&#x4F7F;&#x7528;Sleuth&#x4E0E;Zipkin&#x5B9E;&#x73B0;&#x65E5;&#x5FD7;&#x7684;&#x6536;&#x96C6;&#x4E0E;&#x53EF;&#x89C6;&#x5316;&#xFF0C;&#x672C;&#x6587;&#x5C06;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x7684;&#x4E3B;&#x8981;&#x6D41;&#x7A0B;</p>
+<p>&#x6CE8;&#x610F;: Zipkin<strong>&#x4EC5;&#x5BF9;RPC&#x901A;&#x4FE1;&#x8FC7;&#x7A0B;&#x8FDB;&#x884C;&#x8BB0;&#x5F55;</strong>&#xFF0C;&#x6CE8;&#x610F;&#x5B83;<strong>&#x4E0E;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x65E5;&#x5FD7;&#x662F;&#x65E0;&#x5173;&#x7684;</strong>&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5E0C;&#x671B;&#x627E;&#x5230;&#x4E00;&#x6B3E;LogAppender&#x6765;&#x5206;&#x6790;&#x6240;&#x6709;Log4j&#x7559;&#x4E0B;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x90A3;&#x4E48;&#x5EFA;&#x8BAE;&#x8FD8;&#x662F;&#x4F7F;&#x7528;Kakfa+ELK&#x8FD9;&#x79CD;&#x4F20;&#x7EDF;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<h2 id="&#x672F;&#x8BED;">&#x672F;&#x8BED;</h2>
+<ul>
+<li>Span/Trace: &#x6765;&#x81EA;Google&#x7684;<a href="https://ai.google/research/pubs/pub36356" target="_blank">Dapper&#x8BBA;&#x6587;</a>&#xFF0C;Span&#x8868;&#x793A;&#x5355;&#x4E2A;&#x8C03;&#x7528;&#x7684;&#x95F4;&#x9694;&#x63CF;&#x8FF0;&#xFF0C;Trace&#x8868;&#x793A;Span&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5728;Zipskin&#x4E2D;&#x4F5C;&#x4E3A;Span&#x7684;JSON&#x6570;&#x7EC4;</li>
+<li>spring-cloud-starter-sleuth: &#x82F1;&#x6587;&#x540D;&#x662F;&#x4FA6;&#x63A2;&#xFF0C;&#x5B83;&#x7684;&#x529F;&#x80FD;&#x662F;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x81EA;&#x52A8;&#x4E3A;&#x65E5;&#x5FD7;&#x52A0;&#x5165;Tag&#x4E0E;&#x5E8F;&#x5217;&#x53F7;</li>
+<li><a href="https://github.com/openzipkin" target="_blank">Zipkin</a>: &#x6765;&#x81EA;Twitte&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x5DE5;&#x5177;&#xFF0C;&#x5206;&#x4E3A;&#x4E0A;&#x4F20;&#x7AEF;(spring-cloud-starter-zipkin&#xFF0C;&#x96C6;&#x6210;&#x5230;&#x9879;&#x76EE;&#x4E2D;)&#x4E0E;&#x670D;&#x52A1;&#x7AEF;(&#x72EC;&#x7ACB;&#x90E8;&#x7F72;&#xFF0C;&#x9ED8;&#x8BA4;&#x5C06;&#x6570;&#x636E;&#x5B58;&#x5230;&#x5185;&#x5B58;&#x4E2D;)</li>
+</ul>
+<h2 id="&#x5185;&#x90E8;&#x5B9E;&#x73B0;">&#x5185;&#x90E8;&#x5B9E;&#x73B0;</h2>
+<h4 id="&#x7EFC;&#x8FF0;">&#x7EFC;&#x8FF0;</h4>
+<ul>
+<li>&#x8C03;&#x7528;&#x4FA7;&#x8BF7;&#x6C42;&#x4E2D;&#x52A0;&#x5165;&#x989D;&#x5916;&#x7684;Span&#x5E8F;&#x5217;&#x53F7;&#x7B49;&#x4E0A;&#x4E0B;&#x6587;&#x4FE1;&#x606F;&#x653E;&#x5165;Header&#x4E2D;(&#x901A;&#x8FC7;&#x6CE8;&#x5165;Feign&#x5B9A;&#x5236;Client&#x5B9E;&#x73B0;)</li>
+<li>&#x88AB;&#x8C03;&#x7528;&#x4FA7;&#x901A;&#x8FC7;&#x5168;&#x5C40;Filter&#x6A21;&#x62DF;AOP&#x8BB0;&#x5F55;&#x6267;&#x884C;&#x60C5;&#x51B5;&#xFF0C;&#x8BA1;&#x7B97;&#x6267;&#x884C;&#x60C5;&#x51B5;&#x4E0E;&#x8017;&#x65F6;&#xFF0C;&#x5E76;&#x5B58;&#x5165;&#x5B9A;&#x5236;&#x7684;ByteBoundedQueue&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;HTTP&#x7B49;&#x5C06;&#x4FE1;&#x606F;&#x5F02;&#x6B65;&#x53D1;&#x9001;&#x5230;Zipkin&#x6536;&#x96C6;&#x5668;&#x4E2D;</li>
+<li>Zipkin&#x6536;&#x96C6;&#x5668;&#x901A;&#x8FC7;UI&#x663E;&#x793A;&#x8C03;&#x7528;&#x8BE6;&#x60C5;</li>
+</ul>
+<blockquote>
+<p>&#x8003;&#x8651;&#x5230;&#x53EF;&#x80FD;&#x6709;&#x901A;&#x4FE1;&#x7684;&#x5C0F;&#x4F19;&#x4F34;&#xFF0C;Zipkin&#x5B9E;&#x73B0;&#x4E0E;&#x7535;&#x8BDD;&#x8BA1;&#x8D39;&#x4E2D;&#x7684;CDR(Call Detail Record, &#x547C;&#x53EB;&#x8BE6;&#x60C5;&#x8BB0;&#x5F55;)&#x6BD4;&#x8F83;&#x7C7B;&#x4F3C;</p>
+</blockquote>
+<h4 id="&#x4F7F;&#x7528;&#x524D;">&#x4F7F;&#x7528;&#x524D;</h4>
+<p>&#x5047;&#x8BBE;&#x6709;&#x5982;&#x4E0B;&#x8C03;&#x7528;UpperCase&#x7684;&#x5FAE;&#x670D;&#x52A1;&#x8C03;&#x7528;&#xFF0C;&#x5176;&#x4E2D;Feign&#x662F;&#x8BF7;&#x6C42;&#xFF0C;UpperCaseService&#x662F;&#x88AB;&#x8C03;&#x7528;&#x7684;&#x5FAE;&#x670D;&#x52A1;</p>
+<pre><code class="lang-mermaid">sequenceDiagram
+      Feign--&gt;&gt;UpperCaseService: POST /uppercase?s=Test
+    activate UpperCaseService
+    UpperCaseService--&gt;&gt;Feign: HTTP 1.1/OK
+    deactivate UpperCaseService
+</code></pre>
+<p>&#xFF08;&#x4E0A;&#x8FF0;&#x8FC7;&#x7A0B;&#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x53BB;<a href="feign.html">Feign</a>&#x4E2D;&#x67E5;&#x770B;&#xFF09;</p>
+<p>&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x5982;&#x679C;&#x670D;&#x52A1;&#x51FA;&#x73B0;&#x5F02;&#x5E38;/&#x8FC7;&#x8F7D;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x80FD;&#x914D;&#x7F6E;Feign&#x7684;LogLevel&#xFF0C;&#x7FFB;&#x672C;&#x5730;Log&#x6587;&#x4EF6;&#x4E86;&#xFF0C;&#x6548;&#x7387;&#x6BD4;&#x8F83;&#x4F4E;</p>
+<h4 id="&#x4F7F;&#x7528;sleuth&#x4E0E;zip&#x540E;">&#x4F7F;&#x7528;Sleuth&#x4E0E;Zip&#x540E;</h4>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x6309;&#x7167;<a href="https://cloud.spring.io/spring-cloud-sleuth/" target="_blank">Tutorial</a>&#x642D;&#x5EFA;&#x73AF;&#x5883;&#x540E;&#xFF0C;&#x5E76;&#x5728;<a href="https://zipkin.io/pages/quickstart.html" target="_blank">Zipkin</a>&#x4E0A;&#x4E0B;&#x8F7D;&#x6536;&#x96C6;&#x5668;&#x540E;&#xFF08;&#x6B64;&#x90E8;&#x5206;&#x81EA;&#x884C;&#x642D;&#x5EFA;&#xFF09;&#xFF0C;&#x6267;&#x884C;&#x670D;&#x52A1;&#x8C03;&#x7528;&#xFF0C;&#x5728;Zipkin&#x7684;&#x672C;&#x5730;&#x9875;&#x9762;&#x5373;&#x53EF;&#x770B;&#x5230;&#x8BF7;&#x6C42;&#x8BE6;&#x7EC6;&#x8DEF;&#x7EBF;&#x56FE;&#x3002;</p>
+<p>&#x603B;&#x4F53;&#x4FEE;&#x6539;&#x540E;&#x7684;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-mermaid">sequenceDiagram
+      Feign-&gt;&gt;modifiedRequest: TraceFeignClient
+      modifiedRequest--&gt;&gt;TraceFilter: POST /uppercase?s=Test
+      TraceFilter-&gt;&gt;UpperCaseService: 
+    activate UpperCaseService
+    UpperCaseService--&gt;&gt;Feign: HTTP 1.1/OK
+    deactivate UpperCaseService
+    TraceFilter-&gt;&gt;Zipkin: async send log to collector
+</code></pre>
+<p>&#x5176;&#x4E2D;&#x6DFB;&#x52A0;&#x4E86;&#x5982;&#x4E0B;&#x7EC4;&#x4EF6;</p>
+<ul>
+<li>TraceFeignClient: &#x8BF7;&#x6C42;&#x7AEF;&#x6CE8;&#x5165;&#x7684;FeignClient&#xFF0C;&#x4E3A;Request&#x7684;Header&#x6DFB;&#x52A0;SpanID, TraceID&#x7B49;&#x4FE1;&#x606F;</li>
+<li>TraceFilter: &#x63A5;&#x6536;&#x7AEF;&#x6CE8;&#x5165;&#x7684;&#x5B9A;&#x5236;Filter&#xFF0C;&#x5B83;&#x5C06;&#x89E3;&#x6790;Request&#x4E2D;&#x7684;Header&#xFF0C;&#x6267;&#x884C;&#x4E1A;&#x52A1;&#xFF0C;&#x8BA1;&#x7B97;&#x8017;&#x65F6;&#xFF0C;&#x6700;&#x7EC8;&#x7B97;&#x51FA;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;JSON&#x683C;&#x5F0F;&#x7684;Span&#xFF0C;&#x901A;&#x8FC7;&#x961F;&#x5217;&#x5F02;&#x6B65;&#x53D1;&#x9001;&#x5230;&#x6536;&#x96C6;&#x5668;ZipKin&#x4E2D;</li>
+<li>ZipKin: &#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x5668;&#xFF0C;&#x8BFB;&#x53D6;JSON&#x683C;&#x5F0F;&#x7684;SPAN&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x5B58;&#x50A8;&#x4E0E;&#x5C55;&#x793A;</li>
+</ul>
+<h4 id="&#x6E90;&#x7801;&#x5206;&#x6790;">&#x6E90;&#x7801;&#x5206;&#x6790;</h4>
+<p>&#x5206;&#x6790;&#x8BF7;&#x6C42;&#x7AEF;&#x6E90;&#x7801;&#xFF0C;&#x53D1;&#x73B0;&#x5728;&#x8BF7;&#x6C42;&#x7AEF;&#x4E3A;Feign&#x96C6;&#x6210;&#x4E86;&#x65B0;&#x7684;Client&#xFF0C;&#x4E3A;&#x8BF7;&#x6C42;&#x52A0;&#x5165;&#x4E86;Span&#x7684;Header&#x7F16;&#x7801;</p>
+<pre><code class="lang-java">// add span http headers in http request
+org.springframework.cloud.sleuth.instrument.web.client.feign.TraceFeignClient#execute
+</code></pre>
+<blockquote>
+<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x91CC;&#x6DFB;&#x52A0;Header&#x662F;&#x5728;Client&#x4E2D;&#x8FDB;&#x884C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728;Inteceptors&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x5C31;&#x7B97;Feign&#x7684;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#x914D;&#x7F6E;&#x4E3A;FULL&#xFF0C;&#x4E5F;&#x65E0;&#x6CD5;&#x770B;&#x5230;&#x771F;&#x5B9E;&#x53D1;&#x9001;&#x7684;&#x8BF7;&#x6C42;</p>
+</blockquote>
+<p>&#x5206;&#x6790;&#x63A5;&#x6536;&#x7AEF;&#x6E90;&#x7801;&#xFF0C;&#x53D1;&#x73B0;&#x65B0;&#x589E;&#x4E86;&#x4E00;&#x4E2A;&#x5168;&#x5C40;Filter&#x4EE5;&#x62E6;&#x622A;Span&#x8BF7;&#x6C42;&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x4E0D;&#x662F;AOP&#xFF0C;&#x800C;&#x662F;try/finally&#x5305;&#x88C5;&#x5B9E;&#x73B0;&#x7684;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// org.springframework.cloud.sleuth.instrument.web.TraceFilter</span>
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doFilter</span><span class="hljs-params">(ServletRequest servletRequest, ServletResponse servletResponse,
+                     FilterChain filterChain)</span> <span class="hljs-keyword">throws</span> IOException, ServletException </span>{
+    <span class="hljs-comment">//...</span>
+    String name = HTTP_COMPONENT + <span class="hljs-string">&quot;:&quot;</span> + uri;
+    Throwable exception = <span class="hljs-keyword">null</span>;
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-comment">// parse Span headers from request</span>
+        spanFromRequest = createSpan(request, skip, spanFromRequest, name);
+        <span class="hljs-comment">// do business</span>
+        filterChain.doFilter(request, <span class="hljs-keyword">new</span> TraceHttpServletResponse(response, spanFromRequest));
+    } <span class="hljs-keyword">finally</span> {
+        <span class="hljs-comment">// add span to Queue with BoundedAsyncReporter#report</span>
+        <span class="hljs-comment">// it will be sent in another thread</span>
+        detachOrCloseSpans(request, response, spanFromRequest, exception);
+    }
+}
+</code></pre>
+<p>&#x63A5;&#x6536;&#x4FA7;&#x5728;<code>AsyncReporter</code>&#x4E13;&#x95E8;&#x5F00;&#x4E86;&#x4E00;&#x4E2A;&#x6D88;&#x8D39;&#x8005;&#x7EBF;&#x7A0B;&#xFF0C;&#x7528;&#x4E8E;&#x5F02;&#x6B65;&#x53D1;&#x9001;&#x7F13;&#x5B58;&#x7684;Span&#x4FE1;&#x606F;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x63A5;&#x6536;&#x4FA7;&#x901A;&#x8FC7;&#x65B0;&#x5F00;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6D88;&#x8D39;&#x961F;&#x5217;&#xFF08;ByteBoundedQueue&#xFF09;</span>
+<span class="hljs-keyword">final</span> Thread flushThread = <span class="hljs-keyword">new</span> Thread(<span class="hljs-string">&quot;AsyncReporter{&quot;</span> + sender + <span class="hljs-string">&quot;}&quot;</span>) {
+    <span class="hljs-meta">@Override</span> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>{
+         <span class="hljs-comment">//...</span>
+         <span class="hljs-comment">// &#x5FAA;&#x73AF;&#x6267;&#x884C; zipkin2.reporter.AsyncReporter.BoundedAsyncReporter#flush</span>
+         <span class="hljs-comment">// &#x901A;&#x8FC7; Condition &#x8FDB;&#x884C;&#x963B;&#x585E;&#x8F6E;&#x5FAA;&#x83B7;&#x53D6;Filter&#x521A;&#x521A;&#x653E;&#x5165;&#x7684;&#x4FE1;&#x606F;</span>
+         <span class="hljs-keyword">while</span> (!result.closed.get()) {
+             result.flush(consumer);
+         }
+         <span class="hljs-comment">//...</span>
+    }
+};
+</code></pre>
+<p>&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x8FD8;&#x662F;&#x4E00;&#x5957;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x65B9;&#x6848;&#xFF0C;&#x539F;&#x7406;&#x633A;&#x597D;&#x61C2;&#xFF0C;&#x4F46;&#x662F;&#x8BA9;&#x81EA;&#x5DF1;&#x6765;&#x5199;&#x961F;&#x5217;&#xFF0C;&#x5F02;&#x6B65;&#x5C31;&#x56F0;&#x96BE;&#x4E86;&#x3002;</p>
+<h2 id="refference">REFFERENCE</h2>
+<ul>
+<li><a href="http://tech.lede.com/2017/04/19/rd/server/SpringCloudSleuth/" target="_blank">http://tech.lede.com/2017/04/19/rd/server/SpringCloudSleuth/</a></li>
+<li><a href="https://wu-sheng.github.io/me/articles/metrics-tracing-and-logging" target="_blank">https://wu-sheng.github.io/me/articles/metrics-tracing-and-logging</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ribbon.html" class="navigation navigation-prev " aria-label="Previous page: Ribbon与负载均衡">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../other/reference.html" class="navigation navigation-next " aria-label="Next page: 参考文献与Wiki">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Sleuth与日志收集","level":"1.5.3","depth":2,"next":{"title":"参考文献与Wiki","level":"2.1","depth":1,"path":"other/reference.md","ref":"other/reference.md","articles":[]},"previous":{"title":"Ribbon与负载均衡","level":"1.5.2","depth":2,"path":"third/ribbon.md","ref":"third/ribbon.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/eureka/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"third/sleuth-log-collector.md","mtime":"2021-03-04T11:49:55.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:37.086Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

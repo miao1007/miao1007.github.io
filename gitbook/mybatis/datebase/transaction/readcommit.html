@@ -1,0 +1,623 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>read commit · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="repeatable.html" />
+    
+    
+    <link rel="prev" href="../transaction.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../../">
+    
+    <a href="../../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../../dynamic-sql/">
+    
+    <a href="../../dynamic-sql/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    动态SQL与LanguageDriver
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" data-path="../../dynamic-sql/ognl.html">
+    
+    <a href="../../dynamic-sql/ognl.html">
+        
+                    
+                        <b>1.2.1.</b>
+                    
+                    OGNL的简介
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../../dynamic-sql/xml-to-ast.html">
+    
+    <a href="../../dynamic-sql/xml-to-ast.html">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    XML如何转换为ASTNode
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.3" data-path="../../dynamic-sql/dynamic-proxy.html">
+    
+    <a href="../../dynamic-sql/dynamic-proxy.html">
+        
+                    
+                        <b>1.2.3.</b>
+                    
+                    执行与动态代理
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../../mapping/">
+    
+    <a href="../../mapping/">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    Nested映射实现
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../../mapping/impl.html">
+    
+    <a href="../../mapping/impl.html">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    映射实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../../mapping/merge-left-join.html">
+    
+    <a href="../../mapping/merge-left-join.html">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    如何合并LEFT-JOIN
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../../practice/">
+    
+    <a href="../../practice/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Mybatis实践与SQL优化
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../../practice/cache.html">
+    
+    <a href="../../practice/cache.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    L2 Cache
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="../../practice/multi-join.html">
+    
+    <a href="../../practice/multi-join.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    多级联查
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.3" data-path="../../practice/parent-child-tree.html">
+    
+    <a href="../../practice/parent-child-tree.html">
+        
+                    
+                        <b>1.4.3.</b>
+                    
+                    Parent-child-id-tree
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.4" data-path="../../practice/transaction.html">
+    
+    <a href="../../practice/transaction.html">
+        
+                    
+                        <b>1.4.4.</b>
+                    
+                    事务
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    
+    <li class="header">Database</li>
+    
+    
+
+<li class="chapter " data-level="2.1" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>2.1.</b>
+                    
+                    Introduce
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.2" data-path="../dds.html">
+    
+    <a href="../dds.html">
+        
+                    
+                        <b>2.2.</b>
+                    
+                    分布式数据库
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.3" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>2.3.</b>
+                    
+                    索引
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="2.3.1" data-path="../bitmap-index.html">
+    
+    <a href="../bitmap-index.html">
+        
+                    
+                        <b>2.3.1.</b>
+                    
+                    位图索引
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.3.2" data-path="../inverted-index.html">
+    
+    <a href="../inverted-index.html">
+        
+                    
+                        <b>2.3.2.</b>
+                    
+                    NoSQL与倒排索引
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="2.4" data-path="../../other/sql-explain.html">
+    
+    <a href="../../other/sql-explain.html">
+        
+                    
+                        <b>2.4.</b>
+                    
+                    调试执行计划
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.5" data-path="../transaction.html">
+    
+    <a href="../transaction.html">
+        
+                    
+                        <b>2.5.</b>
+                    
+                    事务
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter active" data-level="2.5.1" data-path="readcommit.html">
+    
+    <a href="readcommit.html">
+        
+                    
+                        <b>2.5.1.</b>
+                    
+                    read commit
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.5.2" data-path="repeatable.html">
+    
+    <a href="repeatable.html">
+        
+                    
+                        <b>2.5.2.</b>
+                    
+                    Repeatable read
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.5.3" data-path="serializable.html">
+    
+    <a href="serializable.html">
+        
+                    
+                        <b>2.5.3.</b>
+                    
+                    Serializable
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    
+    <li class="header">APPENDIX</li>
+    
+    
+
+<li class="chapter " data-level="3.1" data-path="../../other/reference.html">
+    
+    <a href="../../other/reference.html">
+        
+                    
+                        <b>3.1.</b>
+                    
+                    参考文献与Wiki
+            
+        </a>
+        
+
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >read commit</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="read-commit">read commit</h1>
+<p>Read Committed&#x7684;&#x5168;&#x79F0;&#x662F;read committed rather than transaction</p>
+<p>&#x8BE6;&#x89C1;  <a href="https://docs.oracle.com/database/121/CNCPT/consist.htm#CNCPT1319" target="_blank">https://docs.oracle.com/database/121/CNCPT/consist.htm#CNCPT1319</a></p>
+<h2 id="&#x67E5;&#x8BE2;&#x573A;&#x666F;">&#x67E5;&#x8BE2;&#x573A;&#x666F;</h2>
+<p>&#x53EA;&#x8981;&#x5176;&#x5B83;&#x4E8B;&#x52A1;&#x6709;commit&#xFF0C;&#x65E0;&#x8BBA;&#x662F;update/insert/delete&#xFF0C;&#x53D8;&#x66F4;&#x9A6C;&#x4E0A;&#x5C31;&#x80FD;&#x5B9E;&#x65F6;&#x770B;&#x5230;</p>
+<h2 id="update&#x573A;&#x666F;">update&#x573A;&#x666F;</h2>
+<p>&#x5F53;&#x4E24;&#x4E2A;&#x4E8B;&#x52A1;&#x540C;&#x65F6;&#x66F4;&#x65B0;&#x51B2;&#x7A81;&#x4E8B;&#x52A1;&#x65F6;&#xFF0C;&#x540E;&#x66F4;&#x65B0;&#x7684;&#x4E8B;&#x52A1;&#x4F1A;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x524D;&#x8005;commit&#xFF0C;&#x524D;&#x8005;commit&#x540E;&#xFF0C;&#x4F1A;&#x8986;&#x76D6;&#x524D;&#x8005;&#x7684;&#x6570;&#x636E;</p>
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iNjA1cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDo0OTBweDtoZWlnaHQ6NjA1cHg7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA0OTAgNjA1IiB3aWR0aD0iNDkwcHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzPjxmaWx0ZXIgaGVpZ2h0PSIzMDAlIiBpZD0iZjZ1YXB2M3E0empsIiB3aWR0aD0iMzAwJSIgeD0iLTEiIHk9Ii0xIj48ZmVHYXVzc2lhbkJsdXIgcmVzdWx0PSJibHVyT3V0IiBzdGREZXZpYXRpb249IjIuMCIvPjxmZUNvbG9yTWF0cml4IGluPSJibHVyT3V0IiByZXN1bHQ9ImJsdXJPdXQyIiB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgLjQgMCIvPjxmZU9mZnNldCBkeD0iNC4wIiBkeT0iNC4wIiBpbj0iYmx1ck91dDIiIHJlc3VsdD0iYmx1ck91dDMiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJibHVyT3V0MyIgbW9kZT0ibm9ybWFsIi8+PC9maWx0ZXI+PC9kZWZzPjxnPjxyZWN0IGZpbGw9IiNGQUVCRDciIGhlaWdodD0iNTc1LjU3ODEiIHN0eWxlPSJzdHJva2U6I0ZBRUJENztzdHJva2Utd2lkdGg6MS4wOyIgd2lkdGg9IjIyNyIgeD0iMTUiIHk9IjEyLjc0NTEiLz48ZWxsaXBzZSBjeD0iMTI2LjUiIGN5PSI0OC42OTgyIiBmaWxsPSIjMDAwMDAwIiBmaWx0ZXI9InVybCgjZjZ1YXB2M3E0empsKSIgcng9IjEwIiByeT0iMTAiIHN0eWxlPSJzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MS4wOyIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmNnVhcHYzcTR6amwpIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNTQiIHg9Ijk5LjUiIHk9Ijc4LjY5ODIiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzNCIgeD0iMTA5LjUiIHk9Ijk5LjgzNjkiPmJlZ2luPC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmNnVhcHYzcTR6amwpIiBoZWlnaHQ9IjQ3LjkzNzUiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMjExIiB4PSIyMSIgeT0iMTMyLjY2NyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE4NyIgeD0iMzEiIHk9IjE1My44MDU3Ij51cGRhdGUgc2FsYXJ5PTExIHdoZXJlIElEPScxJzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI0MiIgeD0iMzUiIHk9IjE2Ny43NzQ0Ij49Jmd0OyBPSzwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjZ1YXB2M3E0empsKSIgaGVpZ2h0PSIzMy45Njg4IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjY0IiB4PSI5NC41IiB5PSIzMjIuNTEwNyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQ0IiB4PSIxMDQuNSIgeT0iMzQzLjY0OTQiPmNvbW1pdDwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjZ1YXB2M3E0empsKSIgaGVpZ2h0PSI0Ny45Mzc1IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjE4MiIgeD0iMzUuNSIgeT0iNDk4LjM4NTciLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxNTgiIHg9IjQ1LjUiIHk9IjUxOS41MjQ0Ij5zZWxlY3Qgc2FsYXJ5IHdoZXJlIElEPScxJzwvdGV4dD48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzOSIgeD0iNDkuNSIgeT0iNTMzLjQ5MzIiPj0mZ3Q7IDEyPC90ZXh0PjxlbGxpcHNlIGN4PSIxMjYuNSIgY3k9IjU3Ny4zMjMyIiBmaWxsPSIjRkZGRkZGIiBmaWx0ZXI9InVybCgjZjZ1YXB2M3E0empsKSIgcng9IjExIiByeT0iMTEiIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MS4wOyIvPjxlbGxpcHNlIGN4PSIxMjYuNSIgY3k9IjU3Ny4zMjMyIiBmaWxsPSIjMDAwMDAwIiByeD0iNiIgcnk9IjYiIHN0eWxlPSJzdHJva2U6IzdGN0Y3RjtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6Mi4wOyIgeDE9IjE1IiB4Mj0iMTUiIHkxPSIxMi43NDUxIiB5Mj0iNTg4LjMyMzIiLz48cmVjdCBmaWxsPSIjRkFFQkQ3IiBoZWlnaHQ9IjU3NS41NzgxIiBzdHlsZT0ic3Ryb2tlOiNGQUVCRDc7c3Ryb2tlLXdpZHRoOjEuMDsiIHdpZHRoPSIyMjgiIHg9IjI0MiIgeT0iMTIuNzQ1MSIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmNnVhcHYzcTR6amwpIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNTQiIHg9IjMyNyIgeT0iMjAwLjYwNDUiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzNCIgeD0iMzM3IiB5PSIyMjEuNzQzMiI+YmVnaW48L3RleHQ+PHJlY3QgZmlsbD0iI0ZFRkVDRSIgZmlsdGVyPSJ1cmwoI2Y2dWFwdjNxNHpqbCkiIGhlaWdodD0iNDcuOTM3NSIgcng9IjEyLjUiIHJ5PSIxMi41IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHdpZHRoPSIyMTIiIHg9IjI0OCIgeT0iMjU0LjU3MzIiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxODgiIHg9IjI1OCIgeT0iMjc1LjcxMTkiPnVwZGF0ZSBzYWxhcnk9MTIgd2hlcmUgSUQ9JzEnPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjczIiB4PSIyNjIiIHk9IjI4OS42ODA3Ij49Jmd0OyBCbG9ja2VkPC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmNnVhcHYzcTR6amwpIiBoZWlnaHQ9IjMzLjk2ODgiIHJ4PSIxMi41IiByeT0iMTIuNSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMTExIiB4PSIyOTguNSIgeT0iMzc2LjQ3OTUiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI5MSIgeD0iMzA4LjUiIHk9IjM5Ny42MTgyIj4xIHJvdyB1cGRhdGVkLjwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjZ1YXB2M3E0empsKSIgaGVpZ2h0PSI0Ny45Mzc1IiByeD0iMTIuNSIgcnk9IjEyLjUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjE4MiIgeD0iMjYzIiB5PSI0MzAuNDQ4MiIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjE1OCIgeD0iMjczIiB5PSI0NTEuNTg2OSI+c2VsZWN0IHNhbGFyeSB3aGVyZSBJRD0nMSc8L3RleHQ+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iMzkiIHg9IjI3NyIgeT0iNDY1LjU1NTciPj0mZ3Q7IDEyPC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6Mi4wOyIgeDE9IjI0MiIgeDI9IjI0MiIgeTE9IjEyLjc0NTEiIHkyPSI1ODguMzIzMiIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6Mi4wOyIgeDE9IjQ3MCIgeDI9IjQ3MCIgeTE9IjEyLjc0NTEiIHkyPSI1ODguMzIzMiIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjEyNi41IiB4Mj0iMTI2LjUiIHkxPSI1OC42OTgyIiB5Mj0iNzguNjk4MiIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMTIyLjUsNjguNjk4MiwxMjYuNSw3OC42OTgyLDEzMC41LDY4LjY5ODIsMTI2LjUsNzIuNjk4MiIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMTI2LjUiIHgyPSIxMjYuNSIgeTE9IjExMi42NjciIHkyPSIxMzIuNjY3Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxMjIuNSwxMjIuNjY3LDEyNi41LDEzMi42NjcsMTMwLjUsMTIyLjY2NywxMjYuNSwxMjYuNjY3IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIxMjYuNSIgeDI9IjEyNi41IiB5MT0iNTQ2LjMyMzIiIHkyPSI1NjYuMzIzMiIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMTIyLjUsNTU2LjMyMzIsMTI2LjUsNTY2LjMyMzIsMTMwLjUsNTU2LjMyMzIsMTI2LjUsNTYwLjMyMzIiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjM1NCIgeDI9IjM1NCIgeTE9IjIzNC41NzMyIiB5Mj0iMjU0LjU3MzIiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjM1MCwyNDQuNTczMiwzNTQsMjU0LjU3MzIsMzU4LDI0NC41NzMyLDM1NCwyNDguNTczMiIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMzU0IiB4Mj0iMzU0IiB5MT0iNDEwLjQ0ODIiIHkyPSI0MzAuNDQ4MiIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMzUwLDQyMC40NDgyLDM1NCw0MzAuNDQ4MiwzNTgsNDIwLjQ0ODIsMzU0LDQyNC40NDgyIiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIxMjYuNSIgeDI9IjEyNi41IiB5MT0iMTgwLjYwNDUiIHkyPSIxODUuNjA0NSIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjEyNi41IiB4Mj0iMzU0IiB5MT0iMTg1LjYwNDUiIHkyPSIxODUuNjA0NSIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjM1NCIgeDI9IjM1NCIgeTE9IjE4NS42MDQ1IiB5Mj0iMjAwLjYwNDUiLz48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjM1MCwxOTAuNjA0NSwzNTQsMjAwLjYwNDUsMzU4LDE5MC42MDQ1LDM1NCwxOTQuNjA0NSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMzU0IiB4Mj0iMzU0IiB5MT0iMzAyLjUxMDciIHkyPSIzMDcuNTEwNyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjM1NCIgeDI9IjEyNi41IiB5MT0iMzA3LjUxMDciIHkyPSIzMDcuNTEwNyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjEyNi41IiB4Mj0iMTI2LjUiIHkxPSIzMDcuNTEwNyIgeTI9IjMyMi41MTA3Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIxMjIuNSwzMTIuNTEwNywxMjYuNSwzMjIuNTEwNywxMzAuNSwzMTIuNTEwNywxMjYuNSwzMTYuNTEwNyIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB4MT0iMTI2LjUiIHgyPSIxMjYuNSIgeTE9IjM1Ni40Nzk1IiB5Mj0iMzYxLjQ3OTUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIxMjYuNSIgeDI9IjM1NCIgeTE9IjM2MS40Nzk1IiB5Mj0iMzYxLjQ3OTUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIzNTQiIHgyPSIzNTQiIHkxPSIzNjEuNDc5NSIgeTI9IjM3Ni40Nzk1Ii8+PHBvbHlnb24gZmlsbD0iI0E4MDAzNiIgcG9pbnRzPSIzNTAsMzY2LjQ3OTUsMzU0LDM3Ni40Nzk1LDM1OCwzNjYuNDc5NSwzNTQsMzcwLjQ3OTUiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjxsaW5lIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgeDE9IjM1NCIgeDI9IjM1NCIgeTE9IjQ3OC4zODU3IiB5Mj0iNDgzLjM4NTciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIzNTQiIHgyPSIxMjYuNSIgeTE9IjQ4My4zODU3IiB5Mj0iNDgzLjM4NTciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuNTsiIHgxPSIxMjYuNSIgeDI9IjEyNi41IiB5MT0iNDgzLjM4NTciIHkyPSI0OTguMzg1NyIvPjxwb2x5Z29uIGZpbGw9IiNBODAwMzYiIHBvaW50cz0iMTIyLjUsNDg4LjM4NTcsMTI2LjUsNDk4LjM4NTcsMTMwLjUsNDg4LjM4NTcsMTI2LjUsNDkyLjM4NTciIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS4wOyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjY1IiB4PSI5NiIgeT0iMjkuNDUzMSI+VHJhbnMxPC90ZXh0Pjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjY0IiB4PSIzMjQiIHk9IjI5LjQ1MzEiPlRyYW5zMjwvdGV4dD48IS0tTUQ1PVs5MzQ2OGFlYTNiOTBmYjI5MmMyNDExZDkwOWRhYWVjY10KQHN0YXJ0dW1sDQp8VHJhbnMxfA0Kc3RhcnQNCjpiZWdpbjsNCjp1cGRhdGUgc2FsYXJ5PTExIHdoZXJlIElEPScxJyBcbiA9PiBPSzsNCnwjQW50aXF1ZVdoaXRlfFRyYW5zMnwNCjpiZWdpbjsNCjp1cGRhdGUgc2FsYXJ5PTEyIHdoZXJlIElEPScxJyBcbiA9PiBCbG9ja2VkOw0KfFRyYW5zMXwNCjpjb21taXQ7DQp8VHJhbnMyfA0KOjEgcm93IHVwZGF0ZWQuOw0KOnNlbGVjdCBzYWxhcnkgd2hlcmUgSUQ9JzEnIFxuID0+IDEyOw0KfCNBbnRpcXVlV2hpdGV8VHJhbnMxfA0KOnNlbGVjdCBzYWxhcnkgd2hlcmUgSUQ9JzEnIFxuID0+IDEyOw0KDQpzdG9wDQpAZW5kdW1sDQoKUGxhbnRVTUwgdmVyc2lvbiAxLjIwMjEuMmJldGE5KFVua25vd24gY29tcGlsZSB0aW1lKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogSmF2YShUTSkgU0UgUnVudGltZSBFbnZpcm9ubWVudApKVk06IEphdmEgSG90U3BvdChUTSkgNjQtQml0IFNlcnZlciBWTQpEZWZhdWx0IEVuY29kaW5nOiBVVEYtOApMYW5ndWFnZTogZW4KQ291bnRyeTogVVMKLS0+PC9nPjwvc3ZnPg=="></p>
+<p>&#x5F53;&#x4E24;&#x4E2A;&#x4E8B;&#x52A1;&#x540C;&#x65F6;&#x66F4;&#x65B0;&#x4E0D;&#x51B2;&#x7A81;&#x7684;&#x4E8B;&#x52A1;&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x6CA1;&#x6709;commit&#xFF0C;&#x5C31;&#x662F;&#x5404;&#x641E;&#x5404;&#x7684;&#x3002;</p>
+<h2 id="insertdelete&#x573A;&#x666F;">insert/delete&#x573A;&#x666F;</h2>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../transaction.html" class="navigation navigation-prev " aria-label="Previous page: 事务">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="repeatable.html" class="navigation navigation-next " aria-label="Next page: Repeatable read">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"read commit","level":"2.5.1","depth":2,"next":{"title":"Repeatable read","level":"2.5.2","depth":2,"path":"datebase/transaction/repeatable.md","ref":"datebase/transaction/repeatable.md","articles":[]},"previous":{"title":"事务","level":"2.5","depth":1,"path":"datebase/transaction.md","ref":"datebase/transaction.md","articles":[{"title":"read commit","level":"2.5.1","depth":2,"path":"datebase/transaction/readcommit.md","ref":"datebase/transaction/readcommit.md","articles":[]},{"title":"Repeatable read","level":"2.5.2","depth":2,"path":"datebase/transaction/repeatable.md","ref":"datebase/transaction/repeatable.md","articles":[]},{"title":"Serializable","level":"2.5.3","depth":2,"path":"datebase/transaction/serializable.md","ref":"datebase/transaction/serializable.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/mybatis/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"datebase/transaction/readcommit.md","mtime":"2021-03-04T11:49:55.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:52:20.115Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

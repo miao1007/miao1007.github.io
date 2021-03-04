@@ -1,0 +1,841 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Literal-expression · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="similar.html" />
+    
+    
+    <link rel="prev" href="editdistance.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    <li class="header">数据结构</li>
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduce
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../number/">
+    
+    <a href="../number/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Number
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" >
+    
+            <span>
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    Basic
+            
+        </span>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../number/bignumber.html">
+    
+    <a href="../number/bignumber.html">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    BigNumber
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    String
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="editdistance.html">
+    
+    <a href="editdistance.html">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    EditDistance
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.3.2" data-path="literal-expression.html">
+    
+    <a href="literal-expression.html">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    Literal-expression
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="similar.html">
+    
+    <a href="similar.html">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    Similar
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../map/">
+    
+    <a href="../map/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Map
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../map/hashmap.html">
+    
+    <a href="../map/hashmap.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    HashMap
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="../map/currenthashmap.html">
+    
+    <a href="../map/currenthashmap.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    CurrentHashMap(zk)
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.3" data-path="../map/copyonwritemap.html">
+    
+    <a href="../map/copyonwritemap.html">
+        
+                    
+                        <b>1.4.3.</b>
+                    
+                    CopyonWritMap(zk)
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.4" data-path="../map/lrumap.html">
+    
+    <a href="../map/lrumap.html">
+        
+                    
+                        <b>1.4.4.</b>
+                    
+                    LinkedHashMap(LRU)
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../tree/">
+    
+    <a href="../tree/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    Tree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../tree/traverse/">
+    
+    <a href="../tree/traverse/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    Traverse
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1.1" data-path="../tree/traverse/dfs.html">
+    
+    <a href="../tree/traverse/dfs.html">
+        
+                    
+                        <b>1.5.1.1.</b>
+                    
+                    Depth-First
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.1.2" data-path="../tree/traverse/bfs.html">
+    
+    <a href="../tree/traverse/bfs.html">
+        
+                    
+                        <b>1.5.1.2.</b>
+                    
+                    Breed-First
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../tree/b-tree/">
+    
+    <a href="../tree/b-tree/">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    BinaryTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.1" data-path="../tree/b-tree/binarytree.html">
+    
+    <a href="../tree/b-tree/binarytree.html">
+        
+                    
+                        <b>1.5.2.1.</b>
+                    
+                    BasicBinaryTree
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2.2" data-path="../tree/b-tree/binarysearchtree/">
+    
+    <a href="../tree/b-tree/binarysearchtree/">
+        
+                    
+                        <b>1.5.2.2.</b>
+                    
+                    BinarySearchTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.2.1" data-path="../tree/b-tree/binarysearchtree/redblacktree.html">
+    
+    <a href="../tree/b-tree/binarysearchtree/redblacktree.html">
+        
+                    
+                        <b>1.5.2.2.1.</b>
+                    
+                    RedBlackTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.2.1.1" data-path="../tree/redblack-and-avl-tree.html">
+    
+    <a href="../tree/redblack-and-avl-tree.html">
+        
+                    
+                        <b>1.5.2.2.1.1.</b>
+                    
+                    Redblack and AVL Tree
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2.2.1.2" data-path="../tree/treemap.html">
+    
+    <a href="../tree/treemap.html">
+        
+                    
+                        <b>1.5.2.2.1.2.</b>
+                    
+                    TreeMap
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../tree/heap.html">
+    
+    <a href="../tree/heap.html">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    Heap
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.4" data-path="../tree/treeset.html">
+    
+    <a href="../tree/treeset.html">
+        
+                    
+                        <b>1.5.4.</b>
+                    
+                    TreeSet
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.5" >
+    
+            <span>
+            
+                    
+                        <b>1.5.5.</b>
+                    
+                    BalanceTree
+            
+        </span>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.6" data-path="../quene/">
+    
+    <a href="../quene/">
+        
+                    
+                        <b>1.6.</b>
+                    
+                    Quene
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.6.1" data-path="../quene/dequeue.html">
+    
+    <a href="../quene/dequeue.html">
+        
+                    
+                        <b>1.6.1.</b>
+                    
+                    Deque
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.6.2" data-path="../quene/priorityqueue.html">
+    
+    <a href="../quene/priorityqueue.html">
+        
+                    
+                        <b>1.6.2.</b>
+                    
+                    PriorityQueue
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.7" data-path="../list/">
+    
+    <a href="../list/">
+        
+                    
+                        <b>1.7.</b>
+                    
+                    List
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.7.1" data-path="../list/arr-linked-list.html">
+    
+    <a href="../list/arr-linked-list.html">
+        
+                    
+                        <b>1.7.1.</b>
+                    
+                    Array&LinkedList
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.7.2" data-path="../list/skiplist.html">
+    
+    <a href="../list/skiplist.html">
+        
+                    
+                        <b>1.7.2.</b>
+                    
+                    SkipList
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Literal-expression</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="literal-expression-interceptor">literal-expression interceptor</h2>
+<h4 id="&#x80CC;&#x666F;">&#x80CC;&#x666F;</h4>
+<p>String&#x4F5C;&#x4E3A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x8F93;&#x5165;&#x6E90;&#xFF0C;&#x5B9E;&#x73B0;&#x7B80;&#x6613;&#x7684;Interceptor/Decoder&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;PatternMatch&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#x673A;&#xFF08;&#x6BD4;&#x5982;&#x6808;&#xFF09;&#xFF0C;&#x4E0D;&#x540C;&#x5D4C;&#x5957;&#x7EA7;&#x522B;&#x7684;ContextScope&#xFF08;&#x6BD4;&#x5982;Stack/Map&#xFF09;&#xFF0C;&#x96BE;&#x5EA6;&#x4E00;&#x822C;&#x4E3A;Middle&#x5230;Hard</p>
+<p>&#x6BD4;&#x5982;</p>
+<ul>
+<li>&#x53EA;&#x6D89;&#x53CA;<a href="https://leetcode.com/problems/decoded-string-at-index/solution/" target="_blank">&#x957F;&#x5EA6;&#x4F4D;&#x7F6E;</a>&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8FDE;Lexer&#x90FD;&#x4E0D;&#x7528;&#x4F7F;&#x7528;&#xFF08;Middle&#xFF09;</li>
+<li>&#x5B9E;&#x73B0;Tokenizer&#xFF08;&#x7528;2&#x4E2A;while&#xFF09;</li>
+<li>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;&#x5668;/Encoder/Decoder&#xFF08;Middle&#xFF5E;Hard&#xFF09;(&#x6D89;&#x53CA;&#x4E58;&#x6CD5;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x592A;&#x6076;&#x5FC3;&#xFF0C;&#x6211;&#x662F;&#x4E0D;&#x4F1A;&#x641E;&#x7684;&#xFF0C;&#x53CD;&#x6B63;&#x8FD9;&#x79CD;&#x516C;&#x53F8;&#x4E5F;&#x4E0D;&#x53BB;)</li>
+<li>&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;OGNL&#xFF0C;&#x6A21;&#x7248;&#x5F15;&#x64CE;&#xFF08;&#x652F;&#x6301;&#xFF0C;&#x53D6;&#x5C5E;&#x6027;&#x4E0E;$&#x53D6;&#xFF09;&#xFF08;Hard&#xFF09;</li>
+<li>&#x652F;&#x6301;&#x8D4B;&#x503C;&#x4E0E;&#x51FD;&#x6570;&#x7684;<a href="https://leetcode.com/problems/parse-lisp-expression/discuss/307150/Java-4ms-95.19" target="_blank">Lisp&#x8868;&#x8FBE;&#x5F0F;</a>&#x5904;&#x7406;&#x5668;&#xFF08; READ/EVAL/PRINT LOOP&#xFF0C;Very Hard&#xFF09;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;Clojure&#x7684;<a href="https://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/LispReader.java" target="_blank">LispReader</a>(&#x6CE8;&#x610F;&#x5B83;&#x89E3;&#x6790;&#x540E;S-Exp&#x662F;&#x653E;&#x5728;&#x8868;&#x8FBE;&#x5F0F;&#x4E0A;&#x4E0B;&#x6587;&#x8FD0;&#x884C;&#x7684;)</li>
+</ul>
+<p>&#x5176;&#x4E2D;hard&#x7684;&#x5360;&#x603B;hard&#x7684;15%&#xFF0C;&#x5F88;&#x591A;&#x95EE;&#x9898;&#x662F;&#x62AB;&#x7740;String&#x7684;&#x5916;&#x8868;&#xFF0C;&#x5185;&#x90E8;&#x5374;&#x5E72;&#x7740;&#xFF08;&#x7B80;&#x6613;&#xFF09;&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x6D3B;&#x3002;</p>
+<h2 id="&#x5E38;&#x89C1;&#x89E3;&#x6790;&#x6D41;&#x7A0B;">&#x5E38;&#x89C1;&#x89E3;&#x6790;&#x6D41;&#x7A0B;</h2>
+<p>&#x524D;&#x4E09;&#x79CD;&#x95EE;&#x9898;&#x5747;&#x53EF;&#x4EE5;&#x7531;&#x4E0B;&#x9762;&#x6D41;&#x7A0B;&#x641E;&#x5B9A;&#xFF0C;&#x6CE8;&#x610F;&#xFF0C;&#x7531;&#x4E8E;&#x9898;&#x76EE;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x7406;&#x60F3;&#x60C5;&#x51B5;&#xFF0C;&#x56E0;&#x6B64;&#x4E3A;&#x4E86;&#x65F6;&#x95F4;&#x5E76;&#x6CA1;&#x6709;&#x4F7F;&#x7528;AST&#x7684;DFS&#xFF0C;&#x4ECD;&#x7136;&#x662F;String&#x7684;startWith&#x5904;&#x7406;PatternMatch</p>
+<p>&#x6B65;&#x9AA4;&#x5982;&#x4E0B;</p>
+<h4 id="&#x521D;&#x59CB;&#x5316;">&#x521D;&#x59CB;&#x5316;</h4>
+<p>&#x5982;&#x679C;&#x6D89;&#x53CA;&#x5230;env&#xFF0C;&#x8FDB;&#x884C;Runtime&#x7684;init</p>
+<h3 id="atomic&#x5904;&#x7406;">Atomic&#x5904;&#x7406;</h3>
+<p>&#x5BF9;&#x4E8E;&#x65E0;&#x6CD5;&#x62C6;&#x5206;&#x7684;Atomic&#x5143;&#x7D20;&#xFF08;&#x6BD4;&#x5982;int/boolean/symbol&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x4E0D;&#x662F;&#x6700;&#x5C0F;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF09;&#xFF0C;&#x76F4;&#x63A5;&#x89E3;&#x6790;&#x8FD0;&#x7B97;&#xFF0C;&#x5E76;&#x5199;&#x597D;&#x7528;&#x4F8B;</p>
+<h3 id="&#x8868;&#x8FBE;&#x5F0F;&#x5904;&#x7406;">&#x8868;&#x8FBE;&#x5F0F;&#x5904;&#x7406;</h3>
+<p>&#x5BF9;&#x4E8E;&#x8868;&#x8FBE;&#x5F0F; &#xFF08;&#x6BD4;&#x5982;&#x67D0;&#x79CD;&#x62EC;&#x53F7;/&#x6570;&#x5B57;&#x5F00;&#x5934;&#xFF09;&#xFF0C;&#x9700;&#x8981;&#x626B;&#x63CF;&#x4E24;&#x6B21;</p>
+<h4 id="&#x5207;&#x5206;&#x8868;&#x8FBE;&#x5F0F;">&#x5207;&#x5206;&#x8868;&#x8FBE;&#x5F0F;</h4>
+<p>&#x7B2C;&#x4E00;&#x904D;&#x626B;&#x63CF;&#xFF08;delimeter&#xFF09;&#xFF1A;&#x6B64;&#x5904;&#x5BF9;&#x62EC;&#x53F7;split&#xFF0C;&#x4E0D;&#x542B;&#x5D4C;&#x5957;&#xFF08;&#x9047;&#x5230;&#x591A;&#x4E2A;&#x62EC;&#x53F7;&#x5D4C;&#x5957;&#x65F6;&#xFF0C;&#x4E0D;&#x5904;&#x7406;&#xFF0C;&#x76F4;&#x63A5;append&#x8FDB;&#x53BB;&#xFF09;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6BD4;&#x5982;&#x8BA1;&#x7B97;&#x5668;</p>
+<pre><code class="lang-scheme">(<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> <span class="hljs-number">2</span> (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>)) (<span class="hljs-name"><span class="hljs-builtin-name">*</span></span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>))
+</code></pre>
+<p>&#x6211;&#x5C06;&#x89E3;&#x6790;&#x4E3A;&#x5982;&#x4E0B;&#xFF0C;&#x6CE8;&#x610F;&#x4FDD;&#x7559;&#x4E86;&#x62EC;&#x53F7;&#xFF0C;&#x8FD9;&#x91CC;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x9000;&#x5316;&#x7684;&#x94FE;&#x8868;</p>
+<pre><code class="lang-scheme">[<span class="hljs-symbol">&apos;+</span>&apos;, <span class="hljs-symbol">&apos;*</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> (<span class="hljs-name"><span class="hljs-builtin-name">+</span></span> <span class="hljs-number">6</span> <span class="hljs-number">7</span>)&apos;, <span class="hljs-symbol">&apos;*</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span>&apos;]
+</code></pre>
+<p>&#x800C;&#x4E0D;&#x662F;AST&#x7684;&#x6811;&#x5F62;&#x7ED3;&#x6784;</p>
+<pre><code class="lang-java">[<span class="hljs-string">&apos;+&apos;</span>, [<span class="hljs-string">&apos;*&apos;</span>, <span class="hljs-string">&apos;2&apos;</span>, <span class="hljs-string">&apos;3&apos;</span>, [<span class="hljs-string">&apos;+&apos;</span>, <span class="hljs-string">&apos;6&apos;</span>, <span class="hljs-string">&apos;7&apos;</span>]], [<span class="hljs-string">&apos;*&apos;</span>,<span class="hljs-string">&apos;4&apos;</span>, <span class="hljs-string">&apos;5&apos;</span>]]
+</code></pre>
+<blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x770B;&#x8FC7;Clojure&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x6BD4;&#x5982;&#x6267;&#x884C;<code>(let x 2 x)</code>&#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x5728;Java&#x4FA7;&#x901A;&#x8FC7;LispReader&#x89E3;&#x6790;&#x4E3A;List&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x540E;&#x7EED;&#x6B65;&#x9AA4;&#x5C06;&#x5728;Clojure&#x7684;Runtime&#x8FDB;&#x884C;invoke&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x628A;&#x5DE5;&#x4F5C;&#x5168;&#x90E8;&#x6254;&#x5230;&#x4E86;Reader&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x5F53;&#x7136;&#x662F;&#x6700;&#x5DE5;&#x7A0B;&#x5316;&#x7684;&#xFF1B;&#x800C;&#x5982;&#x679C;&#x4F60;&#x662F;&#x5728;&#x505A;&#x9898;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x901A;&#x8FC7;&#x5D4C;&#x5957;List&#xFF0C;&#x90A3;&#x4E48;&#x7C7B;&#x578B;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x3001;Symbol&#x72B6;&#x6001;&#x4FDD;&#x5B58;&#x3001;env&#x4E0E;String&#x7684;&#x7F16;&#x7801;&#x5C06;&#x6BD4;&#x8F83;&#x7E41;&#x7410;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4E2A;&#x4EBA;&#x5EFA;&#x8BAE;&#x901A;&#x8FC7;&#x4FDD;&#x7559;&#x62EC;&#x53F7;String&#x800C;&#x4E0D;&#x662F;&#x7EF4;&#x62A4;&#x5D4C;&#x5957;List</p>
+</blockquote>
+<h4 id="&#x6267;&#x884C;&#x8868;&#x8FBE;&#x5F0F;">&#x6267;&#x884C;&#x8868;&#x8FBE;&#x5F0F;</h4>
+<p>&#x7B2C;&#x4E8C;&#x904D;&#x626B;&#x63CF;&#xFF08;eval&#xFF09;&#xFF1A;&#x901A;&#x8FC7;&#x5339;&#x914D;startWith&#xFF08;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;readInt&#x4E0E;readLetter&#x7B49;&#x5DE5;&#x5177;&#x5B9E;&#x73B0;&#xFF0C;&#x6CA1;&#x6709;&#x8F6C;&#x4E3A;&#x5355;&#x72EC;&#x7684;Tree&#xFF0C;&#x6CA1;&#x6709;&#x8FBE;&#x5230;Parser&#x7684;&#x7EA7;&#x522B;&#xFF09;&#x5B9E;&#x73B0;DFA&#xFF0C;&#x5E76;&#x6839;&#x636E;&#x8868;&#x8FBE;&#x5F0F;&#x8FDB;&#x884C;eval&#xFF08;&#x9012;&#x5F52;/Stack &#xFF0C;&#x590D;&#x6742;&#x5EA6;&#x4E3A;N!&#xFF09;</p>
+<p>&#x8FD9;&#x91CC;&#x626B;&#x63CF;&#x4E24;&#x6B21;&#x5E76;&#x4E0D;&#x4F1A;&#x592A;&#x6162;&#xFF0C;&#x56E0;&#x4E3A;&#x5982;&#x679C;&#x53EA;&#x626B;&#x63CF;&#x4E00;&#x904D;&#x5C31;&#x5168;&#x90E8;&#x641E;&#x5B9A;&#x7684;&#x8BDD;&#xFF0C;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x5F88;&#x591A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4E0E;If&#x5224;&#x65AD;&#xFF08;&#x800C;&#x4E14;&#x5F88;&#x96BE;&#x603B;&#x7ED3;&#x4E3A;&#x7ECF;&#x9A8C;&#xFF09;&#xFF0C;&#x5373;&#x901A;&#x8FC7;&#x5F88;&#x591A;goto&#x8BED;&#x53E5;&#x5B9E;&#x73B0;DFA&#x4E0E;AST&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6240;&#x8C13;&#x7684;&#x610F;&#x5927;&#x5229;&#x9762;&#x5F0F;&#x4EE3;&#x7801;&#xFF0C;&#x5BFC;&#x81F4;&#x8C03;&#x8BD5;&#x4E2D;&#x7684;index&#x4F4D;&#x7F6E;&#x975E;&#x5E38;&#x590D;&#x6742;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x7531;&#x4E8E;&#x4F60;&#x7ECF;&#x5E38;&#x901A;&#x8FC7;&#x4E24;&#x6B21;&#x626B;&#x63CF;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#xFF0C;&#x53EF;&#x4EE5;&#x66F4;&#x4E13;&#x6CE8;&#x5728;&#x6838;&#x5FC3;eval&#x4E0A;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x53CD;&#x590D;&#x6298;&#x817E;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x771F;&#x6B63;&#x767D;&#x677F;&#x65F6;&#xFF0C;&#x5BF9;bugfree&#x8981;&#x6C42;&#x8FD8;&#x662F;&#x5F88;&#x9AD8;&#x7684;&#x3002;</p>
+<h2 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h2>
+<p>&#x6211;&#x4EEC;&#x6311;&#x4E00;&#x4E2A;&#x4E2D;&#x7B49;&#x7684;&#x9898;&#x76EE;&#xFF0C;&#x8981;&#x6C42;&#x5982;&#x4E0B; </p>
+<p><a href="https://leetcode.com/problems/number-of-atoms/" target="_blank">https://leetcode.com/problems/number-of-atoms/</a></p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x6784;&#x9020;DFA&#x904D;&#x5386;&#x6267;&#x884C;</p>
+<pre><code>
+
+</code></pre><h2 id="&#x9644;&#x5F55;">&#x9644;&#x5F55;</h2>
+<h4 id="&#x8868;&#x8FBE;&#x5F0F;&#x5230;&#x5E95;&#x626B;&#x63CF;&#x51E0;&#x904D;">&#x8868;&#x8FBE;&#x5F0F;&#x5230;&#x5E95;&#x626B;&#x63CF;&#x51E0;&#x904D;</h4>
+<p>&#x738B;&#x57A0;&#x66FE;&#x7ECF;&#x8BF4;&#x8FC7;&#xFF0C;&#x5728;TOKEN&#x626B;&#x63CF;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x8981;&#x4E3A;&#x4E86;&#x8282;&#x7EA6;&#x904D;&#x5386;&#x800C;&#x505A;Parse/eval&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x5426;&#x5219;&#x989D;&#x5916;&#x7684;&#x5224;&#x65AD;&#x4E0E;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7B49;&#x95EE;&#x9898;&#x4F1A;&#x63D0;&#x9AD8;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x6211;&#x4E2A;&#x4EBA;&#x4E5F;&#x8D5E;&#x6210;&#x57A0;&#x795E;&#x7684;&#x8BF4;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x7C7B;&#x95EE;&#x9898;&#x4E00;&#x822C;&#x4E0D;&#x4F1A;&#x6709;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF0C;N&#x4E0E;2N&#x4E0D;&#x4F1A;&#x592A;&#x5927;&#x3002;</p>
+<blockquote>
+<p>&#x6B64;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E3A;&#x4E86;&#x505A;&#x9898;/&#x6700;&#x5C0F;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x90A3;&#x4E48;&#x5C3D;&#x53EF;&#x80FD;&#x4E0D;&#x5F62;&#x6210;AST&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x4FDD;&#x5B58;split&#x540E;&#x7684;String&#xFF0C;&#x56E0;&#x4E3A;&#x65F6;&#x95F4;&#x53EF;&#x80FD;&#x4E0D;&#x591F;&#x3002;</p>
+</blockquote>
+<h4 id="&#x4F7F;&#x7528;&#x6808;&#x8FD8;&#x662F;&#x9012;&#x5F52;">&#x4F7F;&#x7528;&#x6808;&#x8FD8;&#x662F;&#x9012;&#x5F52;</h4>
+<p>&#x7528;&#x9012;&#x5F52;&#x4EE3;&#x7801;&#x7B80;&#x6D01;&#x4F18;&#x96C5;&#xFF0C;&#x4E0D;&#x7528;&#x7EF4;&#x62A4;&#x989D;&#x5916;&#x7684;&#x6808;&#xFF0C;&#x65F6;&#x95F4;&#x6027;&#x80FD;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;Top1%&#xFF1B;&#x4F46;&#x662F;&#x6280;&#x5DE7;&#x6027;&#x8F83;&#x9AD8;&#xFF0C;&#x4E0D;&#x597D;&#x8BB0;&#x4F4F;&#xFF0C;&#x6D89;&#x53CA;&#x5230;&#x7F13;&#x5B58;&#x65F6;&#x4EE3;&#x7801;&#x4E5F;&#x4E0D;&#x7B80;&#x5355;&#x3002;</p>
+<p>&#x4F7F;&#x7528;Deque&#xFF1A;&#x5DE5;&#x7A0B;&#x6700;&#x5E38;&#x7528;&#xFF0C;&#x6A21;&#x7248;&#x53EF;&#x4EE5;&#x80CC;&#xFF0C;&#x53EF;&#x4EE5;&#x8F7B;&#x6613;&#x98A0;&#x5012;&#x987A;&#x5E8F;&#x3002;&#x5982;&#x679C;&#x4E3A;&#x4E86;&#x6027;&#x80FD;&#x53EF;&#x4EE5;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;array based stack&#x3002;</p>
+<h4 id="&#x8981;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;">&#x8981;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</h4>
+<p>&#x867D;&#x7136;&#x4F7F;&#x7528;&#x6B64;&#x5DE5;&#x5177;&#x5339;&#x914D;&#x5F88;&#x5FEB;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x63A8;&#x8350;&#x5E73;&#x65F6;&#x4F7F;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x5957;&#x8DEF;&#x8FD8;&#x662F;&#x4EE5;&#x624B;&#x52A8;&#x5339;&#x914D;&#x4E3A;&#x4E3B;</p>
+<h4 id="&#x624B;&#x5199;dfa&#x5E38;&#x89C1;&#x5DE5;&#x5177;&#x7C7B;">&#x624B;&#x5199;DFA&#x5E38;&#x89C1;&#x5DE5;&#x5177;&#x7C7B;</h4>
+<p>&#x4E0B;&#x9762;&#x4E24;&#x4E2A;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD4;&#x56DE;&#x591A;&#x4E2A;&#x503C;&#xFF0C;&#x5B8C;&#x5168;&#x901A;&#x7528;&#x5404;&#x79CD;&#x573A;&#x666F;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// array x is to fix immutable primary type</span>
+<span class="hljs-comment">// x &#x7684;&#x7BA1;&#x7406;&#x4E5F;&#x7531;&#x4E0A;&#x6E38;&#x63A7;&#x5236;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">readDigit</span><span class="hljs-params">(String s, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span>[] x)</span></span>{
+    <span class="hljs-keyword">int</span> n = s.charAt(i) - <span class="hljs-string">&apos;0&apos;</span>;
+    <span class="hljs-keyword">while</span>(i + <span class="hljs-number">1</span> &lt; s.length() &amp;&amp; Character.isDigit(s.charAt(i+<span class="hljs-number">1</span>))){
+       n = n*<span class="hljs-number">10</span> + s.charAt(i+<span class="hljs-number">1</span>) - <span class="hljs-string">&apos;0&apos;</span>;
+       i++;
+    }
+      x[<span class="hljs-number">0</span>] = n;
+    <span class="hljs-keyword">return</span> i;
+}
+
+<span class="hljs-comment">// StringBuilder&#x662F;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x4E0A;&#x6E38;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#x7B49;&#x590D;&#x7528;&#xFF0C; sb&#x7684;&#x91CA;&#x653E;&#x7531;&#x4E0A;&#x6E38;&#x8D1F;&#x8D23;</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">readLetter</span><span class="hljs-params">(String s, <span class="hljs-keyword">int</span> i, StringBuilder sb)</span></span>{
+    sb.append(s.charAt(i));
+    <span class="hljs-keyword">while</span>(i+<span class="hljs-number">1</span> &lt; s.length() &amp;&amp; Character.isLetter(s.charAt(i+<span class="hljs-number">1</span>)) ){
+        sb.append(s.charAt(i+<span class="hljs-number">1</span>));
+        i++;
+    }
+    <span class="hljs-keyword">return</span> i;
+}
+
+<span class="hljs-comment">// usage&#xFF0C;&#x975E;&#x5E38;&#x4F18;&#x96C5;&#xFF0C;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;if&#x662F;&#x591A;&#x4F59;&#x7684;</span>
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;i&lt;s.length();i++){
+  <span class="hljs-keyword">char</span> c = s.charAt(i);
+  <span class="hljs-keyword">if</span>(Character.isDigit(c)){
+    <span class="hljs-keyword">int</span>[] num = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">1</span>];
+    i = readDigit(s, i, num);
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(Character.isLetter(c)){
+    i = readLetter(s, i, sb);
+  }
+}
+</code></pre>
+<p>&#x9664;&#x4E86;&#x624B;&#x5199;&#xFF0C;&#x8FD8;&#x6709;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5339;&#x914D;&#xFF0C;&#x4F46;&#x662F;&#x611F;&#x89C9;&#x5931;&#x53BB;&#x4E86;&#x672C;&#x8D28;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="editdistance.html" class="navigation navigation-prev " aria-label="Previous page: EditDistance">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="similar.html" class="navigation navigation-next " aria-label="Next page: Similar">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Literal-expression","level":"1.3.2","depth":2,"next":{"title":"Similar","level":"1.3.3","depth":2,"path":"string/similar.md","ref":"string/similar.md","articles":[]},"previous":{"title":"EditDistance","level":"1.3.1","depth":2,"path":"string/editdistance.md","ref":"string/editdistance.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/datastruct/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"string/literal-expression.md","mtime":"2021-03-04T11:49:55.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:18.552Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,866 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>EditDistance · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="literal-expression.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    <li class="header">数据结构</li>
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduce
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../number/">
+    
+    <a href="../number/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Number
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" >
+    
+            <span>
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    Basic
+            
+        </span>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../number/bignumber.html">
+    
+    <a href="../number/bignumber.html">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    BigNumber
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    String
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter active" data-level="1.3.1" data-path="editdistance.html">
+    
+    <a href="editdistance.html">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    EditDistance
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="literal-expression.html">
+    
+    <a href="literal-expression.html">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    Literal-expression
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="similar.html">
+    
+    <a href="similar.html">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    Similar
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../map/">
+    
+    <a href="../map/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Map
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../map/hashmap.html">
+    
+    <a href="../map/hashmap.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    HashMap
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="../map/currenthashmap.html">
+    
+    <a href="../map/currenthashmap.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    CurrentHashMap(zk)
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.3" data-path="../map/copyonwritemap.html">
+    
+    <a href="../map/copyonwritemap.html">
+        
+                    
+                        <b>1.4.3.</b>
+                    
+                    CopyonWritMap(zk)
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.4" data-path="../map/lrumap.html">
+    
+    <a href="../map/lrumap.html">
+        
+                    
+                        <b>1.4.4.</b>
+                    
+                    LinkedHashMap(LRU)
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../tree/">
+    
+    <a href="../tree/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    Tree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../tree/traverse/">
+    
+    <a href="../tree/traverse/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    Traverse
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1.1" data-path="../tree/traverse/dfs.html">
+    
+    <a href="../tree/traverse/dfs.html">
+        
+                    
+                        <b>1.5.1.1.</b>
+                    
+                    Depth-First
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.1.2" data-path="../tree/traverse/bfs.html">
+    
+    <a href="../tree/traverse/bfs.html">
+        
+                    
+                        <b>1.5.1.2.</b>
+                    
+                    Breed-First
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../tree/b-tree/">
+    
+    <a href="../tree/b-tree/">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    BinaryTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.1" data-path="../tree/b-tree/binarytree.html">
+    
+    <a href="../tree/b-tree/binarytree.html">
+        
+                    
+                        <b>1.5.2.1.</b>
+                    
+                    BasicBinaryTree
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2.2" data-path="../tree/b-tree/binarysearchtree/">
+    
+    <a href="../tree/b-tree/binarysearchtree/">
+        
+                    
+                        <b>1.5.2.2.</b>
+                    
+                    BinarySearchTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.2.1" data-path="../tree/b-tree/binarysearchtree/redblacktree.html">
+    
+    <a href="../tree/b-tree/binarysearchtree/redblacktree.html">
+        
+                    
+                        <b>1.5.2.2.1.</b>
+                    
+                    RedBlackTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.2.1.1" data-path="../tree/redblack-and-avl-tree.html">
+    
+    <a href="../tree/redblack-and-avl-tree.html">
+        
+                    
+                        <b>1.5.2.2.1.1.</b>
+                    
+                    Redblack and AVL Tree
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2.2.1.2" data-path="../tree/treemap.html">
+    
+    <a href="../tree/treemap.html">
+        
+                    
+                        <b>1.5.2.2.1.2.</b>
+                    
+                    TreeMap
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../tree/heap.html">
+    
+    <a href="../tree/heap.html">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    Heap
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.4" data-path="../tree/treeset.html">
+    
+    <a href="../tree/treeset.html">
+        
+                    
+                        <b>1.5.4.</b>
+                    
+                    TreeSet
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.5" >
+    
+            <span>
+            
+                    
+                        <b>1.5.5.</b>
+                    
+                    BalanceTree
+            
+        </span>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.6" data-path="../quene/">
+    
+    <a href="../quene/">
+        
+                    
+                        <b>1.6.</b>
+                    
+                    Quene
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.6.1" data-path="../quene/dequeue.html">
+    
+    <a href="../quene/dequeue.html">
+        
+                    
+                        <b>1.6.1.</b>
+                    
+                    Deque
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.6.2" data-path="../quene/priorityqueue.html">
+    
+    <a href="../quene/priorityqueue.html">
+        
+                    
+                        <b>1.6.2.</b>
+                    
+                    PriorityQueue
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.7" data-path="../list/">
+    
+    <a href="../list/">
+        
+                    
+                        <b>1.7.</b>
+                    
+                    List
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.7.1" data-path="../list/arr-linked-list.html">
+    
+    <a href="../list/arr-linked-list.html">
+        
+                    
+                        <b>1.7.1.</b>
+                    
+                    Array&LinkedList
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.7.2" data-path="../list/skiplist.html">
+    
+    <a href="../list/skiplist.html">
+        
+                    
+                        <b>1.7.2.</b>
+                    
+                    SkipList
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >EditDistance</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x7F16;&#x8F91;&#x8DDD;&#x79BB;</p>
+<h2 id="&#x5E94;&#x7528;&#x573A;&#x666F;">&#x5E94;&#x7528;&#x573A;&#x666F;</h2>
+<ul>
+<li>Elastic&#x4E2D;&#x9879;&#x76EE;&#x8981;&#x7528;&#x7684;&#x771F;&#x5B9E;&#x4F8B;&#x5B50;: <a href="https://www.elastic.co/blog/found-fuzzy-search" target="_blank">https://www.elastic.co/blog/found-fuzzy-search</a> &#x6A21;&#x7CCA;&#xFF08;Fuzzy&#xFF09;&#x641C;&#x7D22;&#x4EE5;&#x53CA;&#x62FC;&#x5199;&#x9519;&#x8BEF;&#xFF08;Spell checker&#xFF09;</li>
+<li>OJ&#x4F8B;&#x5B50;: <a href="https://leetcode.com/problems/edit-distance/" target="_blank">https://leetcode.com/problems/edit-distance/</a></li>
+<li>&#x66F4;&#x96BE;&#x7684;&#x4F8B;&#x5B50;: <a href="https://leetcode.com/problems/regular-expression-matching/" target="_blank">https://leetcode.com/problems/regular-expression-matching/</a></li>
+<li>Java&#x4E1A;&#x52A1;: &#x901A;&#x8FC7;EditDistance&#x53CD;&#x5C04;&#x627E;&#x5230;Bean&#xFF08;&#x4F7F;&#x7528;Common&#x5E93;&#x5B9E;&#x73B0;&#xFF09;</li>
+</ul>
+<h2 id="&#x7406;&#x8BBA;&#x6559;&#x7A0B;">&#x7406;&#x8BBA;&#x6559;&#x7A0B;</h2>
+<p>&#x8BE6;&#x89C1;&#x8FD9;&#x4E2A;&#x80F6;&#x7247; <a href="https://web.stanford.edu/class/cs124/lec/med.pdf" target="_blank">https://web.stanford.edu/class/cs124/lec/med.pdf</a></p>
+<h2 id="&#x5B9E;&#x73B0;">&#x5B9E;&#x73B0;</h2>
+<p>&#x672C;&#x5904;&#x5B9E;&#x73B0;&#x662F;&#x53C2;&#x8003;&#x7B97;&#x6CD5;&#x4E66;&#x4E2D;&#x6700;&#x901A;&#x7528;&#x7684;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x5B9E;&#x73B0;(&#x5176;&#x4E2D;replace&#x590D;&#x6742;&#x5EA6;&#x4E3A;1)&#xFF0C;&#x4E0E;Elastic/<a href="https://github.com/apache/lucene-solr/blob/master/lucene/suggest/src/java/org/apache/lucene/search/spell/LuceneLevenshteinDistance.java" target="_blank">Lucene</a>&#x7B49;&#x4E13;&#x4E1A;&#x5B9E;&#x73B0;&#x80AF;&#x5B9A;&#x8FD8;&#x662F;&#x6709;&#x5F88;&#x5927;&#x6027;&#x80FD;&#x533A;&#x522B;&#x3002;&#x8FD8;&#x6709;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;&#x4E0D;&#x8981;&#x6C42;&#x679A;&#x4E3E;&#x6240;&#x6709;&#x7684;&#x8DEF;&#x7EBF;&#x56FE;&#xFF0C;&#x800C;&#x53EA;&#x8981;&#x6C42;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x4FDD;&#x5B58;&#x8DEF;&#x7EBF;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4EFD;Diff&#x4E86;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// https://leetcode.com/problems/edit-distance/</span>
+</code></pre>
+<p>&#x76F8;&#x6BD4;Fibonacci&#x4E2D;&#x4F7F;&#x7528;Map&#x4F5C;&#x4E3A;&#x7F13;&#x5B58;&#xFF0C;&#x7531;&#x4E8E;EditDistance&#x6709;&#x4E24;&#x4E2A;&#x5165;&#x53C2;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;(cost array)&#x6765;&#x5B9E;&#x73B0;&#x8BB0;&#x5FC6;&#x5316;</p>
+<p><code>cost[m][n]</code>&#x8868;&#x793A;&#x7F13;&#x5B58;&#x4E86;&#x5B57;&#x7B26;&#x4E32;<code>word1</code>&#x524D;m&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4E0E;<code>word2</code>&#x524D;n&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4ECE;<code>word1</code>&#x5230;<code>word2</code>&#x7684;&#x7F16;&#x8F91;&#x8DDD;&#x79BB;</p>
+<pre><code>// &#x524D;N&#x4E2A;&#x542B;&#x6709;0&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x52A0;&#x4E00;
+int[][] cost = new int[word1.length+1][word2.length+1];
+</code></pre><p>&#x6BD4;&#x5982;&#x73B0;&#x5728;&#x6709;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5206;&#x522B;&#x662F; abcd &#x4E0E; ccd&#xFF0C;&#x901A;&#x8FC7;&#x5927;&#x8111;&#x8BA1;&#x7B97;&#x663E;&#x7136;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x9700;&#x8981;&#x5220;1&#x6362;1&#xFF0C;&#x6700;&#x7EC8;&#x662F;2&#xFF0C;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x7528;&#x8BB0;&#x5FC6;&#x5316;&#x5B9E;&#x73B0;&#x4E00;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x6570;&#x7EC4;&#x7EF4;&#x62A4;&#x4E3A;&#x4E00;&#x4E2A;Table&#xFF0C;</p>
+<p>&#x9996;&#x5148;&#x5B8C;&#x6210;&#x8FB9;&#x754C;&#x8D77;&#x59CB;&#x8FED;&#x4EE3;&#xFF0C;&#x7531;&#x4E8E;&#x662F;&#x7EAF;ADD/DEL&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;<code>cost[3][0]</code>&#x8868;&#x793A;&#x5C06;abc&#x5220;&#x6210;&quot;&quot;&#xFF0C;&#x64CD;&#x4F5C;&#x6570;&#x5F53;&#x7136;&#x662F;3</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1(c)</th>
+<th>2(c)</th>
+<th>3(d)</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1(a)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2(b)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3(c)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4(d)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#x53EF;&#x4EE5;&#x7528;&#x5982;&#x4E0B;Java&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// for word1 delete to word2</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i&lt; word1.length+<span class="hljs-number">1</span>;i++){
+  cost[i][<span class="hljs-number">0</span>] = i;
+}
+<span class="hljs-comment">// for word1 add to word2</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i&lt; word2.length+<span class="hljs-number">1</span>;i++){
+  cost[<span class="hljs-number">0</span>][i] = i;
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;&#x9884;&#x77E5;&#x6761;&#x4EF6;&#xFF0C;&#x505A;&#x4E00;&#x5957;&#x4ECE;&#x5B83;&#x7684;&#x4E0A;&#x9762;&#xFF0C;&#x5DE6;&#x8FB9;&#x4E0E;&#x5DE6;&#x5BF9;&#x89D2;&#x7EBF;&#x7684;&#x8FC1;&#x79FB;&#x72B6;&#x6001;&#x673A;&#xFF0C;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x9884;&#x5236;&#x6761;&#x4EF6;&#x627E;&#x6700;&#x4F18;&#x89E3;&#x4E86;</p>
+<p>&#x6BD4;&#x5982;&#x6C42;&#x503C;</p>
+<ul>
+<li><code>cost[1][1]</code>=distance(&apos;a&apos;,&apos;c&apos;)<ul>
+<li>REPLACE: &#x7531;&#x4E8E;<code>a</code>&#x4E0D;&#x7B49;&#x4E8E;<code>c</code>&#xFF0C;&#x56E0;&#x6B64;&#x6210;&#x672C;&#x662F;1</li>
+<li>delete_first: &#x5148;&#x8BA1;&#x7B97;distance(&apos;&apos;,&apos;c&apos;) &#xFF0C;&#x518D;&#x8BA1;&#x7B97; distance(&apos;&apos;,&apos;c&apos;) -&gt; distance(&apos;a&apos;,&apos;c&apos;)&#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x672C;&#x662F;1 </li>
+<li>delele_second: &#x5148;&#x8BA1;&#x7B97;distance(&apos;a&apos;,&apos;&apos;) &#xFF0C;&#x518D;&#x8BA1;&#x7B97; distance(&apos;a&apos;,&apos;&apos;) -&gt; distance(&apos;a&apos;,&apos;c&apos;)&#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x672C;&#x662F;1 </li>
+</ul>
+</li>
+<li><code>cost[1][2]</code>=distance(&apos;a&apos;,&apos;cc&apos;)<ul>
+<li>REPLACE: &#x7531;&#x4E8E;<code>a</code>&#x4E0D;&#x7B49;&#x4E8E;<code>c</code>&#xFF0C;&#x56E0;&#x6B64;&#x6210;&#x672C;&#x662F;1</li>
+<li>delete_first: &#x5148;&#x8BA1;&#x7B97;distance(&apos;&apos;,&apos;cc&apos;)&#xFF0C;&#x518D;&#x8BA1;&#x7B97; distance(&apos;&apos;,&apos;cc&apos;) -&gt; distance(&apos;a&apos;,&apos;cc&apos;)&#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x672C;&#x662F;1</li>
+<li>delele_second: &#x5148;&#x8BA1;&#x7B97;distance(&apos;a&apos;,&apos;c&apos;) &#xFF0C;&#x518D;&#x8BA1;&#x7B97; distance(&apos;a&apos;,&apos;c&apos;) -&gt; distance(&apos;a&apos;,&apos;cc&apos;)&#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x672C;&#x662F;1 </li>
+</ul>
+</li>
+</ul>
+<p>&#x8FD9;&#x91CC;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// calculate every transformation cost</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt; len1 + <span class="hljs-number">1</span>; i++) {
+  <span class="hljs-keyword">char</span> c1 = word1.charAt(i - <span class="hljs-number">1</span>);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">1</span>; j &lt; len2 + <span class="hljs-number">1</span>; j++) {
+    <span class="hljs-keyword">int</span> swapCost = (c1 == word2.charAt(j - <span class="hljs-number">1</span>) ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>);
+    <span class="hljs-keyword">int</span> delete_both_to_normal = cost[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + swapCost;
+    <span class="hljs-comment">// &#x7F51;&#x4E0A;&#x6709;&#x5F88;&#x591A;&#x7528;add&#x4F5C;&#x4E3A;&#x547D;&#x540D;&#xFF0C;&#x4F46;&#x662F;&#x6B63;&#x5982;&#x4E0A;&#x6587;&#x6240;&#x5199;&#xFF0C;&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x6700;&#x597D;&#x547D;&#x540D;&#x957F;&#x4E00;&#x70B9;&#xFF0C;&#x907F;&#x514D;&#x6B67;&#x4E49;</span>
+    <span class="hljs-keyword">int</span> delete_first_to_normal = cost[i][j - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> delele_second_to_normal = cost[i - <span class="hljs-number">1</span>][j] + <span class="hljs-number">1</span>;
+    cost[i][j] = Math.min(
+      Math.min(delete_first_to_normal, delele_second_to_normal), 
+      delete_both_to_normal
+    );
+  }
+}
+<span class="hljs-keyword">return</span> [i][j];
+</code></pre>
+<p>&#x767D;&#x677F;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</p>
+<ul>
+<li>&#x4E0D;&#x8981;&#x5199;&#x8FC7;&#x957F;&#x4EE3;&#x7801;(eg: Math.min)&#xFF0C;&#x9632;&#x6B62;&#x62EC;&#x53F7;&#x4E2D;&#x52A0;&#x4E00;&#x4F4D;&#x7F6E;&#x8BA1;&#x7B97;&#x9519;&#x8BEF;&#xFF0C;&#x96BE;&#x4EE5;&#x5B9A;&#x4F4D;</li>
+<li>&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x5C3D;&#x91CF;&#x76F4;&#x63A5;&#x64CD;&#x4F5C;index&#xFF0C;&#x4E0D;&#x8981;&#x7528;arr.length</li>
+<li>string&#x7684;length&#x65B9;&#x6CD5;&#x6709;&#x62EC;&#x53F7;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: String">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="literal-expression.html" class="navigation navigation-next " aria-label="Next page: Literal-expression">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"EditDistance","level":"1.3.1","depth":2,"next":{"title":"Literal-expression","level":"1.3.2","depth":2,"path":"string/literal-expression.md","ref":"string/literal-expression.md","articles":[]},"previous":{"title":"String","level":"1.3","depth":1,"path":"string/README.md","ref":"string/README.md","articles":[{"title":"EditDistance","level":"1.3.1","depth":2,"path":"string/editdistance.md","ref":"string/editdistance.md","articles":[]},{"title":"Literal-expression","level":"1.3.2","depth":2,"path":"string/literal-expression.md","ref":"string/literal-expression.md","articles":[]},{"title":"Similar","level":"1.3.3","depth":2,"path":"string/similar.md","ref":"string/similar.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/datastruct/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"string/editdistance.md","mtime":"2021-03-04T11:49:55.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:18.552Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

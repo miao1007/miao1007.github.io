@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url> <loc>https://miao1007.github.io/gitbook/eureka/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/introduce/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/client/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/client/eureka-client-springboot.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/client/eureka-client-rpc.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/client/eureka-client-without-spring-boot.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/client/generate-stub-by-swagger.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/client/eureka-client-with-quartz.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/server/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/server/eureka-server-naming.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/server/replicate.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/third/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/third/feign.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/third/ribbon.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/third/sleuth-log-collector.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/eureka/other/reference.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+</urlset>

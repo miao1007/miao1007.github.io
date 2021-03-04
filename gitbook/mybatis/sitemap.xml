@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/dynamic-sql/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/dynamic-sql/ognl.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/dynamic-sql/xml-to-ast.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/dynamic-sql/dynamic-proxy.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/mapping/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/mapping/impl.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/mapping/merge-left-join.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/practice/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/practice/cache.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/practice/multi-join.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/practice/parent-child-tree.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/practice/transaction.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/datebase/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/datebase/dds.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/datebase/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/datebase/bitmap-index.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/datebase/inverted-index.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/other/sql-explain.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/datebase/transaction.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/datebase/transaction/readcommit.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/datebase/transaction/repeatable.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/datebase/transaction/serializable.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/mybatis/other/reference.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+</urlset>

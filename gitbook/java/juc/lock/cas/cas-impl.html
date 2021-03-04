@@ -1,0 +1,974 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>CAS的实现 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="aqs/aqs-impl.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../../../">
+    
+    <a href="../../../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../../../java/">
+    
+    <a href="../../../java/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Java/JVM
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" data-path="../../../java/gc/">
+    
+    <a href="../../../java/gc/">
+        
+                    
+                        <b>1.2.1.</b>
+                    
+                    垃圾回收
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1.1" data-path="../../../java/gc/analyze-full-gc.html">
+    
+    <a href="../../../java/gc/analyze-full-gc.html">
+        
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    analyze-full-gc
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../../../java/classloader/">
+    
+    <a href="../../../java/classloader/">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    ClassLoader
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.2.1" data-path="../../../java/classloader/class.html">
+    
+    <a href="../../../java/classloader/class.html">
+        
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    Class的结构
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2.2" data-path="../../../java/classloader/classloader-in-jvm.html">
+    
+    <a href="../../../java/classloader/classloader-in-jvm.html">
+        
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    ClassLoader的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.3" data-path="../../../java/reflection/">
+    
+    <a href="../../../java/reflection/">
+        
+                    
+                        <b>1.2.3.</b>
+                    
+                    反射
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../../">
+    
+    <a href="../../">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    并发编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../../functional/">
+    
+    <a href="../../functional/">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    纯函数
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../../final/">
+    
+    <a href="../../final/">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    final/ThreadLocal
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    锁
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.3.3.1.</b>
+                    
+                    CAS与AQS
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter active" data-level="1.3.3.1.1" data-path="cas-impl.html">
+    
+    <a href="cas-impl.html">
+        
+                    
+                        <b>1.3.3.1.1.</b>
+                    
+                    CAS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.2" data-path="aqs/aqs-impl.html">
+    
+    <a href="aqs/aqs-impl.html">
+        
+                    
+                        <b>1.3.3.1.2.</b>
+                    
+                    AQS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.3" data-path="aqs/reentrantlock.html">
+    
+    <a href="aqs/reentrantlock.html">
+        
+                    
+                        <b>1.3.3.1.3.</b>
+                    
+                    ReentrantLock
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.4" data-path="aqs/countdownlatch.html">
+    
+    <a href="aqs/countdownlatch.html">
+        
+                    
+                        <b>1.3.3.1.4.</b>
+                    
+                    CountDownLatch
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.5" data-path="aqs/read-write-lock.html">
+    
+    <a href="aqs/read-write-lock.html">
+        
+                    
+                        <b>1.3.3.1.5.</b>
+                    
+                    ReadWriteLock
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.2" data-path="../synchronized/">
+    
+    <a href="../synchronized/">
+        
+                    
+                        <b>1.3.3.2.</b>
+                    
+                    synchronized
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.2.1" data-path="../synchronized/jvm-sync.html">
+    
+    <a href="../synchronized/jvm-sync.html">
+        
+                    
+                        <b>1.3.3.2.1.</b>
+                    
+                    sync的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.4" data-path="../../thread/">
+    
+    <a href="../../thread/">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    线程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.4.1" data-path="../../thread/nativethread.html">
+    
+    <a href="../../thread/nativethread.html">
+        
+                    
+                        <b>1.3.4.1.</b>
+                    
+                    NativeThread
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.2" data-path="../../thread/jvmthread.html">
+    
+    <a href="../../thread/jvmthread.html">
+        
+                    
+                        <b>1.3.4.2.</b>
+                    
+                    JVM线程
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.3" data-path="../../thread/threadpool.html">
+    
+    <a href="../../thread/threadpool.html">
+        
+                    
+                        <b>1.3.4.3.</b>
+                    
+                    ThreadPool
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.5" data-path="../../juc-problems.html">
+    
+    <a href="../../juc-problems.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    常见并发问题
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.6" data-path="../../cow/">
+    
+    <a href="../../cow/">
+        
+                    
+                        <b>1.3.6.</b>
+                    
+                    写时复制
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../../../microservice/">
+    
+    <a href="../../../microservice/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    微服务中间件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../../../microservice/dist-problems.html">
+    
+    <a href="../../../microservice/dist-problems.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    分布式问题
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1.1" data-path="../../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+    
+    <a href="../../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+        
+                    
+                        <b>1.4.1.1.</b>
+                    
+                    事务一致性问题
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../../../domain/">
+    
+    <a href="../../../domain/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    元编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../../../domain/dsl/">
+    
+    <a href="../../../domain/dsl/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    DSL
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../../../domain/templateengine/">
+    
+    <a href="../../../domain/templateengine/">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    模版引擎
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../../../domain/bpm/">
+    
+    <a href="../../../domain/bpm/">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    BPM
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >CAS的实现</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x5FEB;&#x901F;&#x7ED3;&#x8BBA;">&#x5FEB;&#x901F;&#x7ED3;&#x8BBA;</h2>
+<ul>
+<li>Java&#x7684;CAS&#x662F;&#x901A;&#x8FC7;&#x6C47;&#x7F16;&#x547D;&#x4EE4;<code>cmpxchg</code>&#x8FDB;&#x884C;&#x7684;&#x5305;&#x88C5;&#x4E0E;&#x5B9A;&#x5236;&#x5B9E;&#x73B0;atomic memory operation (AMO) i</li>
+<li>CAS&#x7531;&#x4E8E;&#x662F;&#x8FDB;&#x884C;&#x4E3B;&#x52A8;&#x6BD4;&#x8F83;&#xFF0C;&#x56E0;&#x6B64;<code>compareAndSet</code>&#x4E00;&#x5B9A;&#x4F1A;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x81EA;&#x65CB;&#x4E2D;&#xFF0C;&#x5B83;&#x9002;&#x7528;&#x4E8E;&#x51B2;&#x7A81;(&#x81EA;&#x65CB;&#x6B21;&#x6570;)&#x6BD4;&#x8F83;&#x5C11;&#x7684;&#x573A;&#x666F;&#x3002;&#x5728;&#x67D0;&#x4E9B;&#x6FC0;&#x70C8;&#x7684;&#x573A;&#x666F;&#x4E0B;&#x53EF;&#x80FD;&#x6027;&#x80FD;&#x8FD8;&#x4E0D;&#x5982;&#x4E92;&#x65A5;&#x9501;&#x3002;</li>
+<li>CPU&#x6C47;&#x7F16;&#x5C42;&#x9762;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;CAS&#x7684;&#x516C;&#x5E73;&#x8C03;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x4E0A;&#x5C42;&#x4E1A;&#x52A1;&#x81EA;&#x884C;&#x5B9E;&#x73B0;</li>
+</ul>
+<h2 id="cas&#x7684;&#x7B80;&#x4ECB;">CAS&#x7684;&#x7B80;&#x4ECB;</h2>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x542C;&#x8FC7;CAS&#x7684;&#x8BDD;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x7B80;&#x8981;&#x5165;&#x95E8;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;&#x6700;&#x7EC8;&#x603B;&#x662F;100&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x5C0F;&#x4E8E;100</p>
+<pre><code class="lang-groovy">AtomicInteger a = <span class="hljs-keyword">new</span> AtomicInteger(<span class="hljs-number">0</span>)
+<span class="hljs-keyword">def</span> runnable = {
+    println <span class="hljs-string">&quot;a=${a.incrementAndGet()}, ${Thread.currentThread().getName()}&quot;</span>
+}
+<span class="hljs-number">100.</span>times {
+    <span class="hljs-keyword">new</span> Thread(runnable).start()
+}
+Thread.currentThread().join()
+</code></pre>
+<blockquote>
+<p><a href="https://dzone.com/articles/how-cas-compare-and-swap-java" target="_blank">CAS&#x5165;&#x95E8;&#x6587;&#x7AE0;</a></p>
+</blockquote>
+<h2 id="&#x914D;&#x7F6E;gdb&#x65AD;&#x70B9;&#x9009;&#x8BFB;">&#x914D;&#x7F6E;GDB&#x65AD;&#x70B9;(&#x9009;&#x8BFB;)</h2>
+<p>&#x672C;&#x6587;&#x5C06;&#x901A;&#x8FC7;GDB&#x8C03;&#x8BD5;JamVM&#x5B9E;&#x73B0;&#x5BF9;CAS&#x7684;&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x642D;&#x5EFA;GDB&#x8C03;&#x8BD5;&#x73AF;&#x5883;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</p>
+<p>&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.concurrent.atomic.AtomicInteger;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>{
+        AtomicInteger a = <span class="hljs-keyword">new</span> AtomicInteger(<span class="hljs-number">1</span>);
+        System.out.println(<span class="hljs-string">&quot;a = &quot;</span> + a.incrementAndGet());
+    }
+}
+</code></pre>
+<p>&#x63A5;&#x7740;&#x4F7F;&#x7528;Javac&#x8FDB;&#x884C;&#x7F16;&#x8BD1;</p>
+<pre><code class="lang-sh">javac A.java
+</code></pre>
+<p>&#x6700;&#x540E;&#x4F7F;&#x7528;JamVM&#x4E0E;GDB&#x8FDB;&#x884C;&#x65AD;&#x70B9;&#x6D4B;&#x8BD5;</p>
+<pre><code class="lang-sh">jamvm -cp . A
+</code></pre>
+<p>&#x65AD;&#x70B9;&#x6253;&#x5728;<code>natives.c</code>&#x7684;<code>compareAndSwapInt</code>&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5206;&#x6790;&#x8C03;&#x7528;&#x6808;&#x4E86;</p>
+<h2 id="cas&#x5728;jvm&#x4E0A;&#x7684;&#x6D41;&#x7A0B;&#x5206;&#x6790;">CAS&#x5728;JVM&#x4E0A;&#x7684;&#x6D41;&#x7A0B;&#x5206;&#x6790;</h2>
+<h4 id="cas&#x5728;java&#x5C42;&#x4E0A;&#x7684;&#x5B9E;&#x73B0;">CAS&#x5728;Java&#x5C42;&#x4E0A;&#x7684;&#x5B9E;&#x73B0;</h4>
+<p>CAS&#x5728;Java&#x4E2D;&#x6700;&#x540E;&#x7684;&#x5B9E;&#x73B0;&#x90FD;&#x662F;<code>sun.misc.Unsafe</code>&#x7C7B;&#xFF0C;&#x800C;&#x5B83;&#x51E0;&#x4E4E;&#x5168;&#x90E8;&#x662F;Native&#x65B9;&#x6CD5;&#xFF0C;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x53EF;&#x4EE5;&#x5206;&#x6790;&#xFF0C;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5728;&#x4E0D;&#x540C;JVM&#x4E2D;&#x5B9E;&#x73B0;&#x7684;&#x8FC7;&#x7A0B;&#x4E0D;&#x4E00;&#x5B9A;&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x6700;&#x540E;&#x80AF;&#x5B9A;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x4E0E;CAS&#xFF0C;&#x4E0B;&#x6587;&#x662F;OracleJDK&#x7684;&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// 1. &#x5F00;&#x53D1;&#x8005;&#x8C03;&#x7528;JDK</span>
+AtomicInteger.incrementAndGet();
+<span class="hljs-comment">// 2. JDK&#x5185;&#x90E8;&#x81EA;&#x65CB;&#x5E76;&#x4E0D;&#x65AD;&#x5C1D;&#x8BD5;(getAndAddInt)</span>
+<span class="hljs-keyword">int</span> var5;
+do {
+  var5 = getIntVolatile(<span class="hljs-keyword">this</span>, offset);
+} <span class="hljs-keyword">while</span>(!compareAndSwapInt(<span class="hljs-keyword">this</span>, offset, var5, var5 + <span class="hljs-number">1</span>));
+<span class="hljs-keyword">return</span> var5;
+</code></pre>
+<p>&#x5176;&#x4E2D;<code>offset</code>&#x662F;&#x901A;&#x8FC7;Unsafe&#x65B9;&#x6CD5;&#x83B7;&#x53D6;<code>var5</code>&#x76F8;&#x5BF9;&#x4E8E;AtomicInteger&#x8FD9;&#x4E2A;class&#x7684;native&#x5185;&#x5B58;&#x5730;&#x5740;&#x504F;&#x79FB;</p>
+<p>&#x4E0A;&#x9762;&#x7684; <code>getIntVolatile</code> &#x4E0E; <code>compareAndSwapInt</code> &#x5747;&#x662F;native&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x4E2D;<code>this</code>&#x6307;<code>AtomicInteger</code>&#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;</p>
+<ul>
+<li>this&#x4E0E;offset: &#x8868;&#x793A;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x6570;&#x503C;</li>
+<li>var5: &#x662F;&#x65E7;&#x7684;&#x6570;&#x503C;</li>
+<li>var5+1: &#x662F;&#x65B0;&#x7684;&#x6570;&#x503C;</li>
+</ul>
+<p>&#x5728;&#x591A;&#x7EBF;&#x7A0B;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7ADE;&#x4E89;&#xFF0C;1&#xFF5E;2&#x6B21;&#x5C31;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x5FAA;&#x73AF;&#xFF1B;&#x5728;&#x6709;&#x4E00;&#x5B9A;&#x7ADE;&#x4E89;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;memory&#x88AB;&#x53CD;&#x590D;&#x6539;&#xFF0C;&#x5B83;&#x901A;&#x8FC7;&#x4E0D;&#x65AD;&#x81EA;&#x65CB;&#x5B9E;&#x73B0;&#x91CD;&#x8BD5;</p>
+<h4 id="cas&#x5728;native&#x5C42;&#x7684;&#x5B9E;&#x73B0;">CAS&#x5728;native&#x5C42;&#x7684;&#x5B9E;&#x73B0;</h4>
+<p>&#x4E0B;&#x9762;&#x662F;&#x8FF7;&#x4F60;&#x865A;&#x62DF;&#x673A;JamVM&#x7684;unsafe.compareAndSwapInt&#x7684;C&#x8BED;&#x8A00;&#x5B9E;&#x73B0;&#xFF0C;&#x6700;&#x7EC8;&#x8FD8;&#x662F;&#x8C03;&#x7528;&#x5230;&#x4E86;&#x6C47;&#x7F16;&#xFF0C;&#x901A;&#x8FC7;CPU&#x786C;&#x4EF6;&#x5B9E;&#x73B0;</p>
+<p>&#x9996;&#x5148;&#x5206;&#x6790;<code>objectFieldOffset</code>&#xFF0C;&#x5B83;&#x672C;&#x8D28;&#x662F;&#x83B7;&#x53D6;Class&#x7684;Slot&#x4E2D;&#x7684;&#x201C;value&#x201D;&#x5BF9;&#x5E94;&#x7684;&#x504F;&#x79FB;&#x91CF;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// &#x5728;Java&#x4E2D;&#xFF0C;&#x83B7;&#x53D6;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x504F;&#x79FB;&#x4F4D;&#x7F6E;</span>
+<span class="hljs-comment">// Field f = AtomicInteger.class.getDeclaredField(&quot;value&quot;)</span>
+<span class="hljs-comment">// valueOffset = unsafe.objectFieldOffset(f);</span>
+<span class="hljs-comment">//JamVM natives.c</span>
+<span class="hljs-keyword">uintptr_t</span> *objectFieldOffset(Class *<span class="hljs-keyword">class</span>, MethodBlock *mb, <span class="hljs-keyword">uintptr_t</span> *ostack) {
+    FieldBlock *fb = fbFromReflectObject((Object*)ostack[<span class="hljs-number">1</span>]);
+
+    *(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>*)ostack = (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)(<span class="hljs-keyword">uintptr_t</span>)
+                          &amp;(INST_DATA((Object*)<span class="hljs-literal">NULL</span>, <span class="hljs-keyword">int</span>, fb-&gt;u.offset));
+    <span class="hljs-keyword">return</span> ostack + <span class="hljs-number">2</span>;
+}
+</code></pre>
+<p>&#x5728;&#x672C;&#x6587;&#x7684; <code>AtomicInteger</code> &#x4E2D;&#xFF0C;valueOffset&#x4E3A;12&#x5E38;&#x91CF;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x505A;&#x8FD9;&#x4E00;&#x6B65;&#x5462;&#xFF0C;&#x56E0;&#x6B64;CAS&#x57FA;&#x672C;&#x4E0A;&#x90FD;&#x662F;native&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x8981;&#x76F4;&#x63A5;&#x64CD;&#x4F5C;&#x5185;&#x5B58;&#xFF0C;&#x540E;&#x7EED;&#x5C06;&#x901A;&#x8FC7;<code>valueOffset</code>&#x83B7;&#x53D6;&#x5230; <code>value</code></p>
+<p>&#x63A5;&#x7740;&#x5206;&#x6790;<code>compareAndSwapInt</code></p>
+<pre><code class="lang-c"><span class="hljs-comment">// &#x5728;Java&#x4E2D;&#xFF0C;&#x8C03;&#x7528;&#x5982;&#x4E0B;</span>
+<span class="hljs-comment">// compareAndSwapInt(this, offset, var5, var5 + 1)</span>
+<span class="hljs-comment">//JamVM natives.c</span>
+<span class="hljs-keyword">uintptr_t</span> *compareAndSwapInt(Class *<span class="hljs-keyword">class</span>, MethodBlock *mb, <span class="hljs-keyword">uintptr_t</span> *ostack) {
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> offset = *((<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> *)&amp;ostack[<span class="hljs-number">2</span>]);
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> *addr = (<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>*)((<span class="hljs-keyword">char</span> *)ostack[<span class="hljs-number">1</span>] + offset);
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> expect = ostack[<span class="hljs-number">4</span>];
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> update = ostack[<span class="hljs-number">5</span>];
+    <span class="hljs-keyword">int</span> result;
+      <span class="hljs-comment">//&#x8C03;&#x7528;&#x5E73;&#x53F0;CPU&#x7279;&#x5B9A;&#x7684;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</span>
+    result = COMPARE_AND_SWAP_32(addr, expect, update);
+    *ostack++ = result;
+    <span class="hljs-keyword">return</span> ostack;
+}
+
+<span class="hljs-comment">// x86-64 &#x7684;&#x6C47;&#x7F16;&#x5B9E;&#x73B0;&#x5B8F;</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> COMPARE_AND_SWAP_32(addr, old_val, new_val)        \
+({                                                         \
+    char result;                                           \
+    __asm__ __volatile__ (<span class="hljs-string">&quot;                                \
+        lock;                                              \
+        cmpxchgl %4, %1;                                   \
+        sete %0&quot;</span>                                           \
+    : <span class="hljs-string">&quot;=q&quot;</span> (result), <span class="hljs-string">&quot;=m&quot;</span> (*addr)<span class="hljs-comment">/*out*/</span>                   \
+    : <span class="hljs-string">&quot;m&quot;</span> (*addr), <span class="hljs-string">&quot;a&quot;</span> (old_val), <span class="hljs-string">&quot;r&quot;</span> (new_val) <span class="hljs-comment">/*in*/</span>     \
+    : <span class="hljs-string">&quot;memory&quot;</span>);     <span class="hljs-comment">/*Clobbers, reload from memory*/</span>      \
+    result;                                                \
+})</span>
+</code></pre>
+<blockquote>
+<p>&#x901A;&#x8FC7;&#x4F7F;&#x7528;CLion&#x5BF9;&#x6E90;&#x7801;&#x8FDB;&#x884C;&#x6587;&#x672C;&#x641C;&#x7D22;<code>compareAndSwapInt</code>&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x627E;&#x5230;CAS&#x7684;&#x5B9E;&#x73B0;&#x7C7B;</p>
+</blockquote>
+<p>`</p>
+<p>&#x8FD9;&#x91CC;&#x7684;&#x6C47;&#x7F16;&#x683C;&#x5F0F;&#x9605;&#x8BFB;&#x8D77;&#x6765;&#x5C31;&#x6BD4;&#x8F83;&#x8D39;&#x52B2;&#x4E86;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x9009;&#x62E9;<a href="https://www.ibm.com/developerworks/library/l-ia/" target="_blank">&#x5B66;&#x4E00;&#x4E0B;</a>&#x5B83;&#x7684;&#x683C;&#x5F0F;(&#x5982;&#x679C;&#x8981;&#x770B;JVM&#x4EE3;&#x7801;&#xFF0C;&#x65E9;&#x665A;&#x90FD;&#x5F97;&#x5B66;)&#xFF0C;&#x5E76;&#x901A;&#x8FC7;<a href="https://gcc.gnu.org/onlinedocs/gcc-6.3.0/gcc/Machine-Constraints.html#Machine-Constraints" target="_blank">&#x8FD9;&#x91CC;</a>&#x4E0E;<a href="https://gcc.gnu.org/viewcvs/gcc/trunk/gcc/config/i386/constraints.md?view=co&amp;revision=198401&amp;content-type=text/plain" target="_blank">&#x8FD9;&#x91CC;</a>&#x7684;&#x6587;&#x6863;&#x4E86;&#x89E3;<code>q,m,r</code>&#x662F;&#x4EC0;&#x4E48;&#x610F;&#x601D;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x60F3;&#x770B;&#x7684;&#x8BDD;&#xFF0C;&#x76F4;&#x63A5;&#x4E0A;HopperDisassembler&#x5C06;&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#x8FDB;&#x884C;&#x53CD;&#x7F16;&#x8BD1;&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x6B63;&#x597D;&#x64CD;&#x4F5C;&#x662F;&#x53CD;&#x8FC7;&#x6765;&#x7684;</p>
+<pre><code class="lang-asm">                     compareAndSwapInt:
+0000000000030e80         mov        rcx, qword [ds:rdx+0x10]
+0000000000030e84         mov        rax, qword [ds:rdx+0x20]
+0000000000030e88         add        rcx, qword [ds:rdx+0x8]
+0000000000030e8c         mov        rsi, qword [ds:rdx+0x28]
+/* COMPARE_AND_SWAP_32 start */
+0000000000030e90         lock cmpxchg dword [ds:rcx], esi
+0000000000030e94         sete       al
+0000000000030e97         movsx      rax, al
+/* COMPARE_AND_SWAP_32 end */
+0000000000030e9b         mov        qword [ds:rdx], rax
+0000000000030e9e         lea        rax, qword [ds:rdx+0x8]
+0000000000030ea2         ret
+</code></pre>
+<blockquote>
+<p>&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x77E5;&#x9053;&#x5404;&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x7684;<a href="https://zh.wikipedia.org/wiki/X86&#x8C03;&#x7528;&#x7EA6;&#x5B9A;" target="_blank">&#x76F8;&#x5173;&#x7EA6;&#x5B9A;</a></p>
+</blockquote>
+<p>&#x6700;&#x7EC8;<code>COMPARE_AND_SWAP_32</code>&#x7684;&#x4F2A;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x5174;&#x8DA3;&#x975E;&#x5E38;&#x5F3A;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x7F51;&#x4E0A;&#x5F00;&#x6E90;&#x7684;Verilog&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-asm">//&#x4E0B;&#x6587;&#x7684; &lt;- &#x6307;&#x8D4B;&#x503C;&#x7684;&#x610F;&#x601D;&#xFF0C;Intel&#x6587;&#x6863;&#x4E5F;&#x662F;&#x8FD9;&#x6837;&#x5199;&#x7684;
+--INPUT:
+rcx &lt;- memory &lt;- addr
+al &lt;- old_val
+esi &lt;- new_val
+--OUTPUT:
+rax &lt;- result
+rcx &lt;-memory &lt;- addr
+--PROCEDURE:
+//cmpxchg dword [ds:rcx], esi
+IF al == rcx
+THEN
+  ZF &lt;- 1;
+  rcx &lt;- esi;
+ELSE
+  ZF &lt;- 0;
+  al &lt;- rcx;
+FI;
+//sete       al
+IF ZF == 1
+THEN
+  al &lt;- 0;
+ELSE
+  al &lt;- 1;
+FI;
+//movsx      rax, al
+rax &lt;- al
+return rax
+</code></pre>
+<p>&#x7528;C&#x8BED;&#x8A00;&#x7B80;&#x5316;&#x662F;&#x8FD9;&#x6837;&#x7684;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">if</span>(old_val == *addr){
+  *addr = new_val;
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+} <span class="hljs-keyword">else</span>{
+  old_val = *addr;
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+</code></pre>
+<p>&#x8BE6;&#x7EC6;&#x6C47;&#x7F16;&#x5206;&#x6790;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x8FD9;&#x7BC7;&#x7C7B;&#x4F3C;&#x7684;<a href="http://www.lenky.info/archives/2012/11/2028" target="_blank">&#x6587;&#x7AE0;</a>&#x4E0E;<a href="https://stackoverflow.com/questions/27837731/is-x86-cmpxchg-atomic" target="_blank">Is x86 CMPXCHG atomic?</a></p>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#x4E0A;&#x9762;CPU&#x91CC;&#x7684;Lock&#x662F;&#x7528;&#x6765;&#x9501;&#x591A;&#x6838;&#x4E0B;&#x7684;Bus&#x5B9E;&#x73B0;&#x5185;&#x5B58;&#x5C4F;&#x969C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#x4E2D;&#x9501;&#x4EE3;&#x7801;&#x6BB5;&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x78B0;&#x5DE7;&#x540D;&#x79F0;&#x7C7B;&#x4F3C;&#x800C;&#x5DF2;</p>
+</blockquote>
+<h2 id="&#x9644;&#x5F55;">&#x9644;&#x5F55;</h2>
+<h4 id="cmpxchg-&#x7684;&#x4E00;&#x4E9B;&#x4ECB;&#x7ECD;">CMPXCHG &#x7684;&#x4E00;&#x4E9B;&#x4ECB;&#x7ECD;</h4>
+<p>&#x901A;&#x8FC7;&#x67E5;&#x8BE2;Intel<a href="http://faydoc.tripod.com/cpu/cmpxchg.htm" target="_blank">&#x6587;&#x6863;</a>&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x77E5;</p>
+<table>
+<thead>
+<tr>
+<th>Opcode</th>
+<th>Instruction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0F B0/<em>r</em></td>
+<td>CMPXCHG <em>r/m8,r8</em></td>
+<td>Compare AL(accumulator, &#x7D2F;&#x52A0;&#x5668;) with <em>r/m8</em>. If equal, ZF is set and <em>r8</em> is loaded into <em>r/m8</em>. Else, clear ZF and load <em>r/m8</em> into AL.</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8C03;&#x7528;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-asm">CMPXCHG DEST, SRC
+</code></pre>
+<p>&#x4F2A;&#x4EE3;&#x7801;</p>
+<pre><code>IF accumulator == DEST
+THEN
+  ZF &lt;- 1;
+  DEST &lt;- SRC;
+ELSE
+  ZF &lt;- 0;
+  accumulator &lt;- DEST;
+FI;
+</code></pre><h2 id="cas&#x4E2D;aba&#x7684;&#x95EE;&#x9898;">CAS&#x4E2D;ABA&#x7684;&#x95EE;&#x9898;</h2>
+<p>&#x4F7F;&#x7528;<code>AtomicStampedReference</code></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: CAS与AQS">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="aqs/aqs-impl.html" class="navigation navigation-next " aria-label="Next page: AQS的实现">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"CAS的实现","level":"1.3.3.1.1","depth":4,"next":{"title":"AQS的实现","level":"1.3.3.1.2","depth":4,"path":"juc/lock/cas/aqs/aqs-impl.md","ref":"juc/lock/cas/aqs/aqs-impl.md","articles":[]},"previous":{"title":"CAS与AQS","level":"1.3.3.1","depth":3,"path":"juc/lock/cas/README.md","ref":"juc/lock/cas/README.md","articles":[{"title":"CAS的实现","level":"1.3.3.1.1","depth":4,"path":"juc/lock/cas/cas-impl.md","ref":"juc/lock/cas/cas-impl.md","articles":[]},{"title":"AQS的实现","level":"1.3.3.1.2","depth":4,"path":"juc/lock/cas/aqs/aqs-impl.md","ref":"juc/lock/cas/aqs/aqs-impl.md","articles":[]},{"title":"ReentrantLock","level":"1.3.3.1.3","depth":4,"path":"juc/lock/cas/aqs/reentrantlock.md","ref":"juc/lock/cas/aqs/reentrantlock.md","articles":[]},{"title":"CountDownLatch","level":"1.3.3.1.4","depth":4,"path":"juc/lock/cas/aqs/countdownlatch.md","ref":"juc/lock/cas/aqs/countdownlatch.md","articles":[]},{"title":"ReadWriteLock","level":"1.3.3.1.5","depth":4,"path":"juc/lock/cas/aqs/read-write-lock.md","ref":"juc/lock/cas/aqs/read-write-lock.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/java/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"juc/lock/cas/cas-impl.md","mtime":"2021-03-04T11:49:55.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:54.413Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,381 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Spring-session · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="distribute-lock.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="event.html">
+    
+    <a href="event.html">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Event loop
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="cow.html">
+    
+    <a href="cow.html">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    Copy on write
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="rehash.html">
+    
+    <a href="rehash.html">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Incremental Rehash
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="distribute-lock.html">
+    
+    <a href="distribute-lock.html">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    Distribute Lock
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.6" data-path="session.html">
+    
+    <a href="session.html">
+        
+                    
+                        <b>1.6.</b>
+                    
+                    Spring-session
+            
+        </a>
+        
+
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Spring-session</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="redis-with-spring-session">Redis with spring session</h2>
+<h3 id="how-session-works-with-redis">How session works with redis?</h3>
+<p>Instead of Tomcat&#x2019;s Embedded  <code>HttpSession</code> stored in memory, <em>Spring-Session</em> reimplements <code>HttpSesson</code> with Redis to support multiple sessions with same browser.</p>
+<h4 id="try-it-up-with-debugger">Try it up with debugger</h4>
+<p>Let&apos;s first create a demo project, go to <a href="https://start.spring.io/" target="_blank">starter</a> page and create a demo project with following plugin:</p>
+<ul>
+<li>Redis</li>
+<li>Web</li>
+<li>Session</li>
+</ul>
+<p>Add <code>@EnableRedisHttpSession</code> to BootApplication </p>
+<pre><code class="lang-diff">@SpringBootApplication
+<span class="hljs-addition">+ @EnableRedisHttpSession</span>
+public class DemoApplication {
+    ...
+}
+</code></pre>
+<p>And create a Hello Controller for <a href="https://www.jetbrains.com/help/idea/debugging-code.html" target="_blank">debugging</a></p>
+<pre><code class="lang-java"><span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">&quot;/&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hello</span> </span>{
+
+  <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">&quot;hello&quot;</span>)
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">(HttpServletRequest request, @RequestParam String value)</span></span>{
+    <span class="hljs-comment">// add debugger here</span>
+    request.getSession().setAttribute(<span class="hljs-string">&quot;key&quot;</span>,value);
+    <span class="hljs-keyword">return</span> value;
+  }
+}
+</code></pre>
+<p> Add debugger with <code>find usage</code> for getter/setter</p>
+<pre><code class="lang-java">org.springframework.session.web.http.SessionRepositoryFilter#CURRENT_SESSION_ATTR
+</code></pre>
+<p>Cookies resolver</p>
+<pre><code>org.springframework.session.web.http.CookieHttpSessionIdResolver#resolveSessionIds
+</code></pre><p>And these are the mapping between cookies and redis</p>
+<pre><code>org.springframework.session.web.http.DefaultCookieSerializer#readCookieValues
+org.springframework.session.web.http.DefaultCookieSerializer#writeCookieValue
+</code></pre><p>then start a local redis(localhost:6379) and run springboot in debug mode.</p>
+<p>Let&apos;s try with a curl</p>
+<pre><code class="lang-sh"> curl <span class="hljs-string">&quot;http://localhost:8080/hello?value=1&quot;</span>
+</code></pre>
+<p>Finally, login to redis-cli, you will find sessions are already in Redis.</p>
+<pre><code>KEYS spring:session:sessions:*
+</code></pre><h4 id="how-to-reuse-session-id">How to reuse session-id?</h4>
+<p>By default, session ids are generated by UUID, they have no relation with browser or IP address.</p>
+<pre><code>org.springframework.session.MapSession#generateId
+</code></pre><p>To reuse the session-id, every request from browser must have a valid session in the header(cookies or x-auth-token), I prefer header based session resolver (less payload and easier for non-browser clients).</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Bean</span>
+<span class="hljs-function">HttpSessionIdResolver <span class="hljs-title">headerResolver</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> HeaderHttpSessionIdResolver(<span class="hljs-string">&quot;miao-token&quot;</span>);
+}
+</code></pre>
+<p>Recurl and your will get a <code>miao-token</code> header in response.</p>
+<pre><code class="lang-properties">Content-Type: ...
+Date: ...
+miao-token: f15b28ea-15b6-4ce8-aad5-9ed0ab00d643
+</code></pre>
+<p>To keep the client&apos;s session up to date with server, just add the header in HttpInterceptor(eg: okhttp/ajax).</p>
+<pre><code class="lang-js"><span class="hljs-comment">// angular HttpInterceptor, same as okhttp</span>
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddHeaderInterceptor</span> <span class="hljs-title">implements</span> <span class="hljs-title">HttpInterceptor</span> </span>{
+  intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+    <span class="hljs-keyword">const</span> clonedRequest = req.clone({ 
+        headers: req.headers.set(<span class="hljs-string">&apos;miao-token&apos;</span>, YOUR_GLOBAL_TOKEN) 
+        });
+    <span class="hljs-keyword">return</span> next.handle(clonedRequest);
+  }
+}
+</code></pre>
+<p>In the end, here is the resuable process flow.</p>
+<pre><code>RESTful Request
+    |
+HttpSessionIdResolver
+    |
+(has token id)?
+    |  
+    |-------(yes): get seesion by id from redis and reuse.
+    ---------(no): jump to login page and create id by UUID
+</code></pre><h2 id="appendix">Appendix</h2>
+<h4 id="whats-cookies-scope">What&apos;s cookie&apos;s scope?</h4>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Scope_of_cookies" target="_blank">Scope of cookies</a>, if you share two applications with same session, you need to customize the <code>DefaultCookieSerializer</code>  for wider scope(path/httpOnly attributes).</p>
+<h4 id="csrf-protection">CSRF protection</h4>
+<p><em>CSRF(Cross-Site Request Forgery)</em> attacks may  inject malicious code into webpages , see more at <a href="https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/csrf.html" target="_blank">Spring-Securiy</a> for server-side protection and <a href="https://angular.io/guide/security" target="_blank">Angular</a> for client-side protection.</p>
+<h4 id="alternatives">Alternatives</h4>
+<p>If you prefer a <em>lower</em> level redis store implementation, just try <a href="https://github.com/jcoleman/tomcat-redis-session-manager" target="_blank">tomcat-redis-session-manager</a></p>
+<pre><code>com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve
+</code></pre><h4 id="sso">SSO</h4>
+<p>You can also use <a href="https://github.com/apereo/cas" target="_blank">CAS</a>, a SSO solution for your <em>authentication</em> and <em>authorization</em>, which have a redis plugin inside.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="distribute-lock.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Distribute Lock">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Spring-session","level":"1.6","depth":1,"previous":{"title":"Distribute Lock","level":"1.5","depth":1,"path":"distribute-lock.md","ref":"distribute-lock.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/redis/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"session.md","mtime":"2021-03-04T11:49:55.331Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:52:37.250Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

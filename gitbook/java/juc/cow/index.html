@@ -1,0 +1,937 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>写时复制 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../microservice/" />
+    
+    
+    <link rel="prev" href="../juc-problems.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../../">
+    
+    <a href="../../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../../java/">
+    
+    <a href="../../java/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Java/JVM
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" data-path="../../java/gc/">
+    
+    <a href="../../java/gc/">
+        
+                    
+                        <b>1.2.1.</b>
+                    
+                    垃圾回收
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1.1" data-path="../../java/gc/analyze-full-gc.html">
+    
+    <a href="../../java/gc/analyze-full-gc.html">
+        
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    analyze-full-gc
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../../java/classloader/">
+    
+    <a href="../../java/classloader/">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    ClassLoader
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.2.1" data-path="../../java/classloader/class.html">
+    
+    <a href="../../java/classloader/class.html">
+        
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    Class的结构
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2.2" data-path="../../java/classloader/classloader-in-jvm.html">
+    
+    <a href="../../java/classloader/classloader-in-jvm.html">
+        
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    ClassLoader的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.3" data-path="../../java/reflection/">
+    
+    <a href="../../java/reflection/">
+        
+                    
+                        <b>1.2.3.</b>
+                    
+                    反射
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    并发编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../functional/">
+    
+    <a href="../functional/">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    纯函数
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../final/">
+    
+    <a href="../final/">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    final/ThreadLocal
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../lock/">
+    
+    <a href="../lock/">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    锁
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1" data-path="../lock/cas/">
+    
+    <a href="../lock/cas/">
+        
+                    
+                        <b>1.3.3.1.</b>
+                    
+                    CAS与AQS
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1.1" data-path="../lock/cas/cas-impl.html">
+    
+    <a href="../lock/cas/cas-impl.html">
+        
+                    
+                        <b>1.3.3.1.1.</b>
+                    
+                    CAS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.2" data-path="../lock/cas/aqs/aqs-impl.html">
+    
+    <a href="../lock/cas/aqs/aqs-impl.html">
+        
+                    
+                        <b>1.3.3.1.2.</b>
+                    
+                    AQS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.3" data-path="../lock/cas/aqs/reentrantlock.html">
+    
+    <a href="../lock/cas/aqs/reentrantlock.html">
+        
+                    
+                        <b>1.3.3.1.3.</b>
+                    
+                    ReentrantLock
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.4" data-path="../lock/cas/aqs/countdownlatch.html">
+    
+    <a href="../lock/cas/aqs/countdownlatch.html">
+        
+                    
+                        <b>1.3.3.1.4.</b>
+                    
+                    CountDownLatch
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.5" data-path="../lock/cas/aqs/read-write-lock.html">
+    
+    <a href="../lock/cas/aqs/read-write-lock.html">
+        
+                    
+                        <b>1.3.3.1.5.</b>
+                    
+                    ReadWriteLock
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.2" data-path="../lock/synchronized/">
+    
+    <a href="../lock/synchronized/">
+        
+                    
+                        <b>1.3.3.2.</b>
+                    
+                    synchronized
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.2.1" data-path="../lock/synchronized/jvm-sync.html">
+    
+    <a href="../lock/synchronized/jvm-sync.html">
+        
+                    
+                        <b>1.3.3.2.1.</b>
+                    
+                    sync的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.4" data-path="../thread/">
+    
+    <a href="../thread/">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    线程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.4.1" data-path="../thread/nativethread.html">
+    
+    <a href="../thread/nativethread.html">
+        
+                    
+                        <b>1.3.4.1.</b>
+                    
+                    NativeThread
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.2" data-path="../thread/jvmthread.html">
+    
+    <a href="../thread/jvmthread.html">
+        
+                    
+                        <b>1.3.4.2.</b>
+                    
+                    JVM线程
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.3" data-path="../thread/threadpool.html">
+    
+    <a href="../thread/threadpool.html">
+        
+                    
+                        <b>1.3.4.3.</b>
+                    
+                    ThreadPool
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.5" data-path="../juc-problems.html">
+    
+    <a href="../juc-problems.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    常见并发问题
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.3.6" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.3.6.</b>
+                    
+                    写时复制
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../../microservice/">
+    
+    <a href="../../microservice/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    微服务中间件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../../microservice/dist-problems.html">
+    
+    <a href="../../microservice/dist-problems.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    分布式问题
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1.1" data-path="../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+    
+    <a href="../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+        
+                    
+                        <b>1.4.1.1.</b>
+                    
+                    事务一致性问题
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../../domain/">
+    
+    <a href="../../domain/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    元编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../../domain/dsl/">
+    
+    <a href="../../domain/dsl/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    DSL
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../../domain/templateengine/">
+    
+    <a href="../../domain/templateengine/">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    模版引擎
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../../domain/bpm/">
+    
+    <a href="../../domain/bpm/">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    BPM
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >写时复制</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x672C;&#x6587;&#x76EE;&#x5F55;</p>
+<ul>
+<li>&#x4EC0;&#x4E48;&#x662F;&#x5199;&#x65F6;&#x590D;&#x5236;</li>
+<li>&#x5199;&#x65F6;&#x590D;&#x5236;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;</li>
+<li>&#x5199;&#x65F6;&#x590D;&#x5236;&#x7684;&#x5B9E;&#x73B0;</li>
+</ul>
+<hr>
+<p>&#x5728;&#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x5BF9;&#x8D44;&#x6E90;&#x7684;&#x51B2;&#x7A81;&#x5904;&#x7406;&#xFF0C;&#x4E00;&#x822C;&#x91C7;&#x7528;&#x4E92;&#x65A5;&#x9501;&#xFF0C;&#x961F;&#x5217;&#x3001;&#x4E0D;&#x53EF;&#x53D8;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x4E0A;&#x9762;&#x7684;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x5728;&#x5F88;&#x591A;&#x4E66;&#x7C4D;&#x4E2D;&#x90FD;&#x6709;&#xFF0C;&#x4E0D;&#x8FC7;&#x4ECA;&#x5929;&#x4ECB;&#x7ECD;&#x7684;&#x662F;&#x4E00;&#x79CD;&#x65B0;&#x7684;&#x65B9;&#x6CD5;--<code>&#x5199;&#x65F6;&#x590D;&#x5236;(Copy-on-write, COW)</code>&#x3002;</p>
+<p>&#x5173;&#x952E;&#x8BCD;: COW,  Copy on write, Redis</p>
+<p>&#x5982;&#x679C;&#x770B;&#x7684;&#x61C2;&#x82F1;&#x6587;&#x5C31;&#x76F4;&#x63A5;&#x770B;&#x8FD9;&#x91CC;&#xFF1A;</p>
+<blockquote>
+<p>Copy on write (COW) is an optimization strategy that avoids copying large sized objects.</p>
+<p>In a lot of real world programs, a value is copied to another variable and often is never written to. In most languages other than C++, all large sized objects are actually references. When you copy an object, all you copy is a pointer (shallow copy semantics). In such languages, COW is implemented at the language/runtime level, and not in the standard library.</p>
+<p>In C++, copies are deep copies by default (value semantics), thus assigning large structures and strings are expensive, because the entire data is duplicated.</p>
+<p>To avoid this, one can make a system where a copy is always shallow, but when you modify a copied object, the underlying object is duplicated, and then the changes are applied to the new copy. </p>
+</blockquote>
+<p>&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;COW&#x901A;&#x8FC7;&#x6D45;&#x62F7;&#x8D1D;(shallow copy)&#x53EA;&#x590D;&#x5236;&#x5F15;&#x7528;&#x800C;&#x907F;&#x514D;&#x590D;&#x5236;&#x503C;&#xFF1B;&#x5F53;&#x7684;&#x786E;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x9996;&#x5148;&#x8FDB;&#x884C;&#x503C;&#x62F7;&#x8D1D;&#xFF0C;&#x518D;&#x5BF9;&#x62F7;&#x8D1D;&#x540E;&#x7684;&#x503C;&#x6267;&#x884C;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x6837;&#x51CF;&#x5C11;&#x4E86;&#x65E0;&#x8C13;&#x7684;&#x590D;&#x5236;&#x8017;&#x65F6;&#x3002;</p>
+<p>&#x7279;&#x70B9;&#x5982;&#x4E0B;</p>
+<ul>
+<li>&#x8BFB;&#x53D6;&#x5B89;&#x5168;&#xFF08;&#x4F46;&#x662F;&#x4E0D;&#x4FDD;&#x8BC1;&#x7F13;&#x5B58;&#x4E00;&#x81F4;&#x6027;&#xFF09;&#xFF0C;&#x5199;&#x5165;&#x5B89;&#x5168;&#xFF08;&#x4EE3;&#x4EF7;&#x662F;&#x52A0;&#x4E86;&#x9501;&#xFF0C;&#x800C;&#x4E14;&#x9700;&#x8981;&#x5168;&#x91CF;&#x590D;&#x5236;&#xFF09;</li>
+<li>&#x4E0D;&#x5EFA;&#x8BAE;&#x7528;&#x4E8E;&#x9891;&#x7E41;&#x8BFB;&#x5199;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x5168;&#x91CF;&#x590D;&#x5236;&#x5F88;&#x5BB9;&#x6613;&#x9020;&#x6210;GC&#x505C;&#x987F;&#xFF0C;&#x56E0;&#x6B64;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x5E73;&#x65F6;&#x7684;ConcurrentXX&#x5305;&#x6765;&#x5B9E;&#x73B0;&#x3002;</li>
+<li>&#x9002;&#x7528;&#x4E8E;&#x5BF9;&#x8C61;&#x7A7A;&#x95F4;&#x5360;&#x7528;&#x5927;&#xFF0C;&#x4FEE;&#x6539;&#x6B21;&#x6570;&#x5C11;&#xFF0C;&#x800C;&#x4E14;&#x5BF9;&#x6570;&#x636E;&#x5B9E;&#x6548;&#x6027;&#x8981;&#x6C42;&#x4E0D;&#x9AD8;&#x7684;&#x573A;&#x666F;&#x3002;</li>
+</ul>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x7684;&#x5B89;&#x5168;&#x6307;&#x5728;&#x8FDB;&#x884C;&#x8BFB;&#x53D6;&#x6216;&#x8005;&#x5199;&#x5165;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6570;&#x636E;&#x4E0D;&#x88AB;&#x4FEE;&#x6539;&#x3002;</p>
+</blockquote>
+<h2 id="&#x5199;&#x65F6;&#x590D;&#x5236;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;">&#x5199;&#x65F6;&#x590D;&#x5236;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;</h2>
+<p>&#x5199;&#x65F6;&#x590D;&#x5236;&#x6700;&#x64C5;&#x957F;&#x7684;&#x662F;&#x5E76;&#x53D1;&#x8BFB;&#x53D6;&#x573A;&#x666F;&#xFF0C;&#x5373;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;/&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BF9;&#x4E00;&#x4EFD;&#x76F8;&#x540C;&#x5FEB;&#x7167;&#xFF0C;&#x53BB;&#x5904;&#x7406;&#x5B9E;&#x6548;&#x6027;&#x8981;&#x6C42;&#x4E0D;&#x662F;&#x5F88;&#x9AD8;&#x4F46;&#x662F;&#x4ECD;&#x7136;&#x8981;&#x505A;&#x7684;&#x4E1A;&#x52A1;&#xFF08;&#x6BD4;&#x5982;&#x5B9E;&#x73B0;FS\DB&#x5907;&#x4EFD;&#x3001;&#x65E5;&#x5FD7;&#x3001;&#x5206;&#x5E03;&#x5F0F;&#x8DEF;&#x7531;&#xFF09;&#xFF0C;&#x4E3E;&#x4F8B;&#x5982;&#x4E0B;&#x3002;</p>
+<h3 id="1-unix&#x4E0B;&#x7684;fork&#x7CFB;&#x7EDF;&#x8C03;&#x7528;">1. Unix&#x4E0B;&#x7684;fork()&#x7CFB;&#x7EDF;&#x8C03;&#x7528;</h3>
+<p>fork()&#x662F;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x8FDB;&#x7A0B;(process)&#x3002;</p>
+<blockquote>
+<p>fork() creates a new process by duplicating the calling process. The new process, referred to as the child, is an exact duplicate of the calling process, referred to as the parent.</p>
+</blockquote>
+<p>&#x5728;&#x4EE5;&#x524D;&#x7684;&#x6587;&#x7AE0;&#x4E2D;&#x8BF4;&#x8FC7;&#xFF0C;fork&#x5185;&#x90E8;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x5BF9;clone()&#x7CFB;&#x7EDF;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x5B83;&#x7684;&#x53C2;&#x6570;<code>CLONE_FLAG</code>&#x51B3;&#x5B9A;&#x4E86;&#x9700;&#x8981;&#x5171;&#x4EAB;&#x54EA;&#x4E9B;&#x6570;&#x636E;&#x3002;&#x5728;fork&#x4E2D;&#xFF0C;&#x6CA1;&#x6709;<code>CLONE_VM</code>&#x53C2;&#x6570;&#xFF0C;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x4F1A;&#x5171;&#x4EAB;\&#x7ADE;&#x4E89;&#x540C;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#xFF0C;&#x800C;&#x662F;&#x590D;&#x5236;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x5FEB;&#x7167;&#x7ED9;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x5185;&#x5B58;&#x5728;32&#x4F4D;&#x4E0B;&#x662F;4G&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5360;&#x7528;&#x7A7A;&#x95F4;&#x76F8;&#x5F53;&#x7684;&#x5927;&#xFF0C;&#x5982;&#x679C;&#x901A;&#x8FC7;&#x7C7B;&#x4F3C;memcpy&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x590D;&#x5236;&#x7684;&#x8BDD;&#xFF0C;fork&#x8C03;&#x7528;&#x7684;&#x8017;&#x65F6;&#x5C06;&#x76F8;&#x5F53;&#x663E;&#x8457;&#xFF0C;&#x751A;&#x81F3;&#x963B;&#x585E;&#x4E1A;&#x52A1;&#xFF0C;&#x90A3;&#x4E48;&#x4E3A;&#x4EC0;&#x4E48;&#x5728;&#x771F;&#x6B63;&#x5F00;&#x53D1;&#x8C03;&#x7528;&#x65F6;&#x5374;&#x6CA1;&#x6709;&#x53D1;&#x751F;&#x5462;&#xFF1F;&#x56E0;&#x4E3A;&#x5185;&#x90E8;&#x4E5F;&#x662F;&#x901A;&#x8FC7;COW&#x673A;&#x5236;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<p>&#x5185;&#x6838;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<p>&#x5728;&#x5185;&#x6838;&#x4FA7;&#xFF0C;&#x5728;&#x8FDB;&#x884C;&#x4E86;&#x5185;&#x5B58;&#x201C;&#x590D;&#x5236;&#x201D;&#x540E;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x4E0E;&#x7236;&#x8FDB;&#x7A0B;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x53EA;&#x8BFB;&#x7684;Page&#x5206;&#x9875;&#x3002;&#x5F53;&#x5B50;&#x8FDB;&#x7A0B;&#x6216;&#x8005;&#x7236;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;&#x4FEE;&#x6539;&#x5185;&#x5B58;&#x8BF7;&#x6C42;&#x540E;&#xFF0C;&#x7531;&#x4E8E;&#x662F;&#x5206;&#x9875;&#x662F;&#x53EA;&#x8BFB;&#x7684;&#xFF0C;OS&#x6B64;&#x65F6;&#x624D;&#x5C06;&#x5185;&#x5B58;&#x8FDB;&#x884C;&#x590D;&#x5236;&#x4E3A;&#x4E24;&#x4EFD;&#xFF0C;&#x5E76;&#x5C06;&#x8FD9;&#x4E24;&#x4EFD;&#x5185;&#x5B58;&#x8BBE;&#x7F6E;&#x4E3A;&#x53EF;&#x5199;&#x6743;&#x9650;&#xFF0C;&#x6700;&#x540E;&#x518D;&#x5904;&#x7406;&#x521A;&#x521A;&#x53D1;&#x9001;&#x7684;&#x4FEE;&#x6539;&#x5185;&#x5B58;&#x8BF7;&#x6C42;&#x3002;&#x901A;&#x8FC7;&#x4E0A;&#x8FF0;&#x7B56;&#x7565;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x5EF6;&#x8FDF;&#x590D;&#x5236;&#xFF0C;&#x8FDB;&#x7A0B;&#x7684;&#x521B;&#x5EFA;&#x662F;&#x4E0D;&#x662F;&#x53D8;&#x5FEB;&#x4E86;&#xFF1F;</p>
+<h4 id="2-redis&#x7684;&#x6301;&#x4E45;&#x5316;">2. Redis&#x7684;&#x6301;&#x4E45;&#x5316;</h4>
+<p>Redis&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;KV&#x7684;MemCache&#x6846;&#x67B6;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x6570;&#x636E;&#x5168;&#x90E8;&#x5B58;&#x50A8;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x7279;&#x522B;&#x9002;&#x7528;&#x4E8E;&#x62A2;&#x8D2D;&#x3001;&#x7EA2;&#x5305;&#x7B49;&#x9AD8;&#x5E76;&#x53D1;&#x573A;&#x666F;&#xFF0C;&#x5F53;&#x4F60;&#x5E0C;&#x671B;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5168;&#x91CF;Dump(bgsave)&#x5230;&#x6587;&#x4EF6;&#x4E2D;&#x6216;&#x8005;&#x8FDB;&#x884C;&#x4E3B;&#x4ECE;&#x540C;&#x6B65;&#x65F6;&#xFF0C;&#x5C06;&#x8FDB;&#x884C;<a href="https://github.com/antirez/redis/blob/0a628e51025c4307c70cb00094dff9cdd1732f31/src/rdb.c#L996" target="_blank">&#x4E0B;&#x9762;</a>&#x7684;&#x6B65;&#x9AA4;&#x3002;</p>
+<ul>
+<li>Redis forks. We now have a child and a parent process.</li>
+<li>The child starts to write the dataset to a temporary RDB file.</li>
+<li>When the child is done writing the new RDB file, it replaces the old one.</li>
+</ul>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;Redis&#x901A;&#x8FC7;fork()&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5B9E;&#x73B0;&#x4E86;&#x5199;&#x65F6;&#x590D;&#x5236;&#xFF0C;&#x800C;&#x6CA1;&#x6709;&#x81EA;&#x5DF1;&#x53BB;&#x9020;&#x8F6E;&#x5B50;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">rdbSaveBackground</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *filename)</span> </span>{
+    <span class="hljs-keyword">pid_t</span> childpid;
+    <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> start;
+
+    <span class="hljs-keyword">if</span> (server.aof_child_pid != <span class="hljs-number">-1</span> || server.rdb_child_pid != <span class="hljs-number">-1</span>) <span class="hljs-keyword">return</span> C_ERR;
+
+    server.dirty_before_bgsave = server.dirty;
+    server.lastbgsave_try = time(<span class="hljs-literal">NULL</span>);
+
+    start = ustime();
+    <span class="hljs-comment">//&#x6307;&#x5411;&#x5B50;&#x7EBF;&#x7A0B;&#x7684;pid&#x5982;&#x679C;&#x4E3A;0&#xFF0C;&#x8868;&#x793A;fork&#x6210;&#x529F;&#xFF0C;&#x4E3A;&#x6B63;&#x8868;&#x793A;&#x4E3A;parent&#x7EBF;&#x7A0B;</span>
+    <span class="hljs-keyword">if</span> ((childpid = fork()) == <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">int</span> retval;
+
+        <span class="hljs-comment">/* Child&#x8FDB;&#x7A0B;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801; */</span>
+        closeListeningSockets(<span class="hljs-number">0</span>);
+        redisSetProcTitle(<span class="hljs-string">&quot;redis-rdb-bgsave&quot;</span>);
+        retval = rdbSave(filename);
+        <span class="hljs-keyword">if</span> (retval == C_OK) {
+            <span class="hljs-keyword">size_t</span> private_dirty = zmalloc_get_private_dirty();
+
+            <span class="hljs-keyword">if</span> (private_dirty) {
+                serverLog(LL_NOTICE,
+                    <span class="hljs-string">&quot;RDB: %zu MB of memory used by copy-on-write&quot;</span>,
+                    private_dirty/(<span class="hljs-number">1024</span>*<span class="hljs-number">1024</span>));
+            }
+        }
+        exitFromChild((retval == C_OK) ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">/* Parent */</span>
+        ...
+        <span class="hljs-keyword">return</span> C_OK;
+    }
+    <span class="hljs-keyword">return</span> C_OK; <span class="hljs-comment">/* unreached */</span>
+}
+</code></pre>
+<p>&#x5728;rdbSave&#x4E2D;(&#x76EE;&#x524D;&#x5DF2;&#x7ECF;&#x4E3A;&#x5B50;&#x7EBF;&#x7A0B;&#x4E2D;)&#xFF0C;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF0C;&#x4EE3;&#x7801;&#x592A;&#x957F;&#x5C31;&#x4E0D;&#x8D34;&#x4E86;</p>
+<ol>
+<li>&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;<code>temp-${getPid()}.rdb</code>&#x7684;&#x6587;&#x4EF6;</li>
+<li>&#x8C03;&#x7528;<code>rioInitWithFile(rio *r, FILE *tmp)</code>&#xFF0C;&#x5C06;<code>r</code>&#x521D;&#x59CB;&#x5316;&#x4E3A;<code>rioBufferIO</code></li>
+<li>&#x5BF9;&#x5168;&#x5C40;&#x53D8;&#x91CF;<code>server</code>&#x8FDB;&#x884C;forEach&#x53CD;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x5E76;&#x4FDD;&#x6301;&#x5230;&#x7F13;&#x5B58;r&#x4E2D;&#xFF0C;&#x5E76;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;Server&#x6307;&#x9488;&#x5DF2;&#x7ECF;&#x4E0E;&#x7236;&#x8FDB;&#x7A0B;&#x65E0;&#x5173;&#x4E86;</li>
+<li>&#x8FDB;&#x884C;fflush&#x3001;fsync&#x3001;fclose&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x6E05;&#x9664;OS&#x7684;FS&#x7F13;&#x5B58;&#xFF08;&#x8FD9;&#x4E5F;&#x662F;OS&#x5185;&#x90E8;&#x7684;COW&#x4F18;&#x5316;&#xFF09;</li>
+<li>&#x8FDB;&#x884C;<code>rename</code>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x8FDB;&#x884C;&#x91CD;&#x547D;&#x540D;</li>
+</ol>
+<blockquote>
+<p> &#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x90FD;&#x662F;&#x9ED8;&#x8BA4;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#x591A;&#x6B21;&#x91CD;&#x547D;&#x540D;&#x7B49;&#x95EE;&#x9898;</p>
+</blockquote>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5728;Redis&#x4E2D;&#x6CA1;&#x6709;memcpy&#x7B49;&#x5185;&#x5B58;&#x590D;&#x5236;&#x8FC7;&#x7A0B;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x4F7F;&#x7528;server&#x6307;&#x9488;&#x8FDB;&#x884C;&#x8BFB;&#x53D6;&#x5E76;&#x5199;&#x5165;&#x6587;&#x4EF6;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;fork&#x65F6;&#xFF0C;&#x5DF2;&#x7ECF;duplicated&#x4E86;&#x5FEB;&#x7167;&#x3002;</p>
+<h2 id="&#x5199;&#x65F6;&#x590D;&#x5236;&#x7684;&#x5B9E;&#x73B0;">&#x5199;&#x65F6;&#x590D;&#x5236;&#x7684;&#x5B9E;&#x73B0;</h2>
+<p>&#x4EE5;Java&#x4E3A;&#x4F8B;&#xFF0C;&#x5728;CopyOnWriteArrayList&#x4E2D;&#xFF0C;&#x5199;&#x6570;&#x636E;&#x5728;&#x9501;&#x7684;&#x4FDD;&#x62A4;&#x4E0B;&#xFF0C;&#x800C;&#x8BFB;&#x53D6;&#x53EF;&#x4EE5;&#x4EFB;&#x610F;&#x8FDB;&#x884C;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">transient</span> <span class="hljs-keyword">volatile</span> Object[] array;
+
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(E e)</span> </span>{
+    <span class="hljs-keyword">final</span> ReentrantLock lock = <span class="hljs-keyword">this</span>.lock;
+    lock.lock();
+    <span class="hljs-keyword">try</span> {
+        Object[] elements = getArray();
+        <span class="hljs-keyword">int</span> len = elements.length;
+        <span class="hljs-comment">//&#x7C7B;&#x4F3C;&#x4E8E;memcpy&#xFF0C;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;</span>
+        Object[] newElements = Arrays.copyOf(elements, len + <span class="hljs-number">1</span>);
+        newElements[len] = e;
+        <span class="hljs-comment">//&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x5F15;&#x7528;</span>
+        setArray(newElements);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    } <span class="hljs-keyword">finally</span> {
+        lock.unlock();
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>{
+    <span class="hljs-comment">//&#x83B7;&#x53D6;&#x5230;&#x7684;&#x6570;&#x636E;&#x6CA1;&#x6709;&#x5B9E;&#x6548;&#x6027;</span>
+    <span class="hljs-keyword">return</span> get(getArray(), index);
+}
+
+<span class="hljs-keyword">final</span> Object[] getArray() {
+        <span class="hljs-keyword">return</span> array;
+}
+</code></pre>
+<h2 id="&#x5176;&#x5B83;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x6DF1;&#x5165;&#x4E86;&#x89E3;&#x7684;&#x6280;&#x80FD;">&#x5176;&#x5B83;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x6DF1;&#x5165;&#x4E86;&#x89E3;&#x7684;&#x6280;&#x80FD;</h2>
+<h5 id="1-&#x5982;&#x4F55;&#x5B9E;&#x73B0;stringmap&#x7684;&#x5199;&#x65F6;&#x590D;&#x5236;&#xFF1F;">1. &#x5982;&#x4F55;&#x5B9E;&#x73B0;String\Map&#x7684;&#x5199;&#x65F6;&#x590D;&#x5236;&#xFF1F;</h5>
+<p>&#x8FD9;&#x4E2A;&#x4E00;&#x822C;&#x53EA;&#x5728;&#x7CDF;&#x7CD5;&#x7684;&#x9762;&#x8BD5;&#x9898;&#x4E2D;&#x51FA;&#x73B0;&#xFF0C;&#x56E0;&#x4E3A;&#x5199;&#x65F6;&#x590D;&#x5236;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x5927;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x5927;&#x578B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3001;Map&#x5374;&#x5F88;&#x5C11;&#x89C1;&#x5230;&#x573A;&#x666F;(&#x5982;&#x679C;&#x8BF4;&#x975E;&#x8981;&#x6765;&#x4E00;&#x4E2A;&#x573A;&#x666F;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x662F;Zookeeper&#x4E2D;&#x8BFB;&#x53D6;&#x670D;&#x52A1;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x4E00;&#x4E2A;Map<string,class>&#x6765;&#x5B9E;&#x73B0;)&#x3002;&#x5728;C++&#x4E2D;&#xFF0C;&#x5199;&#x65F6;&#x590D;&#x5236;&#x7684;String&#x5DF2;&#x7ECF;&#x88AB;&#x5E9F;&#x5F03;&#xFF0C;&#x5E76;&#x4E14;Redis&#x4E2D;&#x8BBE;&#x8BA1;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x53EF;&#x4EE5;&#x66F4;&#x52A0;&#x4F18;&#x96C5;&#x5730;&#x6269;&#x5BB9;&#xFF0C;&#x5728;Java&#x4E2D;&#xFF0C;&#x5404;&#x7C7B;&#x5E76;&#x53D1;&#x5E93;&#x5DF2;&#x7ECF;&#x5F88;&#x6210;&#x719F;&#xFF0C;&#x5199;&#x65F6;&#x590D;&#x5236;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x5B89;&#x5168;&#x8FED;&#x4EE3;&#xFF0C;&#x800C;&#x6CA1;&#x6709;String&#x6216;&#x8005;Map&#x7684;&#x9700;&#x6C42;&#x3002;</string,class></p>
+<p>&#x5982;&#x679C;&#x975E;&#x8981;&#x8BA9;&#x4F60;&#x5199;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5904;&#x7406;:</p>
+<ul>
+<li>&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3001;&#x5199;&#x5165;&#x51FD;&#x6570;&#x4E2D;&#x5B9E;&#x73B0;&#x6DF1;&#x62F7;&#x8D1D;&#xFF0C;&#x5E76;&#x52A0;&#x9501;&#xFF0C;&#x6BD4;&#x5982;put&#x4E2D;&#x5C31;&#x518D;&#x5305;&#x88C5;&#x4E00;&#x9053;HashMap&#x3002;</li>
+<li>&#x5728;getter&#x51FD;&#x6570;&#xFF0C;&#x5B9E;&#x73B0;&#x65E0;&#x9501;&#x76F4;&#x63A5;&#x83B7;&#x53D6;&#x3002;</li>
+</ul>
+<h5 id="2-concurrenthashxxx&#x4E0E;copyonwritexxx&#x7684;&#x5BF9;&#x6BD4;&#xFF1F;">2. ConcurrentHashXXX&#x4E0E;CopyOnWriteXXX&#x7684;&#x5BF9;&#x6BD4;&#xFF1F;</h5>
+<p>&#x4E00;&#x4E2A;&#x9002;&#x7528;&#x4E8E;&#x5199;&#x5165;&#x91CF;&#x5927;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x4E00;&#x4E2A;&#x9002;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x91CF;&#x5927;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x5173;&#x7CFB;&#x5982;&#x4E0B;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">Normal</th>
+<th style="text-align:left">Concurrent</th>
+<th style="text-align:left">COW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Read</td>
+<td style="text-align:left">Unsafe</td>
+<td style="text-align:left">Safe</td>
+<td style="text-align:left">Safe, may dirtyData</td>
+</tr>
+<tr>
+<td style="text-align:left">Write</td>
+<td style="text-align:left">Unsafe</td>
+<td style="text-align:left">Safe</td>
+<td style="text-align:left">Safe, may slowest</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ref">Ref</h2>
+<ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%AF%AB%E5%85%A5%E6%99%82%E8%A4%87%E8%A3%BD" target="_blank">https://zh.wikipedia.org/wiki/%E5%AF%AB%E5%85%A5%E6%99%82%E8%A4%87%E8%A3%BD</a></li>
+<li><a href="http://ifeve.com/java-copy-on-write/" target="_blank">http://ifeve.com/java-copy-on-write/</a></li>
+<li><a href="http://www.ibm.com/developerworks/tivoli/library/t-snaptsm1/" target="_blank">http://www.ibm.com/developerworks/tivoli/library/t-snaptsm1/</a></li>
+<li><a href="http://blog.csdn.net/jason314/article/details/5640969" target="_blank">http://blog.csdn.net/jason314/article/details/5640969</a></li>
+<li><a href="https://www.reddit.com/r/compsci/comments/31szui/trying_to_understand_fork_and_copyonwrite_cow/" target="_blank">https://www.reddit.com/r/compsci/comments/31szui/trying_to_understand_fork_and_copyonwrite_cow/</a></li>
+<li><a href="http://stackoverflow.com/questions/1570589/is-the-volatile-keyword-required-for-fields-accessed-via-a-reentrantlock" target="_blank">http://stackoverflow.com/questions/1570589/is-the-volatile-keyword-required-for-fields-accessed-via-a-reentrantlock</a></li>
+<li><a href="https://www.quora.com/What-is-Copy-on-Write-and-how-is-it-used-in-C++" target="_blank">https://www.quora.com/What-is-Copy-on-Write-and-how-is-it-used-in-C++</a></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../juc-problems.html" class="navigation navigation-prev " aria-label="Previous page: 常见并发问题">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../microservice/" class="navigation navigation-next " aria-label="Next page: 微服务中间件">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"写时复制","categories":["数据结构"],"level":"1.3.6","depth":2,"next":{"title":"微服务中间件","level":"1.4","depth":1,"path":"microservice/README.md","ref":"microservice/README.md","articles":[{"title":"分布式问题","level":"1.4.1","depth":2,"path":"microservice/dist-problems.md","ref":"microservice/dist-problems.md","articles":[{"title":"事务一致性问题","level":"1.4.1.1","depth":3,"path":"microservice/chang-jian-zhong-jian-jian-wen-ti.md","ref":"microservice/chang-jian-zhong-jian-jian-wen-ti.md","articles":[]}]}]},"previous":{"title":"常见并发问题","level":"1.3.5","depth":2,"path":"juc/juc-problems.md","ref":"juc/juc-problems.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/java/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"juc/cow/README.md","mtime":"2021-03-04T11:49:55.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:54.413Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

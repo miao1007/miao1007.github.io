@@ -1,0 +1,523 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Ribbon与负载均衡 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sleuth-log-collector.html" />
+    
+    
+    <link rel="prev" href="feign.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../introduce/">
+    
+    <a href="../introduce/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Eureka简介
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../client/">
+    
+    <a href="../client/">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    Eureka客户端
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../client/eureka-client-springboot.html">
+    
+    <a href="../client/eureka-client-springboot.html">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    EurekaClient与SpringBoot
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../client/eureka-client-rpc.html">
+    
+    <a href="../client/eureka-client-rpc.html">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    EurekaClient的RPC流程与心跳
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../client/eureka-client-without-spring-boot.html">
+    
+    <a href="../client/eureka-client-without-spring-boot.html">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    Eureka集成遗留项目
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4" data-path="../client/generate-stub-by-swagger.html">
+    
+    <a href="../client/generate-stub-by-swagger.html">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    使用Swagger生成Feign桩
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.5" data-path="../client/eureka-client-with-quartz.html">
+    
+    <a href="../client/eureka-client-with-quartz.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    基于Eureka的分布式定时任务
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../server/">
+    
+    <a href="../server/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Eureka服务端
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../server/eureka-server-naming.html">
+    
+    <a href="../server/eureka-server-naming.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    命名服务
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="../server/replicate.html">
+    
+    <a href="../server/replicate.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    Replicate
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    第三方组件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="feign.html">
+    
+    <a href="feign.html">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    Feign简介与Spring代理自动注入
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.5.2" data-path="ribbon.html">
+    
+    <a href="ribbon.html">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    Ribbon与负载均衡
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="sleuth-log-collector.html">
+    
+    <a href="sleuth-log-collector.html">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    Sleuth与日志收集
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    
+    <li class="divider"></li>
+    
+    
+
+<li class="chapter " data-level="2.1" data-path="../other/reference.html">
+    
+    <a href="../other/reference.html">
+        
+                    
+                        <b>2.1.</b>
+                    
+                    参考文献与Wiki
+            
+        </a>
+        
+
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Ribbon与负载均衡</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="ribbon&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;load-balance">Ribbon&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;Load balance</h1>
+<h2 id="qualifications-before-read">Qualifications Before Read</h2>
+<ul>
+<li>Experience in RxJava/Promise</li>
+<li>Experience in Feign/Retrofit&apos; inteceptor</li>
+<li>Familiarity with debug tools</li>
+</ul>
+<h2 id="springcloud&#x5C42;&#x5206;&#x6790;">SpringCloud&#x5C42;&#x5206;&#x6790;</h2>
+<p>&#x6211;&#x4EEC;&#x57FA;&#x4E8E;&#x62E6;&#x622A;&#x5668;&#x673A;&#x5236;&#x5E76;&#x76F4;&#x63A5;&#x8FDB;&#x5165;&#x5230;&#x4E86;&#x5982;&#x4E0B;&#x4F4D;&#x7F6E;</p>
+<pre><code class="lang-java">org.springframework.cloud.netflix.feign.ribbon.LoadBalancerFeignClient
+</code></pre>
+<p>&#x6700;&#x7EC8;&#x5B9E;&#x73B0;&#x7C7B;&#x662F;</p>
+<pre><code class="lang-java">com.netflix.client.AbstractLoadBalancerAwareClient#executeWithLoadBalancer
+</code></pre>
+<p>&#x5982;&#x4E0B;&#xFF0C;&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x4E8E;NodeJS/Netty&#x4E2D;&#x7684;<code>await Promise</code>&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x57FA;&#x4E8E;&#x4E8B;&#x4EF6;&#x961F;&#x5217;&#x7684;&#x5B9E;&#x73B0;&#x673A;&#x5236;&#xFF0C;&#x8FD9;&#x7C7B;&#x4EE3;&#x7801;&#x7684;&#x7279;&#x70B9;&#x5C31;&#x662F;&#x5199;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x723D;&#xFF0C;&#x8BFB;&#x8D77;&#x6765;&#x9700;&#x8981;&#x4E00;&#x5B9A;&#x9605;&#x8BFB;&#x91CF;&#xFF08;&#x5982;&#x679C;&#x9605;&#x8BFB;RxJava&#x56F0;&#x96BE;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x5B66;&#x4E60;&#x524D;&#x7AEF;&#x7684;Promise&#x52A0;&#x901F;&#x7406;&#x89E3;&#xFF09;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x8282;&#x7EA6;&#x7248;&#x9762;&#xFF0C;&#x6211;&#x5C06;&#x6240;&#x6709;&#x7684;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x5168;&#x90E8;&#x53BB;&#x6389;&#x4E86;&#xFF0C;&#x4EE3;&#x7801;&#x6838;&#x5FC3;&#x5728;submit&#x4E2D;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x67EF;&#x91CC;&#x5316;</p>
+<pre><code class="lang-java">LoadBalancerCommand&lt;T&gt; command = buildLoadBalancerCommand(request, requestConfig);
+<span class="hljs-comment">// &#x63D0;&#x4EA4;&#x540E;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;Promise&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x7ACB;&#x523B;&#x83B7;&#x53D6;&#x5230;</span>
+<span class="hljs-keyword">return</span> command.submit(
+    <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x7684;&#x5165;&#x53C2;&#x662F;&#x4E00;&#x4E2A;Operation&#x63A5;&#x53E3;&#xFF0C;&#x521D;&#x5B66;&#x8005;&#x53EF;&#x80FD;&#x770B;&#x4E0D;&#x61C2;&#x4EE3;&#x7801;&#x662F;&#x600E;&#x4E48;&#x6765;&#x56DE;&#x8DF3;&#x8F6C;&#x7684;</span>
+    <span class="hljs-comment">// &#x5B9E;&#x9645;&#x4E0A;&#x5B83;&#x672C;&#x8D28;&#x662F;&#x67EF;&#x91CC;&#x5316;&#xFF08;Currying&#xFF09;&#xFF0C;&#x7528;Interface&#x6A21;&#x62DF;&#x51FD;&#x6570;</span>
+    <span class="hljs-keyword">new</span> ServerOperation&lt;T&gt;() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> Observable&lt;T&gt; <span class="hljs-title">call</span><span class="hljs-params">(Server server)</span> </span>{
+            <span class="hljs-comment">// &#x6B64;&#x5904;&#x7684;Server&#x5DF2;&#x7ECF;&#x662F;**&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x540E;**&#x7684;&#x4E86;&#xFF0C;&#x540E;&#x9762;&#x8BF7;&#x6C42;&#x4E3A;&#x539F;&#x751F;HTTP&#x8BF7;&#x6C42;</span>
+            URI finalUri = reconstructURIWithServer(server, request.getUri());
+            S requestForServer = (S) request.replaceUri(finalUri);
+            <span class="hljs-keyword">return</span> Observable
+                .just(AbstractLoadBalancerAwareClient.<span class="hljs-keyword">this</span>.execute(requestForServer, requestConfig));
+        }
+    })
+    <span class="hljs-comment">// &#x7C7B;&#x4F3C;&#x4E8E;&#x524D;&#x7AEF;&#x7684;await&#xFF0C;&#x5728;Java&#x4E2D;&#x7528;CountDownLatch&#x5B9E;&#x73B0;</span>
+    .toBlocking()
+    .single();
+</code></pre>
+<p>&#x6574;&#x7406;&#x540E;&#xFF0C;&#x83B7;&#x53D6;&#x5355;&#x4E2A;Server&#x7684;&#x5173;&#x952E;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF0C;&#x4E3B;&#x8981;&#x5728;submit&#x4E2D;&#x8FD9;&#x4E00;&#x884C;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// &#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;&#x670D;&#x52A1;&#x5217;&#x8868;xml&#xFF0C;&#x5E76;&#x7F13;&#x5B58;&#x5230;&#x672C;&#x5730;</span>
+Server server = loadBalancerContext.getServerFromLoadBalancer(loadBalancerURI, loadBalancerKey);
+</code></pre>
+<p>&#x672C;&#x4EBA;&#x4E0D;&#x4F1A;&#x5168;&#x5C4F;&#x8D34;&#x4EE3;&#x7801;&#x4F9B;&#x8BFB;&#x8005;&#x53C2;&#x8003;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x8DF3;&#x8F6C;&#x5206;&#x6790;&#x6280;&#x5DE7;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x591A;&#x7EC3;&#x4E60;</p>
+<hr>
+<h2 id="iloadbalancer&#x5206;&#x6790;">ILoadBalancer&#x5206;&#x6790;</h2>
+<p>&#x5728;Ribbon&#x4E2D;&#xFF0C;&#x8BF7;&#x6C42;&#x5173;&#x952E;&#x4F2A;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMTkwcHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDozNThweDtoZWlnaHQ6MTkwcHg7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzNTggMTkwIiB3aWR0aD0iMzU4cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzPjxmaWx0ZXIgaGVpZ2h0PSIzMDAlIiBpZD0iZjE0dzNpanltanQ3dGUiIHdpZHRoPSIzMDAlIiB4PSItMSIgeT0iLTEiPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImJsdXJPdXQiIHN0ZERldmlhdGlvbj0iMi4wIi8+PGZlQ29sb3JNYXRyaXggaW49ImJsdXJPdXQiIHJlc3VsdD0iYmx1ck91dDIiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAuNCAwIi8+PGZlT2Zmc2V0IGR4PSI0LjAiIGR5PSI0LjAiIGluPSJibHVyT3V0MiIgcmVzdWx0PSJibHVyT3V0MyIvPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXJPdXQzIiBtb2RlPSJub3JtYWwiLz48L2ZpbHRlcj48L2RlZnM+PGc+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7c3Ryb2tlLWRhc2hhcnJheTo1LjAsNS4wOyIgeDE9IjE4IiB4Mj0iMTgiIHkxPSI0MC4yOTY5IiB5Mj0iMTQ3LjY5NTMiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDtzdHJva2UtZGFzaGFycmF5OjUuMCw1LjA7IiB4MT0iMTQ5IiB4Mj0iMTQ5IiB5MT0iNDAuMjk2OSIgeTI9IjE0Ny42OTUzIi8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7c3Ryb2tlLWRhc2hhcnJheTo1LjAsNS4wOyIgeDE9IjI2MC41IiB4Mj0iMjYwLjUiIHkxPSI0MC4yOTY5IiB5Mj0iMTQ3LjY5NTMiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDtzdHJva2UtZGFzaGFycmF5OjUuMCw1LjA7IiB4MT0iMzE1LjUiIHgyPSIzMTUuNSIgeTE9IjQwLjI5NjkiIHkyPSIxNDcuNjk1MyIvPjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMTR3M2lqeW1qdDd0ZSkiIGhlaWdodD0iMzAuMjk2OSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMjIiIHg9IjUiIHk9IjUiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI4IiB4PSIxMiIgeT0iMjQuOTk1MSI+YTwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjE0dzNpanltanQ3dGUpIiBoZWlnaHQ9IjMwLjI5NjkiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjIyIiB4PSI1IiB5PSIxNDYuNjk1MyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjgiIHg9IjEyIiB5PSIxNjYuNjkwNCI+YTwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjE0dzNpanltanQ3dGUpIiBoZWlnaHQ9IjMwLjI5NjkiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjI0IiB4PSIxMzUiIHk9IjUiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMCIgeD0iMTQyIiB5PSIyNC45OTUxIj5iPC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMTR3M2lqeW1qdDd0ZSkiIGhlaWdodD0iMzAuMjk2OSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMjQiIHg9IjEzNSIgeT0iMTQ2LjY5NTMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIxMCIgeD0iMTQyIiB5PSIxNjYuNjkwNCI+YjwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjE0dzNpanltanQ3dGUpIiBoZWlnaHQ9IjMwLjI5NjkiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjIxIiB4PSIyNDguNSIgeT0iNSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjciIHg9IjI1NS41IiB5PSIyNC45OTUxIj5zPC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMTR3M2lqeW1qdDd0ZSkiIGhlaWdodD0iMzAuMjk2OSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iMjEiIHg9IjI0OC41IiB5PSIxNDYuNjk1MyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjciIHg9IjI1NS41IiB5PSIxNjYuNjkwNCI+czwvdGV4dD48cmVjdCBmaWxsPSIjRkVGRUNFIiBmaWx0ZXI9InVybCgjZjE0dzNpanltanQ3dGUpIiBoZWlnaHQ9IjMwLjI5NjkiIHN0eWxlPSJzdHJva2U6I0E4MDAzNjtzdHJva2Utd2lkdGg6MS41OyIgd2lkdGg9IjYxIiB4PSIyODMuNSIgeT0iNSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQ3IiB4PSIyOTAuNSIgeT0iMjQuOTk1MSI+U2VydmVyPC90ZXh0PjxyZWN0IGZpbGw9IiNGRUZFQ0UiIGZpbHRlcj0idXJsKCNmMTR3M2lqeW1qdDd0ZSkiIGhlaWdodD0iMzAuMjk2OSIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjU7IiB3aWR0aD0iNjEiIHg9IjI4My41IiB5PSIxNDYuNjk1MyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjQ3IiB4PSIyOTAuNSIgeT0iMTY2LjY5MDQiPlNlcnZlcjwvdGV4dD48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjEzNyw2Ny40Mjk3LDE0Nyw3MS40Mjk3LDEzNyw3NS40Mjk3LDE0MSw3MS40Mjk3IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDtzdHJva2UtZGFzaGFycmF5OjIuMCwyLjA7IiB4MT0iMTgiIHgyPSIxNDMiIHkxPSI3MS40Mjk3IiB5Mj0iNzEuNDI5NyIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEwNyIgeD0iMjUiIHk9IjY2LjM2MzgiPmdldExvYWRCYWxhbmNlcjwvdGV4dD48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjI0OSw5Ni41NjI1LDI1OSwxMDAuNTYyNSwyNDksMTA0LjU2MjUsMjUzLDEwMC41NjI1IiBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDsiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiNBODAwMzY7c3Ryb2tlLXdpZHRoOjEuMDtzdHJva2UtZGFzaGFycmF5OjIuMCwyLjA7IiB4MT0iMTQ5IiB4Mj0iMjU1IiB5MT0iMTAwLjU2MjUiIHkyPSIxMDAuNTYyNSIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjEzIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9Ijg4IiB4PSIxNTYiIHk9Ijk1LjQ5NjYiPmNob29zZVNlcnZlcjwvdGV4dD48cG9seWdvbiBmaWxsPSIjQTgwMDM2IiBwb2ludHM9IjMwNCwxMjUuNjk1MywzMTQsMTI5LjY5NTMsMzA0LDEzMy42OTUzLDMwOCwxMjkuNjk1MyIgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojQTgwMDM2O3N0cm9rZS13aWR0aDoxLjA7c3Ryb2tlLWRhc2hhcnJheToyLjAsMi4wOyIgeDE9IjI2MSIgeDI9IjMxMCIgeTE9IjEyOS42OTUzIiB5Mj0iMTI5LjY5NTMiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIzMSIgeD0iMjY4IiB5PSIxMjQuNjI5NCI+SVJ1bGU8L3RleHQ+PCEtLU1ENT1bYzg0NDI2NjNkYTIzNjJiMmQzYjZkZmNhYmIxMWRhODNdCkBzdGFydHVtbA0KYS0gLT5iOiBnZXRMb2FkQmFsYW5jZXINCmItIC0+czogY2hvb3NlU2VydmVyDQpzLSAtPlNlcnZlcjogSVJ1bGUNCkBlbmR1bWwNCgpQbGFudFVNTCB2ZXJzaW9uIDEuMjAyMS4yYmV0YTkoVW5rbm93biBjb21waWxlIHRpbWUpCihHUEwgc291cmNlIGRpc3RyaWJ1dGlvbikKSmF2YSBSdW50aW1lOiBKYXZhKFRNKSBTRSBSdW50aW1lIEVudmlyb25tZW50CkpWTTogSmF2YSBIb3RTcG90KFRNKSA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IFVURi04Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+"></p>
+<p>&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x4E0E;ElasticSearch&#x7B49;&#x5BA2;&#x6237;&#x7AEF;&#x6846;&#x67B6;&#x76F8;&#x5DEE;&#x4E0D;&#x5927;&#xFF0C;&#x6BD4;&#x5982;&#x6700;&#x5E38;&#x89C1;&#x7684;<code>com.netflix.loadbalancer.BaseLoadBalancer</code></p>
+<p>&#x9ED8;&#x8BA4;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B97;&#x6CD5;(RoundRobinRule)&#x4E0E;Elastic&#x5B8C;&#x5168;&#x4E00;&#x6837;&#xFF0C;&#x4E5F;&#x662F;&#x901A;&#x8FC7;&#x6570;&#x7EC4;&#x53D6;&#x4F59;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;</p>
+<ul>
+<li>RoundRobinRule: &#x901A;&#x8FC7;&#x6570;&#x7EC4;&#x73AF;&#x4E0E;Atomic&#x81EA;&#x589E;&#x53D6;&#x4F59;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="feign.html" class="navigation navigation-prev " aria-label="Previous page: Feign简介与Spring代理自动注入">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="sleuth-log-collector.html" class="navigation navigation-next " aria-label="Next page: Sleuth与日志收集">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Ribbon与负载均衡","level":"1.5.2","depth":2,"next":{"title":"Sleuth与日志收集","level":"1.5.3","depth":2,"path":"third/sleuth-log-collector.md","ref":"third/sleuth-log-collector.md","articles":[]},"previous":{"title":"Feign简介与Spring代理自动注入","level":"1.5.1","depth":2,"path":"third/feign.md","ref":"third/feign.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/eureka/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"third/ribbon.md","mtime":"2021-03-04T11:49:55.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:37.086Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

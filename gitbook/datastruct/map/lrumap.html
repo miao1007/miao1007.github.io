@@ -1,0 +1,826 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>LinkedHashMap(LRU) · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tree/" />
+    
+    
+    <link rel="prev" href="copyonwritemap.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    <li class="header">数据结构</li>
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduce
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../number/">
+    
+    <a href="../number/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Number
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" >
+    
+            <span>
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    Basic
+            
+        </span>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../number/bignumber.html">
+    
+    <a href="../number/bignumber.html">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    BigNumber
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../string/">
+    
+    <a href="../string/">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    String
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../string/editdistance.html">
+    
+    <a href="../string/editdistance.html">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    EditDistance
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../string/literal-expression.html">
+    
+    <a href="../string/literal-expression.html">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    Literal-expression
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../string/similar.html">
+    
+    <a href="../string/similar.html">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    Similar
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Map
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="hashmap.html">
+    
+    <a href="hashmap.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    HashMap
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="currenthashmap.html">
+    
+    <a href="currenthashmap.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    CurrentHashMap(zk)
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.3" data-path="copyonwritemap.html">
+    
+    <a href="copyonwritemap.html">
+        
+                    
+                        <b>1.4.3.</b>
+                    
+                    CopyonWritMap(zk)
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.4.4" data-path="lrumap.html">
+    
+    <a href="lrumap.html">
+        
+                    
+                        <b>1.4.4.</b>
+                    
+                    LinkedHashMap(LRU)
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../tree/">
+    
+    <a href="../tree/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    Tree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../tree/traverse/">
+    
+    <a href="../tree/traverse/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    Traverse
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1.1" data-path="../tree/traverse/dfs.html">
+    
+    <a href="../tree/traverse/dfs.html">
+        
+                    
+                        <b>1.5.1.1.</b>
+                    
+                    Depth-First
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.1.2" data-path="../tree/traverse/bfs.html">
+    
+    <a href="../tree/traverse/bfs.html">
+        
+                    
+                        <b>1.5.1.2.</b>
+                    
+                    Breed-First
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../tree/b-tree/">
+    
+    <a href="../tree/b-tree/">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    BinaryTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.1" data-path="../tree/b-tree/binarytree.html">
+    
+    <a href="../tree/b-tree/binarytree.html">
+        
+                    
+                        <b>1.5.2.1.</b>
+                    
+                    BasicBinaryTree
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2.2" data-path="../tree/b-tree/binarysearchtree/">
+    
+    <a href="../tree/b-tree/binarysearchtree/">
+        
+                    
+                        <b>1.5.2.2.</b>
+                    
+                    BinarySearchTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.2.1" data-path="../tree/b-tree/binarysearchtree/redblacktree.html">
+    
+    <a href="../tree/b-tree/binarysearchtree/redblacktree.html">
+        
+                    
+                        <b>1.5.2.2.1.</b>
+                    
+                    RedBlackTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.2.1.1" data-path="../tree/redblack-and-avl-tree.html">
+    
+    <a href="../tree/redblack-and-avl-tree.html">
+        
+                    
+                        <b>1.5.2.2.1.1.</b>
+                    
+                    Redblack and AVL Tree
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2.2.1.2" data-path="../tree/treemap.html">
+    
+    <a href="../tree/treemap.html">
+        
+                    
+                        <b>1.5.2.2.1.2.</b>
+                    
+                    TreeMap
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../tree/heap.html">
+    
+    <a href="../tree/heap.html">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    Heap
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.4" data-path="../tree/treeset.html">
+    
+    <a href="../tree/treeset.html">
+        
+                    
+                        <b>1.5.4.</b>
+                    
+                    TreeSet
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.5" >
+    
+            <span>
+            
+                    
+                        <b>1.5.5.</b>
+                    
+                    BalanceTree
+            
+        </span>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.6" data-path="../quene/">
+    
+    <a href="../quene/">
+        
+                    
+                        <b>1.6.</b>
+                    
+                    Quene
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.6.1" data-path="../quene/dequeue.html">
+    
+    <a href="../quene/dequeue.html">
+        
+                    
+                        <b>1.6.1.</b>
+                    
+                    Deque
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.6.2" data-path="../quene/priorityqueue.html">
+    
+    <a href="../quene/priorityqueue.html">
+        
+                    
+                        <b>1.6.2.</b>
+                    
+                    PriorityQueue
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.7" data-path="../list/">
+    
+    <a href="../list/">
+        
+                    
+                        <b>1.7.</b>
+                    
+                    List
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.7.1" data-path="../list/arr-linked-list.html">
+    
+    <a href="../list/arr-linked-list.html">
+        
+                    
+                        <b>1.7.1.</b>
+                    
+                    Array&LinkedList
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.7.2" data-path="../list/skiplist.html">
+    
+    <a href="../list/skiplist.html">
+        
+                    
+                        <b>1.7.2.</b>
+                    
+                    SkipList
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >LinkedHashMap(LRU)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="1-cache&#x7684;&#x7B80;&#x4ECB;">1. Cache&#x7684;&#x7B80;&#x4ECB;</h2>
+<p>&#x7F13;&#x5B58;&#xFF0C;&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x65B9;&#x4FBF;&#x7528;&#x6237;&#x5FEB;&#x901F;&#x7684;&#x83B7;&#x53D6;&#x503C;&#x7684;&#x4E00;&#x79CD;&#x50A8;&#x5B58;&#x65B9;&#x5F0F;&#x3002;&#x5C0F;&#x5230;&#x4E0E;CPU&#x540C;&#x9891;&#x7684;&#x6602;&#x8D35;&#x7684;&#x7F13;&#x5B58;&#x9897;&#x7C92;&#xFF0C;&#x5185;&#x5B58;&#xFF0C;&#x786C;&#x76D8;&#xFF0C;&#x7F51;&#x7EDC;&#xFF0C;CDN&#x53CD;&#x4EE3;&#x7F13;&#x5B58;&#xFF0C;DNS&#x9012;&#x5F52;&#x67E5;&#x8BE2;&#xFF0C;OS&#x9875;&#x9762;&#x7F6E;&#x6362;&#xFF0C;Redis&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x7F13;&#x5B58;&#x3002;&#x5B83;&#x6709;&#x5982;&#x4E0B;&#x7684;&#x7279;&#x70B9;&#xFF1A;</p>
+<ol>
+<li>&#x7F13;&#x5B58;&#x8F7D;&#x4F53;&#x4E0E;&#x6301;&#x4E45;&#x8F7D;&#x4F53;&#x603B;&#x662F;&#x76F8;&#x5BF9;&#x7684;&#xFF0C;&#x5BB9;&#x91CF;&#x8FDC;&#x8FDC;&#x5C0F;&#x4E8E;&#x6301;&#x4E45;&#x5BB9;&#x91CF;&#xFF0C;&#x6210;&#x672C;&#x9AD8;&#x4E8E;&#x6301;&#x4E45;&#x5BB9;&#x91CF;&#xFF0C;&#x901F;&#x5EA6;&#x9AD8;&#x4E8E;&#x6301;&#x4E45;&#x5BB9;&#x91CF;&#x3002;&#x6BD4;&#x5982;&#x786C;&#x76D8;&#x4E0E;&#x7F51;&#x7EDC;&#xFF0C;&#x76EE;&#x524D;&#x4E3B;&#x6D41;&#x7684;SSD&#x786C;&#x76D8;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;1000MB/S&#xFF0C;&#x800C;&#x5F88;&#x591A;&#x5730;&#x533A;&#x7F51;&#x901F;&#x5374;&#x53EA;&#x6709;4M&#xFF0C;&#x5C06;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x5B58;&#x5230;&#x786C;&#x76D8;&#x4E2D;&#xFF0C;&#x786C;&#x76D8;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x7F13;&#x5B58;&#xFF1B;&#x518D;&#x6BD4;&#x5982;&#x5185;&#x5B58;&#x4E0E;&#x786C;&#x76D8;&#xFF0C;&#x4E3B;&#x6D41;&#x7684;DDR3&#x5185;&#x5B58;&#x7684;&#x901F;&#x5EA6;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;10GB/S&#xFF0C;&#x800C;&#x786C;&#x76D8;&#x76F8;&#x5BF9;&#x7684;&#x6162;&#x4E86;&#x5F88;&#x591A;&#x6570;&#x91CF;&#x7EA7;&#x522B;&#xFF0C;&#x5C06;&#x786C;&#x76D8;&#x7684;&#x6E38;&#x620F;&#x52A0;&#x8F7D;&#x5230;&#x5185;&#x5B58;&#xFF0C;&#x5185;&#x5B58;&#x5C31;&#x76F8;&#x5BF9;&#x4E8E;&#x786C;&#x76D8;&#x662F;&#x4E00;&#x79CD;&#x7F13;&#x5B58;&#x3002;</li>
+<li>&#x9700;&#x8981;&#x5B9E;&#x73B0;<code>&#x6392;&#x5E8F;&#x4F9D;&#x636E;</code>&#xFF0C;&#x5728;java&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>Comparable&lt;T&gt;</code>&#x4F5C;&#x4E3A;&#x6392;&#x5E8F;&#x7684;&#x7684;&#x63A5;&#x53E3;</li>
+<li>&#x9700;&#x8981;&#x4E00;&#x79CD;<code>&#x9875;&#x9762;&#x7F6E;&#x6362;&#x7B97;&#x6CD5;(page replacement algorithm)</code>&#x5C06;&#x65E7;&#x9875;&#x9762;&#x53BB;&#x6389;&#x6362;&#x6210;&#x65B0;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x5982;&#x6700;&#x4E45;&#x672A;&#x4F7F;&#x7528;&#x7B97;&#x6CD5;&#xFF08;LFU&#xFF09;&#x3001;&#x5148;&#x8FDB;&#x5148;&#x51FA;&#x7B97;&#x6CD5;&#xFF08;FIFO&#xFF09;&#x3001;&#x6700;&#x8FD1;&#x6700;&#x5C11;&#x4F7F;&#x7528;&#x7B97;&#x6CD5;&#xFF08;LFU&#xFF09;&#x3001;&#x975E;&#x6700;&#x8FD1;&#x4F7F;&#x7528;&#x7B97;&#x6CD5;&#xFF08;NMRU&#xFF09;&#x7B49;</li>
+<li>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x547D;&#x4E2D;&#x7F13;&#x5B58;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x4ECE;&#x539F;&#x59CB;&#x5730;&#x5740;&#x83B7;&#x53D6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6B65;&#x9AA4;&#x53EB;&#x505A;&#x201C;&#x56DE;&#x6E90;&#x201D;&#xFF0C;CDN&#x5382;&#x5546;&#x4F1A;&#x6807;&#x6CE8;&#x201C;&#x56DE;&#x6E90;&#x7387;&#x201D;&#x4F5C;&#x4E3A;&#x5356;&#x70B9;</li>
+</ol>
+<blockquote>
+<ol>
+<li><code>Comparable&lt;T&gt;</code>&#x662F;java&#x7528;&#x6765;&#x6392;&#x5E8F;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x63A8;&#x8350;&#x53C2;&#x8003;&#x9605;&#x8BFB;&#x300A;Java Software Structures Designing and Using Data Structures&#x300B;</li>
+<li>&#x9875;&#x9762;&#x7F6E;&#x6362;&#x7B97;&#x6CD5;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x9605;&#x8BFB;&#x300A;&#x73B0;&#x4EE3;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x300B;&#x7684;&#x4E2D;&#x8BD1;&#x672C;</li>
+</ol>
+</blockquote>
+<h2 id="2-linkedhashmap&#x539F;&#x7406;">2. LinkedHashMap&#x539F;&#x7406;</h2>
+<h3 id="21-&#x6E90;&#x7801;&#x6982;&#x8FF0;&#x5206;&#x6790;">2.1. &#x6E90;&#x7801;&#x6982;&#x8FF0;&#x5206;&#x6790;</h3>
+<p>&#x5728;HashMap&#x4E2D;&#xFF0C;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;<code>Node&lt;K,V&gt;[] table</code>&#xFF0C;&#x5F53;put&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x5C06;&#x5143;&#x7D20;&#x6309;&#x7167;&#x8BA1;&#x7B97;&#x51FA;&#x7684;Hash&#x586B;&#x5230;&#x6570;&#x7EC4;&#x76F8;&#x5E94;&#x4F4D;&#x7F6E;<code>table[Hash]</code>&#x4E2D;&#xFF0C;&#x6700;&#x540E;&#x8FED;&#x4EE3;&#x65F6;&#xFF0C;&#x4ECE;table[0]&#x5F00;&#x59CB;&#x5411;&#x540E;&#x8FED;&#x4EE3;&#xFF0C;&#x5177;&#x4F53;&#x7684;&#x987A;&#x5E8F;&#x53D6;&#x51B3;&#x4E8E;&#x5143;&#x7D20;&#x7684;HashCode&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5E38;&#x8BF4;HashMap&#x7684;&#x5143;&#x7D20;&#x8FED;&#x4EE3;&#x662F;&#x4E0D;&#x53EF;&#x9884;&#x6D4B;&#x7684;&#x3002;</p>
+<p>&#x800C;&#x5728;LinkedHashMap&#x4E2D;&#xFF0C;&#x9664;&#x4E86;<code>Node&lt;K,V&gt;[] table</code>&#xFF0C;&#x8FD8;&#x7EF4;&#x62A4;&#x7740;2&#x4E2A;<code>Entry&lt;K,V&gt; head,tail</code>&#xFF0C;&#x5E76;&#x7EC4;&#x6210;&#x4E86;&#x94FE;&#x8868;&#x3002;&#x5F53;put&#x5143;&#x7D20;&#x540E;&#xFF0C;&#x8C03;&#x7528;&#x4E0B;&#x5217;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5BF9;&#x94FE;&#x8868;&#x5C06;&#x5143;&#x7D20;&#x79FB;&#x52A8;&#x5230;&#x94FE;&#x5C3E;&#x4EE5;&#x53CA;&#x6E05;&#x7406;&#x65E7;&#x7684;&#x5143;&#x7D20;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// move node to last</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">afterNodeAccess</span><span class="hljs-params">(Node&lt;K,V&gt; e)</span>
+<span class="hljs-comment">// possibly remove eldest</span>
+<span class="hljs-keyword">void</span> <span class="hljs-title">afterNodeInsertion</span><span class="hljs-params">(<span class="hljs-keyword">boolean</span> evict)</span>
+</span></code></pre>
+<p>&#x5728;get&#x5143;&#x7D20;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;<code>accessOrder</code>&#x4E3A;true&#x65F6;&#xFF0C;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x5982;&#x4E0B;&#x56DE;&#x8C03;<strong>&#x79FB;&#x52A8;</strong>&#x5143;&#x7D20;&#x5230;&#x94FE;&#x5C3E;&#xFF0C;&#x8FD9;&#x91CC;&#x7279;&#x522B;&#x5F3A;&#x8C03;&#x79FB;&#x52A8;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5143;&#x7D20;&#x672C;&#x8EAB;&#x5DF2;&#x7ECF;&#x5728;&#x94FE;&#x8868;&#x4E2D;&#xFF0C;&#x90A3;&#x5B83;&#x5C06;&#x53EA;&#x4F1A;&#x79FB;&#x52A8;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x65B0;&#x5EFA;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// move node to last</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">afterNodeAccess</span><span class="hljs-params">(Node&lt;K,V&gt; e)</span>
+</span></code></pre>
+<p>&#x7EFC;&#x4E0A;&#xFF0C;&#x5F53;&#x4F60;&#x53CD;&#x590D;&#x5BF9;&#x5143;&#x7D20;&#x8FDB;&#x884C;get/put&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x5143;&#x7D20;&#x4F1A;&#x88AB;&#x79FB;&#x52A8;&#x5230;<code>tail</code>&#x4E2D;&#xFF0C;&#x800C;&#x957F;&#x671F;&#x4E0D;&#x7528;&#x7684;&#x5143;&#x7D20;&#x4F1A;&#x88AB;&#x79FB;&#x52A8;&#x5230;<code>head</code></p>
+<p>&#x6700;&#x540E;&#x8FED;&#x4EE3;(Iterator)&#x65F6;&#xFF0C;&#x8FED;&#x4EE3;&#x662F;&#x4ECE;&#x65E7;&#x5143;&#x7D20;&#x8FED;&#x4EE3;&#x5230;&#x65B0;&#x5143;&#x7D20;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;LRU&#x7684;&#x5B9E;&#x73B0;</p>
+<pre><code>head &lt;--&gt; .... &lt;--&gt; tail
+
+&#x65E7;&#x5143;&#x7D20; &lt;-----------&gt; &#x53CD;&#x590D;&#x4F7F;&#x7528;&#x7684;&#x65B0;&#x5143;&#x7D20;
+</code></pre><p>&#x5BF9;<code>LinkedHashMap</code>&#x8FDB;&#x884C;&#x4E86;&#x5C01;&#x88C5;&#x5B9E;&#x73B0;LRU&#x7684;&#x6846;&#x67B6;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x662F;&#x6309;&#x7167;&#x4E0B;&#x56FE;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;</p>
+<pre><code class="lang-java"><span class="hljs-comment">//&#x6309;&#x7167;&#x8BBF;&#x95EE;&#x987A;&#x5E8F;&#x6392;&#x5E8F;&#x7684;Map&#xFF0C;&#x8BBE;&#x7F6E;accessOrder&#x4E3A;true</span>
+map = <span class="hljs-keyword">new</span> LinkedHashMap&lt;&gt;(<span class="hljs-number">0</span>, <span class="hljs-number">0.75f</span>, <span class="hljs-keyword">true</span>);
+</code></pre>
+<h3 id="22-hashmap&#x7684;&#x5BF9;&#x6BD4;">2.2. HashMap&#x7684;&#x5BF9;&#x6BD4;</h3>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x5E38;&#x89C1;&#x7684;3&#x79CD;map&#x7684;&#x533A;&#x522B;&#xFF0C;&#x4EE5;&#x4E0B;&#x5747;&#x4E0D;&#x8BA1;&#x7B97;&#x6269;&#x5BB9;&#x65F6;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">HashMap</th>
+<th style="text-align:left">LinkedHashMap</th>
+<th style="text-align:left">TreeMap</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Performance get/set</td>
+<td style="text-align:left">O(1)</td>
+<td style="text-align:left">O(1)</td>
+<td style="text-align:left">O(logN)</td>
+</tr>
+<tr>
+<td style="text-align:left">Implement</td>
+<td style="text-align:left">Array</td>
+<td style="text-align:left">Link + Array</td>
+<td style="text-align:left">Red-Black Tree</td>
+</tr>
+<tr>
+<td style="text-align:left">Iteration</td>
+<td style="text-align:left">unpredictable</td>
+<td style="text-align:left">put/accessOrder</td>
+<td style="text-align:left">Comparable<code>&lt;Key&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>&#x4E0A;&#x8FF0;&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x6CA1;&#x6709;&#x6E90;&#x7801;&#x5206;&#x6790;&#x54E6;</p>
+<ol>
+<li>&#x672C;&#x90E8;&#x5206;&#x57FA;&#x4E8E;JDK1.8.0_05&#xFF0C;&#x53EF;&#x80FD;&#x90E8;&#x5206;&#x51FD;&#x6570;&#x4E0E;&#x7F51;&#x4E0A;&#x6587;&#x7AE0;&#x76F8;&#x51B2;&#x7A81;</li>
+<li>&#x5728;golang&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;<code>ring</code>&#x4E0E;<code>map</code>&#x5B9E;&#x73B0;&#x4E86;Lru&#xFF0C;&#x53EF;&#x4EE5;&#x770B;<a href="https://github.com/golang/groupcache/blob/master/lru/lru.go" target="_blank">&#x8FD9;&#x91CC;</a></li>
+</ol>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="copyonwritemap.html" class="navigation navigation-prev " aria-label="Previous page: CopyonWritMap(zk)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../tree/" class="navigation navigation-next " aria-label="Next page: Tree">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"LinkedHashMap(LRU)","level":"1.4.4","depth":2,"next":{"title":"Tree","level":"1.5","depth":1,"path":"tree/README.md","ref":"tree/README.md","articles":[{"title":"Traverse","level":"1.5.1","depth":2,"path":"tree/traverse/README.md","ref":"tree/traverse/README.md","articles":[{"title":"Depth-First","level":"1.5.1.1","depth":3,"path":"tree/traverse/dfs.md","ref":"tree/traverse/dfs.md","articles":[]},{"title":"Breed-First","level":"1.5.1.2","depth":3,"path":"tree/traverse/bfs.md","ref":"tree/traverse/bfs.md","articles":[]}]},{"title":"BinaryTree","level":"1.5.2","depth":2,"path":"tree/b-tree/README.md","ref":"tree/b-tree/README.md","articles":[{"title":"BasicBinaryTree","level":"1.5.2.1","depth":3,"path":"tree/b-tree/binarytree.md","ref":"tree/b-tree/binarytree.md","articles":[]},{"title":"BinarySearchTree","level":"1.5.2.2","depth":3,"path":"tree/b-tree/binarysearchtree/README.md","ref":"tree/b-tree/binarysearchtree/README.md","articles":[{"title":"RedBlackTree","level":"1.5.2.2.1","depth":4,"path":"tree/b-tree/binarysearchtree/redblacktree.md","ref":"tree/b-tree/binarysearchtree/redblacktree.md","articles":[{"title":"Redblack and AVL Tree","level":"1.5.2.2.1.1","depth":5,"path":"tree/redblack-and-avl-tree.md","ref":"tree/redblack-and-avl-tree.md","articles":[]},{"title":"TreeMap","level":"1.5.2.2.1.2","depth":5,"path":"tree/treemap.md","ref":"tree/treemap.md","articles":[]}]}]}]},{"title":"Heap","level":"1.5.3","depth":2,"path":"tree/heap.md","ref":"tree/heap.md","articles":[]},{"title":"TreeSet","level":"1.5.4","depth":2,"path":"tree/treeset.md","ref":"tree/treeset.md","articles":[]},{"title":"BalanceTree","level":"1.5.5","depth":2,"ref":"","articles":[]}]},"previous":{"title":"CopyonWritMap(zk)","level":"1.4.3","depth":2,"path":"map/copyonwritemap.md","ref":"map/copyonwritemap.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/datastruct/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"map/lrumap.md","mtime":"2021-03-04T11:49:55.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:18.552Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

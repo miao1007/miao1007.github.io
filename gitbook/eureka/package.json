@@ -1,0 +1,15 @@
+{
+  "name": "eureka",
+  "version": "1.0.0",
+  "description": "本书是对Netflix开源的Eureka组件分析系列文章，保证不太监，正在撰写中，欢迎各位Star与PR",
+  "main": "a.js",
+  "dependencies": {
+    "gitbook-plugin-ga": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

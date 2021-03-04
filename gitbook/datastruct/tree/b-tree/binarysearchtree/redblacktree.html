@@ -1,0 +1,765 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>RedBlackTree · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../redblack-and-avl-tree.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    <li class="header">数据结构</li>
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../../../">
+    
+    <a href="../../../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduce
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../../../number/">
+    
+    <a href="../../../number/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Number
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" >
+    
+            <span>
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    Basic
+            
+        </span>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../../../number/bignumber.html">
+    
+    <a href="../../../number/bignumber.html">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    BigNumber
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../../../string/">
+    
+    <a href="../../../string/">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    String
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../../../string/editdistance.html">
+    
+    <a href="../../../string/editdistance.html">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    EditDistance
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../../../string/literal-expression.html">
+    
+    <a href="../../../string/literal-expression.html">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    Literal-expression
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../../../string/similar.html">
+    
+    <a href="../../../string/similar.html">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    Similar
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../../../map/">
+    
+    <a href="../../../map/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Map
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../../../map/hashmap.html">
+    
+    <a href="../../../map/hashmap.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    HashMap
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="../../../map/currenthashmap.html">
+    
+    <a href="../../../map/currenthashmap.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    CurrentHashMap(zk)
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.3" data-path="../../../map/copyonwritemap.html">
+    
+    <a href="../../../map/copyonwritemap.html">
+        
+                    
+                        <b>1.4.3.</b>
+                    
+                    CopyonWritMap(zk)
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.4" data-path="../../../map/lrumap.html">
+    
+    <a href="../../../map/lrumap.html">
+        
+                    
+                        <b>1.4.4.</b>
+                    
+                    LinkedHashMap(LRU)
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../../">
+    
+    <a href="../../">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    Tree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../../traverse/">
+    
+    <a href="../../traverse/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    Traverse
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1.1" data-path="../../traverse/dfs.html">
+    
+    <a href="../../traverse/dfs.html">
+        
+                    
+                        <b>1.5.1.1.</b>
+                    
+                    Depth-First
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.1.2" data-path="../../traverse/bfs.html">
+    
+    <a href="../../traverse/bfs.html">
+        
+                    
+                        <b>1.5.1.2.</b>
+                    
+                    Breed-First
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    BinaryTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.1" data-path="../binarytree.html">
+    
+    <a href="../binarytree.html">
+        
+                    
+                        <b>1.5.2.1.</b>
+                    
+                    BasicBinaryTree
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2.2" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.5.2.2.</b>
+                    
+                    BinarySearchTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter active" data-level="1.5.2.2.1" data-path="redblacktree.html">
+    
+    <a href="redblacktree.html">
+        
+                    
+                        <b>1.5.2.2.1.</b>
+                    
+                    RedBlackTree
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.2.2.1.1" data-path="../../redblack-and-avl-tree.html">
+    
+    <a href="../../redblack-and-avl-tree.html">
+        
+                    
+                        <b>1.5.2.2.1.1.</b>
+                    
+                    Redblack and AVL Tree
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2.2.1.2" data-path="../../treemap.html">
+    
+    <a href="../../treemap.html">
+        
+                    
+                        <b>1.5.2.2.1.2.</b>
+                    
+                    TreeMap
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../../heap.html">
+    
+    <a href="../../heap.html">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    Heap
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.4" data-path="../../treeset.html">
+    
+    <a href="../../treeset.html">
+        
+                    
+                        <b>1.5.4.</b>
+                    
+                    TreeSet
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.5" >
+    
+            <span>
+            
+                    
+                        <b>1.5.5.</b>
+                    
+                    BalanceTree
+            
+        </span>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.6" data-path="../../../quene/">
+    
+    <a href="../../../quene/">
+        
+                    
+                        <b>1.6.</b>
+                    
+                    Quene
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.6.1" data-path="../../../quene/dequeue.html">
+    
+    <a href="../../../quene/dequeue.html">
+        
+                    
+                        <b>1.6.1.</b>
+                    
+                    Deque
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.6.2" data-path="../../../quene/priorityqueue.html">
+    
+    <a href="../../../quene/priorityqueue.html">
+        
+                    
+                        <b>1.6.2.</b>
+                    
+                    PriorityQueue
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.7" data-path="../../../list/">
+    
+    <a href="../../../list/">
+        
+                    
+                        <b>1.7.</b>
+                    
+                    List
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.7.1" data-path="../../../list/arr-linked-list.html">
+    
+    <a href="../../../list/arr-linked-list.html">
+        
+                    
+                        <b>1.7.1.</b>
+                    
+                    Array&LinkedList
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.7.2" data-path="../../../list/skiplist.html">
+    
+    <a href="../../../list/skiplist.html">
+        
+                    
+                        <b>1.7.2.</b>
+                    
+                    SkipList
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >RedBlackTree</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x7EA2;&#x9ED1;&#x6811;">&#x7EA2;&#x9ED1;&#x6811;</h2>
+<p>&#x4EE5;&#x4E0B;&#x6458;&#x81EA;&#x767E;&#x79D1;</p>
+<p>&#x7EA2;&#x9ED1;&#x6811;&#x662F;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x5E26;&#x6709;&#x989C;&#x8272;&#x5C5E;&#x6027;&#x7684;<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9" target="_blank">&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;</a>&#xFF0C;&#x989C;&#x8272;&#x4E3A;&#x7EA2;&#x8272;&#x6216;&#x9ED1;&#x8272;&#x3002;&#x5728;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x5F3A;&#x5236;&#x4E00;&#x822C;&#x8981;&#x6C42;&#x4EE5;&#x5916;&#xFF0C;&#x5BF9;&#x4E8E;&#x4EFB;&#x4F55;&#x6709;&#x6548;&#x7684;&#x7EA2;&#x9ED1;&#x6811;&#x6211;&#x4EEC;&#x589E;&#x52A0;&#x4E86;&#x5982;&#x4E0B;&#x7684;&#x989D;&#x5916;&#x8981;&#x6C42;&#xFF1A;</p>
+<ol>
+<li>&#x8282;&#x70B9;&#x662F;&#x7EA2;&#x8272;&#x6216;&#x9ED1;&#x8272;&#x3002;</li>
+<li>&#x6839;&#x662F;&#x9ED1;&#x8272;&#x3002;</li>
+<li>&#x6240;&#x6709;&#x53F6;&#x5B50;&#x90FD;&#x662F;&#x9ED1;&#x8272;&#xFF08;&#x53F6;&#x5B50;&#x662F;NIL&#x8282;&#x70B9;&#xFF09;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A;&#x7EA2;&#x8272;&#x8282;&#x70B9;&#x5FC5;&#x987B;&#x6709;&#x4E24;&#x4E2A;&#x9ED1;&#x8272;&#x7684;&#x5B50;&#x8282;&#x70B9;&#x3002;&#xFF08;&#x4ECE;&#x6BCF;&#x4E2A;&#x53F6;&#x5B50;&#x5230;&#x6839;&#x7684;&#x6240;&#x6709;&#x8DEF;&#x5F84;&#x4E0A;&#x4E0D;&#x80FD;&#x6709;&#x4E24;&#x4E2A;&#x8FDE;&#x7EED;&#x7684;&#x7EA2;&#x8272;&#x8282;&#x70B9;&#x3002;&#xFF09;</li>
+<li>&#x4ECE;&#x4EFB;&#x4E00;&#x8282;&#x70B9;&#x5230;&#x5176;&#x6BCF;&#x4E2A;&#x53F6;&#x5B50;&#x7684;&#x6240;&#x6709;
+<a href="https://zh.wikipedia.org/wiki/%E9%81%93%E8%B7%AF_%28%E5%9B%BE%E8%AE%BA%29" target="_blank">&#x7B80;&#x5355;&#x8DEF;&#x5F84;</a>
+&#x90FD;&#x5305;&#x542B;&#x76F8;&#x540C;&#x6570;&#x76EE;&#x7684;&#x9ED1;&#x8272;&#x8282;&#x70B9;&#x3002;</li>
+</ol>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x7EA2;&#x9ED1;&#x6811;&#x7684;&#x56FE;&#x4F8B;&#xFF1A;</p>
+<p><a href="https://zh.wikipedia.org/wiki/File:Red-black_tree_example.svg" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Red-black_tree_example.svg/450px-Red-black_tree_example.svg.png" alt="" title="An example of a red-black tree"></a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: BinarySearchTree">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../redblack-and-avl-tree.html" class="navigation navigation-next " aria-label="Next page: Redblack and AVL Tree">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"RedBlackTree","level":"1.5.2.2.1","depth":4,"next":{"title":"Redblack and AVL Tree","level":"1.5.2.2.1.1","depth":5,"path":"tree/redblack-and-avl-tree.md","ref":"tree/redblack-and-avl-tree.md","articles":[]},"previous":{"title":"BinarySearchTree","level":"1.5.2.2","depth":3,"path":"tree/b-tree/binarysearchtree/README.md","ref":"tree/b-tree/binarysearchtree/README.md","articles":[{"title":"RedBlackTree","level":"1.5.2.2.1","depth":4,"path":"tree/b-tree/binarysearchtree/redblacktree.md","ref":"tree/b-tree/binarysearchtree/redblacktree.md","articles":[{"title":"Redblack and AVL Tree","level":"1.5.2.2.1.1","depth":5,"path":"tree/redblack-and-avl-tree.md","ref":"tree/redblack-and-avl-tree.md","articles":[]},{"title":"TreeMap","level":"1.5.2.2.1.2","depth":5,"path":"tree/treemap.md","ref":"tree/treemap.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/datastruct/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"tree/b-tree/binarysearchtree/redblacktree.md","mtime":"2021-03-04T11:49:55.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:18.552Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

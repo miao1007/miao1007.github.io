@@ -1,0 +1,480 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Event loop · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="cow.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.2" data-path="event.html">
+    
+    <a href="event.html">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Event loop
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="cow.html">
+    
+    <a href="cow.html">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    Copy on write
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="rehash.html">
+    
+    <a href="rehash.html">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Incremental Rehash
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="distribute-lock.html">
+    
+    <a href="distribute-lock.html">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    Distribute Lock
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.6" data-path="session.html">
+    
+    <a href="session.html">
+        
+                    
+                        <b>1.6.</b>
+                    
+                    Spring-session
+            
+        </a>
+        
+
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Event loop</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>Redis&#x7F51;&#x7EDC;&#x4E8B;&#x4EF6;&#x7AEF;&#x5230;&#x7AEF;&#x6D41;&#x7A0B;&#x6D41;&#x7A0B;</p>
+<hr>
+<h2 id="&#x6587;&#x7AE0;&#x901F;&#x8BFB;">&#x6587;&#x7AE0;&#x901F;&#x8BFB;</h2>
+<p>&#x4E0B;&#x9762;&#x4E3A;Redis&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5904;&#x7406;Socket&#x4E8B;&#x4EF6;&#x7684;&#x4F2A;&#x4EE3;&#x7801;&#xFF0C;Select&#x7684;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x6A21;&#x5F0F;&#x5339;&#x914D;&#x4E0E;&#x9AD8;&#x9636;&#x51FD;&#x6570;(&#x5728;C&#x4E2D;&#x7528;&#x51FD;&#x6570;&#x6307;&#x9488;&#x8FDB;&#x884C;&#x6A21;&#x62DF;)&#xFF0C;&#x5168;&#x7A0B;&#x5355;&#x7EBF;&#x7A0B;&#x8FD0;&#x884C;(BGSAVE&#x9700;&#x8981;fork&#x9664;&#x5916;)&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Redis &#x4E2D; Socket &#x4E8B;&#x4EF6;&#x7684;&#x5FAA;&#x73AF;&#x5904;&#x7406;&#x4F2A;&#x4EE3;&#x7801;</span>
+<span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>){
+  <span class="hljs-comment">// &#x901A;&#x8FC7;Epoll,Select&#x7B49;&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;&#x53EF;&#x7528;&#x7684;SocketDescriptor&#x6570;&#x7EC4;</span>
+  aeApiPoll(eventLoop, ...);
+  <span class="hljs-comment">// &#x5BF9;&#x53EF;&#x7528;Socket&#x4F9D;&#x6B21;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x51FD;&#x6570;</span>
+  eventLoop.forEach(event -&gt; {
+    <span class="hljs-keyword">switch</span>(event.mask){
+      <span class="hljs-keyword">case</span> AE_READABLE:
+        <span class="hljs-comment">// &#x8C03;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x51FD;&#x6570;&#x6307;&#x9488;&#xFF0C;&#x5373;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;...</span>
+        rfileProc(event, ...);
+        <span class="hljs-keyword">break</span>;
+      <span class="hljs-keyword">case</span> AE_WRITABLE:
+        wfileProc(event, ...);
+        <span class="hljs-keyword">break</span>;
+    }
+  })
+}
+</code></pre>
+<h2 id="io-multiplexing--&#x4E0E;-select&#x7CFB;&#x7EDF;&#x8C03;&#x7528;">IO multiplexing  &#x4E0E; Select&#x7CFB;&#x7EDF;&#x8C03;&#x7528;</h2>
+<p>Redis&#x5728;&#x5185;&#x90E8;&#x91C7;&#x7528;&#x975E;&#x963B;&#x585E;&#x540C;&#x6B65;IO&#x4F5C;&#x4E3A;&#x5E95;&#x5C42;&#x5E93;&#x5B9E;&#x73B0;&#xFF0C;&#x770B;&#x8D77;&#x6765;&#x5F88;&#x9AD8;&#x5927;&#x4E0A;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x65AD;&#x5FAA;&#x73AF;&#x641C;&#x7D22;&#x53EF;&#x7528;<code>I/O descriptor</code>&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x5B83;&#x5728;OS&#x4E0A;&#x6709;select, epoll, kqueue&#x7B49;&#x5B9E;&#x73B0;&#x3002;&#x5728;&#x672C;&#x7BC7;&#x4E2D;&#xFF0C;&#x5C06;&#x4EE5;Select&#x4E3A;&#x4F8B;&#x4ECB;&#x7ECD;I/O&#x591A;&#x8DEF;&#x590D;&#x7528;&#x3002;</p>
+<p>Select&#x662F;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x76F8;&#x5173;&#x7684;POSIX&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x7528; <a href="https://linux.die.net/man/2/select" target="_blank">man 2 select</a> &#x67E5;&#x770B;&#x5177;&#x4F53;&#x7684;&#x4ECB;&#x7ECD;&#x3002;</p>
+<blockquote>
+<p>select() examines the I/O descriptor sets whose addresses are passed in readfds, writefds, and errorfds to see if some of their descriptors <strong>are ready for reading, are ready for writing</strong>, or have an exceptional condi-tion pending, respectively. </p>
+</blockquote>
+<p>&#x5B83;&#x5185;&#x90E8;&#x901A;&#x8FC7;&#x8F6E;&#x8BE2;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x957F;&#x5EA6;&#x4E3A;1024&#x7684;&#x6570;&#x7EC4;&#x67E5;&#x8BE2;<code>&#x53EF;&#x8BFB;</code> &#x6216;&#x8005; <code>&#x53EF;&#x5199;</code>&#x7684;<a href="https://linux.die.net/man/3/fd_set" target="_blank">Socket descriptor</a>(&#x5728;C&#x4E2D;&#x7528; <em>fd_set</em> &#x8868;&#x793A;, a fixed size buffer)&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x7ED9;&#x7528;&#x6237;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x56FE;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x67E5;&#x8BE2;&#x53EF;&#x8BFB;Socket&#x7684;Select&#x6D41;&#x7A0B;&#x3002;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-bf277cfe37275b25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Select"></p>
+<p>&#x901A;&#x8FC7;Select&#x53EF;&#x4EE5;&#x4E00;&#x6B21;&#x6027;&#x5355;&#x7EBF;&#x7A0B;&#x901A;&#x8FC7;&#x5185;&#x6838;&#x904D;&#x5386;&#x5927;&#x91CF;&#x7684;Socket&#x8FDE;&#x63A5;&#xFF0C;&#x518D;&#x4F9D;&#x6B21;&#x8FDB;&#x884C;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x3002;</p>
+<ol>
+<li>&#x628A;&#x5927;&#x91CF;IO&#x7BA1;&#x7406;&#x7684;&#x810F;&#x6D3B;&#x4EA4;&#x7ED9;&#x5185;&#x6838;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x8BBE;&#x8BA1;&#x57FA;&#x4E8E;Event loop&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x5355;&#x7EBF;&#x7A0B;&#x5C31;&#x641E;&#x5B9A;IO&#xFF0C;&#x4E4B;&#x540E;&#x4EA7;&#x751F;&#x7684;&#x4E8B;&#x4EF6;&#x518D;&#x4EA4;&#x7ED9;&#x5176;&#x4ED6;&#x6A21;&#x5757;(&#x6BD4;&#x5982;&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#x6C60;)&#xFF0C;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x66F4;&#x5BB9;&#x6613;&#x7EF4;&#x62A4;</li>
+<li>&#x76F8;&#x6BD4;&#x4E8E;&#x4EE5;&#x524D;&#x6BCF;&#x6B21;&#x65B0;&#x6765;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x5C31;&#x5F00;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x505A;&#x6CD5;&#xFF0C;Select&#x8282;&#x7EA6;&#x4E86;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x3001;&#x5207;&#x6362;&#x7B49;&#x8D44;&#x6E90;&#x635F;&#x5931;</li>
+</ol>
+<blockquote>
+<p>&#x81F3;&#x4E8E;Select&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x5DF2;&#x7ECF;&#x5C5E;&#x4E8E;SystemCall&#x5C42;&#xFF0C;&#x53EF;&#x4EE5;&#x7FFB;&#x4E0B;&#x5728;&#x7EBF;&#x6216;&#x8005;&#x6559;&#x5B66;&#x7528;&#x7684;&#x8FF7;&#x4F60;Linux&#x5B66;&#x4E60;&#x4E0B;<a href="http://lxr.free-electrons.com/source/fs/select.c" target="_blank">&#x6E90;&#x7801;</a>&#xFF0C;&#x672C;&#x6587;&#x5C31;&#x4E0D;&#x6DF1;&#x6316;&#x4E86;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A;&#x5BF9;&#x6BD4;&#x963B;&#x585E;&#x4E0E;&#x975E;&#x963B;&#x585E;&#x7684;<a href="https://codereview.stackexchange.com/questions/98558/non-blocking-unix-domain-socket" target="_blank">&#x95EE;&#x7B54;</a></p>
+</blockquote>
+<h4 id="select&#x5728;redis&#x4E2D;&#x7684;&#x5C01;&#x88C5;">Select&#x5728;Redis&#x4E2D;&#x7684;&#x5C01;&#x88C5;</h4>
+<p>Redis&#x5B9E;&#x73B0;&#x4E86;&#x5BF9;&#x5E95;&#x5C42;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;  Select, epoll, export, kqueue &#x7684;&#x9002;&#x914D;&#xFF0C;&#x4EE5;&#x652F;&#x6301;&#x591A;&#x4E2A;&#x5E73;&#x53F0;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x4EE5;Select&#x4E3A;&#x4F8B;&#xFF0C;&#x770B;&#x4E00;&#x4E0B;Redis&#x662F;&#x5982;&#x4F55;&#x5C01;&#x88C5;Select&#x7684;</p>
+<pre><code class="lang-c">// ae_select.c
+// Redis &#x5BF9; Select &#x7684;&#x5C01;&#x88C5;&#x5165;&#x53E3;
+static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {
+    aeApiState *state = eventLoop-&gt;apidata;
+    int retval, j, numevents = 0;
+
+    memcpy(&amp;state-&gt;_rfds,&amp;state-&gt;rfds,sizeof(fd_set));
+    memcpy(&amp;state-&gt;_wfds,&amp;state-&gt;wfds,sizeof(fd_set));
+    // &#x904D;&#x5386;&#x662F;&#x5426;&#x6709;&#x53EF;&#x8BFB;&#x53EF;&#x5199;&#x7684; Socket &#x63CF;&#x8FF0;&#x7B26;
+    // 1. eventLoop-&gt;maxfd+1: &#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x6570;&#x91CF;+1
+    // 2. &amp;state-&gt;_rfds:&#x53EF;&#x8BFB;&#x7684; Socket descriptor
+    // 3. &amp;state-&gt;_wfds: &#x53EF;&#x5199;&#x7684; Socket descriptor
+    // 4. NULL: &#x9519;&#x8BEF;&#x7684; Socket descriptor&#xFF0C;NUll&#x8868;&#x793A;&#x5728;Redis&#x4E2D;&#x6CA1;&#x6709;&#x76D1;&#x542C;
+    // 5. tvp: &#x8D85;&#x65F6;&#x914D;&#x7F6E; timeval {&#x79D2; + &#x6BEB;&#x79D2;}, &#x4E3A;0&#x65F6;&#x4E0D;&#x7B49;&#x5F85;, &#x4E3A;null&#x65F6;&#x963B;&#x585E;&#x7B49;&#x5F85;
+    retval = select(eventLoop-&gt;maxfd+1,
+                &amp;state-&gt;_rfds,&amp;state-&gt;_wfds,NULL,tvp);
+      // &#x5982;&#x679C;&#x521A;&#x521A;Select&#x904D;&#x5386;&#x641C;&#x7D22;&#x5230;&#x7684;&#x8BDD;
+    if (retval &gt; 0) {
+          // &#x5C31;&#x518D;&#x904D;&#x5386;&#x4E00;&#x904D;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0; Mask
+        for (j = 0; j &lt;= eventLoop-&gt;maxfd; j++) {
+            int mask = 0;
+            aeFileEvent *fe = &amp;eventLoop-&gt;events[j];
+
+            if (fe-&gt;mask == AE_NONE) continue;
+            if (fe-&gt;mask &amp; AE_READABLE &amp;&amp; FD_ISSET(j,&amp;state-&gt;_rfds))
+                mask |= AE_READABLE;
+            if (fe-&gt;mask &amp; AE_WRITABLE &amp;&amp; FD_ISSET(j,&amp;state-&gt;_wfds))
+                mask |= AE_WRITABLE;
+              //fire&#x8FD9;&#x91CC;&#x7FFB;&#x8BD1;&#x4E3A;`&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;`&#x6BD4;&#x8F83;&#x5408;&#x7406;&#xFF0C;&#x4E3A;&#x5C06;&#x8981;&#x89E6;&#x53D1;&#x7684;&#x4E8B;&#x4EF6;&#x653E;&#x5165;fd&#x4E0E;mask
+            eventLoop-&gt;fired[numevents].fd = j;
+            eventLoop-&gt;fired[numevents].mask = mask;
+            numevents++;
+        }
+    }
+    return numevents;
+}
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x5C06;&#x6B64;&#x51FD;&#x6570;&#x653E;&#x5728;&#x4E00;&#x4E2A;while&#x5FAA;&#x73AF;&#x4E2D;&#xFF0C;Redis&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5BF9;IO&#x4E8B;&#x4EF6;&#x8FDB;&#x884C;&#x9AD8;&#x6548;&#x5904;&#x7406;&#xFF0C;&#x4E0B;&#x6587;&#x5C06;&#x8BE6;&#x7EC6;&#x8BB2;&#x3002;</p>
+<h2 id="redis-&#x5957;&#x63A5;&#x5B57;&#x5904;&#x7406;&#x6D41;&#x7A0B;">Redis &#x5957;&#x63A5;&#x5B57;&#x5904;&#x7406;&#x6D41;&#x7A0B;</h2>
+<p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x4ECE;main&#x51FD;&#x6570;&#x5F00;&#x59CB;</p>
+<h4 id="&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;event-loop">&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;(Event loop)</h4>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#xFF0C;&#x5173;&#x952E;&#x70B9;&#x662F;<code>aeProcessEvents</code>&#x51FD;&#x6570;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// server.c &#x7684; main &#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528; ae.c &#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x51FD;&#x6570; aeMain</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">aeMain</span><span class="hljs-params">(aeEventLoop *eventLoop)</span> </span>{
+    eventLoop-&gt;stop = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">while</span> (!eventLoop-&gt;stop) {
+        <span class="hljs-keyword">if</span> (eventLoop-&gt;beforesleep != <span class="hljs-literal">NULL</span>)
+            eventLoop-&gt;beforesleep(eventLoop);
+        aeProcessEvents(eventLoop, AE_ALL_EVENTS);
+    }
+}
+</code></pre>
+<h4 id="&#x4E8B;&#x4EF6;&#x5904;&#x7406;">&#x4E8B;&#x4EF6;&#x5904;&#x7406;</h4>
+<p>&#x63A5;&#x7740;&#x5206;&#x6790; aeProcessEvents&#xFF0C;&#x5B83;&#x7528;&#x4E8E;&#x5904;&#x7406;Redis&#x7684;&#x6240;&#x6709;&#x4E8B;&#x4EF6;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// ae.c &#x7684; aeProcessEvents &#x51FD;&#x6570;&#xFF0C;&#x5904;&#x7406;Redis&#x4E8B;&#x4EF6;</span>
+<span class="hljs-comment">// &#x672C;&#x6587;&#x53EA;&#x5206;&#x6790;Socket&#x4E8B;&#x4EF6;&#xFF0C;&#x4E3A;&#x4E86;&#x7248;&#x9762;&#xFF0C;&#x5C06;&#x5220;&#x9664;&#x4E0E;Socket&#x65E0;&#x5173;&#x7684;&#x4EE3;&#x7801;</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">aeProcessEvents</span><span class="hljs-params">(aeEventLoop *eventLoop, <span class="hljs-keyword">int</span> flags)</span>
+</span>{
+    <span class="hljs-keyword">int</span> processed = <span class="hljs-number">0</span>, numevents;
+
+    <span class="hljs-comment">/* Nothing to do? return ASAP */</span>
+    <span class="hljs-keyword">if</span> (!(flags &amp; AE_TIME_EVENTS) &amp;&amp; !(flags &amp; AE_FILE_EVENTS)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-comment">// &#x6B64;&#x5904;&#x7565;&#x53BB;&#x5B9A;&#x65F6;&#x76F8;&#x5173;&#x4EE3;&#x7801;...</span>
+    <span class="hljs-keyword">if</span> (eventLoop-&gt;maxfd != <span class="hljs-number">-1</span> ||
+        ((flags &amp; AE_TIME_EVENTS) &amp;&amp; !(flags &amp; AE_DONT_WAIT))) {
+        <span class="hljs-keyword">int</span> j;
+        aeTimeEvent *shortest = <span class="hljs-literal">NULL</span>;
+        <span class="hljs-keyword">struct</span> timeval tv, *tvp;
+        <span class="hljs-comment">// &#x8BBE;&#x7F6E; select &#x7684;&#x8D85;&#x65F6;&#x4E8B;&#x4EF6;</span>
+         <span class="hljs-keyword">if</span> (flags &amp; AE_DONT_WAIT) {      
+            tv.tv_sec = tv.tv_usec = <span class="hljs-number">0</span>;
+            <span class="hljs-comment">// tvp &#x4E3A; 0 &#x65F6; &#x4E0D;&#x7B49;&#x5F85;                     </span>
+            tvp = &amp;tv;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">// tvp &#x4E3A; null &#x65F6; &#x963B;&#x585E;&#x7B49;&#x5F85;</span>
+            tvp = <span class="hljs-literal">NULL</span>;
+        }
+        <span class="hljs-comment">// &#x8C03;&#x7528;&#x5BF9; Select &#x7684;&#x5305;&#x88C5;&#xFF0C;&#x8FD9;&#x4E2A;&#x521A;&#x521A;&#x8BB2;&#x8FC7;&#x4E86;</span>
+        numevents = aeApiPoll(eventLoop, tvp);
+        <span class="hljs-comment">// &#x5BF9;&#x53EF;&#x8BFB;&#x4E0E;&#x53EF;&#x5199;&#x7684;&#x4E8B;&#x4EF6;&#x8FDB;&#x884C;&#x5904;&#x7406;</span>
+        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; numevents; j++) {
+            <span class="hljs-comment">// &#x8BFB;&#x53D6;&#x521A;&#x521A;&#x901A;&#x8FC7;Select&#x83B7;&#x5F97;&#x7684;Event</span>
+            aeFileEvent *fe = &amp;eventLoop-&gt;events[eventLoop-&gt;fired[j].fd];
+            <span class="hljs-keyword">int</span> mask = eventLoop-&gt;fired[j].mask;
+            <span class="hljs-keyword">int</span> fd = eventLoop-&gt;fired[j].fd;
+            <span class="hljs-keyword">int</span> rfired = <span class="hljs-number">0</span>;
+            <span class="hljs-comment">// &#x53EF;&#x8BFB;Socket&#x5904;&#x7406;</span>
+            <span class="hljs-keyword">if</span> (fe-&gt;mask &amp; mask &amp; AE_READABLE) {
+                rfired = <span class="hljs-number">1</span>;
+                <span class="hljs-comment">// &#x8C03;&#x7528;&#x51FD;&#x6570;&#x6307;&#x9488;           </span>
+                fe-&gt;rfileProc(eventLoop,fd,fe-&gt;clientData,mask);
+            }
+            <span class="hljs-comment">// &#x53EF;&#x5199;Socket&#x5904;&#x7406;</span>
+            <span class="hljs-keyword">if</span> (fe-&gt;mask &amp; mask &amp; AE_WRITABLE) {
+                <span class="hljs-keyword">if</span> (!rfired || fe-&gt;wfileProc != fe-&gt;rfileProc)
+                    fe-&gt;wfileProc(eventLoop,fd,fe-&gt;clientData,mask);
+            }
+            processed++;
+        }
+    }
+    <span class="hljs-comment">// &#x6B64;&#x5904;&#x7565;&#x53BB;&#x5B9A;&#x65F6;&#x76F8;&#x5173;&#x4EE3;&#x7801;...</span>
+    <span class="hljs-keyword">return</span> processed; <span class="hljs-comment">/* return the number of processed file/time events */</span>
+}
+</code></pre>
+<h4 id="&#x8C03;&#x7528;&#x4E1A;&#x52A1;-&#x8C03;&#x7528;&#x51FD;&#x6570;&#x6307;&#x9488;">&#x8C03;&#x7528;&#x4E1A;&#x52A1;( &#x8C03;&#x7528;&#x51FD;&#x6570;&#x6307;&#x9488;)</h4>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x8FDB;&#x884C;&#x5177;&#x4F53;&#x7684;&#x8C03;&#x7528;<a href="https://zh.wikipedia.org/wiki/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88" target="_blank">&#x51FD;&#x6570;&#x6307;&#x9488;</a>&#x4E86;&#x3002;&#x8FD9;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;&#x5E76;&#x6267;&#x884C;&#x8BFB;&#x5199;&#x4E8B;&#x52A1;&#xFF0C;C&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x6307;&#x9488;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x7C7B;&#x4F3C;&#x4E8E;&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x95ED;&#x5305;(<em>Closure</em>)&#xFF0C;&#x6BD4;&#x5982;&#x8FD9;&#x91CC;&#x7684;<em>aeFileProc</em>&#x5C31;&#x6709;&#x591A;&#x4E2A;&#x5B9E;&#x73B0;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x5B83;&#x7684;&#x539F;&#x578B;&#x4E0E;&#x67D0;&#x4E2A;&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// &#x5BF9;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;</span>
+<span class="hljs-function"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">void</span> <span class="hljs-title">aeFileProc</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> aeEventLoop *eventLoop, <span class="hljs-keyword">int</span> fd, <span class="hljs-keyword">void</span> *clientData, <span class="hljs-keyword">int</span> mask)</span></span>;
+<span class="hljs-comment">// &#x5BF9;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sendReplyToClient</span><span class="hljs-params">(aeEventLoop *el, <span class="hljs-keyword">int</span> fd, <span class="hljs-keyword">void</span> *privdata, <span class="hljs-keyword">int</span> mask)</span> </span>{
+    UNUSED(el);
+    UNUSED(mask);
+    <span class="hljs-comment">// &#x4E1A;&#x52A1;&#x4EE3;&#x7801;...</span>
+    writeToClient(fd,privdata,<span class="hljs-number">1</span>);
+}
+</code></pre>
+<blockquote>
+<p>&#x53EF;&#x4EE5;&#x5728;Clion&#x4F7F;&#x7528;<code>cmd</code> + <code>shift</code> + <code>f</code>&#x8FDB;&#x884C;&#x5168;&#x5C40;&#x6587;&#x672C;&#x641C;&#x7D22;<code>aeCreateFileEvent</code>&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x6240;&#x6709;&#x7684;&#x4E1A;&#x52A1;&#x4E86;&#x3002;</p>
+</blockquote>
+<h2 id="&#x9644;&#x5F55;">&#x9644;&#x5F55;</h2>
+<h4 id="&#x4E3A;&#x4EC0;&#x4E48;nio&#x4E2D;select&#x8C03;&#x7528;&#x64CD;&#x4F5C;&#x6709;&#x65F6;&#x4F1A;&#x5360;&#x7528;&#x5F88;&#x591A;cpu&#xFF1F;">&#x4E3A;&#x4EC0;&#x4E48;NIO&#x4E2D;Select&#x8C03;&#x7528;&#x64CD;&#x4F5C;&#x6709;&#x65F6;&#x4F1A;&#x5360;&#x7528;&#x5F88;&#x591A;CPU&#xFF1F;</h4>
+<p>&#x8BF4;&#x4E2A;NIO&#x76F8;&#x5173;&#x7684;&#x5427;&#xFF0C;&#x6700;&#x8FD1;&#x5728;&#x7528;JVisualvm&#x62BD;&#x6837;CPU&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x53D1;&#x73B0;MQ&#x7684;Select&#x8C03;&#x7528;&#x5360;&#x7528;&#x975E;&#x5E38;&#x9AD8;&#x7684;CPU&#x65F6;&#x95F4;&#x3002;&#x901A;&#x8FC7;&#x5B9A;&#x4F4D;&#xFF0C;&#x53D1;&#x73B0;&#xFF1A;</p>
+<ol>
+<li>&#x6709;&#x5927;&#x91CF;&#x7684;&#x8FDE;&#x63A5;&#x901A;&#x8FC7;MQ&#x53D1;&#x51FA;&#x540E;&#x65E0;&#x54CD;&#x5E94;</li>
+<li>&#x81EA;&#x8EAB;&#x7531;&#x4E8E;&#x79EF;&#x538B;&#x5BFC;&#x81F4;&#x53EF;&#x5199;&#x7684;&#x8FDE;&#x63A5;&#x6CA1;&#x88AB;&#x5904;&#x7406;</li>
+<li>&#x8FDB;&#x800C;&#x5F15;&#x53D1;FullGC&#xFF0C;&#x5BFC;&#x81F4;&#x66F4;&#x52A0;&#x6076;&#x5316;</li>
+</ol>
+<p>&#x4E2A;&#x4EBA;&#x731C;&#x6D4B;&#xFF0C;Select&#x5728;&#x67D0;&#x4E9B;&#x6076;&#x52A3;&#x73AF;&#x5883;&#x4E0B;<strong>&#x4E0D;&#x64C5;&#x957F;&#x4E8E;&#x957F;&#x8FDE;&#x63A5;&#x6216;&#x8005;&#x4E0D;&#x7A33;&#x5B9A;&#x7684;&#x8FDE;&#x63A5;</strong>&#x800C;&#x51FA;&#x73B0;&#x7A7A;&#x8F6C;&#x5FAA;&#x73AF;&#x3002;&#x6211;&#x7684;&#x5EFA;&#x8BAE;&#xFF1A;</p>
+<ol>
+<li>&#x914D;&#x7F6E;Unix&#x53C2;&#x6570;&#xFF0C;&#x51CF;&#x5C0F;&#x6808;&#x5185;&#x5B58;&#x7684;&#x5206;&#x914D;&#x91CF;&#xFF0C;&#x51CF;&#x5C11;Socket&#x7684;&#x7B49;&#x5F85;&#x8D85;&#x65F6;</li>
+<li>&#x5207;&#x5FCC;&#x5728;&#x6B64;&#x5FAA;&#x73AF;&#x7EBF;&#x7A0B;&#x4E0A;&#x6267;&#x884C;&#x8017;&#x65F6;&#x4EFB;&#x52A1;&#xFF0C;&#x5EFA;&#x8BAE;&#x5C06;&#x4EA7;&#x751F;&#x7684;&#x4E8B;&#x4EF6;&#x4EA4;&#x7ED9;&#x7EBF;&#x7A0B;&#x6C60;</li>
+<li>&#x5C06;Select&#x8D85;&#x65F6;&#x8BBE;&#x8BA1;&#x4E3A;&#x963B;&#x585E;&#x7B49;&#x5F85;&#xFF0C;&#x51CF;&#x5C11;&#x7A7A;&#x8F6C;&#x6B21;&#x6570;</li>
+</ol>
+<h2 id="&#x53C2;&#x8003;&#x6587;&#x732E;">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
+<ol>
+<li><a href="http://origin.redisbook.com/" target="_blank">http://origin.redisbook.com/</a></li>
+<li><a href="https://www.amazon.cn/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0-%E9%BB%84%E5%81%A5%E5%AE%8F-%E8%91%97/dp/B00LZNV5B4/ref=sr_1_2?ie=UTF8&amp;qid=1482049301&amp;sr=8-2&amp;keywords=redis" target="_blank">Redis&#x8BBE;&#x8BA1;&#x4E0E;&#x5B9E;&#x73B0; (&#x6570;&#x636E;&#x5E93;&#x6280;&#x672F;&#x4E1B;&#x4E66;)</a></li>
+<li><a href="https://www.amazon.cn/%E5%9B%BE%E4%B9%A6/dp/B00GOM5IL4" target="_blank">&#x6DF1;&#x5165;&#x6D45;&#x51FA;Node.js</a> </li>
+<li><a href="https://www.zhihu.com/question/28594409" target="_blank">https://www.zhihu.com/question/28594409</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/aix/library/0807_liugb_tcpip/#ibm-pcon" target="_blank">TCP/IP &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x901A;&#x4FE1;&#x8FDE;&#x63A5;&#x6A21;&#x5F0F;</a></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="cow.html" class="navigation navigation-next " aria-label="Next page: Copy on write">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Event loop","level":"1.2","depth":1,"next":{"title":"Copy on write","level":"1.3","depth":1,"path":"cow.md","ref":"cow.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/redis/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"event.md","mtime":"2021-03-04T11:49:55.331Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:52:37.250Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

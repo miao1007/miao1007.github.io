@@ -1,0 +1,935 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>sync的native实现 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../thread/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../../../">
+    
+    <a href="../../../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../../../java/">
+    
+    <a href="../../../java/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Java/JVM
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" data-path="../../../java/gc/">
+    
+    <a href="../../../java/gc/">
+        
+                    
+                        <b>1.2.1.</b>
+                    
+                    垃圾回收
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1.1" data-path="../../../java/gc/analyze-full-gc.html">
+    
+    <a href="../../../java/gc/analyze-full-gc.html">
+        
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    analyze-full-gc
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../../../java/classloader/">
+    
+    <a href="../../../java/classloader/">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    ClassLoader
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.2.1" data-path="../../../java/classloader/class.html">
+    
+    <a href="../../../java/classloader/class.html">
+        
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    Class的结构
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2.2" data-path="../../../java/classloader/classloader-in-jvm.html">
+    
+    <a href="../../../java/classloader/classloader-in-jvm.html">
+        
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    ClassLoader的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.3" data-path="../../../java/reflection/">
+    
+    <a href="../../../java/reflection/">
+        
+                    
+                        <b>1.2.3.</b>
+                    
+                    反射
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../../">
+    
+    <a href="../../">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    并发编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../../functional/">
+    
+    <a href="../../functional/">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    纯函数
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../../final/">
+    
+    <a href="../../final/">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    final/ThreadLocal
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    锁
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1" data-path="../cas/">
+    
+    <a href="../cas/">
+        
+                    
+                        <b>1.3.3.1.</b>
+                    
+                    CAS与AQS
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1.1" data-path="../cas/cas-impl.html">
+    
+    <a href="../cas/cas-impl.html">
+        
+                    
+                        <b>1.3.3.1.1.</b>
+                    
+                    CAS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.2" data-path="../cas/aqs/aqs-impl.html">
+    
+    <a href="../cas/aqs/aqs-impl.html">
+        
+                    
+                        <b>1.3.3.1.2.</b>
+                    
+                    AQS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.3" data-path="../cas/aqs/reentrantlock.html">
+    
+    <a href="../cas/aqs/reentrantlock.html">
+        
+                    
+                        <b>1.3.3.1.3.</b>
+                    
+                    ReentrantLock
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.4" data-path="../cas/aqs/countdownlatch.html">
+    
+    <a href="../cas/aqs/countdownlatch.html">
+        
+                    
+                        <b>1.3.3.1.4.</b>
+                    
+                    CountDownLatch
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.5" data-path="../cas/aqs/read-write-lock.html">
+    
+    <a href="../cas/aqs/read-write-lock.html">
+        
+                    
+                        <b>1.3.3.1.5.</b>
+                    
+                    ReadWriteLock
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.2" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.3.3.2.</b>
+                    
+                    synchronized
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter active" data-level="1.3.3.2.1" data-path="jvm-sync.html">
+    
+    <a href="jvm-sync.html">
+        
+                    
+                        <b>1.3.3.2.1.</b>
+                    
+                    sync的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.4" data-path="../../thread/">
+    
+    <a href="../../thread/">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    线程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.4.1" data-path="../../thread/nativethread.html">
+    
+    <a href="../../thread/nativethread.html">
+        
+                    
+                        <b>1.3.4.1.</b>
+                    
+                    NativeThread
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.2" data-path="../../thread/jvmthread.html">
+    
+    <a href="../../thread/jvmthread.html">
+        
+                    
+                        <b>1.3.4.2.</b>
+                    
+                    JVM线程
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.3" data-path="../../thread/threadpool.html">
+    
+    <a href="../../thread/threadpool.html">
+        
+                    
+                        <b>1.3.4.3.</b>
+                    
+                    ThreadPool
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.5" data-path="../../juc-problems.html">
+    
+    <a href="../../juc-problems.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    常见并发问题
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.6" data-path="../../cow/">
+    
+    <a href="../../cow/">
+        
+                    
+                        <b>1.3.6.</b>
+                    
+                    写时复制
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../../../microservice/">
+    
+    <a href="../../../microservice/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    微服务中间件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../../../microservice/dist-problems.html">
+    
+    <a href="../../../microservice/dist-problems.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    分布式问题
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1.1" data-path="../../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+    
+    <a href="../../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+        
+                    
+                        <b>1.4.1.1.</b>
+                    
+                    事务一致性问题
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../../../domain/">
+    
+    <a href="../../../domain/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    元编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../../../domain/dsl/">
+    
+    <a href="../../../domain/dsl/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    DSL
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../../../domain/templateengine/">
+    
+    <a href="../../../domain/templateengine/">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    模版引擎
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../../../domain/bpm/">
+    
+    <a href="../../../domain/bpm/">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    BPM
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >sync的native实现</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>the implementation of Synchnornized in JVM</p>
+<hr>
+<h2 id="&#x5FEB;&#x901F;&#x7ED3;&#x8BBA;">&#x5FEB;&#x901F;&#x7ED3;&#x8BBA;</h2>
+<p>&#x5728;JamVM&#x4E2D;&#x7684;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;</p>
+<ul>
+<li>&#x901A;&#x8FC7;Object&#x4E2D;&#x7684;C&#x7ED3;&#x6784;&#x4F53;&#x7684;<code>object-&gt;lock-&gt;monitor</code>&#x5B9E;&#x73B0;&#x9501;&#x7684;&#x6807;&#x5FD7;</li>
+<li>&#x8C03;&#x5EA6;&#x901A;&#x8FC7;pThread&#x7684;<code>pthread_mutex_lock</code>&#x7B49;&#x64CD;&#x4F5C;&#x8FDB;&#x884C;lock&#x4E0E;unlock&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x628A;&#x6700;&#x96BE;&#x7684;&#x8C03;&#x5EA6;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x7529;&#x9505;&#x7ED9;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E86;</li>
+<li>Synchnornized&#x662F;java&#x4E2D;&#x4E92;&#x65A5;&#x9501;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x7528;&#x4E8E;&#x5BF9;&#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#x8FDB;&#x884C;&#x652F;&#x6301;</li>
+</ul>
+<h2 id="object&#x7684;&#x7EBF;&#x7A0B;&#x65B9;&#x6CD5;">Object&#x7684;&#x7EBF;&#x7A0B;&#x65B9;&#x6CD5;</h2>
+<p>&#x5728;&#x4E86;&#x89E3;Java&#x7684;&#x540C;&#x6B65;&#x4E4B;&#x524D;&#xFF0C;&#x5148;&#x590D;&#x4E60;&#x4E00;&#x4E0B;Java&#x7684;&#x7EBF;&#x7A0B;&#x6A21;&#x578B;&#xFF0C;&#x5728;Java&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;Object&#x4F5C;&#x4E3A;&#x6700;&#x5E38;&#x7528;&#x7684;&#x9501;&#x3002;&#x5728;Object&#x4E2D;&#xFF0C;&#x6709;&#x8BB8;&#x591A;native&#x65B9;&#x6CD5;&#xFF0C;&#x4E3B;&#x8981;&#x5982;&#x4E0B;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">&#x51FD;&#x6570;</th>
+<th style="text-align:left">&#x529F;&#x80FD;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">wait()</td>
+<td style="text-align:left">&#x91CA;&#x653E;monitor&#x4E0E;&#x65F6;&#x95F4;&#x7247;&#xFF0C;&#x53EA;&#x80FD;&#x8D85;&#x65F6;&#x6216;&#x8005;&#x6709;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;notify&#x624D;&#x80FD;&#x6062;&#x590D;</td>
+</tr>
+<tr>
+<td style="text-align:left">sleep()</td>
+<td style="text-align:left">&#x91CA;&#x653E;&#x65F6;&#x95F4;&#x7247;&#xFF0C;&#x4F46;&#x662F;&#x6301;&#x6709;monitor</td>
+</tr>
+<tr>
+<td style="text-align:left">notify()</td>
+<td style="text-align:left">&#x901A;&#x77E5;&#x8C03;&#x5EA6;&#x5668;&#x5524;&#x9192;&#x7B49;&#x5F85;&#x6B64;monitor&#x7684;BLOCKED&#x7EBF;&#x7A0B;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#xFF0C;&#x8F6C;&#x4E3A;blocked&#x72B6;&#x6001;</td>
+</tr>
+<tr>
+<td style="text-align:left">notifyAll()</td>
+<td style="text-align:left">&#x5524;&#x9192;&#x6240;&#x6709;&#x7B49;&#x5F85;&#x6B64;monitor&#x7684;&#x7EBF;&#x7A0B;&#x961F;&#x5217;&#xFF0C;&#x8F6C;&#x4E3A;blocked&#x72B6;&#x6001;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x7EBF;&#x7A0B;&#x7684;&#x72B6;&#x6001;&#x6709;&#x5982;&#x4E0B;&#x51E0;&#x79CD;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-f529c1608fd10ffe.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1240" alt="source: &amp;lt;http://n.ethz.ch/~anoever/recitation05.pdf&amp;gt;"></p>
+<blockquote>
+<p>&#x63D0;&#x9192;&#x4E00;&#x4E0B;&#xFF0C;&#x88AB;<code>notify()</code>&#x8C03;&#x7528;&#x540E;&#x662F;&#x8FDB;&#x5165;&#x4E86;block&#x7684;&#x961F;&#x5217;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x8C03;&#x5EA6;&#x5668;&#x201C;&#x6447;&#x53F7;&#x201D;&#x6311;&#x9009;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x540E;&#x624D;&#x80FD;&#x8FDB;&#x5165;&#x540C;&#x6B65;&#x533A;&#x5757;</p>
+</blockquote>
+<h2 id="&#x4E92;&#x65A5;&#x9501;synchnornized">&#x4E92;&#x65A5;&#x9501;(Synchnornized)</h2>
+<p>&#x4E92;&#x65A5;&#x9501;&#x5728;&#x5176;&#x5B83;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x4E2D;&#x4E00;&#x822C;&#x53EB;&#x505A;<code>Mutex(|mju&#x2D0;tex|)</code>&#xFF0C;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x5BF9;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x7684;&#x72EC;&#x5360;&#x6027;&#xFF0C;&#x5F53;&#x8FDB;&#x5165;&#x540C;&#x6B65;&#x4EE3;&#x7801;&#x5757;&#x65F6;&#xFF0C;&#x83B7;&#x53D6;&#x5E76;&#x72EC;&#x5360;&#x9501;&#xFF0C;&#x79BB;&#x5F00;&#x65F6;&#x91CA;&#x653E;&#x9501;&#x3002;&#x5728;&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#x4E2D;&#xFF0C;&#x5176;&#x5B83;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;&#x6B64;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;&#x4F1A;&#x6210;&#x4E3A;&#x4E0A;&#x56FE;&#x7684;BLOCKED&#x72B6;&#x6001;&#x3002;</p>
+<blockquote>
+<p>&#x5728;Java&#x4E2D;&#x7EBF;&#x7A0B;&#x662F;&#x901A;&#x8FC7;&#x5BF9;C&#x4E2D;&#x7684;pThread&#x5305;&#x88C5;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;pThread&#x63A5;&#x53E3;&#x901A;&#x8FC7;systemcall&#x5728;&#x5185;&#x6838;&#x5B9E;&#x73B0;&#xFF0C;&#x56E0;&#x6B64;&#x7EBF;&#x7A0B;&#x7684;&#x7BA1;&#x7406;&#x672C;&#x8D28;&#x90FD;&#x662F;&#x5728;&#x8FDB;&#x884C;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x5207;&#x6362;&#x6D88;&#x8017;&#xFF0C;&#x6545;Synchnornized&#x662F;&#x4E00;&#x79CD;&#x6BD4;&#x8F83;&#x91CD;&#x7684;&#x9501;&#x3002;</p>
+</blockquote>
+<p>&#x5728;Java&#x4E2D;&#xFF0C;Synchnornized&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x4E00;&#x79CD;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x53BB;&#x5224;&#x65AD;&#x3001;&#x914D;&#x7F6E;Mutex&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7528;<code>synchnornized(object){}</code>&#x8FDB;&#x884C;&#x5305;&#x88F9;&#x5373;&#x53EF;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5BF9;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;&#x4E00;&#x4E0B;&#x5165;&#x95E8;&#x3002;</p>
+<h3 id="1-&#x5BF9;&#x8C61;&#x540C;&#x6B65;">1. &#x5BF9;&#x8C61;&#x540C;&#x6B65;</h3>
+<p>&#x5BF9;&#x8C61;&#x540C;&#x6B65;&#x4E2D;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x7B2C;&#x4E00;&#x79CD;&#x662F;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x5757;<code>{}</code>&#x7684;&#x5305;&#x88F9;&#xFF0C;&#x7F16;&#x8BD1;&#x65F6;&#x901A;&#x8FC7;<code>MONITORENTER</code>&#x4E0E;<code>MONITOREXIT</code>&#x5C06;<code>Sample.this</code>&#x4F5C;&#x4E3A;&#x9501;&#x5BF9;&#x8C61;&#xFF1B;&#x7B2C;&#x4E8C;&#x79CD;&#x662F;&#x4E3A;method&#x6DFB;&#x52A0;<code>access_flag</code>&#x4E3A;synchronized&#xFF0C;JVM&#x5728;&#x6267;&#x884C;&#x65F6;&#x5C06;&#x6839;&#x636E;FLAG&#x81EA;&#x52A8;&#x52A0;\&#x51CF;&#x9501;&#xFF0C;&#x5982;&#x4E0B;&#x4E24;&#x79CD;&#x5199;&#x6CD5;&#x5728;JVM&#x4E2D;&#x8C03;&#x7528;&#x662F;&#x6548;&#x679C;&#x76F8;&#x540C;&#x7684;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sample</span> </span>{
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">do_work</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">synchronized</span> (Sample.<span class="hljs-keyword">this</span>) {
+      <span class="hljs-comment">//do synchronized work</span>
+    }
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">do_work</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">//do synchronized work</span>
+  }
+}
+</code></pre>
+<p>&#x8BE6;&#x89C1;: <a href="https://www.zhihu.com/question/27486803" target="_blank">Java&#x4E2D;&#x975E;static&#x7684;synchronized&#x65B9;&#x6CD5;&#x548C;synchronized(this)&#x7528;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x9501;&#x4E48;?</a>&#x3002;</p>
+<blockquote>
+<p>synchronized&#x5728;&#x65B9;&#x6CD5;&#x4E2D;&#x4E0D;&#x4F1A;&#x88AB;&#x7EE7;&#x627F;&#xFF0C;&#x867D;&#x7136;&#x7EE7;&#x627F;synchronized&#x65B9;&#x6CD5;&#x6709;&#x70B9;&#x8BE1;&#x5F02;</p>
+<p>&#x518D;&#x8BF4;&#x4E2A;&#x9898;&#x5916;&#x8BDD;&#xFF0C;synchronized&#x7684;&#x9501;&#x8303;&#x56F4;&#x8D8A;&#x5C0F;&#x8D8A;&#x597D;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x653E;&#x5728;&#x65B9;&#x6CD5;&#x4E0A;&#x4F5C;&#x4E3A;&#x4FEE;&#x9970;&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528;<code>synchronized (xxx.this)</code>&#x4EE3;&#x7801;&#x5757;&#x3002;common-pool&#x65E7;&#x7248;&#x4EE3;&#x7801;&#x4E2D;&#x5C31;&#x51FA;&#x73B0;&#x8FC7;&#x6B64;&#x95EE;&#x9898;&#xFF0C;&#x5BFC;&#x81F4;&#x4E0A;&#x6E38;&#x4E1A;&#x52A1;&#x51FA;&#x73B0;&#x6B7B;&#x9501;&#x3002;</p>
+</blockquote>
+<h3 id="2-&#x7C7B;&#x540C;&#x6B65;">2. &#x7C7B;&#x540C;&#x6B65;</h3>
+<p>&#x7C7B;&#x540C;&#x6B65;&#x7684;&#x5BF9;&#x8C61;&#x662F;<code>Sample.class</code>,&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x662F;&#x76F8;&#x540C;&#x7684;</p>
+<pre><code>public static synchronized do_work(){
+    //do synchronized work
+}
+
+public void do_work(){
+    synchronized (Sample.class){
+          //do synchronized work
+    }
+}
+</code></pre><blockquote>
+<p>&#x5355;&#x4F8B;&#x7684;&#x540C;&#x6B65;&#x65B9;&#x6CD5;&#x770B;&#x8FD9;&#x91CC;&#xFF1A;<a href="http://www.jianshu.com/p/eebcb81b1394" target="_blank">http://www.jianshu.com/p/eebcb81b1394</a></p>
+</blockquote>
+<h3 id="3-synchronized&#x7684;&#x5E94;&#x7528;">3. synchronized&#x7684;&#x5E94;&#x7528;</h3>
+<p>&#x9664;&#x4E86;&#x7F51;&#x4E0A;&#x7528;&#x70C2;&#x7684;&#x5355;&#x4F8B;&#x540C;&#x6B65;&#xFF0C;&#x591A;&#x7EBF;&#x7A0B;for&#x5FAA;&#x73AF;&#x81EA;&#x589E;&#xFF0C;&#x5E76;&#x53D1;HashMap&#x7B49;&#x4F8B;&#x5B50;&#x5916;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x518D;&#x4E3E;&#x4F8B;</p>
+<h4 id="31-&#x91CA;&#x653E;&#x9501;&#x4E0E;&#x65F6;&#x95F4;&#x7247;">3.1. &#x91CA;&#x653E;&#x9501;&#x4E0E;&#x65F6;&#x95F4;&#x7247;</h4>
+<p>&#x6211;&#x66FE;&#x7ECF;&#x5728;OkHttp&#x4E2D;&#xFF0C;&#x4ECB;&#x7ECD;&#x8FC7;Socket&#x7684;KeepAlive&#x8FDE;&#x63A5;&#x81EA;&#x52A8;&#x6E05;&#x7406;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86;wait&#x8FDB;&#x884C;&#x963B;&#x585E;&#xFF0C;&#x907F;&#x514D;&#x65E0;&#x8C13;&#x7684;&#x81EA;&#x65CB;(Spin-waiting)&#x635F;&#x8017;&#x3002;</p>
+<pre><code>while (true) {
+  //&#x6267;&#x884C;&#x6E05;&#x7406;&#x5E76;&#x8FD4;&#x56DE;&#x4E0B;&#x573A;&#x9700;&#x8981;&#x6E05;&#x7406;&#x7684;&#x65F6;&#x95F4;
+  long waitNanos = cleanup(System.nanoTime());
+  if (waitNanos == -1) return;
+  if (waitNanos &gt; 0) {
+    synchronized (ConnectionPool.this) {
+      try {
+        //&#x5728;timeout&#x5185;&#x91CA;&#x653E;&#x9501;&#x4E0E;&#x65F6;&#x95F4;&#x7247;
+        ConnectionPool.this.wait(TimeUnit.NANOSECONDS.toMillis(waitNanos));
+      } catch (InterruptedException ignored) {
+      }
+    }
+  }
+}
+</code></pre><p>&#x6CE8;&#x610F;wait&#x5728;Java&#x4E2D;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x9700;&#x8981;&#x5728;while&#x5FAA;&#x73AF;&#x4E2D;&#x7684;&#xFF0C;&#x5426;&#x5219;&#x4F60;&#x7684;wait&#x53EF;&#x80FD;&#x88AB;&#x8DEF;&#x4EBA;&#x7EBF;&#x7A0B;&#x7ED9;wakeup&#x4E86;&#xFF0C;&#x4E0A;&#x6587;&#x4EE3;&#x7801;&#x5C31;&#x662F;Best practice&#x3002;</p>
+<h4 id="32-dead-lock">3.2. Dead Lock</h4>
+<p>&#x867D;&#x7136;&#x540C;&#x6B65;&#x7B80;&#x5316;&#x4E86;&#x7F16;&#x7A0B;&#xFF0C;&#x4F46;&#x662F;&#x8FD8;&#x6709;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x6B7B;&#x9501;&#xFF0C;&#x5982;&#x4E0B;&#x4F8B;&#x5B50;&#xFF0C;&#x5F53;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7EBF;&#x7A0B;&#x5206;&#x522B;&#x8C03;&#x7528;<code>a.swap(b)</code>&#x4E0E;<code>b.swap(a)</code>&#x65F6;&#xFF0C;&#x5728;<code>getValue()</code>&#x65F6;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x6B7B;&#x9501;&#x3002;</p>
+<pre><code>//code from &lt;Concurrent Programming in Java&gt;
+class Cell {      // Do not use
+ private long value;
+ synchronized long getValue() { return value; }
+
+ synchronized void setValue(long v) { value = v; }
+ synchronized void swapValue(Cell other) {
+  long t = getValue();
+  long v = other.getValue();
+  setValue(v);
+  other.setValue(t);
+ }
+}
+</code></pre><h2 id="monitor&#x7BA1;&#x7A0B;">Monitor(&#x7BA1;&#x7A0B;)</h2>
+<p>&#x91CD;&#x70B9;&#x6765;&#x4E86;&#xFF01;&#x7BA1;&#x7A0B;&#x662F;JVM&#x4E2D;&#x7684;&#x4E92;&#x65A5;&#x9501;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5728;Java&#x4E2D;&#xFF0C;Object.wait/notify&#xFF0C;&#x4EE5;&#x53CA;&#x7EBF;&#x7A0B;&#x7684;wait/notify&#xFF0C;synchronized&#x751F;&#x6210;&#x7684;&#x5B57;&#x8282;&#x7801;MONITORENTER/EXIT&#x7B49;&#x64CD;&#x4F5C;&#x5728;JVM&#x4E2D;&#x90FD;&#x662F;&#x901A;&#x8FC7;Monitor&#x63A7;&#x5236;&#x4E0E;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<p>&#x5728;JVM&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A;<code>java.lang.object</code>&#x5BF9;&#x8C61;&#x5BF9;&#x5E94;&#x7684;C&#x7ED3;&#x6784;&#x4F53;&#x5747;&#x62E5;&#x6709;&#x4E00;&#x4E2A;lock&#x6307;&#x9488;&#xFF0C;&#x6307;&#x9488;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;Monitor&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5BF9;&#x8C61;&#x3001;lock&#x6307;&#x9488;&#x4E0E;Monitor&#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;&#xFF09;&#x3002;&#x4E00;&#x4E2A;Monitor&#x53EA;&#x80FD;&#x540C;&#x65F6;&#x88AB;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6301;&#x6709;&#x3002;</p>
+<p>&#x7BA1;&#x7A0B;&#x7684;&#x5DE5;&#x4F5C;&#x673A;&#x5236;&#x5982;&#x4E0B;&#x56FE;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-6e1cb7f13a83fb2d.png?imageMogr2/auto-orient/strip|imageView2/2/w/300/interlace/1/q/100" alt="source: http://en.wikipedia.org/wiki/Monitor\_\(synchronization\)"></p>
+<p>&#x672C;&#x56FE;&#x6765;&#x81EA;&#x4E8E;&#x7EF4;&#x57FA;&#x767E;&#x79D1;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x5BF9;<code>&#x963B;&#x585E;&#x5F0F;&#x6761;&#x4EF6;&#x53D8;&#x91CF;</code>&#x7684;&#x4E00;&#x79CD;&#x5C01;&#x88C5;</p>
+<ul>
+<li><code>e</code>&#x8868;&#x793A;&#x5165;&#x53E3;&#x961F;&#x5217;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x5B83;&#x5C06;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x9501;&#xFF0C;&#x5904;&#x4E8E;blocked&#x72B6;&#x6001;</li>
+<li><code>q</code>&#x8868;&#x793A;&#x7B49;&#x5F85;&#x961F;&#x5217;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x5904;&#x4E8E;waiting&#x72B6;&#x6001;</li>
+<li><code>wait</code>&#x8868;&#x793A;&#x8C03;&#x7528;<code>pThread_wait()</code>&#x8FDB;&#x884C;&#x7B49;&#x5F85;&#xFF0C;&#x8FDB;&#x5165;<code>q</code>&#x961F;&#x5217;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x7531;&#x5F00;&#x53D1;&#x8005;&#x624B;&#x52A8;&#x8C03;&#x7528;&#x4E0E;&#x6062;&#x590D;&#xFF0C;&#x4E0B;&#x6587;&#x6682;&#x4E0D;&#x8003;&#x8651;</li>
+<li><code>notified</code>&#x8868;&#x793A;&#x8C03;&#x7528;<code>pThread_notify()</code>&#x540E;&#x8FDB;&#x5165;<code>e</code>&#x961F;&#x5217;</li>
+<li><code>enter</code>&#x4E0E;<code>leave</code>&#x8868;&#x793A;&#x72EC;&#x5360;&#x7EBF;&#x7A0B;&#x5BF9;&#x9501;&#x7684;&#x83B7;&#x53D6;&#x4E0E;&#x91CA;&#x653E;</li>
+</ul>
+<p>&#x6BD4;&#x5982;&#x73B0;&#x5728;&#x6709;&#x7EBF;&#x7A0B;&#x961F;&#x5217;<code>e</code>&#x540C;&#x65F6;&#x7ADE;&#x4E89;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x8DD1;&#x7684;&#x6700;&#x5FEB;&#x7684;&#x7EBF;&#x7A0B;enter&#x540E;&#xFF0C;&#x7ACB;&#x523B;&#x83B7;&#x53D6;&#x5230;&#x4E86;object&#x7684;monitor&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x7EBF;&#x7A0B;&#x7531;&#x4E8E;&#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x5230;monitor&#xFF0C;&#x5C31;&#x5728;<code>e</code>&#x961F;&#x5217;&#x4E2D;&#x963B;&#x585E;&#x7B49;&#x5F85;&#x9501;&#x7684;&#x91CA;&#x653E;&#x3002;</p>
+<pre><code> enter the monitor:
+    enter the method
+    if the monitor is locked
+        add this thread to e
+        block this thread
+    else
+        lock the monitor
+</code></pre><p>&#x5F53;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x8C03;&#x7528;&#x8C03;&#x5EA6;&#x5668;</p>
+<pre><code> leave the monitor:
+    schedule
+    return from the method
+</code></pre><p>&#x8C03;&#x5EA6;&#x5668;&#x5C06;&#x4F1A;&#x91CA;&#x653E;monitor&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x67D0;&#x79CD;&#x8C03;&#x5EA6;&#x516C;&#x5E73;&#x7684;&#x8C03;&#x5EA6;&#x7B56;&#x7565;&#xFF08;&#x53EF;&#x80FD;&#x662F;FIFO&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x662F;&#x4F18;&#x5148;&#x6743;&#x503C;&#x7B49;&#xFF09;&#x5C06;monitor&#x5206;&#x914D;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;&#x5904;&#x4E8E;blocked&#x6001;&#x7684;&#x7EBF;&#x7A0B;&#x3002;</p>
+<pre><code>  schedule :
+    if there is a thread on e
+      select and remove one thread from e and restart it
+      (this thread will occupy the monitor next)
+    else
+      unlock the monitor
+      (the monitor will become unoccupied)
+</code></pre><blockquote>
+<p>&#x4EE5;Android6.0&#x7684;vm&#x4E3A;&#x4F8B;&#xFF0C;&#x53C2;&#x8003;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li><a href="https://android.googlesource.com/platform/art/+/android-6.0.1_r46/runtime/monitor.h" target="_blank">monitor.h</a></li>
+<li><a href="https://android.googlesource.com/platform/art/+/android-6.0.1_r46/runtime/monitor.cc" target="_blank">monitor.cc</a></li>
+</ul>
+</blockquote>
+<h2 id="&#x4F7F;&#x7528;object&#x4F5C;&#x4E3A;&#x9501;&#x597D;&#x4E0D;&#x597D;&#xFF1F;">&#x4F7F;&#x7528;Object&#x4F5C;&#x4E3A;&#x9501;&#x597D;&#x4E0D;&#x597D;&#xFF1F;</h2>
+<p>Java&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;Object&#x7ED3;&#x6784;&#x4F53;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x5B57;&#x6BB5;&#x6620;&#x5C04;&#x4E3A;&#x9501;&#xFF0C;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x90FD;&#x53EF;&#x4EE5;&#x6210;&#x4E3A;&#x9501;&#xFF0C;&#x8FD9;&#x6837;&#x56FA;&#x7136;&#x7B80;&#x5316;&#x4E86;&#x7F16;&#x7A0B;&#xFF0C;&#x4F46;&#x662F;&#x76F8;&#x6BD4;Ruby&#x7B49;&#x8BED;&#x8A00;&#x4F7F;&#x7528;Mutex&#x4F5C;&#x4E3A;&#x4E13;&#x7528;&#x9501;&#xFF0C;Java&#x6240;&#x8017;&#x7528;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x5185;&#x5B58;&#x66F4;&#x591A;</p>
+<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
+<ol>
+<li><a href="http://android.group.iteye.com/group/wiki/3083-java-sync-communication" target="_blank">http://android.group.iteye.com/group/wiki/3083-java-sync-communication</a></li>
+<li><a href="http://ibruce.info/2013/12/07/java-interview-questions-concurrency/" target="_blank">http://ibruce.info/2013/12/07/java-interview-questions-concurrency/</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E7%9B%A3%E8%A6%96%E5%99%A8_%28%E7%A8%8B%E5%BA%8F%E5%90%8C%E6%AD%A5%E5%8C%96%29" target="_blank">https://zh.wikipedia.org/wiki/%E7%9B%A3%E8%A6%96%E5%99%A8_(%E7%A8%8B%E5%BA%8F%E5%90%8C%E6%AD%A5%E5%8C%96)</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/java/j-threads/" target="_blank">https://www.ibm.com/developerworks/cn/java/j-threads/</a></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: synchronized">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../thread/" class="navigation navigation-next " aria-label="Next page: 线程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"sync的native实现","level":"1.3.3.2.1","depth":4,"next":{"title":"线程","level":"1.3.4","depth":2,"path":"juc/thread/README.md","ref":"juc/thread/README.md","articles":[{"title":"NativeThread","level":"1.3.4.1","depth":3,"path":"juc/thread/nativethread.md","ref":"juc/thread/nativethread.md","articles":[]},{"title":"JVM线程","level":"1.3.4.2","depth":3,"path":"juc/thread/jvmthread.md","ref":"juc/thread/jvmthread.md","articles":[]},{"title":"ThreadPool","level":"1.3.4.3","depth":3,"path":"juc/thread/threadpool.md","ref":"juc/thread/threadpool.md","articles":[]}]},"previous":{"title":"synchronized","level":"1.3.3.2","depth":3,"path":"juc/lock/synchronized/README.md","ref":"juc/lock/synchronized/README.md","articles":[{"title":"sync的native实现","level":"1.3.3.2.1","depth":4,"path":"juc/lock/synchronized/jvm-sync.md","ref":"juc/lock/synchronized/jvm-sync.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/java/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"juc/lock/synchronized/jvm-sync.md","mtime":"2021-03-04T11:49:55.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:54.413Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

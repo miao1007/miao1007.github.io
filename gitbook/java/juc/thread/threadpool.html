@@ -1,0 +1,900 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ThreadPool · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../juc-problems.html" />
+    
+    
+    <link rel="prev" href="jvmthread.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../../">
+    
+    <a href="../../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../../java/">
+    
+    <a href="../../java/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Java/JVM
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" data-path="../../java/gc/">
+    
+    <a href="../../java/gc/">
+        
+                    
+                        <b>1.2.1.</b>
+                    
+                    垃圾回收
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1.1" data-path="../../java/gc/analyze-full-gc.html">
+    
+    <a href="../../java/gc/analyze-full-gc.html">
+        
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    analyze-full-gc
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../../java/classloader/">
+    
+    <a href="../../java/classloader/">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    ClassLoader
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.2.1" data-path="../../java/classloader/class.html">
+    
+    <a href="../../java/classloader/class.html">
+        
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    Class的结构
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2.2" data-path="../../java/classloader/classloader-in-jvm.html">
+    
+    <a href="../../java/classloader/classloader-in-jvm.html">
+        
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    ClassLoader的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.3" data-path="../../java/reflection/">
+    
+    <a href="../../java/reflection/">
+        
+                    
+                        <b>1.2.3.</b>
+                    
+                    反射
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    并发编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../functional/">
+    
+    <a href="../functional/">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    纯函数
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../final/">
+    
+    <a href="../final/">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    final/ThreadLocal
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../lock/">
+    
+    <a href="../lock/">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    锁
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1" data-path="../lock/cas/">
+    
+    <a href="../lock/cas/">
+        
+                    
+                        <b>1.3.3.1.</b>
+                    
+                    CAS与AQS
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1.1" data-path="../lock/cas/cas-impl.html">
+    
+    <a href="../lock/cas/cas-impl.html">
+        
+                    
+                        <b>1.3.3.1.1.</b>
+                    
+                    CAS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.2" data-path="../lock/cas/aqs/aqs-impl.html">
+    
+    <a href="../lock/cas/aqs/aqs-impl.html">
+        
+                    
+                        <b>1.3.3.1.2.</b>
+                    
+                    AQS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.3" data-path="../lock/cas/aqs/reentrantlock.html">
+    
+    <a href="../lock/cas/aqs/reentrantlock.html">
+        
+                    
+                        <b>1.3.3.1.3.</b>
+                    
+                    ReentrantLock
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.4" data-path="../lock/cas/aqs/countdownlatch.html">
+    
+    <a href="../lock/cas/aqs/countdownlatch.html">
+        
+                    
+                        <b>1.3.3.1.4.</b>
+                    
+                    CountDownLatch
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.5" data-path="../lock/cas/aqs/read-write-lock.html">
+    
+    <a href="../lock/cas/aqs/read-write-lock.html">
+        
+                    
+                        <b>1.3.3.1.5.</b>
+                    
+                    ReadWriteLock
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.2" data-path="../lock/synchronized/">
+    
+    <a href="../lock/synchronized/">
+        
+                    
+                        <b>1.3.3.2.</b>
+                    
+                    synchronized
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.2.1" data-path="../lock/synchronized/jvm-sync.html">
+    
+    <a href="../lock/synchronized/jvm-sync.html">
+        
+                    
+                        <b>1.3.3.2.1.</b>
+                    
+                    sync的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.4" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    线程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.4.1" data-path="nativethread.html">
+    
+    <a href="nativethread.html">
+        
+                    
+                        <b>1.3.4.1.</b>
+                    
+                    NativeThread
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.2" data-path="jvmthread.html">
+    
+    <a href="jvmthread.html">
+        
+                    
+                        <b>1.3.4.2.</b>
+                    
+                    JVM线程
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.3.4.3" data-path="threadpool.html">
+    
+    <a href="threadpool.html">
+        
+                    
+                        <b>1.3.4.3.</b>
+                    
+                    ThreadPool
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.5" data-path="../juc-problems.html">
+    
+    <a href="../juc-problems.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    常见并发问题
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.6" data-path="../cow/">
+    
+    <a href="../cow/">
+        
+                    
+                        <b>1.3.6.</b>
+                    
+                    写时复制
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../../microservice/">
+    
+    <a href="../../microservice/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    微服务中间件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../../microservice/dist-problems.html">
+    
+    <a href="../../microservice/dist-problems.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    分布式问题
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1.1" data-path="../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+    
+    <a href="../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+        
+                    
+                        <b>1.4.1.1.</b>
+                    
+                    事务一致性问题
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../../domain/">
+    
+    <a href="../../domain/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    元编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../../domain/dsl/">
+    
+    <a href="../../domain/dsl/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    DSL
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../../domain/templateengine/">
+    
+    <a href="../../domain/templateengine/">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    模版引擎
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../../domain/bpm/">
+    
+    <a href="../../domain/bpm/">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    BPM
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >ThreadPool</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;">&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;</h2>
+<p>&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x51E0;&#x4E2A;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x4E2D;&#x5982;&#x4F55;&#x914D;&#x7F6E;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;</p>
+<h4 id="jdk&#x81EA;&#x5E26;executors&#x91CC;&#x9762;&#x51E0;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;">JDK&#x81EA;&#x5E26;Executors&#x91CC;&#x9762;&#x51E0;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;</h4>
+<p>&#x8FD9;&#x51E0;&#x4E2A;&#x5C31;&#x4E0D;&#x4ECB;&#x7ECD;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x770B;JavaDoc</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>corePoolSize</th>
+<th>maximumPoolSize</th>
+<th>keepAlive</th>
+<th>BlockingQueue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>newCachedThreadPool</td>
+<td>0</td>
+<td>Integer.MAX_VALUE</td>
+<td>60s</td>
+<td>SynchronousQueue</td>
+</tr>
+<tr>
+<td>newFixedThreadPool</td>
+<td>${nThreads}</td>
+<td>${nThreads}</td>
+<td>0s</td>
+<td>LinkedBlockingQueue</td>
+</tr>
+<tr>
+<td>newSingleThreadExecutor</td>
+<td>1</td>
+<td>1</td>
+<td>0s</td>
+<td>LinkedBlockingQueue</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>&#x521D;&#x59CB;&#x7EBF;&#x7A0B;&#x6570;&#x5E76;&#x4E0D;&#x662F;&#x8D8A;&#x5927;&#x8D8A;&#x597D;&#xFF0C;&#x5B83;&#x6700;&#x7EC8;&#x53D6;&#x51B3;&#x4E8E;&#x4EE3;&#x7801;&#x4E2D;&#x53EF;&#x4EE5;&#x5E76;&#x884C;&#x8FD0;&#x7B97;&#x7684;&#x6BD4;&#x4F8B;&#x3002;&#x5F53;&#x5E76;&#x53D1;&#x7EBF;&#x7A0B;&#x592A;&#x591A;&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x6574;&#x4F53;&#x6027;&#x80FD;&#x53CD;&#x800C;&#x4F1A;&#x4E0B;&#x964D;&#xFF0C;&#x56E0;&#x4E3A;&#x7CFB;&#x7EDF;&#x628A;&#x5F88;&#x591A;&#x65F6;&#x95F4;&#x82B1;&#x5728;&#x4E86;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x4E0A;&#xFF0C;&#x8BE6;&#x89C1;<a href="https://zh.wikipedia.org/wiki/&#x963F;&#x59C6;&#x8FBE;&#x5C14;&#x5B9A;&#x5F8B;" target="_blank">&#x963F;&#x59C6;&#x8FBE;&#x5C14;&#x5B9A;&#x5F8B;</a><br><img src="http://upload-images.jianshu.io/upload_images/98641-93f1387fd3741cd9.png?imageMogr2/auto-orient/strip|imageView2/2/w/700" alt="AmdahlsLaw.svg.png"></p>
+</blockquote>
+<h4 id="rxjava&#x4E2D;&#x51E0;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;">RxJava&#x4E2D;&#x51E0;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;</h4>
+<p>&#x5728;RxJava2&#x4E2D;&#x4E3B;&#x8981;&#x6709;&#x5982;&#x4E0B;4&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;(&#x5212;&#x6389;&#x7684;&#x4E0D;&#x8FDB;&#x884C;&#x5206;&#x6790;)</p>
+<ul>
+<li><del>SingleScheduler</del></li>
+<li>ComputationScheduler</li>
+<li>IoScheduler</li>
+<li><del>NewThreadScheduler</del></li>
+</ul>
+<p>&#x672C;&#x6587;&#x53EA;&#x4E13;&#x6CE8;&#x4E8E;&#x5B83;&#x7684;&#x201C;&#x6267;&#x884C;&#x201D;&#x8FC7;&#x7A0B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8C03;&#x5EA6;&#x8FC7;&#x7A0B;&#xFF0C;&#x6700;&#x91CD;&#x8981;&#x7684;&#x90E8;&#x5206;&#x5728;<code>Worker</code>&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x6784;&#x9020;&#x4EE3;&#x7801;&#x7814;&#x7A76;</p>
+<pre><code class="lang-groovy"><span class="hljs-comment">// Groovy&#x4EE3;&#x7801;</span>
+<span class="hljs-number">5.</span>times {
+    Scheduler.Worker worker = Schedulers.io().createWorker();
+    worker.schedule(<span class="hljs-keyword">new</span> Runnable() {
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-keyword">void</span> run() {
+            println <span class="hljs-string">&quot;inner = &quot;</span> + Thread.currentThread().getStackTrace().join(<span class="hljs-string">&apos;\n&apos;</span>)
+            println <span class="hljs-string">&quot;inner = &quot;</span> + Thread.currentThread().getName()
+        }
+    });
+}
+Thread.currentThread().join()
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x5047;&#x8BBE;&#x4F60;&#x5DF2;&#x7ECF;&#x628A;&#x4E0A;&#x9762;&#x6D41;&#x7A0B;&#x5168;&#x90E8;&#x8C03;&#x901A;&#x3002;&#x4EE5;&#x4E0B;&#x4E3A;&#x6211;&#x7684;&#x8C03;&#x8BD5;&#x7ED3;&#x679C;</p>
+<ul>
+<li><code>&#x7EBF;&#x7A0B;&#x6C60;</code>: &#x4E00;&#x7FA4;&#x53EA;&#x4F1A;&#x5E72;&#x6D3B;&#x7684;&#x594B;&#x6597;&#x8005;&#xFF0C;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x6C60;&#x6784;&#x9020;&#x90FD;&#x662F;<code>newScheduledThreadPool(1, factory)</code>&#x3002;</li>
+<li><code>Worker</code>: Worker&#x662F;&#x5BF9;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x5305;&#x88C5;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x57FA;&#x5C42;&#x9886;&#x5BFC;&#xFF0C;&#x4E00;&#x4E2A;Worker&#x88AB;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x5F53;&#x7136;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;&#x53EF;&#x80FD;&#x8EAB;&#x517C;&#x6570;&#x804C;&#x3002;</li>
+<li><code>EventLoopWorker</code>: &#x5BF9;&#x7EBF;&#x7A0B;&#x6C60;&#x5916;&#x90E8;&#x72B6;&#x6001;&#x8FDB;&#x884C;&#x7EF4;&#x62A4;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x67D0;&#x4E9B;&#x516C;&#x53F8;&#x7684;HR</li>
+</ul>
+<h4 id="worker&#x72B6;&#x6001;">Worker&#x72B6;&#x6001;</h4>
+<h5 id="&#x521B;&#x5EFA;">&#x521B;&#x5EFA;</h5>
+<p>&#x8C03;&#x7528;createWorker&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Worker</p>
+<pre><code class="lang-java"><span class="hljs-comment">//IoScheduler</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> Worker <span class="hljs-title">createWorker</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">//CachedWorkerPool: &#x53D8;&#x957F;&#x961F;&#x5217;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E0E;&#x7F13;&#x5B58;&#x65E0;&#x6570;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> EventLoopWorker(pool.get());
+}
+
+<span class="hljs-comment">//ComputationScheduler</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> Worker <span class="hljs-title">createWorker</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">//FixedSchedulerPool: &#x7528;&#x6570;&#x7EC4;pool[CPUSize]&#x5B9E;&#x73B0;&#xFF0C;&#x901A;&#x8FC7;&#x53D6;&#x4F59;&#x8C03;&#x7528;(&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x4E3A;`pool[i++%4]`)&#x5206;&#x914D;&#x4EFB;&#x52A1;&#xFF0C;&#x4E0D;&#x80FD;&#x521B;&#x5EFA;&#x66F4;&#x591A;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> EventLoopWorker(pool.get().getEventLoop());
+}
+</code></pre>
+<h5 id="&#x5E72;&#x6D3B;">&#x5E72;&#x6D3B;</h5>
+<p>work&#x6267;&#x884C;<code>schedule</code>&#xFF0C;&#x6700;&#x7EC8;&#x8C03;&#x7528;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;<code>executor.submit()</code>&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5305;&#x88C5;&#x540E;&#x7684;Future&#xFF0C;&#x8FD9;&#x91CC;&#x6CA1;&#x4EC0;&#x4E48;&#x53EF;&#x8BB2;&#x7684;&#x3002;</p>
+<h5 id="&#x4EFB;&#x52A1;&#x7ED3;&#x675F;">&#x4EFB;&#x52A1;&#x7ED3;&#x675F;</h5>
+<p><code>onComplete</code>&#x540E;RxJava&#x6846;&#x67B6;&#x8C03;&#x7528;<code>FlowableSubscribeOn</code>&#x7684;<code>dispose</code>&#x65B9;&#x6CD5;&#xFF0C;&#x6700;&#x7EC8;&#x4E3B;&#x52A8;&#x8C03;&#x7528;<code>worker.dispose()</code></p>
+<pre><code class="lang-java"><span class="hljs-comment">//IoScheduler.EventLoopWorker</span>
+<span class="hljs-meta">@Override</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dispose</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">if</span> (once.compareAndSet(<span class="hljs-keyword">false</span>, <span class="hljs-keyword">true</span>)) {
+    <span class="hljs-comment">// &#x8BA9;&#x7EBF;&#x7A0B;&#x6C60;&#x6267;&#x884C;cancel&#x547D;&#x4EE4;&#xFF0C;&#x5E76;&#x6E05;&#x7A7A;&#x6240;&#x6709;Future</span>
+    tasks.dispose();
+    <span class="hljs-comment">// &#x8BBE;&#x7F6E;Worker&#x8D85;&#x65F6;&#xFF0C;&#x52A0;&#x5165;&#x201C;&#x77ED;&#x547D;&#x5355;&#x201D;&#xFF0C;60s&#x540E;&#x5B9A;&#x65F6;&#x6E05;&#x7406;&#x4E00;&#x6B21;</span>
+    <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x539F;&#x7406;&#x662F;&#x6784;&#x9020;&#x4E86;&#x6BCF;&#x9694;60s&#x81EA;&#x52A8;&#x6267;&#x884C;&#x7684;`evictorService`&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x6E05;&#x6D01;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x5B9A;&#x671F;&#x6267;&#x884C;`evictExpiredWorkers`&#x65B9;&#x6CD5;&#xFF0C;&#x79FB;&#x9664;&#x961F;&#x5217;`expiringWorkerQueue`&#x4E2D;&#x8D85;&#x65F6;&#x7684;Worker</span>
+    <span class="hljs-comment">// releasing the pool&lt;threadWorker&gt; should be the last action</span>
+    pool.release(threadWorker);
+  }
+}
+
+ <span class="hljs-comment">//ComputationScheduler.EventLoopWorker</span>
+ <span class="hljs-meta">@Override</span>
+ <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dispose</span><span class="hljs-params">()</span> </span>{
+   <span class="hljs-keyword">if</span> (!disposed) {
+     disposed = <span class="hljs-keyword">true</span>;
+     <span class="hljs-comment">// &#x65A9;&#x7ACB;&#x51B3;&#xFF0C;&#x8BA9;&#x7EBF;&#x7A0B;&#x6C60;&#x6267;&#x884C;cancel&#x547D;&#x4EE4;&#xFF0C;&#x5E76;&#x6E05;&#x7A7A;&#x6240;&#x6709;Future</span>
+     both.dispose();
+   }
+ }
+</code></pre>
+<blockquote>
+<p>IoScheduler&#x7684;&#x6A21;&#x5F0F;&#x6B63;&#x662F;&#x67D0;&#x4E9B;&#x79C1;&#x8425;&#x516C;&#x53F8;&#x5728;&#x5DE5;&#x4F5C;&#x91CF;&#x5927;&#x65F6;&#x6D77;&#x91CF;&#x62DB;&#x8058;&#x65F6;&#x5806;&#x4EBA;&#xFF0C;&#x52A0;&#x73ED;&#x594B;&#x6597;&#x540E;&#x53D8;&#x6210;&#x7518;&#x8517;&#x6E23;&#xFF0C;&#x6700;&#x540E;&#x8FDB;&#x5165;&#x77ED;&#x540D;&#x5355;&#x88AB;HR&#x5B9A;&#x671F;&#x4F18;&#x5316;&#x7684;&#x6D41;&#x7A0B;&#x3002;</p>
+<p>ComputationScheduler&#x7684;&#x6A21;&#x5F0F;&#x662F;&#x67D0;&#x4E9B;&#x516C;&#x53F8;&#x5DE5;&#x4F5C;&#x91CF;&#x5927;&#x65F6;&#x52A0;&#x73ED;&#x518D;&#x591A;&#x4E5F;&#x4E0D;&#x62DB;&#x4EBA;&#xFF0C;&#x52A0;&#x73ED;&#x594B;&#x6597;&#x540E;&#x53D8;&#x6210;&#x7518;&#x8517;&#x6E23;&#xFF0C;&#x6700;&#x540E;&#x76F4;&#x63A5;&#x88AB;&#x901A;&#x77E5;&#x65A9;&#x7ACB;&#x51B3;&#x9A6C;&#x4E0A;&#x8D70;&#x4EBA;&#x7684;&#x6D41;&#x7A0B;&#x3002;</p>
+</blockquote>
+<p>&#x901A;&#x8FC7;&#x65AD;&#x70B9;&#x4E5F;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x7531;&#x4E8E;IoScheduler&#x662F;&#x5728;static&#x521D;&#x59CB;&#x5316;&#x5E76;&#x542F;&#x52A8;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x8BBA;&#x662F;&#x5426;&#x4F7F;&#x7528;IoScheduler&#xFF0C;&#x6E05;&#x6D01;&#x5DE5;&#x7EBF;&#x7A0B;&#x6C60;evictorService&#x5C06;&#x81EA;&#x52A8;&#x542F;&#x52A8;&#x4E14;<strong>&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;</strong>&#x81EA;&#x52A8;&#x5173;&#x95ED;&#xFF0C;&#x9664;&#x975E;&#x5C06;IoScheduler&#x8FDB;&#x884C;&#x4E3B;&#x52A8;shutdown&#x3002;&#x53D1;&#x73B0;&#x4E86;&#x4EC0;&#x4E48;&#x4E86;&#x5417;&#xFF0C;&#x6267;&#x884C;&#x8005;&#x53EA;&#x662F;&#x53EF;&#x66FF;&#x4EE3;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x53EA;&#x6709;Pool&#x624D;&#x662F;&#x6838;&#x5FC3;&#x7ADE;&#x4E89;&#x529B;&#xFF01;</p>
+<h4 id="dubbo&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;">Dubbo&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;</h4>
+<p>Dubbo&#x662F;&#x4E00;&#x6B3E;&#x4E8B;&#x52A1;&#x6846;&#x67B6;&#xFF0C;&#x8FD9;&#x79CD;&#x7EAF;&#x6846;&#x67B6;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x4E00;&#x822C;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x5404;&#x79CD;&#x573A;&#x666F;&#x8D1F;&#x8F7D;&#x4E0B;&#x7684;&#x6559;&#x79D1;&#x4E66;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;<code>Executors</code>&#x4F5C;&#x4E3A;&#x5173;&#x952E;&#x5B57;&#x8FDB;&#x884C;&#x7EDF;&#x8BA1;</p>
+<blockquote>
+<p>&#x6253;&#x5F00;IDEA&#xFF0C;&#x8FD0;&#x884C;<code>cmd</code>+<code>shift</code>+<code>F</code>&#xFF0C;&#x641C;&#x7D22;<code>Executors.</code>&#x5373;&#x53EF;</p>
+</blockquote>
+<p>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;IDEA&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Shell&#x7684;grep&#x66B4;&#x529B;&#x641C;&#x7D22;</p>
+<pre><code class="lang-sh">grep <span class="hljs-string">&apos;Executors.&apos;</span> * -R|grep -v <span class="hljs-built_in">test</span>|grep -v import|grep -v class
+</code></pre>
+<p>&#x7ECF;&#x8FC7;&#x7EDF;&#x8BA1;&#xFF0C;&#x6700;&#x7EC8;&#x5982;&#x4E0B;</p>
+<p><strong>newCachedThreadPool</strong>: 10<br>&#x6700;&#x4F4E;&#x7EBF;&#x7A0B;&#x9650;&#x5236;&#x4E3A;1&#x4E2A;&#xFF0C;&#x5904;&#x7406;&#x5B9E;&#x9645;&#x4E1A;&#x52A1;&#x4E0E;Socket(JBOSS&#x3001;Netty&#x3001;bootstrap)&#x7B49;</p>
+<p><strong>newScheduledThreadPool</strong>: 11<br>&#x6700;&#x4F4E;&#x7EBF;&#x7A0B;&#x6570;&#x5728;1~3&#x4E4B;&#x95F4;</p>
+<p>URL: &#x5B9A;&#x671F;&#x91CD;&#x8FDE;&#xFF0C;&#x6E05;&#x9664;&#x8FC7;&#x671F;&#x8005;&#xFF0C;&#x5FC3;&#x8DF3;&#xFF0C;&#x5EF6;&#x671F;&#x7B49;&#x3002;&#x8C03;&#x7528;BO&#x5931;&#x8D25;&#x540E;&#x5B9A;&#x671F;&#x91CD;&#x8BD5;</p>
+<p>&#x6587;&#x4EF6;: &#x66F4;&#x65B0;&#x5B9A;&#x65F6;&#x7EDF;&#x8BA1;/&#x56FE;&#x8868;/&#x65E5;&#x5FD7;, &#x68C0;&#x67E5;&#x6587;&#x4EF6;&#x66F4;&#x65B0;(&#x53EF;&#x7528;&#x4E8E;&#x70ED;&#x90E8;&#x7F72;),</p>
+<p><strong>newFixedThreadPool</strong>: 1<br>&#x7EBF;&#x7A0B;&#x9650;&#x5236;&#x56FA;&#x5B9A;&#x4E3A;1&#x4E2A;&#xFF0C;&#x7528;&#x4E8E;&#x6587;&#x4EF6;&#x7F13;&#x5B58;&#x5199;&#x5165;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="jvmthread.html" class="navigation navigation-prev " aria-label="Previous page: JVM线程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../juc-problems.html" class="navigation navigation-next " aria-label="Next page: 常见并发问题">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ThreadPool","level":"1.3.4.3","depth":3,"next":{"title":"常见并发问题","level":"1.3.5","depth":2,"path":"juc/juc-problems.md","ref":"juc/juc-problems.md","articles":[]},"previous":{"title":"JVM线程","level":"1.3.4.2","depth":3,"path":"juc/thread/jvmthread.md","ref":"juc/thread/jvmthread.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/java/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"juc/thread/threadpool.md","mtime":"2021-03-04T11:49:55.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:54.413Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

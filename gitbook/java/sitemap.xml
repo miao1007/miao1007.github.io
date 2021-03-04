@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url> <loc>https://miao1007.github.io/gitbook/java/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/java/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/java/gc/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/java/gc/analyze-full-gc.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/java/classloader/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/java/classloader/class.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/java/classloader/classloader-in-jvm.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/java/reflection/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/functional/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/final/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/lock/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/lock/cas/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/lock/cas/cas-impl.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/lock/cas/aqs/aqs-impl.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/lock/cas/aqs/reentrantlock.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/lock/cas/aqs/countdownlatch.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/lock/cas/aqs/read-write-lock.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/lock/synchronized/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/lock/synchronized/jvm-sync.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/thread/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/thread/nativethread.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/thread/jvmthread.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/thread/threadpool.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/juc-problems.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/juc/cow/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/microservice/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/microservice/dist-problems.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/microservice/chang-jian-zhong-jian-jian-wen-ti.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/domain/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/domain/dsl/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/domain/templateengine/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://miao1007.github.io/gitbook/java/domain/bpm/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+</urlset>

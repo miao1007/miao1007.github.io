@@ -1,0 +1,842 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>反射 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../../juc/" />
+    
+    
+    <link rel="prev" href="../classloader/classloader-in-jvm.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../../">
+    
+    <a href="../../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Java/JVM
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" data-path="../gc/">
+    
+    <a href="../gc/">
+        
+                    
+                        <b>1.2.1.</b>
+                    
+                    垃圾回收
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1.1" data-path="../gc/analyze-full-gc.html">
+    
+    <a href="../gc/analyze-full-gc.html">
+        
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    analyze-full-gc
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../classloader/">
+    
+    <a href="../classloader/">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    ClassLoader
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.2.1" data-path="../classloader/class.html">
+    
+    <a href="../classloader/class.html">
+        
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    Class的结构
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2.2" data-path="../classloader/classloader-in-jvm.html">
+    
+    <a href="../classloader/classloader-in-jvm.html">
+        
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    ClassLoader的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter active" data-level="1.2.3" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.2.3.</b>
+                    
+                    反射
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../../juc/">
+    
+    <a href="../../juc/">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    并发编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../../juc/functional/">
+    
+    <a href="../../juc/functional/">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    纯函数
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../../juc/final/">
+    
+    <a href="../../juc/final/">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    final/ThreadLocal
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../../juc/lock/">
+    
+    <a href="../../juc/lock/">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    锁
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1" data-path="../../juc/lock/cas/">
+    
+    <a href="../../juc/lock/cas/">
+        
+                    
+                        <b>1.3.3.1.</b>
+                    
+                    CAS与AQS
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1.1" data-path="../../juc/lock/cas/cas-impl.html">
+    
+    <a href="../../juc/lock/cas/cas-impl.html">
+        
+                    
+                        <b>1.3.3.1.1.</b>
+                    
+                    CAS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.2" data-path="../../juc/lock/cas/aqs/aqs-impl.html">
+    
+    <a href="../../juc/lock/cas/aqs/aqs-impl.html">
+        
+                    
+                        <b>1.3.3.1.2.</b>
+                    
+                    AQS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.3" data-path="../../juc/lock/cas/aqs/reentrantlock.html">
+    
+    <a href="../../juc/lock/cas/aqs/reentrantlock.html">
+        
+                    
+                        <b>1.3.3.1.3.</b>
+                    
+                    ReentrantLock
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.4" data-path="../../juc/lock/cas/aqs/countdownlatch.html">
+    
+    <a href="../../juc/lock/cas/aqs/countdownlatch.html">
+        
+                    
+                        <b>1.3.3.1.4.</b>
+                    
+                    CountDownLatch
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.5" data-path="../../juc/lock/cas/aqs/read-write-lock.html">
+    
+    <a href="../../juc/lock/cas/aqs/read-write-lock.html">
+        
+                    
+                        <b>1.3.3.1.5.</b>
+                    
+                    ReadWriteLock
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.2" data-path="../../juc/lock/synchronized/">
+    
+    <a href="../../juc/lock/synchronized/">
+        
+                    
+                        <b>1.3.3.2.</b>
+                    
+                    synchronized
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.2.1" data-path="../../juc/lock/synchronized/jvm-sync.html">
+    
+    <a href="../../juc/lock/synchronized/jvm-sync.html">
+        
+                    
+                        <b>1.3.3.2.1.</b>
+                    
+                    sync的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.4" data-path="../../juc/thread/">
+    
+    <a href="../../juc/thread/">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    线程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.4.1" data-path="../../juc/thread/nativethread.html">
+    
+    <a href="../../juc/thread/nativethread.html">
+        
+                    
+                        <b>1.3.4.1.</b>
+                    
+                    NativeThread
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.2" data-path="../../juc/thread/jvmthread.html">
+    
+    <a href="../../juc/thread/jvmthread.html">
+        
+                    
+                        <b>1.3.4.2.</b>
+                    
+                    JVM线程
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.3" data-path="../../juc/thread/threadpool.html">
+    
+    <a href="../../juc/thread/threadpool.html">
+        
+                    
+                        <b>1.3.4.3.</b>
+                    
+                    ThreadPool
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.5" data-path="../../juc/juc-problems.html">
+    
+    <a href="../../juc/juc-problems.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    常见并发问题
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.6" data-path="../../juc/cow/">
+    
+    <a href="../../juc/cow/">
+        
+                    
+                        <b>1.3.6.</b>
+                    
+                    写时复制
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../../microservice/">
+    
+    <a href="../../microservice/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    微服务中间件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../../microservice/dist-problems.html">
+    
+    <a href="../../microservice/dist-problems.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    分布式问题
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1.1" data-path="../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+    
+    <a href="../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+        
+                    
+                        <b>1.4.1.1.</b>
+                    
+                    事务一致性问题
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../../domain/">
+    
+    <a href="../../domain/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    元编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../../domain/dsl/">
+    
+    <a href="../../domain/dsl/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    DSL
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../../domain/templateengine/">
+    
+    <a href="../../domain/templateengine/">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    模版引擎
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../../domain/bpm/">
+    
+    <a href="../../domain/bpm/">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    BPM
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >反射</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>The implementation of Java reflection in JVM</p>
+<hr>
+<h2 id="1-&#x4EC0;&#x4E48;&#x662F;java&#x53CD;&#x5C04;&#xFF0C;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#xFF1F;">1. &#x4EC0;&#x4E48;&#x662F;Java&#x53CD;&#x5C04;&#xFF0C;&#x6709;&#x4EC0;&#x4E48;&#x7528;&#xFF1F;</h2>
+<p>&#x53CD;&#x5C04;&#x4F7F;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x80FD;&#x591F;&#x63A5;&#x5165;&#x88C5;&#x8F7D;&#x5230;JVM&#x4E2D;&#x7684;&#x7C7B;&#x7684;&#x5185;&#x90E8;&#x4FE1;&#x606F;&#xFF0C;&#x5141;&#x8BB8;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x4E0E;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x9009;&#x5B9A;&#x7684;&#x7C7B;&#x534F;&#x4F5C;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;&#x4EE5;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x6362;&#x8FD0;&#x884C;&#x6548;&#x7387;&#x7684;&#x4E00;&#x79CD;&#x624B;&#x6BB5;&#x3002;&#x8FD9;&#x4F7F;&#x53CD;&#x5C04;&#x6210;&#x4E3A;&#x6784;&#x5EFA;&#x7075;&#x6D3B;&#x5E94;&#x7528;&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x5177;&#x3002;</p>
+<p>&#x53CD;&#x5C04;&#x53EF;&#x4EE5;&#xFF1A;</p>
+<ol>
+<li>&#x8C03;&#x7528;&#x4E00;&#x4E9B;&#x79C1;&#x6709;&#x65B9;&#x6CD5;&#xFF0C;&#x5B9E;&#x73B0;&#x9ED1;&#x79D1;&#x6280;&#xFF0C;&#x6BD4;&#x5982;&#x83B7;&#x53D6;unsafe&#x3002;</li>
+<li>&#x5B9E;&#x73B0;&#x5E8F;&#x5217;&#x5316;&#x4E0E;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x6BD4;&#x5982;PO&#x7684;ORM&#xFF0C;Json&#x89E3;&#x6790;&#x7B49;&#x3002;</li>
+<li>&#x5B9E;&#x73B0;&#x8DE8;&#x5E73;&#x53F0;&#x517C;&#x5BB9;&#xFF0C;&#x6BD4;&#x5982;JDK&#x4E2D;&#x7684;SocketImpl&#x7684;&#x5B9E;&#x73B0;</li>
+<li>&#x901A;&#x8FC7;xml&#x6216;&#x6CE8;&#x89E3;&#x7B49;&#x5143;&#x6570;&#x636E;&#xFF0C;&#x5B9E;&#x73B0;&#x4F9D;&#x8D56;&#x6CE8;&#x5165;(DI)&#xFF0C;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#xFF0C;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#xFF0C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7B49;&#x529F;&#x80FD;&#x3002;&#x6BD4;&#x5982;Retrofit&#x3001;SSH&#x6846;&#x67B6;&#x6216;&#x8005;Dagger</li>
+</ol>
+<h2 id="2-&#x53CD;&#x5C04;&#x5728;native&#x7684;&#x5B9E;&#x73B0;">2. &#x53CD;&#x5C04;&#x5728;native&#x7684;&#x5B9E;&#x73B0;</h2>
+<p>&#x5728;&#x4E86;&#x89E3;&#x4E0A;&#x6587;&#x7684;&#x57FA;&#x7840;&#x540E;&#xFF0C;&#x7EC8;&#x4E8E;&#x53EF;&#x4EE5;&#x7814;&#x7A76;&#x53CD;&#x5C04;&#x4E86;&#x3002;&#x53CD;&#x5C04;&#x5728;Java&#x4E2D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x8FC7;JDK&#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#xFF0C;&#x4E0D;&#x8FC7;&#x6700;&#x7EC8;&#x5E95;&#x5C42;&#x8C03;&#x7528;&#x7684;&#x4ECD;&#x662F;&#x88AB;&#x6620;&#x5C04;&#x5230;native&#x65B9;&#x6CD5;&#xFF0C;&#x4EE5;&#x4E0B;&#x4E3A;&#x4E3B;&#x6D41;JVM&#x53CD;&#x5C04;&#x64CD;&#x4F5C;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<h4 id="21-classforname&#x7684;&#x5B9E;&#x73B0;">2.1. Class.forName&#x7684;&#x5B9E;&#x73B0;</h4>
+<ul>
+<li><p>&#x4ECB;&#x7ECD;
+Class.forName&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5305;&#x540D;&#x5BFB;&#x627E;Class&#x5BF9;&#x8C61;&#xFF0C;&#x6BD4;&#x5982;&#x5BF9;String&#x7684;&#x52A0;&#x8F7D;&#x5C31;&#x662F;<code>Class.forName(&quot;java.lang.String&quot;)</code>&#x3002;
+&#x6B64;&#x65B9;&#x6CD5;&#x6700;&#x76F4;&#x89C2;&#x7684;&#x5E94;&#x7528;&#x5C31;&#x662F;Spring&#x7684;IOC&#x4E86;&#x3002;&#x901A;&#x8FC7;&#x8FDB;&#x884C;Beans&#x7684;XML&#x63CF;&#x8FF0;&#xFF0C;Spring&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x627E;&#x5230;&#x8FD9;&#x4E2A;&#x7C7B;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x4E0B;&#x6587;&#x5C06;&#x8981;&#x8BB2;&#x7684;<code>class.newInstance</code>&#x5B9E;&#x73B0;&#x5BF9;&#x8C61;&#x7684;&#x521D;&#x59CB;&#x5316;&#x3002;&#x901A;&#x8FC7;IOC&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x624B;&#x52A8;&#x88C5;&#x914D;&#xFF0C;&#x8FD9;&#x6837;&#x6781;&#x5927;&#x5730;&#x964D;&#x4F4E;&#x4E86;&#x6D4B;&#x8BD5;&#x96BE;&#x5EA6;&#xFF0C;&#x6709;&#x5229;&#x4E8E;&#x5408;&#x4F5C;&#x7F16;&#x7A0B;&#x3002;</p>
+</li>
+<li><p>&#x5E95;&#x5C42;&#x5B9E;&#x73B0;
+&#x5728;JDK&#x7684;&#x6E90;&#x7801;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x8C03;&#x7528;&#x6808;&#x7684;&#x6700;&#x7EC8;&#x8C03;&#x7528;&#x7684;&#x662F;native&#x65B9;&#x6CD5;<code>forName0()</code>&#xFF0C;&#x5B83;&#x5728;JVM&#x4E2D;&#x8C03;&#x7528;&#x7684;C&#x4EE3;&#x7801;&#x5B9E;&#x9645;&#x662F;<code>findClassFromClassLoader()</code>&#xFF0C;&#x539F;&#x7406;&#x4E0E;&#x4E0A;&#x6587;ClassLoader&#x7684;&#x6D41;&#x7A0B;&#x4E00;&#x6837;&#xFF0C;&#x6CA1;&#x60F3;&#x5230;&#x5C45;&#x7136;&#x8FD9;&#x4E48;&#x7B80;&#x5355;&#x3002;</p>
+</li>
+</ul>
+<h4 id="22-getdeclaredfields&#x7684;&#x5B9E;&#x73B0;">2.2. getDeclaredFields&#x7684;&#x5B9E;&#x73B0;</h4>
+<p>&#x5728;JDK&#x6E90;&#x7801;&#x4E2D;&#xFF0C;Class&#x7684;<code>class.getDeclaredFields()</code>&#x65B9;&#x6CD5;&#x5B9E;&#x9645;&#x8C03;&#x7528;&#x7684;&#x662F;native&#x65B9;&#x6CD5;<code>getDeclaredFields0()</code>&#xFF0C;&#x5B83;&#x5728;JVM&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;</p>
+<ol>
+<li>&#x6839;&#x636E;Class&#x7ED3;&#x6784;&#x4F53;&#x4FE1;&#x606F;&#xFF0C;&#x83B7;&#x53D6;<code>field_count</code>&#x4E0E;<code>fields[]</code>&#x5B57;&#x6BB5;&#xFF0C;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x65E9;&#x5DF2;&#x5728;load&#x8FC7;&#x7A0B;&#x4E2D;&#x88AB;&#x653E;&#x5165;&#x4E86;</li>
+<li>&#x6839;&#x636E;<code>field_count</code>&#x7684;&#x5927;&#x5C0F;&#x5206;&#x914D;&#x5185;&#x5B58;&#x3001;&#x521B;&#x5EFA;&#x6570;&#x7EC4;</li>
+<li>&#x5C06;&#x6570;&#x7EC4;&#x8FDB;&#x884C;forEach&#x5FAA;&#x73AF;&#xFF0C;&#x901A;&#x8FC7;<code>fields[]</code>&#x4E2D;&#x7684;&#x4FE1;&#x606F;&#x4F9D;&#x6B21;&#x521B;&#x5EFA;Object&#x5BF9;&#x8C61;</li>
+<li>&#x8FD4;&#x56DE;&#x6570;&#x7EC4;&#x6307;&#x9488;Object[]</li>
+</ol>
+<blockquote>
+<p>&#x6B64;&#x90E8;&#x5206;&#x7684;&#x53CD;&#x5C04;&#x4E3B;&#x8981;&#x6162;&#x5728;&#x5982;&#x4E0B;&#x65B9;&#x9762;</p>
+<ol>
+<li>&#x521B;&#x5EFA;&#x3001;&#x8BA1;&#x7B97;&#x3001;&#x5206;&#x914D;&#x6570;&#x7EC4;&#x5BF9;&#x8C61;</li>
+<li>&#x5BF9;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;&#x5FAA;&#x73AF;&#x8D4B;&#x503C;</li>
+</ol>
+</blockquote>
+<h3 id="23-methodinvoke&#x7684;&#x5B9E;&#x73B0;">2.3. Method.invoke&#x7684;&#x5B9E;&#x73B0;</h3>
+<p>&#x4EE5;&#x4E0B;&#x4E3A;&#x65E0;&#x540C;&#x6B65;&#x3001;&#x65E0;&#x5F02;&#x5E38;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x8C03;&#x7528;&#x7684;&#x6B65;&#x9AA4;</p>
+<ol>
+<li>&#x521B;&#x5EFA;Frame</li>
+<li>&#x5982;&#x679C;&#x5BF9;&#x8C61;flag&#x4E3A;native&#xFF0C;&#x4EA4;&#x7ED9;native_handler&#x8FDB;&#x884C;&#x5904;&#x7406;</li>
+<li>&#x5728;frame&#x4E2D;&#x89E3;&#x91CA;java&#x4EE3;&#x7801;</li>
+<li>&#x5F39;&#x51FA;Frame</li>
+<li>&#x8FD4;&#x56DE;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x7684;&#x6307;&#x9488;</li>
+</ol>
+<h3 id="24-classnewinstance&#x7684;&#x5B9E;&#x73B0;">2.4. class.newInstance&#x7684;&#x5B9E;&#x73B0;</h3>
+<p>&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x68C0;&#x6D4B;&#x6743;&#x9650;&#x3001;&#x9884;&#x5206;&#x914D;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#x7B49;&#x53C2;&#x6570;</li>
+<li>&#x5982;&#x679C;class&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5C31;&#x8C03;&#x7528;<code>&lt;clint&gt;()</code></li>
+<li>&#x521B;&#x5EFA;Object&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5206;&#x914D;&#x7A7A;&#x95F4;</li>
+<li>&#x901A;&#x8FC7;Method.invoke&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;(<code>&lt;init&gt;()</code>)</li>
+<li>&#x8FD4;&#x56DE;Object&#x6307;&#x9488;</li>
+</ol>
+<h2 id="3-&#x53CD;&#x5C04;&#x662F;&#x5426;&#x6162;&#xFF1F;">3. &#x53CD;&#x5C04;&#x662F;&#x5426;&#x6162;&#xFF1F;</h2>
+<p>&#x5728;Stackoverflow&#x4E0A;&#x8BA4;&#x4E3A;&#x53CD;&#x5C04;&#x6BD4;&#x8F83;&#x6162;&#x7684;&#x7A0B;&#x5E8F;&#x5458;&#x4E3B;&#x8981;&#x6709;&#x5982;&#x4E0B;&#x770B;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x9762;&#x8BD5;&#x9047;&#x5230;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x56DE;&#x7B54;</p>
+<ol>
+<li>link&#x9636;&#x6BB5;: &#x8BED;&#x4E49;&#x5206;&#x6790;&#x7B49;&#x9632;&#x5FA1;&#x4EE3;&#x7801;&#x8FC7;&#x4E8E;&#x7E41;&#x7410;&#xFF0C;&#x73B0;&#x5728;&#x5374;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;</li>
+<li>&#x4EA7;&#x751F;&#x5F88;&#x591A;&#x4E34;&#x65F6;&#x5BF9;&#x8C61;&#xFF0C;&#x9020;&#x6210;GC&#x4E0E;&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x6D88;&#x8017;</li>
+<li>&#x7531;&#x4E8E;&#x7F3A;&#x5C11;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x4E22;&#x5931;&#x4E86;&#x5F88;&#x591A;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x4F18;&#x5316;&#xFF0C;&#x6BD4;&#x5982;JIT(&#x5B83;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;JVM&#x7684;&#x91CD;&#x8981;&#x8BC4;&#x6D4B;&#x6807;&#x51C6;&#x4E4B;&#x4E00;)</li>
+</ol>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x6211;&#x4E2A;&#x4EBA;&#x7684;&#x770B;&#x6CD5;&#x662F;&#xFF0C;&#x73B0;&#x4EE3;JVM&#x4E5F;&#x4E0D;&#x662F;&#x975E;&#x5E38;&#x6162;&#x4E86;&#xFF0C;&#x5B83;&#x80FD;&#x591F;&#x5BF9;&#x53CD;&#x5C04;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x7F13;&#x5B58;&#x4EE5;&#x53CA;&#x901A;&#x8FC7;&#x65B9;&#x6CD5;&#x8BA1;&#x6570;&#x5668;&#x540C;&#x6837;&#x5B9E;&#x73B0;JIT&#x4F18;&#x5316;&#xFF0C;&#x6240;&#x4EE5;&#x53CD;&#x5C04;&#x4E0D;&#x4E00;&#x5B9A;&#x6162;&#x3002;</p>
+<p>&#x66F4;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#x624D;&#x662F;&#x9650;&#x5236;&#x7A0B;&#x5E8F;&#x7684;&#x74F6;&#x9888;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x8FDC;&#x5927;&#x4E8E;&#x8FD0;&#x884C;&#x6548;&#x7387;&#x7684;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF08;&#x6BD4;&#x5982;&#x5143;&#x6570;&#x636E;&#x7F16;&#x7A0B;&#xFF09;&#xFF0C;&#x5927;&#x80C6;&#x4F7F;&#x7528;&#x53CD;&#x5C04;&#xFF0C;&#x653E;&#x5FC3;&#x5F00;&#x53D1;&#x5427;&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;&#x6587;&#x732E;">&#x53C2;&#x8003;&#x6587;&#x732E;</h2>
+<ol>
+<li><a href="http://www.codeceo.com/article/reflect-bad.html" target="_blank">http://www.codeceo.com/article/reflect-bad.html</a></li>
+<li><a href="http://blog.csdn.net/lmj623565791/article/details/43452969" target="_blank">http://blog.csdn.net/lmj623565791/article/details/43452969</a></li>
+<li><a href="http://codekk.com/open-source-project-analysis/detail/Android/Trinea/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8BJava%20%E6%B3%A8%E8%A7%A3%20Annotation" target="_blank">http://codekk.com/open-source-project-analysis/detail/Android/Trinea/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8BJava%20%E6%B3%A8%E8%A7%A3%20Annotation</a></li>
+<li><a href="http://www.trinea.cn/android/java-annotation-android-open-source-analysis/" target="_blank">http://www.trinea.cn/android/java-annotation-android-open-source-analysis/</a></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../classloader/classloader-in-jvm.html" class="navigation navigation-prev " aria-label="Previous page: ClassLoader的native实现">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../../juc/" class="navigation navigation-next " aria-label="Next page: 并发编程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"反射","level":"1.2.3","depth":2,"next":{"title":"并发编程","level":"1.3","depth":1,"path":"juc/README.md","ref":"juc/README.md","articles":[{"title":"纯函数","level":"1.3.1","depth":2,"path":"juc/functional/README.md","ref":"juc/functional/README.md","articles":[]},{"title":"final/ThreadLocal","level":"1.3.2","depth":2,"path":"juc/final/README.md","ref":"juc/final/README.md","articles":[]},{"title":"锁","level":"1.3.3","depth":2,"path":"juc/lock/README.md","ref":"juc/lock/README.md","articles":[{"title":"CAS与AQS","level":"1.3.3.1","depth":3,"path":"juc/lock/cas/README.md","ref":"juc/lock/cas/README.md","articles":[{"title":"CAS的实现","level":"1.3.3.1.1","depth":4,"path":"juc/lock/cas/cas-impl.md","ref":"juc/lock/cas/cas-impl.md","articles":[]},{"title":"AQS的实现","level":"1.3.3.1.2","depth":4,"path":"juc/lock/cas/aqs/aqs-impl.md","ref":"juc/lock/cas/aqs/aqs-impl.md","articles":[]},{"title":"ReentrantLock","level":"1.3.3.1.3","depth":4,"path":"juc/lock/cas/aqs/reentrantlock.md","ref":"juc/lock/cas/aqs/reentrantlock.md","articles":[]},{"title":"CountDownLatch","level":"1.3.3.1.4","depth":4,"path":"juc/lock/cas/aqs/countdownlatch.md","ref":"juc/lock/cas/aqs/countdownlatch.md","articles":[]},{"title":"ReadWriteLock","level":"1.3.3.1.5","depth":4,"path":"juc/lock/cas/aqs/read-write-lock.md","ref":"juc/lock/cas/aqs/read-write-lock.md","articles":[]}]},{"title":"synchronized","level":"1.3.3.2","depth":3,"path":"juc/lock/synchronized/README.md","ref":"juc/lock/synchronized/README.md","articles":[{"title":"sync的native实现","level":"1.3.3.2.1","depth":4,"path":"juc/lock/synchronized/jvm-sync.md","ref":"juc/lock/synchronized/jvm-sync.md","articles":[]}]}]},{"title":"线程","level":"1.3.4","depth":2,"path":"juc/thread/README.md","ref":"juc/thread/README.md","articles":[{"title":"NativeThread","level":"1.3.4.1","depth":3,"path":"juc/thread/nativethread.md","ref":"juc/thread/nativethread.md","articles":[]},{"title":"JVM线程","level":"1.3.4.2","depth":3,"path":"juc/thread/jvmthread.md","ref":"juc/thread/jvmthread.md","articles":[]},{"title":"ThreadPool","level":"1.3.4.3","depth":3,"path":"juc/thread/threadpool.md","ref":"juc/thread/threadpool.md","articles":[]}]},{"title":"常见并发问题","level":"1.3.5","depth":2,"path":"juc/juc-problems.md","ref":"juc/juc-problems.md","articles":[]},{"title":"写时复制","level":"1.3.6","depth":2,"path":"juc/cow/README.md","ref":"juc/cow/README.md","articles":[]}]},"previous":{"title":"ClassLoader的native实现","level":"1.2.2.2","depth":3,"path":"java/classloader/classloader-in-jvm.md","ref":"java/classloader/classloader-in-jvm.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/java/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"java/reflection/README.md","mtime":"2021-03-04T11:49:55.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:54.413Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

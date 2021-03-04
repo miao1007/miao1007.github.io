@@ -1,0 +1,1020 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>NativeThread · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="jvmthread.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../../">
+    
+    <a href="../../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../../java/">
+    
+    <a href="../../java/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Java/JVM
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" data-path="../../java/gc/">
+    
+    <a href="../../java/gc/">
+        
+                    
+                        <b>1.2.1.</b>
+                    
+                    垃圾回收
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1.1" data-path="../../java/gc/analyze-full-gc.html">
+    
+    <a href="../../java/gc/analyze-full-gc.html">
+        
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    analyze-full-gc
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../../java/classloader/">
+    
+    <a href="../../java/classloader/">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    ClassLoader
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.2.1" data-path="../../java/classloader/class.html">
+    
+    <a href="../../java/classloader/class.html">
+        
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    Class的结构
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2.2" data-path="../../java/classloader/classloader-in-jvm.html">
+    
+    <a href="../../java/classloader/classloader-in-jvm.html">
+        
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    ClassLoader的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.3" data-path="../../java/reflection/">
+    
+    <a href="../../java/reflection/">
+        
+                    
+                        <b>1.2.3.</b>
+                    
+                    反射
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    并发编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../functional/">
+    
+    <a href="../functional/">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    纯函数
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../final/">
+    
+    <a href="../final/">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    final/ThreadLocal
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../lock/">
+    
+    <a href="../lock/">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    锁
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1" data-path="../lock/cas/">
+    
+    <a href="../lock/cas/">
+        
+                    
+                        <b>1.3.3.1.</b>
+                    
+                    CAS与AQS
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1.1" data-path="../lock/cas/cas-impl.html">
+    
+    <a href="../lock/cas/cas-impl.html">
+        
+                    
+                        <b>1.3.3.1.1.</b>
+                    
+                    CAS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.2" data-path="../lock/cas/aqs/aqs-impl.html">
+    
+    <a href="../lock/cas/aqs/aqs-impl.html">
+        
+                    
+                        <b>1.3.3.1.2.</b>
+                    
+                    AQS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.3" data-path="../lock/cas/aqs/reentrantlock.html">
+    
+    <a href="../lock/cas/aqs/reentrantlock.html">
+        
+                    
+                        <b>1.3.3.1.3.</b>
+                    
+                    ReentrantLock
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.4" data-path="../lock/cas/aqs/countdownlatch.html">
+    
+    <a href="../lock/cas/aqs/countdownlatch.html">
+        
+                    
+                        <b>1.3.3.1.4.</b>
+                    
+                    CountDownLatch
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.5" data-path="../lock/cas/aqs/read-write-lock.html">
+    
+    <a href="../lock/cas/aqs/read-write-lock.html">
+        
+                    
+                        <b>1.3.3.1.5.</b>
+                    
+                    ReadWriteLock
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.2" data-path="../lock/synchronized/">
+    
+    <a href="../lock/synchronized/">
+        
+                    
+                        <b>1.3.3.2.</b>
+                    
+                    synchronized
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.2.1" data-path="../lock/synchronized/jvm-sync.html">
+    
+    <a href="../lock/synchronized/jvm-sync.html">
+        
+                    
+                        <b>1.3.3.2.1.</b>
+                    
+                    sync的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.4" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    线程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter active" data-level="1.3.4.1" data-path="nativethread.html">
+    
+    <a href="nativethread.html">
+        
+                    
+                        <b>1.3.4.1.</b>
+                    
+                    NativeThread
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.2" data-path="jvmthread.html">
+    
+    <a href="jvmthread.html">
+        
+                    
+                        <b>1.3.4.2.</b>
+                    
+                    JVM线程
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.3" data-path="threadpool.html">
+    
+    <a href="threadpool.html">
+        
+                    
+                        <b>1.3.4.3.</b>
+                    
+                    ThreadPool
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.5" data-path="../juc-problems.html">
+    
+    <a href="../juc-problems.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    常见并发问题
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.6" data-path="../cow/">
+    
+    <a href="../cow/">
+        
+                    
+                        <b>1.3.6.</b>
+                    
+                    写时复制
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../../microservice/">
+    
+    <a href="../../microservice/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    微服务中间件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../../microservice/dist-problems.html">
+    
+    <a href="../../microservice/dist-problems.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    分布式问题
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1.1" data-path="../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+    
+    <a href="../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+        
+                    
+                        <b>1.4.1.1.</b>
+                    
+                    事务一致性问题
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../../domain/">
+    
+    <a href="../../domain/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    元编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../../domain/dsl/">
+    
+    <a href="../../domain/dsl/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    DSL
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../../domain/templateengine/">
+    
+    <a href="../../domain/templateengine/">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    模版引擎
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../../domain/bpm/">
+    
+    <a href="../../domain/bpm/">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    BPM
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >NativeThread</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>a review for thread mode</p>
+<hr>
+<p>&#x672C;&#x6587;&#x9996;&#x5148;&#x4ECB;&#x7ECD;&#x4E86;&#x4E00;&#x4E9B;&#x7EBF;&#x7A0B;&#x57FA;&#x7840;&#xFF0C;&#x6BD4;&#x5982;&#x5E76;&#x53D1;&#x3001;&#x5E76;&#x884C;&#x3001;&#x5185;&#x5B58;&#x5206;&#x914D;&#x3001;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x3001;POSIX&#x7EBF;&#x7A0B;&#x3002;&#x63A5;&#x7740;&#x901A;&#x8FC7;strace&#x5206;&#x6790;&#x4E86;&#x7EBF;&#x7A0B;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x533A;&#x522B;&#x3002;&#x6700;&#x540E;&#x4EE5;Android&#x3001;Golang&#x7B49;&#x7EBF;&#x7A0B;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x4E86;&#x5206;&#x6790;&#x3002;</p>
+<h2 id="1-&#x57FA;&#x7840;">1. &#x57FA;&#x7840;</h2>
+<h3 id="11-os&#x4E0B;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x5206;&#x914D;&#xFF1F;&#x7528;&#x6237;&#x533A;&#x4E0E;&#x5185;&#x6838;&#x533A;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#xFF1F;">1.1. OS&#x4E0B;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x5185;&#x5B58;&#x5206;&#x914D;&#xFF1F;&#x7528;&#x6237;&#x533A;&#x4E0E;&#x5185;&#x6838;&#x533A;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#xFF1F;</h3>
+<p>&#x5728;32&#x4F4D;&#x7684;Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x540E;&#xFF0C;&#x5C06;&#x88AB;&#x5206;&#x914D;4G&#x7684;&#x865A;&#x62DF;&#x5185;&#x5B58;&#x3002;&#x5185;&#x5B58;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E24;&#x4E2A;&#x7A7A;&#x95F4;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#xFF08;0&#xFF5E;3G&#xFF09;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#xFF08;3G&#xFF5E;4G&#xFF09;&#x3002;&#x5176;&#x4E2D;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x5C31;&#x662F;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x6BD4;&#x5982;&#x5806;&#x6808;&#x3001;BSS&#xFF08;&#x672A;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#x6BB5;&#xFF09;&#x3001;DATA&#xFF08;&#x5DF2;&#x7ECF;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#x6BB5;&#xFF09;&#x3001;TEXT&#xFF08;&#x4EE3;&#x7801;&#x4E8C;&#x8FDB;&#x5236;&#x6BB5;&#xFF09;&#xFF1B;&#x800C;&#x5728;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x662F;OS&#x5185;&#x6838;&#x7684;&#x6620;&#x5C04;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x6267;&#x884C;syscall&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x91CD;&#x5199;&#x3002;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-9cb17f0304091fcc.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1240" alt="32 Bit OS Virtual Memory"></p>
+<p>&#x5728;&#x7528;&#x6237;&#x6001;&#x4E2D;&#xFF0C;&#x6267;&#x884C;&#x7528;&#x6237;&#x4EE3;&#x7801;&#xFF0C;&#x6BD4;&#x5982;&#x76F4;&#x63A5;&#x8FD0;&#x884C;C&#x7A0B;&#x5E8F;&#x3001;&#x6216;&#x8005;&#x8FD0;&#x884C;JVM&#x865A;&#x62DF;&#x673A;&#x7B49;&#x3002;</p>
+<p>&#x5728;&#x5185;&#x6838;&#x4E2D;&#xFF0C;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;I/O(&#x663E;&#x793A;&#xFF0C;&#x5C42;&#x4E09;&#x4EE5;&#x4E0B;&#x7684;&#x7F51;&#x7EDC;&#xFF0C;FS)&#xFF0C;Memory(&#x865A;&#x62DF;&#x5185;&#x5B58;&#xFF0C;&#x9875;&#x9762;&#x66FF;&#x6362;/&#x7F13;&#x5B58;), Process&#xFF08;&#x4FE1;&#x53F7;&#x3001;&#x7EBF;&#x7A0B;/&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;&#xFF0C;CPU&#x8C03;&#x5EA6;&#xFF09;&#x7684;&#x7BA1;&#x7406;&#xFF0C;&#x76F4;&#x63A5;&#x63A7;&#x5236;CPU&#x3001;&#x5185;&#x5B58;&#x7B49;&#x786C;&#x4EF6;&#xFF0C;&#x6743;&#x9650;(privilege)&#x975E;&#x5E38;&#x5927;;</p>
+<h3 id="12-&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x4E2D;&#x65AD;sci&#x662F;&#x4EC0;&#x4E48;&#xFF1F;">1.2. &#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x4E2D;&#x65AD;(SCI)&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</h3>
+<p>&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x662F;&#x7528;&#x6237;&#x4E0E;&#x5185;&#x6838;&#x95F4;&#x7684;&#x4E00;&#x4E2A;&#x6869;(stub)&#xFF0C;&#x5F53;&#x5728;&#x7528;&#x6237;&#x6001;&#x6267;&#x884C;&#x9AD8;&#x6743;&#x9650;&#x4EFB;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5207;&#x6362;&#x5165;&#x5185;&#x6838;&#x6001;&#x53BB;&#x6267;&#x884C;&#x6700;&#x5E95;&#x5C42;&#x4EFB;&#x52A1;&#x3002;&#x6BD4;&#x5982;&#x5728;C&#x8BED;&#x8A00;&#x4E2D;&#x8C03;&#x7528;<code>getTime()</code>&#x65F6;&#xFF0C;&#x5927;&#x81F4;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;</p>
+<pre><code>1. app method(User Application)
+    |
+    |&#x8C03;&#x7528;stdlibc&#x6807;&#x51C6;&#x5E93;
+    |
+2. systemcall_stub(std libc)
+    |
+    |&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x8FDB;&#x5165;&#x5185;&#x6838;&#x6001;
+    |
+3. system_call_table[call_number](Kernel)
+    |
+    |&#x901A;&#x8FC7;&#x67E5;&#x8868;&#x8C03;&#x7528;&#x786C;&#x4EF6;&#x51FD;&#x6570;
+    |
+4. hardware_call(Kernel)
+</code></pre><ol>
+<li>&#x5728;App&#x5C42;&#x9762;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x4E0D;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5199;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x63D0;&#x4F9B;&#x76F8;&#x5173;C&#x6807;&#x51C6;&#x5E93;&#x7684;SDK&#x4F9B;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528;&#xFF0C;&#x6BD4;&#x5982;&#x5F00;&#x53D1;&#x8005;&#x8C03;&#x7528;<code>getTime()</code>&#x65F6;&#xFF0C;&#x5B9E;&#x9645;&#x662F;&#x4F7F;&#x7528;&#x4E86;&#x6807;&#x51C6;&#x5E93;&#x7684;<code>time.h</code>&#x5934;&#x6587;&#x4EF6;&#x3002;</li>
+<li>&#x4EE3;&#x7801;&#x5728;&#x6267;&#x884C;&#x65F6;&#xFF0C;OS&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x6807;&#x51C6;&#x5E93;&#x3002;&#x6BD4;&#x5982;&#x5728;android&#x7684;bionic&#x5E93;&#x4E2D;&#xFF0C;&#x5B9E;&#x9645;&#x6267;&#x884C;getTime&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x662F;<a href="https://github.com/android/platform_bionic/blob/master/libc/arch-arm/syscalls/clock_gettime.S" target="_blank">&#x8FD9;&#x91CC;</a>&#x7684;&#x5E73;&#x53F0;&#x76F8;&#x5173;&#x7684;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#xFF0C;&#x5C06;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x7684;ID&#x3001;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x5185;&#x6838;&#x3002;</li>
+<li>&#x5185;&#x6838;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;ID&#x8FDB;&#x884C;&#x8868;&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x5BFB;&#x627E;&#x771F;&#x6B63;&#x7684;&#x786C;&#x4EF6;&#x8C03;&#x7528;&#x51FD;&#x6570;</li>
+<li>&#x8FDB;&#x884C;&#x786C;&#x4EF6;&#x76F8;&#x5173;&#x7684;&#x8C03;&#x7528;</li>
+</ol>
+<blockquote>
+<p>&#x5728;Mac&#x4E0B;&#x6253;&#x5F00;ActivityManager&#x6216;&#x8005;&#x5728;Terminal&#x4E2D;&#x8FD0;&#x884C;top&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x5730;&#x770B;&#x5230;&#x7528;&#x6237;&#x4E0E;&#x7CFB;&#x7EDF;&#x7684;CPU&#x5360;&#x7528;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-a24e7c2ffc982584.png?imageMogr2/auto-orient/strip|imageView2/2/w/1240" alt="User and Kernel CPU usage"></p>
+</blockquote>
+<h3 id="13-posix&#x7EBF;&#x7A0B;&#x6A21;&#x578B;">1.3. POSIX&#x7EBF;&#x7A0B;&#x6A21;&#x578B;</h3>
+<p>POSIX&#x662F;IEEE P1003.1&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;&#x6807;&#x51C6;&#xFF0C;&#x76EE;&#x524D;&#x6240;&#x6709;&#x7684;&#x7CFB;&#x7EDF;&#xFF0C;&#x751A;&#x81F3;windows&#x90FD;&#x652F;&#x6301;POSIX&#x3002;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x7528;&#x6237;&#x6001;&#x4E0B;&#x7684;&#x7EBF;&#x7A0B;&#x7F16;&#x7A0B;&#x63A5;&#x53E3;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x5728;&#x8FDB;&#x884C;&#x7EBF;&#x7A0B;&#x5F00;&#x53D1;&#x65F6;&#xFF0C;&#x53EA;&#x7528;&#x5F15;&#x7528;<code>pthread.h</code>&#x5934;&#x6587;&#x4EF6;&#x8C03;&#x7528;&#x5373;&#x53EF;&#x3002;&#x7A0B;&#x5E8F;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x5728;&#x5185;&#x6838;&#x4E2D;&#x8FDB;&#x884C;&#x7EBF;&#x7A0B;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x5B83;&#x6709;&#x5F88;&#x591A;&#x51FD;&#x6570;&#xFF0C;&#x6BD4;&#x5982;create, exit, join, yield&#x7B49;&#xFF0C;&#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x53BB;&#x5404;&#x4E2A;&#x5E73;&#x53F0;&#x4E0B;&#x7684;libc&#x6E90;&#x7801;/sdk&#x4E2D;&#x53BB;&#x770B;Header&#x6587;&#x4EF6;&#x4E2D;&#x65B9;&#x6CD5;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x6BD4;&#x5982;android&#x4E2D;&#x4F7F;&#x7528;biolibc&#x4E2D;pthread.h&#x7684;&#x4EE3;&#x7801;&#x5728;<a href="https://android.googlesource.com/platform/bionic/+/master/libc/include/pthread.h" target="_blank">&#x8FD9;&#x91CC;</a>&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x5934;&#x6587;&#x4EF6;&#x662F;&#x5BF9;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x7684;&#x5305;&#x88C5;&#x3002;</p>
+<h2 id="2-&#x7EBF;&#x7A0B;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x533A;&#x522B;">2. &#x7EBF;&#x7A0B;&#x4E0E;&#x8FDB;&#x7A0B;&#x7684;&#x533A;&#x522B;</h2>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x9053;&#x7ECF;&#x5178;&#x7684;&#x9762;&#x8BD5;&#x9898;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x56DE;&#x7B54;&#x8005;&#x90FD;&#x662F;&#x56DE;&#x5FC6;&#x8D77;&#x5F53;&#x521D;&#x5B66;&#x4E60;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8BFE;&#x672C;&#x4E2D;&#x7684;&#x77E5;&#x8BC6;&#x3002;&#x7136;&#x800C;&#x8BFE;&#x672C;&#x4E2D;&#x592A;&#x504F;&#x5411;&#x4E8E;&#x5185;&#x6838;&#xFF0C;&#x4ECE;&#x5F00;&#x59CB;&#x5C31;&#x5B66;&#x4E60;&#x5185;&#x6838;&#x5E95;&#x5C42;&#xFF0C;&#x800C;&#x8131;&#x79BB;&#x5F00;&#x53D1;&#xFF0C;&#x7B14;&#x8005;&#x8BA4;&#x4E3A;&#x662F;&#x4E0D;&#x592A;&#x660E;&#x667A;&#x7684;&#x3002;&#x56E0;&#x6B64;&#x901A;&#x8FC7;&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x6808;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x8BA9;&#x8BFB;&#x8005;&#x6709;&#x66F4;&#x6E05;&#x6670;&#x7684;&#x4E86;&#x89E3;&#x3002;</p>
+<p>&#x672C;&#x6587;&#x7EBF;&#x7A0B;&#x7279;&#x6307;32&#x4F4D;&#x4E0B;&#x4F7F;&#x7528;glibc&#x7684;Linux&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;POSIX&#x6A21;&#x578B;&#xFF0C;&#x5373;&#x7528;&#x6237;&#x9762;&#x7EBF;&#x7A0B;&#xFF0C;&#x8FDB;&#x7A0B;&#x7279;&#x6307;<code>unstd.h</code>&#x4E2D;&#x7684;fork&#x4EA7;&#x751F;&#x7684;&#x8FDB;&#x7A0B;&#x3002;</p>
+<p>&#x672C;&#x6D4B;&#x8BD5;&#x57FA;&#x4E8E;Ubuntu 14.04 i386</p>
+<h3 id="1-&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x8BBE;&#x8BA1;">1. &#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x8BBE;&#x8BA1;</h3>
+<h4 id="11-&#x7EBF;&#x7A0B;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;">1.1. &#x7EBF;&#x7A0B;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;</h4>
+<pre><code class="lang-c"><span class="hljs-comment">//modified from https://computing.llnl.gov/tutorials/pthreads/samples/hello.c</span>
+
+<span class="hljs-comment">//todo run:</span>
+<span class="hljs-comment">//clang -Wall -g pthread.c -o pthread.out -lpthread</span>
+<span class="hljs-comment">//strace -Cfo ./pthread.strace.log ./pthread.out</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;pthread.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span>*
+<span class="hljs-title">PrintHello</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *threadid)</span>
+</span>{
+   <span class="hljs-keyword">long</span> tid;
+   tid = (<span class="hljs-keyword">long</span>)threadid;
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello World! It&apos;s me, thread #%ld!\n&quot;</span>, tid);
+   pthread_exit(<span class="hljs-literal">NULL</span>);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> 
+<span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span></span>{
+   <span class="hljs-keyword">pthread_t</span> thread;
+   <span class="hljs-keyword">int</span> rc = <span class="hljs-number">0</span>;
+   <span class="hljs-keyword">long</span> t = <span class="hljs-number">0</span>;
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;In main: creating thread %ld\n&quot;</span>, t);
+   <span class="hljs-comment">//&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6307;&#x9488;&#xFF0C;&#x4E0D;&#x8981;&#x50BB;&#x773C;&#x4E86;</span>
+   rc = pthread_create(&amp;thread, <span class="hljs-literal">NULL</span>, PrintHello, (<span class="hljs-keyword">void</span> *)t);
+   <span class="hljs-keyword">if</span> (rc){
+     <span class="hljs-built_in">exit</span>(<span class="hljs-number">-1</span>);
+   }
+}
+</code></pre>
+<h4 id="12-&#x8FDB;&#x7A0B;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;">1.2. &#x8FDB;&#x7A0B;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;</h4>
+<pre><code class="lang-c"><span class="hljs-comment">//todo run:</span>
+<span class="hljs-comment">//clang -Wall -g fork.c -o fork.out</span>
+<span class="hljs-comment">//strace -Cfo ./fork.strace.log ./fork.out</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> 
+<span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+  <span class="hljs-keyword">pid_t</span> pid;
+  pid = fork();
+  <span class="hljs-keyword">if</span>(pid &lt; <span class="hljs-number">0</span>){
+    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+  }    
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h3 id="2-&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;">2. &#x6D4B;&#x8BD5;&#x7ED3;&#x679C;</h3>
+<p>&#x5728;&#x7F16;&#x8BD1;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x8C03;&#x7528;<code>strace</code>&#x547D;&#x4EE4;&#x540E;&#xFF0C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;</p>
+<h4 id="21-&#x8FDB;&#x7A0B;&#x7684;strace&#x8DEF;&#x7EBF;&#x5982;&#x4E0B;">2.1. &#x8FDB;&#x7A0B;&#x7684;strace&#x8DEF;&#x7EBF;&#x5982;&#x4E0B;</h4>
+<pre><code>19948 execve(&quot;./fork.out&quot;, [&quot;./fork.out&quot;], [/* 68 vars */]) = 0
+19948 brk(0)                            = 0x9bc000
+19948 open(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;, O_RDONLY|O_CLOEXEC) = 3
+19948 read(3, &quot;\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0&gt;\0\1\0\0\0\320\37\2\0\0\0\0\0&quot;..., 832) = 832
+.....
+19948 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f5adac4ca10) = 19949
+....
+19949 +++ exited with 0 +++
+</code></pre><h4 id="22-&#x7EBF;&#x7A0B;&#x7684;strace&#x8DEF;&#x7EBF;&#x5982;&#x4E0B;">2.2. &#x7EBF;&#x7A0B;&#x7684;strace&#x8DEF;&#x7EBF;&#x5982;&#x4E0B;</h4>
+<pre><code>21958 execve(&quot;./pthread.out&quot;, [&quot;./pthread.out&quot;], [/* 68 vars */]) = 0
+21958 open(&quot;/lib/x86_64-linux-gnu/libpthread.so.0&quot;, O_RDONLY|O_CLOEXEC) = 3
+....
+21958 access(&quot;/etc/ld.so.nohwcap&quot;, F_OK) = -1 ENOENT (No such file or directory)
+21958 open(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;, O_RDONLY|O_CLOEXEC) = 3
+21958 read(3, &quot;\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0&gt;\0\1\0\0\0\320\37\2\0\0\0\0\0&quot;..., 832) = 832
+21958 fstat(3, {st_mode=S_IFREG|0755, st_size=1845024, ...}) = 0
+21958 mmap(NULL, 3953344, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f34229e4000
+....
+21958 clone(child_stack=0x7f34229e2fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f34229e39d0, tls=0x7f34229e3700, child_tidptr=0x7f34229e39d0) = 21959
+....
+21958 +++ exited with 0 +++
+</code></pre><h3 id="3-&#x6D4B;&#x8BD5;&#x7ED3;&#x8BBA;">3. &#x6D4B;&#x8BD5;&#x7ED3;&#x8BBA;</h3>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x8FF0;&#x7684;&#x8C03;&#x7528;&#x6808;&#x5206;&#x6790;&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x77E5;&#x5747;&#x662F;&#x901A;&#x8FC7;&#x8C03;&#x7528;<code>x86_64-linux-gnu</code>&#x4E0B;&#x7684;libc&#x5E93;&#xFF0C;&#x63A5;&#x7740;&#x901A;&#x8FC7;systemcall&#x51FD;&#x6570;<code>clone()</code>&#x5B9E;&#x73B0;&#x5BF9;&#x5185;&#x6838;Process&#x7684;&#x63A7;&#x5236;&#xFF0C;&#x4E3B;&#x8981;&#x533A;&#x522B;&#x5728;<strong>&#x51FD;&#x6570;&#x53C2;&#x6570;&#x4E2D;clone_flag&#x4E0A;&#x7684;&#x4E0D;&#x540C;</strong>&#xFF0C;clone_flag&#x6307;&#x5B9A;&#x4E86;&#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x4E0B;&#x56FE;&#x663E;&#x793A;&#x4E86;&#x8FDB;&#x7A0B;&#x4E0E;&#x7EBF;&#x7A0B;&#x7684;flag</p>
+<pre><code>//clone flag between thread and process
+//&#x26A0;&#xFE0F;: &#x7701;&#x7565;&#x4E86;`CLONE_&#xFF40;&#x524D;&#x7F00;
+
+//&#x8FDB;&#x7A0B;&#x7684;FLAG&#x53C2;&#x6570;
+flags=CHILD_CLEARTID|CHILD_SETTID|SIGCHLD
+
+//&#x7EBF;&#x7A0B;&#x7684;FLAG&#x53C2;&#x6570;
+flags=VM|FS|FILES|SIGHAND|THREAD|SYSVSEM|SETTLS|PARENT_SETTID|CHILD_CLEARTID
+</code></pre><p>&#x901A;&#x8FC7;&#x5BF9;<code>clone</code>&#x8FDB;&#x884C;man<a href="http://linux.die.net/man/2/clone" target="_blank">&#x67E5;&#x8BE2;</a>&#xFF0C;&#x89E3;&#x91CA;&#x5982;&#x4E0B;</p>
+<p>&#x8FDB;&#x7A0B;&#x7684;&#x53C2;&#x6570;&#x89E3;&#x91CA;&#xFF1A;</p>
+<ul>
+<li><code>CLONE_CHILD_CLEARTID</code>: Erase child thread ID at location ctid in child memory when the child exits, and do a wakeup on the futex at that address&#x3002;</li>
+<li><code>CLONE_SETTLS</code>: thread local storage (TLS) area&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x4E0D;&#x53EF;&#x79FB;&#x690D;</li>
+<li><code>CLONE_SIGHAND</code>: &#x5171;&#x4EAB;signal handlers</li>
+</ul>
+<p>&#x7EBF;&#x7A0B;&#x7684;&#x4E00;&#x4E9B;&#x53C2;&#x6570;&#x89E3;&#x91CA;&#xFF1A;</p>
+<ul>
+<li><code>CLONE_VM</code>: the calling process and the child process run in the same memory space. (&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x8BF4;&#x7684;&#x662F;<code>memory space</code>&#xFF0C;&#x6307;&#x901A;&#x8FC7;mmap()&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x3002;&#x518D;&#x591A;&#x8BF4;&#x4E00;&#x70B9;&#xFF0C;&#x7EBF;&#x7A0B;&#x4E2D;&#x7684;&#x6808;&#x5185;&#x5B58;&#x7531;<code>pthread_attr_t</code>&#x5C5E;&#x6027;&#x4E2D;&#x7684;<code>pthread_attr_setstacksize()</code>&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#xFF0C;&#x9ED8;&#x8BA4;&#x53EF;&#x80FD;&#x4E3A;8MB(&#x4F60;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;<code>ulimit -a</code>&#x67E5;&#x770B;&#x6700;&#x5927;&#x503C;)&#xFF0C;&#x5F53;&#x7136;&#x5728;&#x5B9E;&#x9645;&#x4E2D;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x6808;&#x5185;&#x5B58;&#x5927;&#x591A;&#x90FD;&#x662F;&#x51E0;KB&#x800C;&#x5DF2;&#xFF1B;&#x5806;&#x5185;&#x5B58;&#x662F;&#x5171;&#x4EAB;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x8BA8;&#x8BBA;)</li>
+<li><code>CLONE_FS</code>: &#x5171;&#x4EAB;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x5982;&#x4E0B;&#x51FD;&#x6570;chroot(2), chdir(2), or umask(2)&#x4F1A;&#x88AB;&#x5F71;&#x54CD;&#x3002;</li>
+<li><code>CLONE_FILES</code>: &#x5171;&#x4EAB;file descriptor table</li>
+<li><code>CLONE_SIGHAND</code>: &#x5171;&#x4EAB;signal handlers</li>
+<li><code>CLONE_THREAD</code>: &#x5171;&#x4EAB;thread group&#xFF0C;&#x5373;&#x6709;&#x76F8;&#x540C;&#x7684;PID&#xFF0C;&#x72EC;&#x7ACB;&#x7684;TID&#xFF1B;</li>
+<li><code>CLONE_SYSVSEM</code>: &#x5171;&#x4EAB;System V semaphore undo values&#x5217;&#x8868;&#xFF0C;&#x4FFA;&#x8868;&#x793A;&#x76EE;&#x524D;&#x8FD8;&#x4E0D;&#x61C2;&#x3002;</li>
+<li><code>CLONE_SETTLS</code>: thread local storage (TLS) area&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x4E0D;&#x53EF;&#x79FB;&#x690D;</li>
+<li><code>CLONE_PARENT_SETTID</code>: Store child thread ID at location ptid in parent and child memory.</li>
+<li><code>CLONE_CHILD_CLEARTID</code>: Erase child thread ID at location ctid in child memory when the child exits, and do a wakeup on the futex at that address&#x3002;</li>
+</ul>
+<p>&#x63A5;&#x7740;&#x7ED3;&#x5408;&#x4E00;&#x4E9B;&#x6559;&#x79D1;&#x4E66;&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x77E5;&#x6700;&#x7EC8;&#x7ED3;&#x8BBA;</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left">&#x8FDB;&#x7A0B;</th>
+<th style="text-align:left">&#x7EBF;&#x7A0B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">&#x7528;&#x6237;&#x5C42;&#x51FD;&#x6570;</td>
+<td style="text-align:left">fork()</td>
+<td style="text-align:left">pthread_create()</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x5185;&#x6838;&#x5B9E;&#x73B0;</td>
+<td style="text-align:left">clone()</td>
+<td style="text-align:left">clone()</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x5185;&#x5B58;</td>
+<td style="text-align:left">&#x65B0;&#x590D;&#x5236;&#x7684;&#x5185;&#x5B58;(Copy-on-Write)&#xFF0C;&#x72EC;&#x7ACB;4G(1G+3G)</td>
+<td style="text-align:left">&#x5171;&#x4EAB;4G&#x5185;&#x5B58;&#xFF1A;&#x5176;&#x4E2D;8M&#x5DE6;&#x53F3;&#x7684;&#x6808;&#x5185;&#x5B58;&#x662F;&#x79C1;&#x6709;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53C2;&#x6570;&#x51B3;&#x5B9A;&#xFF1B;&#x5171;&#x4EAB;&#x5806;&#x5185;&#x5B58;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x521B;&#x5EFA;&#x8017;&#x65F6;</td>
+<td style="text-align:left">&#x590D;&#x5236;&#x7684;flag&#x5C11;&#xFF0C;&#x6240;&#x4EE5;&#x8017;&#x65F6;&#x591A;</td>
+<td style="text-align:left">&#x4F4E;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x8017;&#x65F6;</td>
+<td style="text-align:left">&#x4E3B;&#x8981;&#x662F;&#x5207;&#x6362;&#x5185;&#x5B58;&#x7A7A;&#x95F4;</td>
+<td style="text-align:left">&#x51E0;&#x4E4E;&#x53EA;&#x6709;&#x8FDB;&#x51FA;&#x5185;&#x6838;&#x7684;&#x635F;&#x5931;</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x5185;&#x90E8;&#x901A;&#x4FE1;</td>
+<td style="text-align:left">IPC(Socket, Pipe, ASM...)</td>
+<td style="text-align:left">&#x5171;&#x4EAB;&#x7684;&#x6570;&#x636E;&#x6BB5;(&#x6BD4;&#x5982;&#x8BF4;DATA&#x6BB5;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x66F4;&#x7B80;&#x5355;)</td>
+</tr>
+<tr>
+<td style="text-align:left">&#x4E3E;&#x4F8B;</td>
+<td style="text-align:left">Redis&#x5907;&#x4EFD;&#xFF0C;&#x8FD0;&#x884C;&#x542B;&#x5168;&#x5C40;&#x9501;&#x7684;&#x811A;&#x672C;&#x8BED;&#x8A00;...</td>
+<td style="text-align:left">I/O Select &#x7684;&#x6D88;&#x606F;&#x5904;&#x7406;&#x3001;&#x7EBF;&#x7A0B;&#x6C60;...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#x5BF9;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x7684;&#x5C01;&#x88C5;&#x5B9E;&#x73B0;">&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#x5BF9;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x7684;&#x5C01;&#x88C5;&#x5B9E;&#x73B0;</h2>
+<p>&#x9664;&#x4E86;&#x901A;&#x8FC7;POSIX&#x6807;&#x51C6;&#x5916;&#xFF0C;&#x9AD8;&#x7EA7;&#x8BED;&#x8A00;&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5BF9;&#x5185;&#x6838;&#x7684;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x5B9E;&#x73B0;&#xFF0C;&#x4E3B;&#x8981;&#x6709;&#x5982;&#x4E0B;&#x4E09;&#x79CD;&#x3002;</p>
+<h3 id="1-&#x7EAF;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x5B9E;&#x73B0;11">1. &#x7EAF;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x5B9E;&#x73B0;(1:1)</h3>
+<p>&#x6B64;&#x7EBF;&#x7A0B;&#x6A21;&#x578B;&#x5C06;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x4E0E;App&#x7EBF;&#x7A0B;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x4E3A;&#x4E00;&#x79CD;&#x7B80;&#x5355;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x4EE3;&#x8868;&#x6709;POSIX&#x7EBF;&#x7A0B;&#x6A21;&#x578B;(pthread)&#xFF0C;&#x4EE5;&#x53CA;&#x4F9D;&#x8D56;pThread&#x6807;&#x51C6;&#x5E93;&#x7684;Java&#x4E0E;Ruby(1.9+)&#x7EBF;&#x7A0B;&#x6A21;&#x578B;&#x3002;</p>
+<p>&#x4EE5;&#x5728;Android/ARTJvm&#x4E0B;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x4E3A;&#x4F8B;&#xFF0C;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x8C03;&#x7528;&#x6808;&#x5982;&#x4E0B;</p>
+<pre><code>java.lang.Thread
+    |
+POSIX thread(user mode){
+    0. art.runtime.Thread::CreateNativeThread(cpp, in jvm)
+    1. pthread_create(pthread.h&#xFF0C;&#x6807;&#x51C6;&#x5E93;&#x5934;&#x6587;&#x4EF6;)
+    2. bionic&#x6807;&#x51C6;&#x5E93;&#x4E0B;&#x7684;so&#x6587;&#x4EF6;&#xFF0C;&#x8FDB;&#x884C;SystemCall(libc)
+    3. &#x7528;&#x6237;&#x6001;&#x9677;&#x5165;&#x5185;&#x6838;&#x6001;
+}
+    |
+Kernal thread(kernal mode)
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x5728;JVM&#x4E0B;&#x7684;&#x5B9E;&#x73B0;&#x4E3B;&#x8981;&#x662F;&#x5BF9;POSIX&#x7EBF;&#x7A0B;&#x7684;&#x5305;&#x88C5;&#x4E0E;&#x6620;&#x5C04;&#xFF0C;&#x81EA;&#x5DF1;&#x672C;&#x8EAB;&#x53EA;&#x662F;&#x505A;&#x4E86;&#x70B9;&#x5FAE;&#x5C0F;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x7279;&#x70B9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x79FB;&#x690D;&#x6027;&#x8F83;&#x5DEE;&#xFF0C;&#x9700;&#x8981;&#x9002;&#x914D;&#x5404;&#x79CD;libc&#x5E93;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x88AB;OS&#x76F4;&#x63A5;&#x7BA1;&#x7406;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x5206;&#x914D;&#x4EFB;&#x52A1;&#x4E0A;&#x53EF;&#x4EE5;&#x5145;&#x5206;&#x501F;&#x7528;&#x5185;&#x6838;&#x7684;&#x9AD8;&#x6548;&#x8C03;&#x5EA6;&#xFF0C;&#x80FD;&#x591F;&#x9AD8;&#x6548;&#x5229;&#x7528;&#x7269;&#x7406;&#x6838;&#x5E76;&#x5B9E;&#x73B0;&#x771F;&#x6B63;&#x7684;&#x5E76;&#x884C;&#x3002;</li>
+<li>&#x7528;&#x6237;&#x6001;&#x4E0E;&#x5185;&#x6838;&#x6001;&#x5207;&#x6362;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x6D88;&#x8017;&#x635F;&#x5931;</li>
+</ol>
+<h3 id="2-&#x7EAF;&#x7528;&#x6237;&#x6001;&#x5B9E;&#x73B0;1n">2. &#x7EAF;&#x7528;&#x6237;&#x6001;&#x5B9E;&#x73B0;(1:N)</h3>
+<p>&#x5C06;&#x7EBF;&#x7A0B;&#x7684;&#x8C03;&#x5EA6;&#x5728;&#x7528;&#x6237;&#x6001;&#x5B9E;&#x73B0;&#xFF0C;&#x4E5F;&#x79F0;<code>green thread</code>&#xFF0C;&#x81EA;&#x5DF1;&#x5199;&#x8C03;&#x5EA6;&#x7B97;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E2A;native&#x7EBF;&#x7A0B;&#x6620;&#x5C04;&#x4E3A;&#x591A;&#x4E2A;app thread(&#x8FD9;&#x91CC;&#x4E5F;&#x53EF;&#x4EE5;&#x53EB;&#x505A;&#x7EBF;&#x7A0B;&#x5305;)&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x4EE3;&#x8868;&#x6709;Ruby(1.8-)&#xFF0C;Java&#x7B49;&#x8001;&#x7248;&#x672C;&#xFF0C;&#x7279;&#x70B9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x79FB;&#x690D;&#x6027;&#x597D;&#xFF0C;&#x6CA1;&#x6709;&#x5207;&#x6362;&#x3001;&#x6620;&#x5C04;&#x5230;&#x5185;&#x6838;&#x7684;&#x635F;&#x5931;</li>
+<li>&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7EF4;&#x62A4;Scheduler</li>
+<li>&#x7531;&#x4E8E;&#x5185;&#x6838;&#x5E76;&#x4E0D;&#x4E86;&#x89E3;&#x8C03;&#x5EA6;&#x7EC6;&#x8282;&#xFF0C;&#x5F88;&#x96BE;&#x8FDB;&#x884C;&#x591A;&#x6838;&#x5229;&#x7528;</li>
+</ol>
+<h3 id="3-&#x6DF7;&#x5408;&#x5B9E;&#x73B0;mn">3. &#x6DF7;&#x5408;&#x5B9E;&#x73B0;(M:N)</h3>
+<p>&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x8FD0;&#x884C;M&#x4E2A;kernel&#x7EBF;&#x7A0B;&#x4E0B;&#x7BA1;&#x7406;N&#x4E2A;app&#x7EBF;&#x7A0B;&#xFF0C;&#x6BD4;&#x5982;golang&#x3002;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;<code>GOMAXPROCS</code>&#x4E2A;native&#x7EBF;&#x7A0B;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;<code>go</code>&#x5173;&#x952E;&#x8BCD;&#x521B;&#x5EFA;app&#x7EBF;&#x7A0B;&#xFF0C;&#x5B83;&#x7684;&#x7279;&#x70B9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x8C03;&#x5EA6;&#x5668;&#x5B9E;&#x73B0;&#x6BD4;&#x8F83;&#x56F0;&#x96BE;</li>
+<li>&#x901A;&#x8FC7;&#x8BED;&#x6CD5;&#x7CD6;&#x4E0E;&#x7BA1;&#x9053;&#x7B80;&#x5316;&#x4E86;&#x5E76;&#x53D1;&#x7F16;&#x7A0B;&#xFF0C;&#x5207;&#x6362;&#x635F;&#x5931;&#x4F4E;</li>
+<li>&#x90E8;&#x5206;&#x8C03;&#x5EA6;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x4E3B;&#x52A8;&#x91CA;&#x653E;&#x65F6;&#x95F4;&#x7247;</li>
+</ol>
+<pre><code>golang threading model(N)
+    &#x2193;
+    &#x2193; goroutine
+    &#x2193;
+Kernal thread model(M)
+</code></pre><blockquote>
+<p>&#x8BE6;&#x89C1;<a href="https://swtch.com/libtask/" target="_blank">libtask</a>&#x4E0E;&#x8BB8;&#x5F0F;&#x4F1F;&#x7684;&#x300A;go&#x8BED;&#x8A00;&#x7F16;&#x7A0B;&#x300B;</p>
+</blockquote>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<ol>
+<li>Concurrent&#x662F;Parallels&#x7684;&#x7236;&#x7C7B;</li>
+<li>&#x5728;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x540E;&#xFF0C;&#x5C06;&#x5206;&#x914D;&#x7528;&#x6237;&#x6001;&#x4E0E;&#x5185;&#x6838;&#x6001;&#x4EFB;&#x52A1;&#xFF0C;&#x901A;&#x8FC7;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x6267;&#x884C;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x9AD8;&#x6743;&#x9650;&#x4EFB;&#x52A1;</li>
+<li>POSIX&#x662F;&#x4E00;&#x79CD;&#x7EBF;&#x7A0B;&#x6807;&#x51C6;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x4E00;&#x79CD;&#x63A5;&#x53E3;&#xFF0C;&#x7531;libc&#x5E93;&#x5B9E;&#x73B0;</li>
+<li>&#x7EBF;&#x7A0B;&#x4E0E;&#x8FDB;&#x7A0B;&#x6700;&#x5927;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x5185;&#x6838;&#x51FD;&#x6570;<code>clone</code>&#x51FD;&#x6570;&#x7684;flag&#x4E0D;&#x540C;&#xFF0C;&#x5BFC;&#x81F4;&#x5171;&#x4EAB;&#x8D44;&#x6E90;&#x4E0D;&#x540C;&#x3002;&#x6700;&#x7EC8;&#x521B;&#x5EFA;&#x3001;&#x5207;&#x6362;&#x8017;&#x65F6;&#x4E0D;&#x540C;&#xFF1B;&#x4EE5;&#x53CA;&#x5185;&#x5B58;&#x5206;&#x914D;&#x3001;&#x5185;&#x90E8;&#x901A;&#x4FE1;&#x590D;&#x6742;&#x5EA6;&#x4E0D;&#x540C;&#x3002;</li>
+<li>&#x5728;Java&#x4E2D;&#xFF0C;<code>java.lang.Thread</code>&#x4E0E;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#xFF1B;&#x5728;&#x67D0;&#x4E9B;&#x65E7;&#x7248;&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x5BF9;&#x5E94;&#x591A;&#x4E2A;&#x9AD8;&#x5C42;&#x7EBF;&#x7A0B;&#xFF1B;&#x5728;golang&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;<code>goroutine</code>&#x5B9E;&#x73B0;M&#x4E2A;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x5BF9;&#x5E94;N&#x4E2A;&#x9AD8;&#x5C42;&#x7EBF;&#x7A0B;&#xFF1B;</li>
+</ol>
+<h2 id="refference">REFFERENCE</h2>
+<ol>
+<li><a href="https://www.zhihu.com/question/21461752" target="_blank">https://www.zhihu.com/question/21461752</a></li>
+<li><a href="https://blog.codinghorror.com/understanding-user-and-kernel-mode/" target="_blank">https://blog.codinghorror.com/understanding-user-and-kernel-mode/</a></li>
+<li><a href="http://stackoverflow.com/questions/1311402/differences-between-user-and-kernel-modes" target="_blank">http://stackoverflow.com/questions/1311402/differences-between-user-and-kernel-modes</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%BF%99%E7%A2%8C%E7%AD%89%E5%BE%85" target="_blank">https://zh.wikipedia.org/wiki/%E5%BF%99%E7%A2%8C%E7%AD%89%E5%BE%85</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-system-calls/" target="_blank">https://www.ibm.com/developerworks/cn/linux/l-system-calls/</a></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 线程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="jvmthread.html" class="navigation navigation-next " aria-label="Next page: JVM线程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"NativeThread","level":"1.3.4.1","depth":3,"next":{"title":"JVM线程","level":"1.3.4.2","depth":3,"path":"juc/thread/jvmthread.md","ref":"juc/thread/jvmthread.md","articles":[]},"previous":{"title":"线程","level":"1.3.4","depth":2,"path":"juc/thread/README.md","ref":"juc/thread/README.md","articles":[{"title":"NativeThread","level":"1.3.4.1","depth":3,"path":"juc/thread/nativethread.md","ref":"juc/thread/nativethread.md","articles":[]},{"title":"JVM线程","level":"1.3.4.2","depth":3,"path":"juc/thread/jvmthread.md","ref":"juc/thread/jvmthread.md","articles":[]},{"title":"ThreadPool","level":"1.3.4.3","depth":3,"path":"juc/thread/threadpool.md","ref":"juc/thread/threadpool.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/java/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"juc/thread/nativethread.md","mtime":"2021-03-04T11:49:55.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:54.413Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

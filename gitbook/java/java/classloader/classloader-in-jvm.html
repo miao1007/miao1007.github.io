@@ -1,0 +1,1005 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ClassLoader的native实现 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../reflection/" />
+    
+    
+    <link rel="prev" href="class.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../../">
+    
+    <a href="../../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Java/JVM
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" data-path="../gc/">
+    
+    <a href="../gc/">
+        
+                    
+                        <b>1.2.1.</b>
+                    
+                    垃圾回收
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1.1" data-path="../gc/analyze-full-gc.html">
+    
+    <a href="../gc/analyze-full-gc.html">
+        
+                    
+                        <b>1.2.1.1.</b>
+                    
+                    analyze-full-gc
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    ClassLoader
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.2.1" data-path="class.html">
+    
+    <a href="class.html">
+        
+                    
+                        <b>1.2.2.1.</b>
+                    
+                    Class的结构
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.2.2.2" data-path="classloader-in-jvm.html">
+    
+    <a href="classloader-in-jvm.html">
+        
+                    
+                        <b>1.2.2.2.</b>
+                    
+                    ClassLoader的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.2.3" data-path="../reflection/">
+    
+    <a href="../reflection/">
+        
+                    
+                        <b>1.2.3.</b>
+                    
+                    反射
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../../juc/">
+    
+    <a href="../../juc/">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    并发编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../../juc/functional/">
+    
+    <a href="../../juc/functional/">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    纯函数
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../../juc/final/">
+    
+    <a href="../../juc/final/">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    final/ThreadLocal
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="../../juc/lock/">
+    
+    <a href="../../juc/lock/">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    锁
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1" data-path="../../juc/lock/cas/">
+    
+    <a href="../../juc/lock/cas/">
+        
+                    
+                        <b>1.3.3.1.</b>
+                    
+                    CAS与AQS
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.1.1" data-path="../../juc/lock/cas/cas-impl.html">
+    
+    <a href="../../juc/lock/cas/cas-impl.html">
+        
+                    
+                        <b>1.3.3.1.1.</b>
+                    
+                    CAS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.2" data-path="../../juc/lock/cas/aqs/aqs-impl.html">
+    
+    <a href="../../juc/lock/cas/aqs/aqs-impl.html">
+        
+                    
+                        <b>1.3.3.1.2.</b>
+                    
+                    AQS的实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.3" data-path="../../juc/lock/cas/aqs/reentrantlock.html">
+    
+    <a href="../../juc/lock/cas/aqs/reentrantlock.html">
+        
+                    
+                        <b>1.3.3.1.3.</b>
+                    
+                    ReentrantLock
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.4" data-path="../../juc/lock/cas/aqs/countdownlatch.html">
+    
+    <a href="../../juc/lock/cas/aqs/countdownlatch.html">
+        
+                    
+                        <b>1.3.3.1.4.</b>
+                    
+                    CountDownLatch
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.1.5" data-path="../../juc/lock/cas/aqs/read-write-lock.html">
+    
+    <a href="../../juc/lock/cas/aqs/read-write-lock.html">
+        
+                    
+                        <b>1.3.3.1.5.</b>
+                    
+                    ReadWriteLock
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.3.2" data-path="../../juc/lock/synchronized/">
+    
+    <a href="../../juc/lock/synchronized/">
+        
+                    
+                        <b>1.3.3.2.</b>
+                    
+                    synchronized
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.3.2.1" data-path="../../juc/lock/synchronized/jvm-sync.html">
+    
+    <a href="../../juc/lock/synchronized/jvm-sync.html">
+        
+                    
+                        <b>1.3.3.2.1.</b>
+                    
+                    sync的native实现
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.4" data-path="../../juc/thread/">
+    
+    <a href="../../juc/thread/">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    线程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.4.1" data-path="../../juc/thread/nativethread.html">
+    
+    <a href="../../juc/thread/nativethread.html">
+        
+                    
+                        <b>1.3.4.1.</b>
+                    
+                    NativeThread
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.2" data-path="../../juc/thread/jvmthread.html">
+    
+    <a href="../../juc/thread/jvmthread.html">
+        
+                    
+                        <b>1.3.4.2.</b>
+                    
+                    JVM线程
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4.3" data-path="../../juc/thread/threadpool.html">
+    
+    <a href="../../juc/thread/threadpool.html">
+        
+                    
+                        <b>1.3.4.3.</b>
+                    
+                    ThreadPool
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3.5" data-path="../../juc/juc-problems.html">
+    
+    <a href="../../juc/juc-problems.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    常见并发问题
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.6" data-path="../../juc/cow/">
+    
+    <a href="../../juc/cow/">
+        
+                    
+                        <b>1.3.6.</b>
+                    
+                    写时复制
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../../microservice/">
+    
+    <a href="../../microservice/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    微服务中间件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../../microservice/dist-problems.html">
+    
+    <a href="../../microservice/dist-problems.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    分布式问题
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1.1" data-path="../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+    
+    <a href="../../microservice/chang-jian-zhong-jian-jian-wen-ti.html">
+        
+                    
+                        <b>1.4.1.1.</b>
+                    
+                    事务一致性问题
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../../domain/">
+    
+    <a href="../../domain/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    元编程
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../../domain/dsl/">
+    
+    <a href="../../domain/dsl/">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    DSL
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../../domain/templateengine/">
+    
+    <a href="../../domain/templateengine/">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    模版引擎
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../../domain/bpm/">
+    
+    <a href="../../domain/bpm/">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    BPM
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >ClassLoader的native实现</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>ClassLoader&#x7684;native&#x5B9E;&#x73B0;</p>
+<hr>
+<p>&#x5173;&#x4E8E;ClassLoader&#x90E8;&#x5206;&#xFF0C;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;JVM&#x542F;&#x52A8;&#x65F6;&#x52A0;&#x8F7D;Rt.jar&#x4E2D;&#x7684;ClassLoader&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x662F;&#x7528;Java&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#x5C42;ClassLoader&#x3002;</p>
+<h2 id="&#x4E09;&#x79CD;classloader">&#x4E09;&#x79CD;ClassLoader</h2>
+<p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;&#x5728;JVM&#x4E2D;&#x6709;3&#x79CD;ClassLoader</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>system</td>
+<td>&#x7528;&#x6765;&#x52A0;&#x8F7D;&#x5F00;&#x53D1;&#x8005;&#x5199;App&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#x5B9A;&#x5236;ClassLoader</td>
+</tr>
+<tr>
+<td>extensions</td>
+<td>&#x7528;&#x6765;&#x52A0;&#x8F7D; lib/ext/*.jar&#x7B49;&#x5305;&#xFF0C;&#x6BD4;&#x8F83;&#x5C11;&#x89C1;(&#x672C;&#x6587;&#x4E0D;&#x5206;&#x6790;)</td>
+</tr>
+<tr>
+<td>bootstrap</td>
+<td>&#x7528;&#x539F;&#x751F;&#x4EE3;&#x7801;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5E76;&#x4E0D;&#x7EE7;&#x627F;&#x81EA; <code>java.lang.ClassLoader</code>&#xFF0C;&#x7528;&#x6765;&#x52A0;&#x8F7D;rt.jar&#xFF0C;&#x8FD4;&#x56DE;&#x662F;null</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6211;&#x4EEC;&#x5148;&#x8DD1;&#x4E00;&#x4E0B;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-java"><span class="hljs-comment">//1. System: sun.misc.Launcher$AppClassLoader@4b67cf4d</span>
+<span class="hljs-comment">// &#x4E0B;&#x9762;&#x7528;equals&#x8BA1;&#x7B97;&#x540E;&#xFF0C;&#x53D1;&#x73B0;&#x5747;&#x76F8;&#x7B49;</span>
+ClassLoader.getSystemClassLoader();
+com.test.App.getClass().getClassLoader();
+Class.forName(<span class="hljs-string">&quot;com.test.App&quot;</span>).getClassLoader()
+
+<span class="hljs-comment">//2. extensions: sun.misc.Launcher$ExtClassLoader@66d3c617</span>
+<span class="hljs-comment">//Class loaded in ext/*.jar</span>
+Class.forName(<span class="hljs-string">&quot;jdk.nashorn.api.scripting.AbstractJSObject&quot;</span>)
+
+<span class="hljs-comment">//3. bootstrap: return null, native class loaded in rt.jar</span>
+String.class.getClassLoader()
+Class.forName(<span class="hljs-string">&quot;java.lang.String&quot;</span>).getClassLoader();
+Class.forName(<span class="hljs-string">&quot;java.lang.Class&quot;</span>).getClassLoader();
+Class.forName(<span class="hljs-string">&quot;apple.launcher.JavaAppLauncher&quot;</span>).getClassLoader();
+</code></pre>
+<p>ClassLoader&#x95F4;&#x6709;&#x7EE7;&#x627F;&#x5173;&#x7CFB;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception</span>{
+  ClassLoader classLoader = Class.forName(<span class="hljs-string">&quot;com.test.App&quot;</span>).getClassLoader();
+  System.out.println(<span class="hljs-string">&quot;classLoader = &quot;</span> + classLoader);
+  <span class="hljs-keyword">while</span> (classLoader.getParent() != <span class="hljs-keyword">null</span>){
+    ClassLoader parent = classLoader.getParent();
+    System.out.println(<span class="hljs-string">&quot;parent = &quot;</span> + parent);
+    classLoader = parent;
+  }
+}
+</code></pre>
+<p>&#x8DD1;&#x5B8C;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;<code>getParent()</code>&#x662F;&#x8FD9;&#x6837;&#x7684;</p>
+<ol>
+<li>sun.misc.Launcher$AppClassLoader@13221655</li>
+<li>sun.misc.Launcher$ExtClassLoader@1218025c</li>
+<li>null</li>
+</ol>
+<p>&#x4E0E;&#x4E0A;&#x9762;&#x7684;&#x8868;&#x683C;&#x63CF;&#x8FF0;&#x662F;&#x4E00;&#x81F4;&#x7684;</p>
+<h4 id="&#x59D4;&#x6258;&#x673A;&#x5236;">&#x59D4;&#x6258;&#x673A;&#x5236;</h4>
+<p>&#x901A;&#x8FC7;&#x5206;&#x6790;&#x6E90;&#x7801;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x6240;&#x8C13;&#x7684;&#x59D4;&#x6258;&#x673A;&#x5236;&#x5C31;&#x662F;&#x4F18;&#x5148;&#x56DE;&#x6E90;&#x53BB;&#x3010;&#x6743;&#x5A01;ClassLoader&#x3011;&#x67E5;&#x8BE2;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x67E5;&#x672C;&#x5730;&#x3002;&#x8FD9;&#x4E2A;&#x5F88;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#xFF0C;&#x5185;&#x5B58;&#x4E2D;&#x51FA;&#x73B0;&#x4E24;&#x4E2A;&#x6216;&#x591A;&#x4E2A;String.class&#xFF0C;&#x6700;&#x540E;&#x80AF;&#x5B9A;&#x4E71;&#x5957;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x662F;&#x666E;&#x901A;&#x9762;&#x8BD5;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x5E94;&#x8BE5;&#x5C31;&#x591F;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x5F00;&#x59CB;&#x8BB2;native&#x5B9E;&#x73B0;</p>
+<h2 id="classloader&#x521D;&#x59CB;&#x5316;&#x6D41;&#x7A0B;">ClassLoader&#x521D;&#x59CB;&#x5316;&#x6D41;&#x7A0B;</h2>
+<p>&#x6211;&#x4EEC;&#x4EE5;&#x5D4C;&#x5165;&#x5F0F;&#x865A;&#x62DF;&#x673A;JamVM&#x4E3A;&#x4F8B;</p>
+<ul>
+<li>&#x4E3A;&#x7B80;&#x5316;&#x5206;&#x6790;&#xFF0C;&#x4E0D;&#x8003;&#x8651;ext&#x7684;ClassLoader</li>
+<li>&#x672C;&#x6587;&#x6240;&#x5199;&#x7684;&#x53EA;&#x662F;&#x67D0;&#x79CD;JVM&#x5B9E;&#x73B0;&#xFF0C;&#x4E0E;sun&#x5B9E;&#x73B0;&#x53EF;&#x80FD;&#x6709;&#x4E0D;&#x540C;</li>
+<li>&#x4E0B;&#x9762;&#x662F;&#x7ECF;&#x8FC7;&#x5220;&#x51CF;&#x4E0E;&#x6CE8;&#x91CA;&#x7684;&#x4EE3;&#x7801;(&#x5220;&#x53BB;&#x4E86;&#x72B6;&#x6001;&#x5224;&#x65AD;&#x3001;Lock&#x4E0E;&#x5F02;&#x5E38;&#x5904;&#x7406;)&#xFF0C;&#x5E76;&#x66FF;&#x6362;&#x5B8F;&#x53D8;&#x91CF;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;</li>
+</ul>
+<p>&#x672C;&#x90E8;&#x5206;&#x5165;&#x53C2;&#x5982;&#x4E0B;&#xFF0C;&#x6211;&#x6311;&#x4E86;&#x4E2A;&#x8F6F;&#x67FF;&#x5B50;&#xFF0C;&#x7528;&#x6700;&#x7B80;&#x5355;&#x7684;</p>
+<pre><code class="lang-sh">jamvm -cp . Hello
+</code></pre>
+<p>&#x63A5;&#x7740;&#x8FDB;&#x884C;&#x65AD;&#x70B9;&#x5206;&#x6790;&#x4ECE;&#x542F;&#x52A8;VM&#x5230;&#x6267;&#x884C;Java&#x7684;main&#x51FD;&#x6570;&#x8FD9;&#x4E00;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6D89;&#x53CA;&#x5230;Class&#x4E0E;ClassLoader&#x7684;&#x6D41;&#x7A0B;&#x3002;</p>
+<p>&#x5728;JVM&#x542F;&#x52A8;&#x5F00;&#x59CB;&#x540E;</p>
+<h4 id="1-&#x8BFB;&#x53D6;bootclasspath&#x4FE1;&#x606F;">1. &#x8BFB;&#x53D6;<code>BOOTCLASSPATH</code>&#x4FE1;&#x606F;</h4>
+<p>&#x4F2A;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-groovy"><span class="hljs-comment">//eg &#x201C;/jre/lib/aaa.jar:/jre/lib/bbb.jar&#x201D;;</span>
+<span class="hljs-keyword">def</span> bootpath=getProp(<span class="hljs-string">&apos;BOOTCLASSPATH&apos;</span>)
+List bootclasspath = bootpath.split(<span class="hljs-string">&quot;:&quot;</span>)
+</code></pre>
+<p>&#x6B64;&#x5904;&#x7684;bootclasspath&#x5C06;&#x5728;&#x540E;&#x7EED;&#x4F5C;&#x4E3A;&#x8DEF;&#x5F84;&#x6E90;&#xFF0C;&#x7528;&#x6765;&#x641C;&#x7D22;Class</p>
+<h4 id="2-&#x53CD;&#x5E8F;&#x5217;&#x5316;class">2. &#x53CD;&#x5E8F;&#x5217;&#x5316;Class</h4>
+<p>&#x5F53;&#x9700;&#x8981;&#x52A0;&#x8F7D;&#x67D0;&#x4E2A;Class&#x65F6;&#xFF0C;&#x6BD4;&#x5982;<code>String</code>&#xFF0C;&#x5C06;&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;</p>
+<pre><code class="lang-groovy">Class *loadSystemClass(<span class="hljs-keyword">char</span> *classname) {
+    <span class="hljs-keyword">int</span> file_len, fname_len = strlen(classname) + <span class="hljs-number">8</span>;
+    <span class="hljs-keyword">char</span> buff[max_cp_element_len + fname_len];
+    <span class="hljs-keyword">char</span> filename[fname_len];
+    Class *<span class="hljs-class"><span class="hljs-keyword">class</span> = <span class="hljs-title">NULL</span>;
+    <span class="hljs-title">char</span> *<span class="hljs-title">data</span> = <span class="hljs-title">NULL</span>;
+    <span class="hljs-title">int</span> <span class="hljs-title">i</span>;
+
+    <span class="hljs-title">filename</span>[0] = &apos;/&apos;;
+    <span class="hljs-title">strcat</span>(<span class="hljs-title">strcpy</span>(&amp;<span class="hljs-title">filename</span>[1], <span class="hljs-title">classname</span>), &quot;.<span class="hljs-title">class</span>&quot;);
+      // &#x5BF9;<span class="hljs-title">bootclasspath</span>&#x8FDB;&#x884C;<span class="hljs-title">forEach</span>&#x5FAA;&#x73AF;
+    // &#x4ECE;<span class="hljs-title">file</span>&#x6216;&#x8005;<span class="hljs-title">zip</span>&#x4E2D;&#x8BFB;&#x53D6;<span class="hljs-title">byte</span>[]&#x6D41;
+    <span class="hljs-title">for</span>(<span class="hljs-title">i</span> = 0; <span class="hljs-title">i</span> &lt; <span class="hljs-title">bcp_entries</span> &amp;&amp; <span class="hljs-title">data</span> == <span class="hljs-title">NULL</span>; <span class="hljs-title">i</span>++)
+        <span class="hljs-title">if</span>(<span class="hljs-title">bootclasspath</span>[<span class="hljs-title">i</span>].<span class="hljs-title">zip</span>)
+            <span class="hljs-title">data</span> = <span class="hljs-title">findArchiveEntry</span>(<span class="hljs-title">filename</span> + 1, <span class="hljs-title">bootclasspath</span>[<span class="hljs-title">i</span>].<span class="hljs-title">zip</span>,
+                                    &amp;<span class="hljs-title">file_len</span>);
+        <span class="hljs-title">else</span>
+            <span class="hljs-title">data</span> = <span class="hljs-title">findFileEntry</span>(<span class="hljs-title">strcat</span>(<span class="hljs-title">strcpy</span>(<span class="hljs-title">buff</span>, <span class="hljs-title">bootclasspath</span>[<span class="hljs-title">i</span>].<span class="hljs-title">path</span>),
+                                 <span class="hljs-title">filename</span>), &amp;<span class="hljs-title">file_len</span>);
+
+    // &#x901A;&#x8FC7;<span class="hljs-title">byte</span>[]&#x6D41;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E3A;<span class="hljs-title">class</span>
+    <span class="hljs-title">class</span> = <span class="hljs-title">defineClass</span>(<span class="hljs-title">classname</span>, <span class="hljs-title">data</span>, 0, <span class="hljs-title">file_len</span>, <span class="hljs-title">NULL</span>);
+    <span class="hljs-title">sysFree</span>(<span class="hljs-title">data</span>);
+    <span class="hljs-title">return</span> <span class="hljs-title">class</span>;
+}
+</span></code></pre>
+<p>&#x6B64;&#x90E8;&#x5206;&#x7684;&#x7B80;&#x5355;&#x63CF;&#x8FF0;&#x5982;&#x4E0B;&#xFF0C;&#x4EE5;&#x5165;&#x53C2;&#x662F;<code>String</code>&#x4E3A;&#x4F8B;</p>
+<ol>
+<li>&#x6784;&#x9020;filename&#x4E3A;<code>/String.class</code></li>
+<li>&#x5BF9;<code>bootclasspath</code>&#x5217;&#x8868;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x904D;&#x5386;&#xFF0C;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x5230;&#x6B64;&#x6587;&#x4EF6;</li>
+<li>&#x901A;&#x8FC7;zip/fread&#x7B49;&#x547D;&#x4EE4;&#x83B7;&#x53D6;<code>data</code>&#x4F5C;&#x4E3A;&#x5B57;&#x8282;&#x6D41;</li>
+<li>&#x901A;&#x8FC7;<code>data</code>&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x4E3A;class</li>
+</ol>
+<h4 id="3-app&#x7684;classloader&#x5B9E;&#x73B0;-getsystemclassloader">3. APP&#x7684;ClassLoader&#x5B9E;&#x73B0;: getSystemClassLoader</h4>
+<p>&#x4E86;&#x89E3;&#x4E86;Boot&#x7684;ClassLoader&#x540E;&#xFF0C;&#x73B0;&#x5728;&#x8BB2;&#x4E0B;&#x7528;&#x6237;&#x63A5;&#x89E6;&#x7684;Java&#x7248;ClassLoader&#x7684;&#x83B7;&#x53D6;&#x6D41;&#x7A0B;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// jam.c, &#x7528;&#x6237;&#x63A5;&#x89E6;&#x7684;ClassLoader</span>
+<span class="hljs-function">Object *<span class="hljs-title">getSystemClassLoader</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-comment">// &#x4ECE;Boot&#x7EA7;&#x522B;&#x7684;&#x52A0;&#x9501;Hash&#x8868;&#x4E2D;&#x53D6;&#x51FA;&quot;java/lang/ClassLoader&quot;&#xFF0C;&#x5E76;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;</span>
+    Class *class_loader = findSystemClass(<span class="hljs-string">&quot;java/lang/ClassLoader&quot;</span>);
+
+    <span class="hljs-keyword">if</span>(!exceptionOccurred()) {
+        MethodBlock *mb = findMethod(class_loader,
+                                     <span class="hljs-string">&quot;getSystemClassLoader&quot;</span>,
+                                     <span class="hljs-string">&quot;()Ljava/lang/ClassLoader;&quot;</span>);
+
+        <span class="hljs-keyword">if</span>(mb != <span class="hljs-literal">NULL</span>) {
+              <span class="hljs-comment">// &#x6267;&#x884C; java.lang.ClassLoader#getSystemClassLoader</span>
+            Object *loader = *(Object**)executeStaticMethod(class_loader, mb);
+
+            <span class="hljs-keyword">if</span>(!exceptionOccurred()) 
+                <span class="hljs-keyword">return</span> loader;
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x4F60;&#x770B;&#x4E0D;&#x61C2;&#x7684;&#x8BDD;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x7B80;&#x5316;&#x6D41;&#x7A0B;</p>
+<ul>
+<li>&#x901A;&#x8FC7;BootClassLoader&#x83B7;&#x53D6;&quot;java/lang/ClassLoader&quot;&#x8FD9;&#x4E2A;Class</li>
+<li>&#x8FDB;&#x884C;link&#x64CD;&#x4F5C;: &#x6839;&#x636E;Class&#x7ED3;&#x6784;&#x4F53;&#x5E38;&#x91CF;&#x6C60;&#x8FDB;&#x884C;&#x7B26;&#x53F7;&#x7684;&#x89E3;&#x5F15;&#x3002;&#x6BD4;&#x5982;&#x5BF9;&#x8C61;&#x8BA1;&#x7B97;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#xFF0C;&#x521B;&#x5EFA;&#x65B9;&#x6CD5;&#x8868;&#xFF0C;native invoker&#xFF0C;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x8868;&#xFF0C;finalizer&#x51FD;&#x6570;&#x7B49;&#x5DE5;&#x4F5C;&#x3002;</li>
+<li><code>&lt;clinit&gt;</code>&#x7B49;&#x64CD;&#x4F5C;</li>
+<li>&#x8C03;&#x7528;Java&#x65B9;&#x6CD5;<code>java.lang.ClassLoader#getSystemClassLoader</code></li>
+</ul>
+<h4 id="4-jvm&#x542F;&#x52A8;&#x4E0E;classloader">4. JVM&#x542F;&#x52A8;&#x4E0E;ClassLoader</h4>
+<pre><code class="lang-c"><span class="hljs-comment">// &#x6B64;&#x6B65;&#x5C31;&#x662F;&#x521A;&#x521A;&#x6240;&#x5206;&#x6790;&#x7684;</span>
+<span class="hljs-keyword">if</span>((system_loader = getSystemClassLoader()) == <span class="hljs-literal">NULL</span>)
+  <span class="hljs-keyword">goto</span> error;
+<span class="hljs-comment">// &#x5C06;SystemClassLoader&#x914D;&#x7F6E;&#x4E3A;&#x7EBF;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;</span>
+mainThreadSetContextClassLoader(system_loader);
+<span class="hljs-comment">// &#x4F7F;&#x7528;SystemClassLoader&#x52A0;&#x8F7D;&#x5165;&#x53C2;&#x4E2D;&#x7684;&#x4E3B;Class</span>
+main_class = findClassFromClassLoader(argv[class_arg], system_loader);
+<span class="hljs-keyword">if</span>(main_class != <span class="hljs-literal">NULL</span>){initClass(main_class);}
+mb = lookupMethod(main_class, <span class="hljs-string">&quot;main&quot;</span>,<span class="hljs-string">&quot;([Ljava/lang/String;)V&quot;</span>);
+i = class_arg + <span class="hljs-number">1</span>;
+<span class="hljs-keyword">if</span>((array_class = findArrayClass(<span class="hljs-string">&quot;[Ljava/lang/String;&quot;</span>) &amp;&amp;
+   (<span class="hljs-built_in">array</span> = allocArray(array_class, argc - i, <span class="hljs-keyword">sizeof</span>(Object*))))  {
+  Object **args = ARRAY_DATA(<span class="hljs-built_in">array</span>, Object*) - i;
+
+  <span class="hljs-keyword">for</span>(; i &lt; argc; i++)
+    <span class="hljs-keyword">if</span>(!(args[i] = Cstr2String(argv[i])))
+      <span class="hljs-keyword">break</span>;
+
+  <span class="hljs-comment">/* Call the main method */</span>
+  <span class="hljs-keyword">if</span>(i == argc)
+    <span class="hljs-comment">// &#x8C03;&#x7528;&#x4E3B;Class&#x7684;`main`&#x51FD;&#x6570;</span>
+    executeStaticMethod(main_class, mb, <span class="hljs-built_in">array</span>);
+}
+</code></pre>
+<p>&#x5177;&#x4F53;&#x6B65;&#x9AA4;&#x7B80;&#x8FF0;&#x5982;&#x4E0B;</p>
+<ol>
+<li>&#x5C06;SystemClassLoader&#x914D;&#x7F6E;&#x4E3A;&#x7EBF;&#x7A0B;&#x4E0A;&#x4E0B;&#x6587;</li>
+<li>&#x4F7F;&#x7528;SystemClassLoader&#x52A0;&#x8F7D;&#x5165;&#x53C2;&#x4E2D;&#x7684;&#x4E3B;Class</li>
+<li>&#x8C03;&#x7528;&#x4E3B;Class&#x7684;<code>main</code>&#x51FD;&#x6570;</li>
+</ol>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>BootClassLoader&#x5728;JVM&#x4E2D;&#x672C;&#x8D28;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x5668;&#xFF0C;&#x7528;Groovy&#x5199;&#x5C31;&#x662F;&#x8FD9;&#x6837;&#x7684;</p>
+<pre><code class="lang-groovy">getProp(<span class="hljs-string">&apos;BOOTCLASSPATH&apos;</span>).split(<span class="hljs-string">&apos;:&apos;</span>).find{dir-&gt;name <span class="hljs-keyword">in</span> dir}.map(fread).map(parseClass)
+</code></pre>
+<p>&#x800C;SystemClassLoader&#x662F;&#x7EAF;Java&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x5728;JVM&#x4E2D;&#x8FDB;&#x884C;&#x4E86;&#x521D;&#x59CB;&#x5316;</p>
+<h2 id="&#x9644;&#x5F55;">&#x9644;&#x5F55;</h2>
+<h4 id="getcontextclassloader">getContextClassLoader</h4>
+<p>&#x5B83;&#x5728;Tomcat&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x5411;&#x5B50;&#x7C7B;ClassLoader&#x53BB;&#x52A0;&#x8F7D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x59D4;&#x6258;&#x7ED9;ParentClassLoader</p>
+<pre><code class="lang-java">ClassLoader originalClassLoader = Thread.currentThread().getContextClassLoader();
+<span class="hljs-keyword">try</span> {
+    Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
+    <span class="hljs-comment">// call some API that uses reflection without taking ClassLoader param</span>
+} <span class="hljs-keyword">finally</span> {
+    Thread.currentThread().setContextClassLoader(originalClassLoader);
+}
+</code></pre>
+<h4 id="groovyclassloader">GroovyClassLoader</h4>
+<p>Groovy&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;JVM&#x7684;&#x52A8;&#x6001;&#x8BED;&#x8A00;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0E;Java&#x4EE3;&#x7801;&#x6DF7;&#x7F16;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;DSL&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x3002;&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x4E00;&#x4E2A;Groovy&#x4E2D;&#x6210;&#x719F;&#x7684;ClassLoader&#xFF0C;&#x770B;&#x770B;&#x5B83;&#x5982;&#x4F55;&#x52A0;&#x8F7D;Class&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x770B;&#x4E0B;&#x5B83;&#x7684;&#x4EAE;&#x70B9;</p>
+<pre><code class="lang-groovy">GroovyClassLoader classLoader = <span class="hljs-keyword">new</span> GroovyClassLoader()
+Class aClass = classLoader.parseClass(<span class="hljs-string">&quot;&quot;&quot;
+class Person{
+    String name;
+    String age;
+    Person(String name,String age){
+        System.out.println(&quot;construct Person..&quot;)
+        this.name = name;
+        this.age = age;
+    }
+}
+&quot;&quot;&quot;</span>)
+Object o = aClass.newInstance([<span class="hljs-string">&quot;suzumiya&quot;</span>,<span class="hljs-string">&apos;16&apos;</span>] <span class="hljs-keyword">as</span> Object[])
+println <span class="hljs-string">&quot;{o.age} = ${o.age}&quot;</span>
+</code></pre>
+<p>&#x662F;&#x4E0D;&#x662F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x901A;&#x8FC7;&#x5B57;&#x7B26;&#x4E32;&#x8F93;&#x5165;Class&#xFF0C;&#x5E76;&#x76F4;&#x63A5;&#x5B9E;&#x4F8B;&#x5316;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5148;&#x4E0A;UML&#x56FE;&#xFF0C;&#x6B64;&#x56FE;&#x7531;IDEA&#x81EA;&#x52A8;&#x751F;&#x6210;(&#x7531;&#x4E8E;&#x7B80;&#x4E66;&#x4E0D;&#x652F;&#x6301;svg&#xFF0C;&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86;&#x5916;&#x94FE;)</p>
+<p><img src="http://7xrxxi.com1.z0.glb.clouddn.com/groovyclassloader.svg" alt="groovyclassloader"></p>
+<p>&#x63A5;&#x7740;&#x5BF9;<code>parseClass</code>&#x8FDB;&#x884C;&#x65AD;&#x70B9;&#xFF0C;&#x5173;&#x952E;&#x4F4D;&#x7F6E;</p>
+<pre><code class="lang-java">classLoader.parseClass()
+su = unit.addSource(codeSource.getName(), codeSource.getScriptText());
+<span class="hljs-comment">//&#x751F;&#x6210;AST&#x4E0E;Class</span>
+unit.compile(goalPhase);
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#x7F16;&#x8BD1;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;parser&#x8FC7;&#x7A0B;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x673A;&#x6784;&#x9020;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x6BCF;&#x5904;&#x7406;&#x4E00;&#x6B21;&#xFF0C;&#x5C31;&#x81EA;&#x589E;&#x4E00;&#x6B21;</p>
+<pre><code class="lang-java">INITIALIZATION        = <span class="hljs-number">1</span>;   <span class="hljs-comment">// Opening of files and such</span>
+PARSING               = <span class="hljs-number">2</span>;   <span class="hljs-comment">// Lexing, parsing, and AST building</span>
+CONVERSION            = <span class="hljs-number">3</span>;   <span class="hljs-comment">// CST to AST conversion</span>
+SEMANTIC_ANALYSIS     = <span class="hljs-number">4</span>;   <span class="hljs-comment">// AST semantic analysis and elucidation</span>
+CANONICALIZATION      = <span class="hljs-number">5</span>;   <span class="hljs-comment">// AST completion</span>
+INSTRUCTION_SELECTION = <span class="hljs-number">6</span>;   <span class="hljs-comment">// Class generation, phase 1</span>
+CLASS_GENERATION      = <span class="hljs-number">7</span>;   <span class="hljs-comment">// Class generation, phase 2</span>
+<span class="hljs-comment">// 8,9 &#x5728;&#x672C;&#x6587;&#x4E0D;&#x6D89;&#x53CA;&#xFF0C;&#x6545;&#x5220;&#x9664;</span>
+</code></pre>
+<p>&#x6B64;&#x90E8;&#x5206;&#x5B9E;&#x73B0;&#x7C7B;&#x5728;<code>groovyjarjarantlr</code>&#x4E2D;&#xFF0C;&#x5176;&#x4E2D;<code>antlr</code>&#x662F;&#x4E00;&#x79CD;&#x901A;&#x8FC7;DSL&#x8FDB;&#x884C;parse&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5BF9;&#x6B64;&#x90E8;&#x5206;&#x4EE3;&#x7801;&#x6709;&#x5174;&#x8DA3;&#xFF0C;&#x53EF;&#x4EE5;&#x53BB;&#x770B;&#x4E0B;&#x300A;&#x81EA;&#x5236;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x300B;&#x8FD9;&#x672C;&#x4E66;</p>
+<pre><code>String/File-&gt;AST-&gt;AST&#x4F18;&#x5316;-&gt;Bytes-&gt;defineClass
+</code></pre><p>&#x6211;&#x5728;&#x9644;&#x5F55;&#x63D0;&#x5230;&#x5B83;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x5B83;&#x7528;&#x7EAF;Java&#x4E5F;&#x5B8C;&#x6210;&#x4E86;&#x7C7B;&#x4F3C;BootClassLoader&#x7684;&#x5DE5;&#x4F5C;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="class.html" class="navigation navigation-prev " aria-label="Previous page: Class的结构">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../reflection/" class="navigation navigation-next " aria-label="Next page: 反射">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ClassLoader的native实现","level":"1.2.2.2","depth":3,"next":{"title":"反射","level":"1.2.3","depth":2,"path":"java/reflection/README.md","ref":"java/reflection/README.md","articles":[]},"previous":{"title":"Class的结构","level":"1.2.2.1","depth":3,"path":"java/classloader/class.md","ref":"java/classloader/class.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/java/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"java/classloader/classloader-in-jvm.md","mtime":"2021-03-04T11:49:55.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:54.413Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

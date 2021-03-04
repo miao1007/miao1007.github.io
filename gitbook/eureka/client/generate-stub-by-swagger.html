@@ -1,0 +1,739 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>使用Swagger生成Feign桩 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="eureka-client-with-quartz.html" />
+    
+    
+    <link rel="prev" href="eureka-client-without-spring-boot.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../introduce/">
+    
+    <a href="../introduce/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Eureka简介
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    Eureka客户端
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="eureka-client-springboot.html">
+    
+    <a href="eureka-client-springboot.html">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    EurekaClient与SpringBoot
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="eureka-client-rpc.html">
+    
+    <a href="eureka-client-rpc.html">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    EurekaClient的RPC流程与心跳
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="eureka-client-without-spring-boot.html">
+    
+    <a href="eureka-client-without-spring-boot.html">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    Eureka集成遗留项目
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.3.4" data-path="generate-stub-by-swagger.html">
+    
+    <a href="generate-stub-by-swagger.html">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    使用Swagger生成Feign桩
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.5" data-path="eureka-client-with-quartz.html">
+    
+    <a href="eureka-client-with-quartz.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    基于Eureka的分布式定时任务
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../server/">
+    
+    <a href="../server/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Eureka服务端
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../server/eureka-server-naming.html">
+    
+    <a href="../server/eureka-server-naming.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    命名服务
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="../server/replicate.html">
+    
+    <a href="../server/replicate.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    Replicate
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../third/">
+    
+    <a href="../third/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    第三方组件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../third/feign.html">
+    
+    <a href="../third/feign.html">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    Feign简介与Spring代理自动注入
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../third/ribbon.html">
+    
+    <a href="../third/ribbon.html">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    Ribbon与负载均衡
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../third/sleuth-log-collector.html">
+    
+    <a href="../third/sleuth-log-collector.html">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    Sleuth与日志收集
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    
+    <li class="divider"></li>
+    
+    
+
+<li class="chapter " data-level="2.1" data-path="../other/reference.html">
+    
+    <a href="../other/reference.html">
+        
+                    
+                        <b>2.1.</b>
+                    
+                    参考文献与Wiki
+            
+        </a>
+        
+
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >使用Swagger生成Feign桩</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4F7F;&#x7528;swagger&#x751F;&#x6210;feign&#x6869;">&#x4F7F;&#x7528;Swagger&#x751F;&#x6210;Feign&#x6869;</h1>
+<p>&#x5728;Eureka&#x4E2D;&#xFF0C;&#x9ED8;&#x8BA4;&#x901A;&#x8FC7;RestController&#x8FDB;&#x884C;RPC&#x8C03;&#x7528;&#xFF0C;&#x867D;&#x7136;&#x4F7F;&#x7528;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x662F;&#x7EAF;&#x624B;&#x5199;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#x7684;&#x3002;&#x76EE;&#x524D;&#x4E00;&#x822C;&#x6709;&#x5982;&#x4E0B;&#x8C03;&#x7528;&#x65B9;&#x6CD5;</p>
+<table>
+<thead>
+<tr>
+<th>RPC Stub</th>
+<th>PROS</th>
+<th>CONS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HttpClient/OkHttp</td>
+<td>hight customized</td>
+<td>maintains urls, serialization</td>
+</tr>
+<tr>
+<td>Feign/Retrofit</td>
+<td>Dynamic Proxy, Interceptors</td>
+<td>maintains source code</td>
+</tr>
+<tr>
+<td>Swagger Codegen</td>
+<td>Auto generated maven jar</td>
+<td>maintains templates</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5176;&#x4E2D;Swagger Codegen&#x65B9;&#x6CD5;&#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x52A8;&#x66F4;&#x65B0;&#x5230;VSC&#x4E0E;&#x901A;&#x8FC7;Jenkins&#x90E8;&#x7F72;&#x5230;MVN&#x4E0A;&#x5B9E;&#x73B0;&#xFF0C;&#x5728;&#x5B9E;&#x9645;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x9996;&#x5148;&#x4EE5;&#x6E90;&#x7801;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x540E;&#x9762;&#x5728;&#x5207;&#x5230;&#x5168;&#x90E8;&#x81EA;&#x52A8;&#x5316;&#x7BA1;&#x7406;</p>
+<pre><code class="lang-mermaid">graph LR
+    a2--mvn deploy--&gt;b1
+    subgraph Swagger
+    a1(API)--swagger codegen maven plugin--&gt;a2(POM Source)
+    end
+    subgraph Maven nexus
+    b1(Jar)
+    end
+</code></pre>
+<p>&#x867D;&#x7136;&#x7F51;&#x4E0A;&#x8BB2;Swagger&#x4EE3;&#x7801;&#x751F;&#x6210;&#x5F88;&#x591A; &#xFF0C;&#x4F46;&#x662F;&#x4E2D;&#x6587;&#x4F3C;&#x4E4E;&#x7814;&#x7A76;&#x7684;&#x4EBA;&#x5E76;&#x4E0D;&#x591A;&#xFF0C;&#x800C;&#x4E14;&#x5B98;&#x65B9;&#x7684;&#x751F;&#x6210;&#x5668;&#x6A21;&#x7248;&#x6709;&#x4E00;&#x5806;&#x5B9A;&#x5236;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x6B64;&#x672C;&#x6587;&#x8FDB;&#x884C;&#x4E00;&#x4E0B;&#x4ECB;&#x7ECD;</p>
+<h2 id="&#x7B80;&#x6613;&#x751F;&#x6210;&#x4EE3;&#x7801;&#x6869;">&#x7B80;&#x6613;&#x751F;&#x6210;&#x4EE3;&#x7801;&#x6869;</h2>
+<p>&#x8FD9;&#x4E2A;&#x4EC5;&#x7528;&#x4E8E;&#x6CA1;&#x6709;&#x8D1F;&#x62C5;&#x7684;&#x5165;&#x95E8;&#x9879;&#x76EE;</p>
+<ul>
+<li>&#x6CA1;&#x6709;&#x9274;&#x6743;(no auth)</li>
+<li>&#x6CA1;&#x6709;&#x591A;&#x73AF;&#x5883;&#x914D;&#x7F6E;(no env profiles)</li>
+</ul>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># download the stable release jar</span>
+wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar -O swagger-codegen-cli.jar
+<span class="hljs-comment"># run codegen with petstore</span>
+java -jar swagger-codegen-cli.jar generate -i http://petstore.swagger.io/v2/swagger.yaml -o gen <span class="hljs-_">-l</span> spring --library spring-cloud
+</code></pre>
+<blockquote>
+<p>Do not use codegen3, it not works now.</p>
+</blockquote>
+<h2 id="&#x9AD8;&#x5EA6;&#x5B9A;&#x5236;&#x751F;&#x6210;&#x4EE3;&#x7801;&#x6869;">&#x9AD8;&#x5EA6;&#x5B9A;&#x5236;&#x751F;&#x6210;&#x4EE3;&#x7801;&#x6869;</h2>
+<p>&#x867D;&#x7136;Swagger&#x770B;&#x4F3C;&#x4E00;&#x952E;&#x751F;&#x6210;&#x4E86;&#x4EE3;&#x7801;&#xFF0C;&#x4F46;&#x662F;&#x751F;&#x6210;&#x7684;&#x5185;&#x5BB9;&#x6548;&#x679C;&#x90FD;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#xFF0C;&#x56E0;&#x6B64;&#x5EFA;&#x8BAE;&#x81EA;&#x5DF1;&#x7EF4;&#x62A4;&#x4E00;&#x4EFD;&#x6A21;&#x677F;&#xFF0C;&#x539F;&#x56E0;&#x5982;&#x4E0B;</p>
+<ul>
+<li>&#x5728;&#x4E1A;&#x52A1;&#x4E2D;&#x4E00;&#x822C;&#x4F1A;&#x5B9A;&#x5236;Encoder&#x4E0E;&#x9274;&#x6743;&#x63D2;&#x4EF6;&#xFF0C;&#x6B64;&#x90E8;&#x5206;&#x4EC5;&#x4EC5;&#x4FEE;&#x6539;&#x6A21;&#x7248;&#x662F;&#x4E0D;&#x591F;&#x7684;</li>
+<li>&#x7531;&#x4E8E;SpringCloud&#x66F4;&#x65B0;&#x901F;&#x5EA6;&#x5F88;&#x5FEB;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;SpringBoot2.0&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5B9A;&#x5236;<a href="https://github.com/swagger-api/swagger-codegen/blob/master/modules/swagger-codegen/src/main/resources/JavaSpring/libraries/spring-cloud/apiClient.mustache" target="_blank">&#x6A21;&#x7248;</a>&#x4E2D;&#x7684;import&#x3002;</li>
+</ul>
+<p>&#x5177;&#x4F53;&#x6559;&#x7A0B;&#x5982;&#x4E0B;</p>
+<h4 id="&#x914D;&#x7F6E;maven-plugin">&#x914D;&#x7F6E;Maven plugin</h4>
+<p>&#x9996;&#x5148;&#x5728;Maven&#x4E2D;&#x914D;&#x7F6E;<a href="https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen-maven-plugin" target="_blank">&#x63D2;&#x4EF6;</a>&#xFF0C;&#x5176;&#x4E2D;&#x63D2;&#x4EF6;&#x53C2;&#x6570;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">profiles</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">profile</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>swagger-gen<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- eg: passed by mvn -Dkey=value --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">url</span>&gt;</span>http://petstore.swagger.io/v2/swagger.yaml<span class="hljs-tag">&lt;/<span class="hljs-name">url</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">package</span>&gt;</span>com.github.miao1007<span class="hljs-tag">&lt;/<span class="hljs-name">package</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">timestamp</span>&gt;</span>${maven.build.timestamp}<span class="hljs-tag">&lt;/<span class="hljs-name">timestamp</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">maven.build.timestamp.format</span>&gt;</span>yyyyMMdd<span class="hljs-tag">&lt;/<span class="hljs-name">maven.build.timestamp.format</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.swagger<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>swagger-codegen-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.3.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">executions</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">execution</span>&gt;</span>
+                            <span class="hljs-comment">&lt;!-- see https://stackoverflow.com/a/3169340/4016014 --&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">id</span>&gt;</span>default-cli<span class="hljs-tag">&lt;/<span class="hljs-name">id</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">goals</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">goal</span>&gt;</span>generate<span class="hljs-tag">&lt;/<span class="hljs-name">goal</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">goals</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">inputSpec</span>&gt;</span>${url}<span class="hljs-tag">&lt;/<span class="hljs-name">inputSpec</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">language</span>&gt;</span>spring<span class="hljs-tag">&lt;/<span class="hljs-name">language</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">apiPackage</span>&gt;</span>${package}.api<span class="hljs-tag">&lt;/<span class="hljs-name">apiPackage</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">modelPackage</span>&gt;</span>${package}.model<span class="hljs-tag">&lt;/<span class="hljs-name">modelPackage</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>${package}<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>sdk<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">artifactVersion</span>&gt;</span>${timestamp}-SNAPSHOTS<span class="hljs-tag">&lt;/<span class="hljs-name">artifactVersion</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">invokerPackage</span>&gt;</span>${package}.invoker<span class="hljs-tag">&lt;/<span class="hljs-name">invokerPackage</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">templateDirectory</span>&gt;</span>template<span class="hljs-tag">&lt;/<span class="hljs-name">templateDirectory</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">configOptions</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">library</span>&gt;</span>spring-cloud<span class="hljs-tag">&lt;/<span class="hljs-name">library</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">dateLibrary</span>&gt;</span>java8<span class="hljs-tag">&lt;/<span class="hljs-name">dateLibrary</span>&gt;</span>
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">configOptions</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">execution</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">executions</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">profiles</span>&gt;</span>
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x4E13;&#x95E8;&#x5F00;&#x4E86;&#x4E00;&#x4E2A;profile&#xFF0C;&#x907F;&#x514D;&#x4E0E;&#x5176;&#x4ED6;&#x6253;&#x5305;&#x4EA7;&#x751F;&#x5F71;&#x54CD;&#x3002;</p>
+<h4 id="&#x751F;&#x6210;&#x6E90;&#x7801;generate-source-code">&#x751F;&#x6210;&#x6E90;&#x7801;(Generate source code)</h4>
+<p>&#x6267;&#x884C;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># please replace the url to your own&apos;s</span>
+mvn -P swagger-gen -Durl=http://petstore.swagger.io/v2/swagger.yaml <span class="hljs-_">-f</span> pom.xml
+</code></pre>
+<h4 id="&#x90E8;&#x7F72;&#x5230;mavendeploy-to-maven">&#x90E8;&#x7F72;&#x5230;Maven(Deploy to maven)</h4>
+<p>&#x6267;&#x884C;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># it won&apos;t work now because we havn&apos;t configure the template file in the pom</span>
+mvn clean deploy <span class="hljs-_">-f</span> target/generated-sources/swagger/pom.xml
+</code></pre>
+<blockquote>
+<p>&#x6B64;&#x5904;deploy&#x9700;&#x8981;&#x4E00;&#x4E2A;Nexus&#x79C1;&#x670D;&#xFF0C;&#x8FD9;&#x4E2A;&#x81EA;&#x5DF1;&#x642D;</p>
+</blockquote>
+<h4 id="&#x4F7F;&#x7528;&#x6869;">&#x4F7F;&#x7528;&#x6869;</h4>
+<p>&#x5728;&#x5176;&#x4ED6;&#x9700;&#x8981;&#x6B64;&#x9879;&#x76EE;&#x7684;pom&#x6587;&#x4EF6;&#x4E2D;&#x52A0;&#x5165;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.github.miao1007<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>sdk<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>sdk<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- you can customize your own timestamp --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>20180724-SNAPSHOTS<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x8FF0;&#x6D41;&#x7A0B;&#xFF0C;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x5668;&#x5E94;&#x8BE5;&#x5C31;&#x53EF;&#x4EE5;&#x7528;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x9ED8;&#x8BA4;&#x6A21;&#x7248;&#x8FD8;&#x6709;&#x4EE5;&#x4E0B;&#x95EE;&#x9898;</p>
+<ul>
+<li>&#x4E0D;&#x652F;&#x6301;Eureka&#x7684;value&#x5C5E;&#x6027;(Do not support Eureka&apos;s dynamic naming service)&#xFF0C;&#x800C;&#x662F;hard coding url</li>
+<li>pom&#x8FC7;&#x4E8E;&#x7B80;&#x5355;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x4E0A;&#x4F20;&#x6E90;&#x7801;(maven-source-plugin)</li>
+</ul>
+<h2 id="&#x5B9A;&#x5236;&#x6A21;&#x7248;">&#x5B9A;&#x5236;&#x6A21;&#x7248;</h2>
+<p>&#x9996;&#x5148;&#x5728;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5939;<code>template</code></p>
+<p>&#x7136;&#x540E;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x8986;&#x76D6;&#x6587;&#x4EF6;&#x7684;&#x5F62;&#x5F0F;&#x5B9A;&#x5236;&#xFF0C;&#x4ECE;&#x8FD9;&#x91CC;&#x4E0B;&#x8F7D;&#x9700;&#x8981;&#x5B9A;&#x5236;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x653E;&#x5230;&#x521A;&#x521A;&#x7684;<code>template</code>&#x76EE;&#x5F55;</p>
+<pre><code># &#x6CE8;&#x610F;&#x4E0D;&#x9700;&#x8981;&#x6587;&#x4EF6;&#x5939;&#x5C42;&#x6B21;
+https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen/src/main/resources/JavaSpring
+</code></pre><h4 id="&#x5B9A;&#x5236;apiclient&#x52A8;&#x6001;&#x6A21;&#x7248;">&#x5B9A;&#x5236;apiClient&#x52A8;&#x6001;&#x6A21;&#x7248;</h4>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x9700;&#x8981;&#x652F;&#x6301;&#x57FA;&#x4E8E;yaml&#x83B7;&#x53D6;Eureka&#x7684;name&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5982;&#x4E0B;&#x5B9A;&#x5236;&#xFF0C;&#x6B64;&#x5904;path&#x76F8;&#x5F53;&#x4E8E;tomcat&#x7684;contextPath&#xFF0C;&#x539F;&#x7248;&#x7684;&#x6A21;&#x7248;&#x4E2D;&#x5E76;&#x4E0D;&#x652F;&#x6301;</p>
+<p>File: template/apiClient.mustache</p>
+<pre><code class="lang-js">package {{package}};
+
+<span class="hljs-keyword">import</span> org.springframework.cloud.netflix.feign.FeignClient;
+<span class="hljs-keyword">import</span> {{configPackage}}.ClientConfiguration;
+
+{{=<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%</span> %&gt;</span>=}}
+@FeignClient(name=&quot;${<span class="hljs-tag">&lt;<span class="hljs-name">%groupId%</span>&gt;</span>.name}&quot;, path=&quot;${<span class="hljs-tag">&lt;<span class="hljs-name">%groupId%</span>&gt;</span>.path}&quot;)
+<span class="hljs-tag">&lt;<span class="hljs-name">%={{</span> }}=<span class="hljs-string">%</span>&gt;</span>
+public interface {{classname}}Client extends {{classname}} {
+}
+</span></code></pre>
+<p>&#x7136;&#x540E;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-java"><span class="hljs-comment">//generated file by mustache</span>
+<span class="hljs-meta">@FeignClient</span>(name=<span class="hljs-string">&quot;${com.github.miao1007.name}&quot;</span>, path=<span class="hljs-string">&quot;${com.github.miao1007.path}&quot;</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">PetApiClient</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">PetApi</span> </span>{
+}
+</code></pre>
+<p>&#x63A5;&#x7740;&#x6211;&#x4EEC;&#x5728;&#x5BA2;&#x6237;&#x673A;&#x7684;<code>application.yaml</code>&#x4E2D;&#x914D;&#x7F6E;&#x5373;&#x53EF;</p>
+<pre><code class="lang-yaml"><span class="hljs-comment"># eureka client config example </span>
+<span class="hljs-attr">io:</span>
+<span class="hljs-attr">  github:</span>
+<span class="hljs-attr">      miao1007:</span>
+<span class="hljs-attr">        sdk:</span>
+            <span class="hljs-comment"># eureka&apos;s name</span>
+<span class="hljs-attr">        name:</span> EUREKA-ORDER-PROD
+        <span class="hljs-comment"># tomcat&apos;s context path</span>
+<span class="hljs-attr">        path:</span> /context
+</code></pre>
+<p>&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x50CF;&#x5F80;&#x5E38;&#x4E00;&#x6837;&#x6CE8;&#x5165;&#x670D;&#x52A1;&#x5373;&#x53EF;</p>
+<pre><code class="lang-java"><span class="hljs-meta">@Autowired</span>
+<span class="hljs-keyword">private</span> PetApiClient client;
+<span class="hljs-comment">//use</span>
+client.queryBy...
+</code></pre>
+<blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x660E;&#x767D;&#x5E95;&#x5C42;&#x539F;&#x7406;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;<a href="../third/feign.html">&#x8FD9;&#x91CC;</a></p>
+</blockquote>
+<h4 id="&#x5B9A;&#x5236;pom&#x6E90;&#x7801;&#x6A21;&#x7248;">&#x5B9A;&#x5236;POM&#x6E90;&#x7801;&#x6A21;&#x7248;</h4>
+<p>&#x540C;&#x7406;&#xFF0C;&#x7531;&#x4E8E;&#x9ED8;&#x8BA4;&#x6A21;&#x7248;&#x4E2D;&#x53EA;&#x4E0A;&#x4F20;&#x4E86;jar&#xFF0C;&#x5BFC;&#x81F4;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x65F6;&#x53C2;&#x6570;&#x53EF;&#x80FD;&#x662F;var1, var2&#xFF0C;&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6E90;&#x7801;&#x63D2;&#x4EF6;&#x5B9E;&#x73B0;</p>
+<p>File: template/pom.mustache</p>
+<pre><code class="lang-diff"><span class="hljs-addition">+ &lt;plugin&gt;  </span>
+<span class="hljs-addition">+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;  </span>
+<span class="hljs-addition">+    &lt;artifactId&gt;maven-source-plugin&lt;/artifactId&gt;  </span>
+<span class="hljs-addition">+    &lt;version&gt;2.1.1&lt;/version&gt;  </span>
+<span class="hljs-addition">+    &lt;executions&gt;  </span>
+<span class="hljs-addition">+        &lt;execution&gt;  </span>
+<span class="hljs-addition">+            &lt;id&gt;attach-sources&lt;/id&gt;  </span>
+<span class="hljs-addition">+            &lt;phase&gt;package&lt;/phase&gt;</span>
+<span class="hljs-addition">+            &lt;goals&gt;  </span>
+<span class="hljs-addition">+                &lt;goal&gt;jar-no-fork&lt;/goal&gt;  </span>
+<span class="hljs-addition">+            &lt;/goals&gt;  </span>
+<span class="hljs-addition">+        &lt;/execution&gt;  </span>
+<span class="hljs-addition">+    &lt;/executions&gt;  </span>
+<span class="hljs-addition">+ &lt;/plugin&gt;</span>
+</code></pre>
+<p>&#x4EE5;&#x53CA;nexus&#x4E0A;&#x4F20;&#x5B9A;&#x5236;</p>
+<pre><code class="lang-diff"><span class="hljs-addition">+ &lt;distributionManagement&gt;</span>
+<span class="hljs-addition">+     &lt;repository&gt;</span>
+<span class="hljs-addition">+         &lt;id&gt;releases&lt;/id&gt;</span>
+<span class="hljs-addition">+         &lt;!-- your nexus url --&gt;</span>
+<span class="hljs-addition">+         &lt;url&gt;http://127.0.0.1:8081/nexus/content/repositories/releases&lt;/url&gt;</span>
+<span class="hljs-addition">+     &lt;/repository&gt;</span>
+<span class="hljs-addition">+     &lt;snapshotRepository&gt;</span>
+<span class="hljs-addition">+         &lt;id&gt;snapshots&lt;/id&gt;</span>
+<span class="hljs-addition">+         &lt;url&gt;http://127.0.0.1:8081/nexus/content/repositories/snapshots&lt;/url&gt;</span>
+<span class="hljs-addition">+     &lt;/snapshotRepository&gt;</span>
+<span class="hljs-addition">+ &lt;/distributionManagement&gt;</span>
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x4E0D;&#x5C5E;&#x4E8E;&#x672C;&#x6587;&#x8303;&#x7574;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x5B66;&#x4E60;</p>
+<h2 id="feign-file-upload">Feign File upload</h2>
+<p>&#x8FD9;&#x4E2A;&#x5730;&#x65B9;&#x7B80;&#x76F4;&#x5929;&#x5751;&#x4E86;</p>
+<ul>
+<li>&#x9996;&#x5148;Swagger&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x6CA1;&#x6709;<code>@ParamPart</code>&#xFF0C;&#x5BFC;&#x81F4;&#x4E0A;&#x4F20;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#xFF0C;&#x8BE6;&#x89C1;&#x89E3;&#x51B3;&#x529E;&#x6CD5;<a href="https://github.com/swagger-api/swagger-codegen/issues/8419" target="_blank">#8419</a></li>
+<li>Feign&#x4EE3;&#x7801;&#x5199;&#x7684;&#x6C34;&#x5E73;&#x8FDC;&#x4E0D;&#x5982;Retrofit/OkHttp&#x4F18;&#x96C5;&#xFF0C;&#x5B83;&#x4E0D;&#x652F;&#x6301;&#x514D;&#x914D;&#x7F6E;&#x4E0A;&#x4F20;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF0C;&#x6211;&#x76EE;&#x524D;&#x7684;&#x89E3;&#x51B3;&#x5982;&#x4E0B;</li>
+</ul>
+<p>&#x4F9D;&#x8D56;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.github.openfeign.form<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>feign-form-spring<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.3.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<p>&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x5982;&#x4E0B;&#xFF0C;&#x9700;&#x8981;&#x88AB;&#x626B;&#x63CF;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Feign client config</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FeignConfig</span> </span>{
+
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> ObjectFactory&lt;HttpMessageConverters&gt; messageConverters;
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Encoder <span class="hljs-title">feignEncoder</span><span class="hljs-params">()</span> </span>{
+        Encoder dft = <span class="hljs-keyword">new</span> SpringEncoder(<span class="hljs-keyword">this</span>.messageConverters);
+        Encoder form = <span class="hljs-keyword">new</span> SpringFormEncoder();
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Encoder(){
+          <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">encode</span><span class="hljs-params">(Object object, Type bodyType, RequestTemplate template)</span> </span>{
+              <span class="hljs-keyword">if</span> (bodyType == MultipartFile.class) {
+                form.encode(object, bodyType, template);
+              } <span class="hljs-keyword">else</span> {
+                dft.encode(object, bodyType, template);
+              }
+            }
+        };
+    }
+}
+</code></pre>
+<blockquote>
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x5355;&#x72EC;&#x5728;&#x63A5;&#x53E3;&#x4E2D;&#x72EC;&#x7ACB;&#x5199;Encoder&#x5462;&#xFF1F;&#x8FD9;&#x6837;&#x5199;&#x7684;&#x95EE;&#x9898;&#x662F;&#xFF0C;Feign&#x5185;&#x90E8;&#x7684;FeignContext&#x4F7F;&#x7528;name&#x4F5C;&#x4E3A;key&#xFF0C;configuration&#x4F5C;&#x4E3A;value&#xFF0C;&#x56E0;&#x6B64;&#x5982;&#x679C;&#x4F60;&#x8FD9;&#x91CC;&#x5B9A;&#x5236;&#x4E86;&#x4E0D;&#x540C;&#x7684;configuration&#xFF0C;&#x90A3;&#x4E48;&#x76F8;&#x540C;name&#x4E0B;&#x7684;configuration&#x5C06;&#x88AB;&#x8986;&#x76D6;&#xFF0C;&#x8BE6;&#x89C1;FactoryBean&#x4E2D;&#x5B9E;&#x73B0;&#x3002;</p>
+</blockquote>
+<h4 id=""> </h4>
+<h2 id="&#x603B;&#x7ED3;&#x4E0E;&#x5EFA;&#x8BAE;">&#x603B;&#x7ED3;&#x4E0E;&#x5EFA;&#x8BAE;</h2>
+<p>Feign&#x4E0E;Swagger&#x7684;&#x7ED3;&#x5408;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;&#x4E00;&#x5806;&#x95EE;&#x9898;&#xFF0C;&#x5F53;&#x7136;&#x7F51;&#x4E0A;&#x5E76;&#x6CA1;&#x6709;&#x50CF;Dubbo&#x90A3;&#x4E48;&#x5B8C;&#x5584;&#x7684;&#x65B9;&#x6848;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x6CE8;&#x610F;</p>
+<ul>
+<li>&#x5982;&#x679C;&#x4F7F;&#x7528;Controller&#x4F5C;&#x4E3A;RPC&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x5199;Controller&#x65F6;&#x4E00;&#x5B9A;<strong>&#x4E0D;&#x8981;&#x7528;Map</strong>&#x4F5C;&#x4E3A;&#x5165;&#x53C2;&#x51FA;&#x53C2;&#xFF0C;&#x8FD9;&#x6837;RPC&#x5E8F;&#x5217;&#x5316;&#x65F6;&#x5C06;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x3002;&#x6211;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x53D1;&#x73B0;&#x4E86;&#x5F88;&#x591A;&#x5916;&#x5305;&#x8FD9;&#x6837;&#x5199;&#xFF0C;&#x5BFC;&#x81F4;&#x540E;&#x671F;&#x7EF4;&#x62A4;&#x6210;&#x672C;&#x8F83;&#x9AD8;&#x3002;&#x518D;&#x6B21;&#x611F;&#x6168;&#x62DB;&#x4EBA;&#x4E0E;&#x9759;&#x6001;&#x68C0;&#x6D4B;&#x7684;&#x91CD;&#x8981;&#x6027;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x9700;&#x8981;&#x9274;&#x6743;&#xFF0C;&#x90A3;&#x4E48;&#x4E0D;&#x7528;&#x6869;&#x4E2D;&#x652F;&#x6301;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x5916;&#x90E8;&#x5168;&#x5C40;&#x914D;&#x7F6E;&#x62E6;&#x622A;&#x5668;&#x5373;&#x53EF;&#xFF0C;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x4E2D;&#x4E5F;&#x4E0D;&#x8981;&#x52A0;&#x5165;&#x9274;&#x6743;&#x76F8;&#x5173;&#x7684;<code>@ApiParams</code></li>
+<li>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x7F16;&#x7801;TCP&#x7684;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;RPC&#xFF0C;&#x90A3;&#x4E48;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5B9A;&#x5236;&#x6A21;&#x7248;&#xFF0C;&#x4F46;&#x662F;SpringCloud&#x7684;&#x8C03;&#x7528;&#x94FE;&#xFF0C;&#x65E5;&#x5FD7;&#x5747;&#x7B49;&#x751F;&#x6001;&#x5C31;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x4E86;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="eureka-client-without-spring-boot.html" class="navigation navigation-prev " aria-label="Previous page: Eureka集成遗留项目">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="eureka-client-with-quartz.html" class="navigation navigation-next " aria-label="Next page: 基于Eureka的分布式定时任务">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"使用Swagger生成Feign桩","level":"1.3.4","depth":2,"next":{"title":"基于Eureka的分布式定时任务","level":"1.3.5","depth":2,"path":"client/eureka-client-with-quartz.md","ref":"client/eureka-client-with-quartz.md","articles":[]},"previous":{"title":"Eureka集成遗留项目","level":"1.3.3","depth":2,"path":"client/eureka-client-without-spring-boot.md","ref":"client/eureka-client-without-spring-boot.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/eureka/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"client/generate-stub-by-swagger.md","mtime":"2021-03-04T11:49:55.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:37.086Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

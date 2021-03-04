@@ -1,0 +1,640 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>基于Eureka的分布式定时任务 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../server/" />
+    
+    
+    <link rel="prev" href="generate-stub-by-swagger.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../introduce/">
+    
+    <a href="../introduce/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Eureka简介
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    Eureka客户端
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="eureka-client-springboot.html">
+    
+    <a href="eureka-client-springboot.html">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    EurekaClient与SpringBoot
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="eureka-client-rpc.html">
+    
+    <a href="eureka-client-rpc.html">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    EurekaClient的RPC流程与心跳
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.3" data-path="eureka-client-without-spring-boot.html">
+    
+    <a href="eureka-client-without-spring-boot.html">
+        
+                    
+                        <b>1.3.3.</b>
+                    
+                    Eureka集成遗留项目
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.4" data-path="generate-stub-by-swagger.html">
+    
+    <a href="generate-stub-by-swagger.html">
+        
+                    
+                        <b>1.3.4.</b>
+                    
+                    使用Swagger生成Feign桩
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.3.5" data-path="eureka-client-with-quartz.html">
+    
+    <a href="eureka-client-with-quartz.html">
+        
+                    
+                        <b>1.3.5.</b>
+                    
+                    基于Eureka的分布式定时任务
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../server/">
+    
+    <a href="../server/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Eureka服务端
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../server/eureka-server-naming.html">
+    
+    <a href="../server/eureka-server-naming.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    命名服务
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="../server/replicate.html">
+    
+    <a href="../server/replicate.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    Replicate
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="../third/">
+    
+    <a href="../third/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    第三方组件
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="../third/feign.html">
+    
+    <a href="../third/feign.html">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    Feign简介与Spring代理自动注入
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.2" data-path="../third/ribbon.html">
+    
+    <a href="../third/ribbon.html">
+        
+                    
+                        <b>1.5.2.</b>
+                    
+                    Ribbon与负载均衡
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.5.3" data-path="../third/sleuth-log-collector.html">
+    
+    <a href="../third/sleuth-log-collector.html">
+        
+                    
+                        <b>1.5.3.</b>
+                    
+                    Sleuth与日志收集
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    
+    <li class="divider"></li>
+    
+    
+
+<li class="chapter " data-level="2.1" data-path="../other/reference.html">
+    
+    <a href="../other/reference.html">
+        
+                    
+                        <b>2.1.</b>
+                    
+                    参考文献与Wiki
+            
+        </a>
+        
+
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >基于Eureka的分布式定时任务</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x57FA;&#x4E8E;springcloud&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x5B9A;&#x65F6;&#x8C03;&#x5EA6;&#x4EFB;&#x52A1;">&#x57FA;&#x4E8E;SpringCloud&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x5B9A;&#x65F6;&#x8C03;&#x5EA6;&#x4EFB;&#x52A1;</h2>
+<p>&#x672C;&#x6587;&#x8BB2;&#x5982;&#x4F55;&#x8BBE;&#x8BA1;&#x4E00;&#x6B3E;&#x5BF9;&#x5F00;&#x53D1;&#x8005;&#x53CB;&#x597D;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x6846;&#x67B6;&#x3002;</p>
+<blockquote>
+<p>&#x6839;&#x636E;&#x76F8;&#x5173;&#x89C4;&#x5B9A;&#xFF0C;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5C06;&#x4E0D;&#x5F00;&#x6E90;&#x3002;&#x4E0D;&#x8FC7;&#x672C;&#x6587;&#x53EF;&#x4EE5;&#x4ECB;&#x7ECD;&#x6B64;&#x6846;&#x67B6;&#x7684;&#x5206;&#x6790;&#x8FC7;&#x7A0B;&#x4EE5;&#x53CA;&#x4F7F;&#x7528;&#x7684;&#x6280;&#x672F;&#x3002;</p>
+</blockquote>
+<p>&#x5982;&#x679C;&#x5F53;&#x524D;&#x6709;PaaS&#xFF0C;&#x90A3;&#x4E48;&#x57FA;&#x4E8E;PaaS&#x5B9E;&#x73B0;&#x6700;&#x63A8;&#x8350;&#xFF1A;&#x6BD4;&#x5982;Kubernetes&#x3001;Nomad&#x8FDB;&#x884C;&#x5BB9;&#x5668;&#x7EA7;&#x3001;&#x65E0;&#x72B6;&#x6001;&#x7684;&#x8C03;&#x5EA6;&#x3002;&#x4E0D;&#x63A8;&#x8350;&#x9605;&#x8BFB;&#x4E0B;&#x6587;&#x3002;</p>
+<h2 id="1-backgroud">1. Backgroud</h2>
+<p>&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x51E0;&#x4E4E;&#x5728;&#x6BCF;&#x4E2A;&#x9879;&#x76EE;&#x90FD;&#x5E7F;&#x6CDB;&#x5B58;&#x5728;&#xFF0C;&#x666E;&#x901A;&#x9879;&#x76EE;&#x4E2D;&#x4E00;&#x822C;&#x901A;&#x8FC7;&#x6CE8;&#x89E3;&#x6216;&#x8005;Bean&#x7B49;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x7BA1;&#x7406;Job&#x3002;&#x4E0D;&#x8FC7;&#x5F53;&#x4F60;&#x7684;&#x4EFB;&#x52A1;&#x6BD4;&#x8F83;&#x591A;&#x65F6;&#xFF0C;&#x4F60;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x6765;&#x5751;&#x4E86;(&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;&#x5565;&#x90FD;&#x6709;&#xFF0C;&#x4F46;&#x5565;&#x90FD;&#x4E0D;&#x5168;) &#x2014;&#x2014; </p>
+<ul>
+<li>Quartz&#x8C03;&#x5EA6;&#x8FC7;&#x7A0B;&#x4E3A;&#x9ED1;&#x76D2;&#xFF0C;&#x65E0;&#x6CD5;&#x67E5;&#x770B;&#x5386;&#x53F2;&#xFF0C;&#x4E5F;&#x4E0D;&#x652F;&#x6301;&#x5404;&#x79CD;&#x8C03;&#x5EA6;&#x7BA1;&#x7406;(&#x6682;&#x505C;/&#x65B0;&#x589E;/&#x4E0B;&#x7EBF;/&#x7ACB;&#x523B;&#x6267;&#x884C;&#x7B49;)&#x529F;&#x80FD;</li>
+<li>&#x57FA;&#x4E8E;Xml/Java&#x7684;Bean&#x5F88;&#x96BE;&#x7EDF;&#x4E00;&#x7EF4;&#x62A4;&#xFF0C;&#x540E;&#x9762;&#x63A5;&#x624B;&#x7684;&#x4EBA;&#x8C01;&#x4E5F;&#x4E0D;&#x6562;&#x52A8;</li>
+<li>Quartz&#x5982;&#x540C;&#x5B83;&#x7684;&#x540D;&#x5B57;&#xFF08;QuartzCrystal&#xFF0C;&#x6676;&#x632F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x65F6;&#x949F;&#x53D1;&#x751F;&#x5668;&#xFF0C;&#x7C7B;&#x4F3C;CPU&#x4E2D;&#x7684;PLL&#x7535;&#x8DEF;&#xFF09;&#xFF0C;&#x53EA;&#x662F;&#x89E6;&#x53D1;&#x5668;&#x800C;&#x5DF2;&#xFF0C;&#x5B83;&#x672C;&#x8EAB;&#x4E0D;&#x8981;&#x4E0E;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x6DF7;&#x5230;&#x4E00;&#x8D77;(&#x5185;&#x90E8;&#x672C;&#x8EAB;&#x901A;&#x8FC7;&#x7ADE;&#x4E89;Row&#x9501;&#x5B9E;&#x73B0;&#xFF0C;&#x8FDE;&#x5747;&#x5206;&#x90FD;&#x505A;&#x4E0D;&#x5230;)</li>
+</ul>
+<p>&#x867D;&#x7136;&#x5F53;&#x5F53;&#x7B49;&#x8C03;&#x5EA6;&#x5F00;&#x6E90;&#x6846;&#x67B6;&#x8FDB;&#x884C;&#x4E86;&#x4E8C;&#x6B21;&#x5B9A;&#x5236;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x4ECD;&#x7136;&#x5C5E;&#x4E8E;&#x5E93;&#x6587;&#x4EF6;&#xFF0C;&#x4FB5;&#x5165;&#x5F0F;&#x592A;&#x5F3A;(&#x9700;&#x8981;&#x7EE7;&#x627F;&#x67D0;&#x4E2A;&#x7C7B;&#x6216;&#x8005;&#x6CE8;&#x89E3;&#x7B49;&#x4EE3;&#x7801;&#x6C61;&#x67D3;)&#xFF0C;&#x56E0;&#x6B64;&#x628A;&#x4E0A;&#x9762;&#x7684;&#x903B;&#x8F91;SAAS(Schedule-As-A-Service)&#x5316;&#x53EF;&#x80FD;&#x662F;&#x66F4;&#x597D;&#x7684;&#x9009;&#x62E9;</p>
+<h1 id="2-requirement">2. Requirement</h1>
+<p>&#x9488;&#x5BF9;&#x4EE5;&#x4E0A;&#x95EE;&#x9898;&#xFF0C;&#x505A;&#x51FA;&#x5982;&#x4E0B;&#x613F;&#x666F;</p>
+<h4 id="&#x670D;&#x52A1;&#x5316;">&#x670D;&#x52A1;&#x5316;</h4>
+<p>&#x5C06;&#x539F;&#x6709;&#x7684;Java&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6362;&#x4E3A;RPC&#xFF0C;&#x8C03;&#x5EA6;&#x903B;&#x8F91;&#xFF08;&#x89E6;&#x53D1;&#x5B9E;&#x73B0;&#xFF0C;&#x540C;&#x6B65;&#x8FD8;&#x662F;&#x5F02;&#x6B65;&#xFF09;&#x4E0E;&#x4E1A;&#x52A1;&#x5206;&#x79BB;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Quartz</th>
+<th>&#x65B0;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x8C03;&#x5EA6;&#x903B;&#x8F91;</td>
+<td>&#x786C;&#x7F16;&#x7801;&#x5230;Java/XML&#x4E2D;&#xFF0C;&#x4FEE;&#x6539;&#x9700;&#x8981;&#x91CD;&#x542F;</td>
+<td>&#x901A;&#x8FC7;&#x5916;&#x90E8;DSL(&#x6BD4;&#x5982;JSON)&#x4EE5;Web&#x754C;&#x9762;&#x7684;&#x5F62;&#x5F0F;&#x5B9E;&#x65F6;&#x7BA1;&#x7406;(&#x6682;&#x505C;/&#x65B0;&#x589E;/&#x4E0B;&#x7EBF;/&#x7ACB;&#x523B;&#x6267;&#x884C;&#x7B49;)&#xFF0C;&#x4F5C;&#x4E3A;&#x8C03;&#x5EA6;&#x5BA2;&#x6237;&#x7AEF;RPC&#x8BF7;&#x6C42;&#x6267;&#x884C;&#x5668;</td>
+</tr>
+<tr>
+<td>&#x4FB5;&#x5165;&#x6027;</td>
+<td>&#x4E0E;&#x4E1A;&#x52A1;&#x6846;&#x67B6;&#x5F3A;&#x8026;&#x5408;</td>
+<td>&#x8FDE;Quartz&#x90FD;&#x4E0D;&#x7528;&#x5F15;&#x5165;&#xFF0C;&#x901A;&#x8FC7;Eureka&#x4EE5;<a href="https://zh.wikipedia.org/zh-hant/%E8%A6%86%E7%9B%96%E7%BD%91%E7%BB%9C" target="_blank">&#x8986;&#x76D6;&#x7F51;&#x7EDC;</a>&#x7684;&#x5F62;&#x5F0F;&#x8FDB;&#x884C;&#x8282;&#x70B9;&#x95F4;&#x901A;&#x4FE1;&#x3002;&#x751A;&#x81F3;&#x8FDE;Eureka&#x90FD;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#xFF0C;&#x800C;&#x4F7F;&#x7528;Nginx&#x4F5C;&#x4E3A;&#x547D;&#x540D;&#x670D;&#x52A1;&#x3002;</td>
+</tr>
+<tr>
+<td>&#x8FD0;&#x7EF4;&#x7279;&#x6027;</td>
+<td>&#x9ED1;&#x76D2;</td>
+<td>&#x80FD;&#x591F;&#x8BB0;&#x5F55;JobHistory&#xFF0C;&#x4EE5;&#x4FBF;&#x4EE5;&#x540E;<strong>&#x6709;&#x636E;&#x53EF;&#x67E5;</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x7528;&#x6237;&#x4FA7;&#x6267;&#x884C;&#x5668;&#x9700;&#x8981;&#x505A;&#x4EC0;&#x4E48;&#x6539;&#x9020;&#xFF1F;">&#x7528;&#x6237;&#x4FA7;(&#x6267;&#x884C;&#x5668;)&#x9700;&#x8981;&#x505A;&#x4EC0;&#x4E48;&#x6539;&#x9020;&#xFF1F;</h4>
+<ol>
+<li>&#x7528;&#x6237;&#x4FA7;&#x66B4;&#x9732;&#x4EFB;&#x52A1;&#x7684;Endpoint&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x7684;&#x662F;&#x66B4;&#x9732;&#x4E3A;RestController</li>
+<li>&#x7528;&#x6237;&#x5728;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;Web&#x7BA1;&#x7406;&#x754C;&#x9762;&#x4E0A;&#x4F20;&#x914D;&#x7F6E;&#xFF0C;&#x5982;&#x4E0B;&#xFF0C;&#x5176;&#x4E2D;url&#x4E2D;&#x7684;host&#x662F;VIP&#xFF0C;VIP&#x7684;&#x53EF;&#x7528;&#x6027;&#x7531;&#x6267;&#x884C;&#x5668;&#x81EA;&#x5DF1;&#x4FDD;&#x8BC1;</li>
+</ol>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;SendMail&quot;</span>,
+    <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;http://eureka-busi-sz1/app/task/sendmail.task&quot;</span>,
+    <span class="hljs-string">&quot;cron&quot;</span>: <span class="hljs-string">&quot; */2 * * * *&quot;</span>,
+    <span class="hljs-string">&quot;fail&quot;</span>: <span class="hljs-string">&quot;miao1007@gitbook.com&quot;</span>
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x5C31;&#x4F1A;&#x5728;&#x76F8;&#x5E94;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x53D1;&#x9001;RPC&#x8BF7;&#x6C42;&#xFF0C;&#x5BA2;&#x6237;&#x81EA;&#x5DF1;&#x5C31;&#x4E0D;&#x7528;&#x7EF4;&#x62A4;&#x8C03;&#x5EA6;&#x903B;&#x8F91;&#x4E86;&#x3002;</p>
+<h2 id="3-action">3. Action</h2>
+<p>&#x9488;&#x5BF9;&#x4E0A;&#x9762;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;</p>
+<h4 id="31-&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x540E;&#x53F0;rpc&#x8BF7;&#x6C42;&#x6D41;&#x7A0B;&#x56FE;">3.1. &#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x540E;&#x53F0;RPC&#x8BF7;&#x6C42;&#x6D41;&#x7A0B;&#x56FE;</h4>
+<p>&#x603B;&#x4F53;&#x8BBE;&#x8BA1;&#x5982;&#x4E0B;&#xFF0C;&#x53EA;&#x8981;&#x670D;&#x52A1;&#x6CE8;&#x518C;&#x5230;Eureka&#x5373;&#x53EF;&#x83B7;&#x53D6;&#x5230;IP&#xFF0C;&#x5E76;&#x6267;&#x884C;RPC</p>
+<pre><code class="lang-mermaid">sequenceDiagram
+      Scheduler-&gt;&gt;EurekeServer: &quot;eureka-busi-sz1&quot;&#x7684;IP&#x662F;&#x591A;&#x5C11;
+    activate EurekeServer
+    EurekeServer--&gt;&gt;Scheduler: &#x5B83;&#x7684;IP&#x662F;[a,b,c]
+    deactivate EurekeServer
+    loop &#x5BA2;&#x6237;&#x7AEF;&#x8D1F;&#x8F7D;&#x5747;&#x8861;
+        Scheduler-&gt;&gt;Scheduler: &#x9009;&#x51FA;&#x4E00;&#x4E2A;IP
+    end
+    Scheduler -&gt;&gt; Business: RPC call
+    activate Business
+    Business --&gt;&gt; Scheduler: &#x5B8C;&#x6210;&#x4E1A;&#x52A1;
+    deactivate Business
+</code></pre>
+<p>&#x9AD8;&#x53EF;&#x7528;&#x65B9;&#x6848;</p>
+<ul>
+<li>&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x672C;&#x8EAB;&#x590D;&#x7528;Quartz&#x7684;&#x7EDF;&#x4E00;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x5FC3;&#xFF0C;&#x591A;&#x53F0;&#x6A2A;&#x5411;&#x90E8;&#x7F72;&#x5373;&#x53EF;&#x3002;&#x90E8;&#x7F72;&#x65F6;&#x5EFA;&#x8BAE;&#x5728;&#x76F8;&#x540C;&#x7684;Region&#x4E2D;&#xFF0C;<strong>&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x5FC5;&#x987B;&#x5C0F;&#x4E8E;1s</strong></li>
+<li>EurekaServer: &#x53C2;&#x8003;Netflix&#x7684;HA&#x6559;&#x7A0B;&#xFF0C;&#x914D;&#x7F6E;&#x591A;&#x53F0;&#x5373;&#x53EF;</li>
+<li>Business&#x9AD8;&#x53EF;&#x7528;: &#x53D6;&#x51B3;&#x4E8E;&#x4E1A;&#x52A1;&#xFF0C;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x6A2A;&#x5411;&#x90E8;&#x7F72;&#x591A;&#x53F0;&#xFF0C;&#x6CE8;&#x518C;&#x5230;Eureka&#x5373;&#x53EF;&#x3002;</li>
+</ul>
+<h4 id="32-eurekaokhttpquartz&#x89E3;&#x51B3;&#x65B9;&#x6848;">3.2. Eureka+OkHttp+Quartz&#x89E3;&#x51B3;&#x65B9;&#x6848;</h4>
+<p>&#x9488;&#x5BF9;&#x4E0A;&#x8FF0;&#x9009;&#x578B;&#xFF0C;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#x529F;&#x80FD;</p>
+<ul>
+<li>Web&#x754C;&#x9762;: &#x5BF9;&#x4E8E;&#x7F16;&#x7A0B;&#x4EBA;&#x5458;&#x5168;&#x90E8;&#x901A;&#x8FC7;&#x9F20;&#x6807;&#x6216;&#x8005;&#x811A;&#x672C;&#x5BFC;&#x5165;&#x5BFC;&#x51FA;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#xFF0C;&#x6211;&#x4E2A;&#x4EBA;&#x901A;&#x8FC7; Angular&#x641E;&#x4E86;&#x4E00;&#x5957;&#x7B80;&#x5355;&#x7684;&#x8868;&#x683C;&#x5F0F;&#x7BA1;&#x7406;&#x9875;&#x9762;</li>
+<li>&#x8C03;&#x5EA6;&#x7BA1;&#x7406;: &#x901A;&#x8FC7;&#x5BF9;Quartz&#x7684;Scheduler&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#x66B4;&#x9732;&#xFF0C;&#x4F7F;&#x7528;JobStoreTX(&#x6301;&#x4E45;&#x5316;)</li>
+<li>&#x5206;&#x5E03;&#x5F0F;&#x9501;: &#x901A;&#x8FC7;Quartz&#x9ED8;&#x8BA4;&#x5185;&#x7F6E;Row&#x7EA7;Lock(SELECT FOR UPDATE)</li>
+<li>&#x547D;&#x540D;&#x670D;&#x52A1;: &#x901A;&#x8FC7;Eureka&#x5B9E;&#x73B0;&#x670D;&#x52A1;&#x5B9E;&#x4F8B;&#x7684;&#x83B7;&#x53D6;(&#x4EE3;&#x7801;&#x4E2D;&#x5229;&#x7528;OkHttp&#x7684;DNS&#x8FDB;&#x884C;Override)</li>
+<li>&#x8D1F;&#x8F7D;&#x5747;&#x8861;: &#x4F7F;&#x7528;Ribbon&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x559C;&#x6B22;&#x5B83;&#x7684;&#x6570;&#x7EC4;&#x8F6E;&#x8BE2;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;IRule&#x3002;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x7ED3;&#x5408;&#x4E1A;&#x52A1;&#x5B9E;&#x73B0;&#xFF0C;<strong>&#x65E0;&#x72B6;&#x6001;&#x7684;&#x6570;&#x7EC4;&#x8F6E;&#x8BE2;/Hash&#x5373;&#x53EF;&#xFF0C;&#x6709;&#x72B6;&#x6001;&#x7684;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;</strong>&#x3002;</li>
+<li>RPC: &#x9ED8;&#x8BA4;HTTP&#x963B;&#x585E;&#x8C03;&#x7528;&#xFF0C;&#x4E0D;&#x8FC7;&#x53D7;&#x9650;&#x4E8E;SpringMVC/Tomcat&#x7684;<a href="https://tomcat.apache.org/connectors-doc/common_howto/timeouts.html" target="_blank">&#x8D85;&#x65F6;</a>&#xFF0C;&#x6B64;&#x65B9;&#x6848;&#x4E0D;&#x652F;&#x6301;&#x83B7;&#x53D6;&#x963B;&#x585E;&#x65F6;&#x95F4;&#x8FC7;&#x957F;&#x7684;<strong>&#x4EFB;&#x52A1;&#x7ED3;&#x679C;</strong>&#xFF08;&#x8FD9;&#x7C7B;&#x66F4;&#x5E94;&#x8BE5;&#x7528;MQ&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x6BD4;&#x5982;&#x7D22;&#x5F15;&#x4EFB;&#x52A1;&#xFF0C;&#x8FD9;&#x7C7B;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="https://www.cloud.alipay.com/docs/2/56108" target="_blank">SofaBoot</a>&#x7684;&#x5B9E;&#x73B0;&#xFF09;&#xFF0C;&#x5F53;&#x7136;&#x5982;&#x679C;&#x4F60;&#x53EA;&#x8981;&#x6C42;&#x80FD;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x800C;&#x4E0D;&#x5728;&#x4E4E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x5C31;&#x5DF2;&#x7ECF;&#x591F;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x52A0;&#x5165;&#x56DE;&#x5199;&#x3002;&#x8FD9;&#x4E2A;&#x662F;&#x65B9;&#x6848;&#x7684;&#x77ED;&#x677F;&#xFF0C;&#x957F;&#x671F;&#x963B;&#x585E;IO&#x5C06;&#x5BFC;&#x81F4;&#x7EBF;&#x7A0B;&#x5E76;&#x53D1;&#x6570;&#x80FD;&#x529B;&#x5F31;&#x3002;</li>
+<li>RPC&#x9274;&#x6743;: &#x6B64;&#x90E8;&#x5206;&#x4E0E;&#x8C03;&#x5EA6;&#x662F;&#x65E0;&#x5173;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x5B9A;&#x5236;Header&#x7684;Interceptor&#x7B49;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;</li>
+</ul>
+<p>&#x6700;&#x7EC8;&#x901A;&#x8FC7;SpringBoot&#x4E00;&#x4E2A;Jar&#x5305;&#x8FDB;&#x884C;&#x591A;&#x673A;&#x90E8;&#x7F72;&#xFF0C;&#x6B64;&#x67B6;&#x6784;<strong>&#x5355;&#x70B9;&#x6545;&#x969C;&#x4E3B;&#x8981;&#x5728;&#x4E2D;&#x5FC3;&#x7684;JobStore&#xFF08;&#x6BD4;&#x5982;&#x6570;&#x636E;&#x5E93;&#xFF09;&#x4E0A;</strong></p>
+<h4 id="33-quartz&#x7684;&#x5B9A;&#x5236;">3.3. Quartz&#x7684;&#x5B9A;&#x5236;</h4>
+<p>&#x672C;&#x6587;&#x4E0D;&#x4F1A;&#x8FC7;&#x591A;&#x6D89;&#x53CA;&#x5230;&#x975E;Eureka&#x7684;&#x7BC7;&#x7AE0;&#xFF0C;&#x56E0;&#x6B64;&#x5EFA;&#x8BAE;&#x5982;&#x4E0B;</p>
+<ul>
+<li>&#x4F7F;&#x7528;Plugin&#x6CE8;&#x518C;Job&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5E76;&#x6A21;&#x4EFF;LogBack&#x7684;DBAppender&#x5B9E;&#x73B0;&#x5386;&#x53F2;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x7684;&#x65E5;&#x5FD7;&#x662F;&#x975E;&#x7ED3;&#x6784;&#x5316;&#x7684;(&#x6BD4;&#x5982;&#x8FD4;&#x56DE;&#x4E86;JSON&#x62A5;&#x6587;)&#xFF0C;&#x6211;&#x5EFA;&#x8BAE;&#x653E;&#x5230;ElasticSearch&#x4E0A;</li>
+<li>&#x591A;&#x770B;&#x591A;&#x5B66;Quartz&#x7684;&#x8C03;&#x5EA6;API&#xFF0C;&#x5E76;&#x5C01;&#x88C5;&#x4E3A;RESTful&#x63A5;&#x53E3;</li>
+<li>&#x7531;&#x4E8E;&#x662F;&#x7ED9;&#x6240;&#x6709;&#x5C0F;&#x7EC4;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5F88;&#x591A;&#x4EBA;&#x90FD;&#x559C;&#x6B22;&#x653E;&#x5728;6&#x70B9;&#x8DD1;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#xFF0C;&#x56E0;&#x6B64;Quartz&#x7684;<strong>&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#x6C60;&#x5FC5;&#x987B;&#x8C03;&#x5927;</strong>&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x9ED8;&#x8BA4;&#x7684;10&#x6761;&#xFF0C;&#x5426;&#x5219;&#x4F1A;Missfire</li>
+</ul>
+<h4 id="34-&#x5B9A;&#x5236;okhttp&#x7684;dns&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x547D;&#x540D;&#x670D;&#x52A1;">3.4. &#x5B9A;&#x5236;OkHttp&#x7684;Dns&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x547D;&#x540D;&#x670D;&#x52A1;</h4>
+<p>Eureka&#x4ECE;&#x5BA2;&#x6237;&#x7AEF;&#x6765;&#x770B;&#xFF0C;&#x5B83;&#x975E;&#x5E38;&#x50CF;HTTP DNS&#x3002;&#x867D;&#x7136;&#x5728;Android&#x4E2D;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#xFF0C;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x7684;Quartz&#x4E5F;&#x76F8;&#x5F53;&#x4E8E;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5728;Quartz&#x4E2D;&#x7684;&#x8BF7;&#x6C42;Job&#x7684;RPC&#x4E2D;&#xFF0C;&#x5B9A;&#x5236;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-java">LoadBalancerClient client;
+<span class="hljs-keyword">final</span> Dns eurekaDns = <span class="hljs-keyword">new</span> Dns() {
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function">List&lt;InetAddress&gt; <span class="hljs-title">lookup</span><span class="hljs-params">(String vip)</span> <span class="hljs-keyword">throws</span> UnknownHostException </span>{
+        <span class="hljs-keyword">if</span> (!vip?.trim()){
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> UnknownHostException(<span class="hljs-string">&quot;hostname is null&quot;</span>)
+        }
+        ServiceInstance instance = client.choose(vip)
+        <span class="hljs-keyword">if</span> (instance){
+            String realHost = instance.getHost()
+            <span class="hljs-keyword">return</span> InetAddress.getAllByName(realHost)
+        } <span class="hljs-keyword">else</span> {<span class="hljs-comment">//&#x8FD9;&#x79CD;&#x573A;&#x666F;&#x4EC5;&#x7528;&#x4E8E;&#x8F93;&#x5165;&#x7684;&#x4E0D;&#x662F;VIP</span>
+            <span class="hljs-keyword">return</span> Dns.SYSTEM.lookup(vip)
+        }
+    }
+}
+OkHttpClient ok = <span class="hljs-keyword">new</span> OkHttpClient.Builder().dns(eurekaDns).build()
+<span class="hljs-comment">//&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x8F93;&#x5165;&#x7684;HostName&#x662F;Eureka&#x4E2D;&#x7684;VIP(Virtual IP)</span>
+Request request = <span class="hljs-keyword">new</span> Request.Builder().url(<span class="hljs-string">&quot;http://eureka-instance/api/xxx.json&quot;</span>).build()
+ok.newCall(request)
+</code></pre>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x590D;&#x7528;&#x4E86;&#x5404;&#x79CD;&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x6CA1;&#x6709;&#x9020;&#x4E00;&#x70B9;&#x8F6E;&#x5B50;&#xFF0C;&#x5C31;&#x641E;&#x5B9A;&#x4E86;&#x627E;&#x670D;&#x52A1;&#x7684;&#x95EE;&#x9898;</p>
+<ul>
+<li>OkHttp&#x81EA;&#x52A8;&#x5E2E;&#x4F60;Parse&#x4E86;URL&#xFF0C;&#x56E0;&#x6B64;&#x4F60;&#x4E0D;&#x7528;&#x81EA;&#x5DF1;&#x624B;&#x52A8;&#x83B7;&#x53D6;HostName&#xFF0C;OkHttp&#x5185;&#x90E8;&#x7684;&#x53CC;&#x7AEF;Dequeue&#x961F;&#x5217;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x6309;&#x5E8F;&#x53D1;&#x9001;&#x3002;</li>
+<li>Ribbon&#x5E2E;&#x4F60;&#x5B9E;&#x73B0;&#x4E86;<a href="https://github.com/Netflix/ribbon/wiki/Working-with-load-balancers" target="_blank">&#x8D1F;&#x8F7D;&#x5747;&#x8861;</a>&#xFF0C;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B97;&#x6CD5;&#xFF0C;&#x672C;&#x6587;&#x573A;&#x666F;&#x4EC5;&#x4F9B;&#x5E94;&#x7528;&#x670D;&#x52A1;&#x5C42;&#x8C03;&#x5EA6;&#xFF0C;&#x4E0D;&#x652F;&#x6301;cgroup/namespace&#x5C42;&#x7684;&#x8C03;&#x5EA6;&#xFF08;&#x6BD4;&#x5982;nomad/k8s&#xFF09;&#x3002;</li>
+<li>Eureka&#x5E2E;&#x4F60;&#x5B9E;&#x73B0;&#x4E86;VIP&#x7684;&#x670D;&#x52A1;&#x53D1;&#x73B0;(&#x8FD9;&#x91CC;&#x88AB;Ribbon&#x7ED9;&#x5C01;&#x88C5;&#x4E86;&#x770B;&#x4E0D;&#x89C1;)</li>
+<li>InetAddress.getAllByName&#x8FD9;&#x4E2A;&#x8C03;&#x7528;&#x53EA;&#x662F;&#x672C;&#x5730;&#x62FC;&#x88C5;IP&#xFF0C;&#x6CA1;&#x6709;&#x518D;&#x6B21;&#x8FDB;&#x884C;DNS&#x8BF7;&#x6C42;</li>
+</ul>
+<p>&#x6B64;&#x65B9;&#x6848;&#x7684;&#x597D;&#x5904;&#x662F;&#xFF0C;&#x5047;&#x5982;&#x540E;&#x7EED;&#x4F60;&#x7684;&#x670D;&#x52A1;&#x6362;&#x6210;&#x4E86;Consul/etcd/kubernertes&#xFF0C;&#x4E5F;&#x80FD;&#x65E0;&#x635F;&#x5207;&#x6362;&#x3002;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x5C31;&#x8981;&#x505A;&#x5230;&#x529F;&#x80FD;&#x5355;&#x4E00;&#xFF0C;&#x4E0D;&#x8981;&#x548C;&#x201C;&#x8C03;&#x5EA6;&#x201D;&#x6DF7;&#x5230;&#x4E00;&#x8D77;&#x3002;</p>
+<h2 id="4-summary">4. Summary</h2>
+<h4 id="&#x9879;&#x76EE;&#x6536;&#x76CA;">&#x9879;&#x76EE;&#x6536;&#x76CA;</h4>
+<p>&#x4E0A;&#x8FF0;&#x65B9;&#x6848;&#x5DF2;&#x7ECF;&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x76EE;&#x524D;&#x6536;&#x76CA;&#x5982;&#x4E0B;</p>
+<ul>
+<li>&#x6BD4;&#x8F83;&#x4FD7;&#x7684;&#xFF0C;&#x5C31;&#x662F;&#x4E2A;&#x4EBA;&#x641E;&#x5230;&#x4E00;&#x4E2A;&#x6F14;&#x8BB2;&#x5206;&#x4EAB;&#x7684;&#x673A;&#x4F1A;&#xFF0C;&#x7136;&#x540E;&#x90E8;&#x95E8;&#x5185;&#x8BC4;&#x4E86;&#x4E00;&#x4E2A;&#x5956;&#x5E76;&#x63A8;&#x5E7F;</li>
+<li>&#x901A;&#x8FC7;&#x5B9A;&#x65F6;&#x6267;&#x884C;&#x65E5;&#x5FD7;&#x7EDF;&#x8BA1;&#x51FA;&#x4E86;&#x5F88;&#x591A;&#x7279;&#x6B8A;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x4E0B;&#x7684;&#x5931;&#x8D25;BUG&#x5E76;&#x6539;&#x8FDB;&#xFF0C;&#x665A;&#x4E0A;&#x7761;&#x89C9;&#x518D;&#x4E5F;&#x4E0D;&#x5FC3;&#x865A;&#x4E86;</li>
+<li>&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x4E0E;&#x4E1A;&#x52A1;&#x771F;&#x6B63;&#x89E3;&#x85D5;&#xFF0C;&#x6CA1;&#x6709;&#x4EE3;&#x7801;&#x6C61;&#x67D3;&#xFF0C;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x4E2D;&#x53EF;&#x4EE5;&#x53EA;&#x7559;&#x4E00;&#x4EFD;JSON&#x4F5C;&#x4E3A;&#x5B58;&#x6863;</li>
+<li>&#x7EDF;&#x4E00;&#x90AE;&#x4EF6;&#x8B66;&#x62A5;&#x529F;&#x80FD;&#xFF0C;&#x4EFB;&#x52A1;&#x6302;&#x6389;&#x540E;&#x9A6C;&#x4E0A;&#x638C;&#x63E1;</li>
+</ul>
+<p>&#x7279;&#x522B;&#x53D1;&#x73B0;&#x4E86;&#x4E00;&#x4E9B;&#x4E25;&#x91CD;&#x7684;&#x7F16;&#x7801;&#x95EE;&#x9898;&#xFF0C;&#x6BD4;&#x5982;&#x67D0;&#x4E9B;&#x4E0D;&#x8D1F;&#x8D23;&#x7684;&#x5458;&#x5DE5;&#x4EE3;&#x7801;&#x4E2D;<strong>&#x628A;&#x5F02;&#x5E38;&#x5168;&#x5C40;try/catch&#x4F4F;&#xFF0C;&#x6253;&#x5370;&#x4E00;&#x4E2A;&#x62A5;&#x9519;&#xFF0C;&#x5C31;&#x8BA4;&#x4E3A;&#x201C;&#x6211;&#x5DF2;&#x7ECF;&#x5904;&#x7406;&#x597D;&#x5F02;&#x5E38;&#x201D;&#x4E86;</strong>&#xFF0C;&#x8FD9;&#x79CD;&#x4EE3;&#x7801;&#x5BFC;&#x81F4;&#x4E86;&#x5F88;&#x591A;&#x4EFB;&#x52A1;&#x770B;&#x4F3C;&#x6210;&#x529F;&#x5B9E;&#x5219;&#x5931;&#x8D25;&#xFF0C;&#x8FD9;&#x79CD;&#x884C;&#x4E3A;&#x7684;&#x786E;&#x8BA9;&#x4EBA;&#x5FC3;&#x7D2F;&#xFF0C;&#x4EE5;&#x540E;&#x62DB;&#x8058;&#x4E00;&#x5B9A;&#x8981;&#x597D;&#x597D;&#x628A;&#x5173;&#xFF01;</p>
+<h4 id="&#x65B9;&#x6848;&#x7F3A;&#x70B9;">&#x65B9;&#x6848;&#x7F3A;&#x70B9;</h4>
+<p>&#x867D;&#x7136;&#x672C;&#x65B9;&#x6848;&#x5728;&#x5C0F;&#x9879;&#x76EE;&#x7EC4;&#x5185;&#xFF08;&#x4E5F;&#x5C31;&#x662F;200&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#xFF09;&#x5B8C;&#x5168;ok&#xFF0C;&#x4F46;&#x662F;</p>
+<ul>
+<li>&#x963B;&#x585E;&#x67B6;&#x6784;&#xFF1A;&#x53D7;&#x9650;&#x4E8E;&#x88AB;&#x8BF7;&#x6C42;&#x7AEF;&#x7684;&#x8D85;&#x65F6;&#x914D;&#x7F6E;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x957F;&#x963B;&#x585E;&#x4EFB;&#x52A1;&#x83B7;&#x53D6;&#x7ED3;&#x679C;&#xFF1B;&#x8FC7;&#x591A;&#x7684;&#x957F;&#x963B;&#x585E;&#x4EFB;&#x52A1;<strong>&#x5360;&#x7528;&#x6570;&#x636E;&#x5E93;&#x5927;&#x91CF;&#x8FDE;&#x63A5;&#x6C60;</strong>&#x3002;&#x9700;&#x8981;&#x7528;MQ/Webhook&#x6765;&#x8FDB;&#x884C;&#x56DE;&#x5199;&#x5904;&#x7406;(&#x6CA1;&#x505A;)</li>
+<li>&#x65E0;&#x6CD5;&#x68C0;&#x6D4B;&#x5230;Missfired&#x7684;&#x4EFB;&#x52A1;(&#x56E0;&#x4E3A;&#x53EA;&#x914D;&#x7F6E;&#x4E86;Job&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x800C;&#x6CA1;&#x6709;&#x914D;&#x7F6E;Trigger&#x76D1;&#x542C;&#x5668;)</li>
+<li>&#x53D7;&#x9650;&#x4E8E;Quartz&#x672C;&#x8EAB;&#x5904;&#x7406;Missfired&#x7684;&#x903B;&#x8F91;(&#x53EF;&#x4EE5;&#x770B;&#x90A3;&#x4E2A;For&#x5FAA;&#x73AF;&#x6E90;&#x7801;)&#xFF0C;<strong>&#x91CD;&#x542F;&#x540E;cron&#x4EFB;&#x52A1;&#x4F1A;&#x4E00;&#x6B21;&#x6027;&#x8DD1;&#x5B8C;</strong>&#xFF0C;&#x5BFC;&#x81F4;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x4E1A;&#x52A1;&#xFF0C;&#x6BD4;&#x5982;&#x90AE;&#x4EF6;&#x96C6;&#x4E2D;&#x53D1;&#x4E00;&#x5806;&#x88AB;&#x5BA2;&#x6237;&#x540A;&#xFF08;&#x8FD9;&#x4E2A;&#x9700;&#x8981;&#x5B9A;&#x5236;Quartz&#x6E90;&#x7801;&#xFF09;</li>
+</ul>
+<h2 id="5-&#x9644;&#x5F55;">5. &#x9644;&#x5F55;</h2>
+<h4 id="&#x5176;&#x5B83;&#x6280;&#x672F;&#x8C03;&#x7814;">&#x5176;&#x5B83;&#x6280;&#x672F;&#x8C03;&#x7814;</h4>
+<p>&#x901A;&#x8FC7;&#x6280;&#x672F;&#x8C03;&#x7814;(<del>&#x641C;&#x7D22;&#x5F00;&#x6E90;&#x9879;&#x76EE;</del>)&#xFF0C;&#x6709;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>&#x6700;&#x539F;&#x59CB;&#x7684;crontab+curl&#x811A;&#x672C;&#x5B9E;&#x73B0;Trigger: &#x8FD9;&#x6837;&#x4E00;&#x5957;&#x505A;&#x4E0B;&#x6765;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x9664;&#x4E86;&#x5F00;&#x53D1;&#x672C;&#x4EBA;&#xFF0C;&#x8C01;&#x4E5F;&#x4E0D;&#x6562;&#x78B0;&#x4EE3;&#x7801;&#x4E86;&#x3002;&#x7F3A;&#x70B9;&#x4E5F;&#x975E;&#x5E38;&#x660E;&#x663E;&#xFF0C;Shell&#x7EF4;&#x62A4;&#x6027;&#x5DEE;</li>
+<li>&#x4F7F;&#x7528;Quartz+&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x5B9E;&#x73B0;&#x8C03;&#x5EA6;(&#x73B0;&#x6709;&#x72B6;&#x6001;): &#x76EE;&#x524D;&#x8FD8;&#x7B97;&#x662F;&#x6BD4;&#x8F83;&#x4E3B;&#x6D41;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x6BD5;&#x7ADF;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x4E1A;&#x52A1;&#x90FD;&#x9700;&#x8981;&#x201C;&#x4E91;&#x5316;&#x201D;&#xFF0C;&#x5F88;&#x53EF;&#x80FD;&#x51E0;&#x53F0;&#x5C31;&#x591F;&#x7528;&#x4E86;&#xFF0C;&#x7F3A;&#x70B9;&#x662F;&#x6BCF;&#x53F0;&#x673A;&#x5B50;&#x90FD;&#x8981;&#x6298;&#x817E;&#x81EA;&#x5DF1;&#x7684;Bean&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4EBA;&#x79BB;&#x804C;&#x5C31;&#x5FC3;&#x614C;</li>
+<li>&#x4F7F;&#x7528;zk+Quartz&#x5B9E;&#x73B0;: &#x6BD4;&#x8F83;&#x5B8C;&#x5584;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6848;&#xFF0C;&#x5F53;&#x7136;&#x8FD9;&#x5957;&#x7CFB;&#x7EDF;&#x9700;&#x8981;&#x81EA;&#x7814;&#x8981;&#x8017;&#x8D39;&#x4EBA;&#x529B;&#xFF0C;&#x800C;&#x7F51;&#x4E0A;&#x4F3C;&#x4E4E;&#x53EA;&#x6709;<a href="http://www.infoq.com/cn/articles/dangdang-distributed-work-framework-elastic-job" target="_blank">&#x5F53;&#x5F53;&#x7F51;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x4F5C;&#x4E1A;&#x6846;&#x67B6;elastic-job</a>&#x8FDB;&#x884C;&#x4E86;&#x5F00;&#x6E90;&#xFF0C;&#x8FD9;&#x4E2A;&#x5199;&#x7684;&#x5F88;&#x6709;&#x6C34;&#x5E73;&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x5F53;&#x7684;&#x662F;&#x901A;&#x8FC7;zk&#x6CE8;&#x518C;Bean&#x5B9E;&#x73B0;&#x8C03;&#x7528;Java&#x7C7B;&#xFF0C;&#x5BF9;&#x8001;&#x7CFB;&#x7EDF;&#x4FB5;&#x5165;&#x8F83;&#x5F3A;: &#x9700;&#x8981;&#x5F15;&#x5165;&#x65B0;&#x7684;Jar&#x5305;(&#x5F00;&#x6E90;&#x5408;&#x89C4;/&#x4FE1;&#x606F;&#x5B89;&#x5168;&#x7B49;&#x7B49;)&#xFF0C;&#x8FD8;&#x8981;&#x7EE7;&#x627F;&#x4E00;&#x4E2A;&#x9ED1;&#x76D2;Class&#xFF0C;&#x540C;&#x65F6;&#x5B83;&#x5BF9;zk&#x66B4;&#x9732;&#x7684;&#x662F;Class&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x5FAE;&#x670D;&#x52A1;RPC&#x8C03;&#x7528;&#x3002;</li>
+<li>&#x67D0;&#x95ED;&#x6E90;zk&#x5B9E;&#x73B0;: &#x67D0;&#x7535;&#x4FE1;&#x7EA7;&#x9879;&#x76EE;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x901A;&#x8FC7;&#x5B9A;&#x5236;Zk&#x670D;&#x52A1;&#x53D1;&#x73B0;&#xFF0C;&#x81EA;&#x7814;&#x7EBF;&#x7A0B;&#x6C60;&#x4E0E;DSL&#x811A;&#x672C;&#x5B9E;&#x73B0;&#xFF0C;&#x6B64;&#x65B9;&#x6848;&#x4F18;&#x70B9;&#x662F;&#x9AD8;&#x5EA6;&#x5B9A;&#x5236;&#x9002;&#x914D;&#x4E1A;&#x52A1;&#xFF0C;&#x7F3A;&#x70B9;&#x662F;&#x666E;&#x901A;&#x4E1A;&#x52A1;&#x56E2;&#x961F;&#x517B;&#x4E0D;&#x8D77;&#x3002;</li>
+<li>&#x5176;&#x5B83;&#x56FD;&#x4EA7;&#x6846;&#x67B6;: XXL-Job&#x7B49;&#x6846;&#x67B6;. &#x867D;&#x7136;&#x67B6;&#x6784;&#x6846;&#x56FE;&#x753B;&#x4E00;&#x5806;&#xFF0C;&#x8BC4;&#x5956;&#x4E5F;&#x5F88;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x6CA1;&#x6709;&#x770B;&#x51FA;&#x9488;&#x5BF9;&#x4E0A;&#x8FF0;Quartz&#x7F3A;&#x70B9;(&#x6BD4;&#x5982;&#x963B;&#x585E;&#xFF0C;&#x62BD;&#x53D6;Loadbalancer&#xFF0C;Misfire&#xFF0C;&#x4E0A;&#x4E0B;&#x6587;&#x6301;&#x4E45;&#x5316;)&#x7684;&#x5B9A;&#x5236;&#x6539;&#x9020;&#xFF0C;&#x8BF4;&#x767D;&#x4E86;&#x5C31;&#x662F;&#x4E00;&#x4E2A;Wrapper&#x800C;&#x5DF2;&#xFF0C;&#x6CA1;&#x6709;&#x8FBE;&#x5230;&#x4E2D;&#x95F4;&#x4EF6;&#x56E2;&#x961F;&#x7684;&#x80FD;&#x529B;&#x3002;&#x867D;&#x7136;&#x6211;&#x8BA4;&#x53EF;&#x4F5C;&#x8005;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x4F46;&#x6211;&#x5BF9;&#x56FD;&#x4EA7;(&#x5305;&#x62EC;&#x963F;&#x91CC;&#x7684;)&#x5F00;&#x6E90;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x8C28;&#x614E;&#x7684;&#x3002;(&#x56FD;&#x4EA7;&#x5F00;&#x6E90;&#x7279;&#x70B9;: &#x9762;&#x76F8;KPI&#x4E0E;&#x4E2A;&#x4EBA;&#x54C1;&#x724C;&#x800C;&#x5F00;&#x6E90;)</li>
+</ul>
+<p>&#x6700;&#x540E;&#x7ED3;&#x8BBA;&#x662F;&#xFF0C;&#x73B0;&#x6709;&#x7684;&#x5F00;&#x6E90;&#x8C03;&#x5EA6;&#x7CFB;&#x7EDF;<strong>&#x90FD;&#x6709;&#x4FB5;&#x5165;&#x5F0F;</strong>&#xFF0C;&#x800C;&#x4E14;&#x90FD;&#x4E0D;&#x652F;&#x6301;&#x5FAE;&#x670D;&#x52A1;&#xFF0C;&#x56E0;&#x6B64;&#x53EA;&#x597D;&#x81EA;&#x5DF1;&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x4E86;&#xFF0C;&#x4E0A;&#x9762;&#x662F;&#x6211;&#x7684;&#x63A2;&#x7D22;&#x601D;&#x8DEF;&#xFF0C;&#x5E0C;&#x671B;&#x4F1A;&#x6709;&#x5E2E;&#x52A9;&#x3002;&#x6211;&#x4E2A;&#x4EBA;&#x8FD8;&#x662F;&#x5EFA;&#x8BAE;&#x9879;&#x76EE;&#x7EC4;&#x81EA;&#x884C;&#x5B9A;&#x5236;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;&#x9879;&#x76EE;&#x7684;&#x9274;&#x6743;&#xFF0C;&#x5FAE;&#x670D;&#x52A1;&#x6846;&#x67B6;&#xFF0C;&#x4E1A;&#x52A1;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x90FD;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x4E1A;&#x754C;&#x597D;&#x7528;&#x7684;&#x4E0D;&#x5F00;&#x6E90;&#xFF0C;&#x5F00;&#x6E90;&#x7684;&#x4E0D;&#x597D;&#x7528;&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<h4 id="&#x9644;&#x52A0;&#x9898;&#xFF1A;&#x8C03;&#x5EA6;&#x5668;&#x5B9E;&#x73B0;&#xFF08;bin-packing-systen-design&#xFF09;">&#x9644;&#x52A0;&#x9898;&#xFF1A;&#x8C03;&#x5EA6;&#x5668;&#x5B9E;&#x73B0;&#xFF08;Bin Packing Systen Design&#xFF09;</h4>
+<p>&#x67D0;&#x9879;&#x76EE;&#x9700;&#x8981;&#x4E13;&#x95E8;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x96C6;&#x7FA4;&#x53BB;&#x8DD1;&#x7F16;&#x8BD1;&#x4EFB;&#x52A1;</p>
+<ul>
+<li>&#x4EFB;&#x52A1;&#x662F;&#x4E00;&#x5806;&#x4EE3;&#x7801;&#xFF0C;&#x5B83;&#x5C06;&#x6D88;&#x8017;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x786C;&#x4EF6;&#x8FDB;&#x884C;&#x8FD0;&#x884C;&#x3002;</li>
+<li>&#x67D0;&#x79CD;&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#x96C6;&#x7FA4;&#xFF0C;&#x6709;&#x4E24;&#x4E2A;&#x6307;&#x6807;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x5B58;&#x653E;&#x8F6F;&#x4EF6;&#x6E90;&#x7801;&#x7684;&#x78C1;&#x76D8;&#x5BB9;&#x91CF;&#x3010;S&#x3011;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x7F16;&#x8BD1;&#x901F;&#x5EA6;&#x3010;V&#x3011;MB/H&#xFF1B;&#x7F16;&#x8BD1;&#x5668;&#x59CB;&#x7EC8;&#x9AD8;&#x53EF;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x4E2D;&#x9014;&#x65B0;&#x589E;&#x7F16;&#x8BD1;&#x5668;&#xFF1B;&#x4E0D;&#x8003;&#x8651;&#x78C1;&#x76D8;&#x52A0;&#x8F7D;&#x7B49;&#x975E;&#x7F16;&#x8BD1;&#x65F6;&#x95F4;&#x6D88;&#x8017;&#x3002;</li>
+<li>&#x8F6F;&#x4EF6;&#x9879;&#x76EE;&#x4E0D;&#x80FD;&#x5206;&#x62C6;&#x5230;&#x4E24;&#x4E2A;&#x7F16;&#x8BD1;&#x5668;&#x4E0A;&#x8DD1;&#xFF1B;&#x540C;&#x4E00;&#x4E2A;&#x7F16;&#x8BD1;&#x5668;&#x53EF;&#x4EE5;&#x8DD1;&#x591A;&#x4E2A;&#x9879;&#x76EE;&#x3002;</li>
+</ul>
+<p>&#x6C42;&#x7ED9;&#x51FA;&#x4E24;&#x4E2A;&#x8C03;&#x5EA6;&#x8BBE;&#x8BA1;&#xFF08;&#x5747;&#x5206;&#x8D1F;&#x8F7D;&#x5230;&#x591A;&#x53F0;/&#x4F18;&#x5148;&#x5806;&#x6EE1;&#x4E00;&#x53F0;&#xFF09;&#x7684;SASS&#x7684;&#x65B9;&#x6848;&#x3002;&#x5982;&#x679C;&#x8BFB;&#x8005;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x8054;&#x7CFB;&#x672C;&#x4EBA;&#x5185;&#x63A8;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="generate-stub-by-swagger.html" class="navigation navigation-prev " aria-label="Previous page: 使用Swagger生成Feign桩">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../server/" class="navigation navigation-next " aria-label="Next page: Eureka服务端">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"基于Eureka的分布式定时任务","level":"1.3.5","depth":2,"next":{"title":"Eureka服务端","level":"1.4","depth":1,"path":"server/README.md","ref":"server/README.md","articles":[{"title":"命名服务","level":"1.4.1","depth":2,"path":"server/eureka-server-naming.md","ref":"server/eureka-server-naming.md","articles":[]},{"title":"Replicate","level":"1.4.2","depth":2,"path":"server/replicate.md","ref":"server/replicate.md","articles":[]}]},"previous":{"title":"使用Swagger生成Feign桩","level":"1.3.4","depth":2,"path":"client/generate-stub-by-swagger.md","ref":"client/generate-stub-by-swagger.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/eureka/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"client/eureka-client-with-quartz.md","mtime":"2021-03-04T11:49:55.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:37.086Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,360 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>精确搜索 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="document/" />
+    
+    
+    <link rel="prev" href="explain.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduce
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="explain.html">
+    
+    <a href="explain.html">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    Explain调试
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter active" data-level="1.3" data-path="keyword.html">
+    
+    <a href="keyword.html">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    精确搜索
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="document/">
+    
+    <a href="document/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    分词搜索
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="document/tokenizer.html">
+    
+    <a href="document/tokenizer.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    分词
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="document/score.html">
+    
+    <a href="document/score.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    权重
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.5" data-path="ik/">
+    
+    <a href="ik/">
+        
+                    
+                        <b>1.5.</b>
+                    
+                    IK分词
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.5.1" data-path="ik/source.html">
+    
+    <a href="ik/source.html">
+        
+                    
+                        <b>1.5.1.</b>
+                    
+                    原理
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.6" data-path="usage/autocomplete.html">
+    
+    <a href="usage/autocomplete.html">
+        
+                    
+                        <b>1.6.</b>
+                    
+                    AutoComeplete
+            
+        </a>
+        
+
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >精确搜索</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x7CBE;&#x786E;&#x641C;&#x7D22;">&#x7CBE;&#x786E;&#x641C;&#x7D22;</h2>
+<p>&#x5728;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x9664;&#x4E86;&#x4F7F;&#x7528;&#x5B83;&#x5E38;&#x89C1;&#x7684;IK&#x5206;&#x8BCD;&#xFF0C;&#x8FD8;&#x6709;&#x7CBE;&#x786E;&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF0C;&#x6BD4;&#x5982;ETL&#x4FDD;&#x5B58;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#xFF0C;&#x7F13;&#x5B58;nested&#x7ED3;&#x6784;&#x4F53;&#x7B49;&#x529F;&#x80FD;&#x3002;&#x6BD4;&#x5982;&#x6211;&#x7684;&#x67D0;&#x4E2A;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x6709;100&#x591A;&#x4E2A;properties&#x90FD;&#x9700;&#x8981;&#x652F;&#x6301;&#x68C0;&#x7D22;&#x3002;&#x5982;&#x679C;&#x7528;&#x4F20;&#x7EDF;&#x6570;&#x636E;&#x5E93;&#x5B9E;&#x73B0;&#xFF0C;&#x80AF;&#x5B9A;&#x7D2F;&#x6B7B;&#x7684;&#xFF0C;&#x8FD9;&#x79CD;&#x7CBE;&#x786E;&#x641C;&#x7D22;&#x529F;&#x80FD;&#x9700;&#x8981;&#x4F7F;&#x7528;ElasticSearch&#x4E2D;&#x7684;NoSQL&#x529F;&#x80FD;(ElasticSearch as a NoSQL database)</p>
+<h4 id="keyword&#x7C7B;&#x578B;">Keyword&#x7C7B;&#x578B;</h4>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/keyword.html" target="_blank">Keyword</a>&#x7528;&#x4E8E;&#x641C;&#x7D22;&#x7CBE;&#x786E;&#x503C;(exact-value)&#xFF0C;&#x5B83;&#x5185;&#x90E8;&#x4E0D;&#x652F;&#x6301;&#x5206;&#x8BCD;&#xFF0C;&#x76F4;&#x63A5;&#x5B58;&#x50A8;&#x5230;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="explain.html" class="navigation navigation-prev " aria-label="Previous page: Explain调试">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="document/" class="navigation navigation-next " aria-label="Next page: 分词搜索">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"精确搜索","level":"1.3","depth":1,"next":{"title":"分词搜索","level":"1.4","depth":1,"path":"document/README.md","ref":"document/README.md","articles":[{"title":"分词","level":"1.4.1","depth":2,"path":"document/tokenizer.md","ref":"document/tokenizer.md","articles":[]},{"title":"权重","level":"1.4.2","depth":2,"path":"document/score.md","ref":"document/score.md","articles":[]}]},"previous":{"title":"Explain调试","level":"1.2","depth":1,"path":"explain.md","ref":"explain.md","articles":[]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/elastic/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"keyword.md","mtime":"2021-03-04T11:49:55.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:51:29.222Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

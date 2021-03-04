@@ -1,0 +1,763 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>位图索引 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="inverted-index.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+    
+    <li>
+        <a href="http://miao1007.github.io/gitbook" target="_blank" class="custom-link"><i class='fa fa-home'></i>  Home</a>
+    </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+    
+    
+
+<li class="chapter " data-level="1.1" data-path="../">
+    
+    <a href="../">
+        
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2" data-path="../dynamic-sql/">
+    
+    <a href="../dynamic-sql/">
+        
+                    
+                        <b>1.2.</b>
+                    
+                    动态SQL与LanguageDriver
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.2.1" data-path="../dynamic-sql/ognl.html">
+    
+    <a href="../dynamic-sql/ognl.html">
+        
+                    
+                        <b>1.2.1.</b>
+                    
+                    OGNL的简介
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.2" data-path="../dynamic-sql/xml-to-ast.html">
+    
+    <a href="../dynamic-sql/xml-to-ast.html">
+        
+                    
+                        <b>1.2.2.</b>
+                    
+                    XML如何转换为ASTNode
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.2.3" data-path="../dynamic-sql/dynamic-proxy.html">
+    
+    <a href="../dynamic-sql/dynamic-proxy.html">
+        
+                    
+                        <b>1.2.3.</b>
+                    
+                    执行与动态代理
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.3" data-path="../mapping/">
+    
+    <a href="../mapping/">
+        
+                    
+                        <b>1.3.</b>
+                    
+                    Nested映射实现
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.3.1" data-path="../mapping/impl.html">
+    
+    <a href="../mapping/impl.html">
+        
+                    
+                        <b>1.3.1.</b>
+                    
+                    映射实现
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.3.2" data-path="../mapping/merge-left-join.html">
+    
+    <a href="../mapping/merge-left-join.html">
+        
+                    
+                        <b>1.3.2.</b>
+                    
+                    如何合并LEFT-JOIN
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="1.4" data-path="../practice/">
+    
+    <a href="../practice/">
+        
+                    
+                        <b>1.4.</b>
+                    
+                    Mybatis实践与SQL优化
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="1.4.1" data-path="../practice/cache.html">
+    
+    <a href="../practice/cache.html">
+        
+                    
+                        <b>1.4.1.</b>
+                    
+                    L2 Cache
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.2" data-path="../practice/multi-join.html">
+    
+    <a href="../practice/multi-join.html">
+        
+                    
+                        <b>1.4.2.</b>
+                    
+                    多级联查
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.3" data-path="../practice/parent-child-tree.html">
+    
+    <a href="../practice/parent-child-tree.html">
+        
+                    
+                        <b>1.4.3.</b>
+                    
+                    Parent-child-id-tree
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="1.4.4" data-path="../practice/transaction.html">
+    
+    <a href="../practice/transaction.html">
+        
+                    
+                        <b>1.4.4.</b>
+                    
+                    事务
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    
+    <li class="header">Database</li>
+    
+    
+
+<li class="chapter " data-level="2.1" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>2.1.</b>
+                    
+                    Introduce
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.2" data-path="dds.html">
+    
+    <a href="dds.html">
+        
+                    
+                        <b>2.2.</b>
+                    
+                    分布式数据库
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.3" data-path="./">
+    
+    <a href="./">
+        
+                    
+                        <b>2.3.</b>
+                    
+                    索引
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter active" data-level="2.3.1" data-path="bitmap-index.html">
+    
+    <a href="bitmap-index.html">
+        
+                    
+                        <b>2.3.1.</b>
+                    
+                    位图索引
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.3.2" data-path="inverted-index.html">
+    
+    <a href="inverted-index.html">
+        
+                    
+                        <b>2.3.2.</b>
+                    
+                    NoSQL与倒排索引
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+<li class="chapter " data-level="2.4" data-path="../other/sql-explain.html">
+    
+    <a href="../other/sql-explain.html">
+        
+                    
+                        <b>2.4.</b>
+                    
+                    调试执行计划
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.5" data-path="transaction.html">
+    
+    <a href="transaction.html">
+        
+                    
+                        <b>2.5.</b>
+                    
+                    事务
+            
+        </a>
+        
+
+        
+        <ul class="articles">
+            
+
+<li class="chapter " data-level="2.5.1" data-path="transaction/readcommit.html">
+    
+    <a href="transaction/readcommit.html">
+        
+                    
+                        <b>2.5.1.</b>
+                    
+                    read commit
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.5.2" data-path="transaction/repeatable.html">
+    
+    <a href="transaction/repeatable.html">
+        
+                    
+                        <b>2.5.2.</b>
+                    
+                    Repeatable read
+            
+        </a>
+        
+
+        
+</li>
+
+<li class="chapter " data-level="2.5.3" data-path="transaction/serializable.html">
+    
+    <a href="transaction/serializable.html">
+        
+                    
+                        <b>2.5.3.</b>
+                    
+                    Serializable
+            
+        </a>
+        
+
+        
+</li>
+
+
+        </ul>
+        
+</li>
+
+
+    
+    
+    <li class="header">APPENDIX</li>
+    
+    
+
+<li class="chapter " data-level="3.1" data-path="../other/reference.html">
+    
+    <a href="../other/reference.html">
+        
+                    
+                        <b>3.1.</b>
+                    
+                    参考文献与Wiki
+            
+        </a>
+        
+
+        
+</li>
+
+
+    
+    <li class="divider"></li>
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >位图索引</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4F4D;&#x56FE;&#x7D22;&#x5F15;">&#x4F4D;&#x56FE;&#x7D22;&#x5F15;</h1>
+<p>&#x4F4D;&#x56FE;&#x7D22;&#x5F15;(Bitmap-Index)&#x662F;&#x4E00;&#x4E2A;&#x6027;&#x80FD;&#x5F3A;&#x5927;&#xFF0C;&#x4F46;&#x662F;&#x7A0D;&#x5FAE;&#x4F7F;&#x7528;&#x4E0D;&#x5F53;&#x5C31;&#x53CD;&#x800C;&#x964D;&#x4F4E;&#x6027;&#x80FD;&#x7684;&#x7D22;&#x5F15;&#x7C7B;&#x578B;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x7ED9;&#x679A;&#x4E3E;&#x505A;&#x7D22;&#x5F15;</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">FROM</span> INV_SKU_PHOHE <span class="hljs-keyword">WHERE</span> VENDOR <span class="hljs-keyword">IN</span> (<span class="hljs-string">&apos;HAUWEI&apos;</span>, <span class="hljs-string">&apos;XIAOMI&apos;</span>, <span class="hljs-string">&apos;APPLE&apos;</span>)
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x5C31;&#x7EDF;&#x8BA1;&#x4E86;&#x4E09;&#x4E2A;&#x5382;&#x5546;&#x7684;&#x5E93;&#x5B58;</p>
+<p>&#x4F4D;&#x56FE;&#x5728;&#x66F4;&#x65B0;&#x7D22;&#x5F15;&#x65F6;&#xFF0C;&#x662F;&#x6574;&#x4E2A;&#x8868;&#x90FD;&#x4F1A;&#x9501;&#x4F4F;&#xFF0C;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x6240;&#x6709;&#x7684;BitArray&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x53C8;&#x6CA1;&#x6709;&#x50CF;Redis&#x90A3;&#x6837;&#x7684;&#x6E10;&#x8FDB;&#x5F0F;rehash&#xFF0C;&#x56E0;&#x6B64;&#x76F8;&#x5BF9;&#x4E8E;B-tree&#x66F4;&#x91CD;&#xFF0C;&#x4E0D;&#x9002;&#x5408;&#x9891;&#x7E41;&#x8F93;&#x5165;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<h4 id="&#x751F;&#x6210;&#x7684;&#x7D22;&#x5F15;&#x4F8B;&#x5B50;">&#x751F;&#x6210;&#x7684;&#x7D22;&#x5F15;&#x4F8B;&#x5B50;</h4>
+<p>&#x6BD4;&#x5982;&#x6709;&#x5982;&#x4E0B;&#x6570;&#x636E;</p>
+<table>
+<thead>
+<tr>
+<th>RID</th>
+<th>NAME</th>
+<th>VENDOR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A</td>
+<td>HAUWEI</td>
+</tr>
+<tr>
+<td>2</td>
+<td>B</td>
+<td>XIAOMI</td>
+</tr>
+<tr>
+<td>3</td>
+<td>C</td>
+<td>HAUWEI</td>
+</tr>
+<tr>
+<td>4</td>
+<td>D</td>
+<td>HAUWEI</td>
+</tr>
+<tr>
+<td>5</td>
+<td>E</td>
+<td>APPLE</td>
+</tr>
+</tbody>
+</table>
+<p>&#x7531;&#x4E8E;&#x6709;&#x4E09;&#x4E2A;&#x7D22;&#x5F15;&#xFF0C;&#x5C06;&#x751F;&#x6210;&#x5982;&#x4E0B;&#x7D22;&#x5F15;(&#x6CE8;&#x610F;&#x4E0B;&#x6587;Bit-Array&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>R1</th>
+<th>R2</th>
+<th>R3</th>
+<th>R4</th>
+<th>R5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HAUWEI</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>XIAOMI</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>APPLE</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Bit-Array</td>
+<td>0001</td>
+<td>0010</td>
+<td>0001</td>
+<td>0001</td>
+<td>0100</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6700;&#x7EC8;&#x5F53;&#x641C;&#x7D22;<code>HUAWEI</code>&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x8FDB;&#x884C;BIT-OR&#x8FD0;&#x7B97;</p>
+<table>
+<thead>
+<tr>
+<th>QUERY</th>
+<th>ROW</th>
+<th>bitwise-OR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0001</td>
+<td>0001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0001</td>
+<td>0010</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0001</td>
+<td>0001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0001</td>
+<td>0001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0001</td>
+<td>0100</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x67E5;&#x51FA;&#x6765;&#x4E86;&#xFF0C;&#x7531;&#x4E8E;Bitwise&#x8FD0;&#x7B97;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x56E0;&#x6B64;&#x67E5;&#x8BE2;&#x901F;&#x5EA6;&#x8F83;&#x5FEB;</p>
+<h4 id="&#x4F7F;&#x7528;&#x573A;&#x666F;">&#x4F7F;&#x7528;&#x573A;&#x666F;</h4>
+<p>&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x9AD8;&#x8BFB;&#x4F4E;&#x5199;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x665A;&#x4E0A;&#x79BB;&#x7EBF;&#x751F;&#x6210;&#xFF0C;&#x4F46;&#x662F;&#x975E;&#x5B9E;&#x65F6;&#x6570;&#x636E;</p>
+<ul>
+<li>&#x6570;&#x636E;&#x4ED3;&#x5E93;(data warehouses)&#xFF0C;&#x6BD4;&#x5982;BOM&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5361;&#x53F7;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x91C7;&#x8D2D;&#x6570;&#x636E;&#x5E93;</li>
+<li>&#x62A5;&#x8868;&#x751F;&#x6210;&#x4E0E;&#x67E5;&#x8BE2;&#x4E1A;&#x52A1;</li>
+</ul>
+<h4 id="&#x66FF;&#x4EE3;&#x5DE5;&#x5177;alternative">&#x66FF;&#x4EE3;&#x5DE5;&#x5177;(alternative)</h4>
+<p>Elastic&#x7B49;&#x5168;&#x6587;&#x68C0;&#x7D22;&#x5DE5;&#x5177;&#x7684;<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/keyword.html" target="_blank">keyword</a>&#x7C7B;&#x578B;&#xFF0C;&#x5B83;&#x5C06;&#x4E0D;&#x8FDB;&#x884C;&#x5206;&#x8BCD;(not_analyzed)&#x800C;&#x7CBE;&#x786E;&#x5B58;&#x50A8;</p>
+<pre><code class="lang-http">PUT inv_sku_phone
+{
+  &quot;mappings&quot;: {
+    &quot;_doc&quot;: {
+      &quot;properties&quot;: {
+        &quot;vendor&quot;: {
+          &quot;type&quot;:  &quot;keyword&quot;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 索引">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="inverted-index.html" class="navigation navigation-next " aria-label="Next page: NoSQL与倒排索引">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"位图索引","level":"2.3.1","depth":2,"next":{"title":"NoSQL与倒排索引","level":"2.3.2","depth":2,"path":"datebase/inverted-index.md","ref":"datebase/inverted-index.md","articles":[]},"previous":{"title":"索引","level":"2.3","depth":1,"path":"datebase/index.md","ref":"datebase/index.md","articles":[{"title":"位图索引","level":"2.3.1","depth":2,"path":"datebase/bitmap-index.md","ref":"datebase/bitmap-index.md","articles":[]},{"title":"NoSQL与倒排索引","level":"2.3.2","depth":2,"path":"datebase/inverted-index.md","ref":"datebase/inverted-index.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["ga","sitemap-general","html-minifier","-sharing","-fontsettings","search","graphviz-and-plant-uml"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"disqus":{"shortName":"miao1007"},"search":{},"graphviz-and-plant-uml":{"Render":"PlantUMLServer","Server":"http://www.plantuml.com/plantuml"},"html-minifier":{"customAttrSurround":[],"removeScriptTypeAttributes":false,"removeEmptyAttributes":false,"removeRedundantAttributes":false,"removeEmptyElements":true,"sortClassName":true,"caseSensitive":true,"html5":true,"collapseWhitespace":true,"processConditionalComments":false,"quoteCharacter":null,"keepClosingSlash":true,"preventAttributesEscaping":false,"minifyURLs":false,"removeAttributeQuotes":false,"decodeEntities":false,"trimCustomFragments":false,"customAttrAssign":[],"includeAutoGeneratedTags":true,"collapseInlineTagWhitespace":true,"collapseBooleanAttributes":true,"minifyJS":true,"removeTagWhitespace":true,"preserveLineBreaks":false,"sortAttributes":true,"removeStyleLinkTypeAttributes":false,"removeComments":true,"minifyCSS":true,"processScripts":[],"conservativeCollapse":true,"removeOptionalTags":false,"useShortDoctype":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://miao1007.github.io/gitbook/mybatis/"},"highlight":{},"ga":{"configuration":"auto","token":"UA-102296742-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"homePage":"http://miao1007.github.io/gitbook"},"links":{"sharing":{"all":null,"facebook":null,"google":null,"twitter":null,"weibo":null},"sidebar":{"<i class='fa fa-home'></i>  Home":"http://miao1007.github.io/gitbook"}},"gitbook":"*"},"file":{"path":"datebase/bitmap-index.md","mtime":"2021-03-04T11:49:55.327Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-04T11:52:20.115Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+
