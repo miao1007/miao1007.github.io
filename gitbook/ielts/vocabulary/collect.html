@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>收集单词源</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../vocabulary/background.html"><strong aria-hidden="true">2.</strong> 背景</a></li><li class="chapter-item expanded "><a href="../vocabulary/tools.html"><strong aria-hidden="true">3.</strong> Tools</a></li><li class="chapter-item expanded "><a href="../vocabulary/collect.html" class="active"><strong aria-hidden="true">4.</strong> 收集单词源</a></li><li class="chapter-item expanded "><a href="../vocabulary/analyse.html"><strong aria-hidden="true">5.</strong> 分析单词</a></li><li class="chapter-item expanded "><a href="../vocabulary/memorization.html"><strong aria-hidden="true">6.</strong> 记忆单词</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../vocabulary/numbers.html"><strong aria-hidden="true">6.1.</strong> 数字</a></li></ol></li><li class="chapter-item expanded "><a href="../sentences/pronounciation.html"><strong aria-hidden="true">7.</strong> sentences</a></li><li class="chapter-item expanded "><a href="../ielts.html"><strong aria-hidden="true">8.</strong> Background</a></li><li class="chapter-item expanded "><a href="../listening/index.html"><strong aria-hidden="true">9.</strong> Listening</a></li><li class="chapter-item expanded "><a href="../reading/index.html"><strong aria-hidden="true">10.</strong> Reading</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../reading/upper-case-titles.html"><strong aria-hidden="true">10.1.</strong> 大写标题</a></li></ol></li><li class="chapter-item expanded "><a href="../writing/index.html"><strong aria-hidden="true">11.</strong> Writing</a></li><li class="chapter-item expanded "><a href="../Talking/index.html"><strong aria-hidden="true">12.</strong> Talking</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../Talking/trip.html"><strong aria-hidden="true">12.1.</strong> Trip</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="录入单词源"><a class="header" href="#录入单词源">录入单词源</a></h1>
+<p>在电影《The Death of Stalin》中，赫鲁晓夫与斯大林等人喝醉回家后，会让妻子为他记录酒桌上他的每一句话是否使斯大林开心(Framer, Navy, Funny)，并在第二天早上进行“复习”。这里电影的本意是形容赫鲁晓夫处心积虑的讨好上级，实际上抛开人物，这种记录本质上就是对斯大林性格的录入，然后再学习的过程。</p>
+<p>回到英文单词，很多人可能会说“我听了很多美剧与VOA”，“我从abandon背了好久”，但是仍然没有学好，这里问题的本质就是你缺少录入数据的步骤。</p>
+<h2 id="选择数据源datalake"><a class="header" href="#选择数据源datalake">选择数据源(DataLake)</a></h2>
+<p>数据源也就是单词的来源，这些数据源可能只经过简单的整理，但是不一定适用于自身，按懒人程度排序如下</p>
+<p>偏应试方向的</p>
+<ul>
+<li>单词软件中的XX必备5000个</li>
+<li>考试真题</li>
+</ul>
+<p>偏应用方法</p>
+<ul>
+<li>短篇的中等难度的英文文章，比如包装说明书，技术文档，Medium，Glassdoor的口语化评论（标准的pros, cons and Advice，特别适合吃瓜）</li>
+<li>短篇的较难文章，比如NY Times/Nature/WikiPedia等</li>
+<li>英文电影/VOA/歌曲(主要练习连读)</li>
+<li>长篇的英文书籍</li>
+</ul>
+<p>上述选项并没有说哪个更好，各位可以把每一个都走一遍</p>
+<h4 id="不要预设过高难度"><a class="header" href="#不要预设过高难度">不要预设过高难度</a></h4>
+<p>不要给自己初步就设置太难的目标，先保证自己在简单文章不要犯错。比如直接阅读纽约时报这种新闻这种方法就不太适合，无论它是不是Fake News，这类一般文章有深度，看中文都比较吃力，你需要拥有一些金融或者政治上下文才能看懂，这种阅读方法将导致频繁的查询字典，形成较大的挫败感，难以长期维持。同时这类文章非常喜欢使用后置定语，导致大脑将Token分词后解析为AST的过程非常痛苦，后期通过短语记忆单词较困难。</p>
+<h4 id="要有阅读上下文"><a class="header" href="#要有阅读上下文">要有阅读上下文</a></h4>
+<p>内容一定是自己有兴趣(adoration)的内容或者工作中遇到的问题才行，带着上下文阅读效果更好，不建议一上来就开始做题。比如我喜爱某个电影，对它反复看，直到能够听懂，然后去看漫画，看小说；我个人在IT工作中经常涉及到业务的领域背景，通过这些背景看IEEE，英文维基百科等较专业的文档也能大致看懂；</p>
+<h4 id="个人推荐"><a class="header" href="#个人推荐">个人推荐</a></h4>
+<p>我个人更加偏向于阅读漫画，一般来说漫画是多人对话，句子不会太长，很容易通过短语录入词汇，</p>
+<h2 id="度量metric"><a class="header" href="#度量metric">度量(Metric)</a></h2>
+<h4 id="什么是度量"><a class="header" href="#什么是度量">什么是度量</a></h4>
+<p>任何事情如果想要做到优质，一般都要有度量，然后才有努力的动力，比如项目中用户验收的标准，考试的分数。单词也是一样，定下标准后长期执行，并对执行情况进行trial，可以避免各种模糊不清的问题。</p>
+<h4 id="单词的度量"><a class="header" href="#单词的度量">单词的度量</a></h4>
+<p>认真读懂听懂每一句话，然后给任何不明白的单词Mark等级。</p>
+<p>比如你在电脑上阅读一句维基百科的领域术语</p>
+<blockquote>
+<p>The dicing process can involve scribing and breaking, mechanical sawing or laser cutting</p>
+</blockquote>
+<p>这里以Eudic为例，搜索后加入生词，默认是一级，我们可以建立如下质量标准对自己的掌握进行度量，越低越陌生</p>
+<ul>
+<li>看懂但是不确定怎么读的单词（比如mechanical的读法）3分</li>
+<li>看懂一种含义，但是不适合当前语境的词（比如sawing这里就不是看见，而是锯子）2分</li>
+<li>看不懂的单词（比如从没见过的laser单词）1分</li>
+</ul>
+<p>最终希望尽可能实现<em>no mistake</em>，确保自己的训练能够准确的自我验收</p>
+<h2 id="单词录入"><a class="header" href="#单词录入">单词录入</a></h2>
+<p>以Mac桌面为例，单击按住选中的单词，然后鼠标拖进Eudic，然后查看解释。</p>
+<p>如果认为这个单词值得学习与录入，那么就在看完读完后，加入生词(直接<code>Command</code>+<code>Shift</code>+<code>A</code>即可)，如果你还有想说的话，那么就可以<code>Command</code>+<code>N</code>做笔记。</p>
+<p>独立的单词TOKEN是很难记住的，建议每个单词都加入短语</p>
+<h2 id="制定阅读计划schedule"><a class="header" href="#制定阅读计划schedule">制定阅读计划(Schedule)</a></h2>
+<p>4.85</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../vocabulary/tools.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../vocabulary/analyse.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../vocabulary/tools.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../vocabulary/analyse.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

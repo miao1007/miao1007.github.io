@@ -1,0 +1,407 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>PriorityQueue</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduce</a></li><li class="chapter-item expanded "><a href="../number/index.html"><strong aria-hidden="true">2.</strong> Number</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../number/bignumber.html"><strong aria-hidden="true">2.1.</strong> BigNumber</a></li></ol></li><li class="chapter-item expanded "><a href="../string/index.html"><strong aria-hidden="true">3.</strong> String</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../string/editdistance.html"><strong aria-hidden="true">3.1.</strong> EditDistance</a></li><li class="chapter-item expanded "><a href="../string/literal-expression.html"><strong aria-hidden="true">3.2.</strong> Literal-expression</a></li><li class="chapter-item expanded "><a href="../string/similar.html"><strong aria-hidden="true">3.3.</strong> Similar</a></li></ol></li><li class="chapter-item expanded "><a href="../map/index.html"><strong aria-hidden="true">4.</strong> Map</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../map/hashmap.html"><strong aria-hidden="true">4.1.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="../map/currenthashmap.html"><strong aria-hidden="true">4.2.</strong> CurrentHashMap(zk)</a></li><li class="chapter-item expanded "><a href="../map/copyonwritemap.html"><strong aria-hidden="true">4.3.</strong> CopyonWritMap(zk)</a></li><li class="chapter-item expanded "><a href="../map/lrumap.html"><strong aria-hidden="true">4.4.</strong> LinkedHashMap(LRU)</a></li></ol></li><li class="chapter-item expanded "><a href="../tree/index.html"><strong aria-hidden="true">5.</strong> Tree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/traverse/index.html"><strong aria-hidden="true">5.1.</strong> Traverse</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/traverse/dfs.html"><strong aria-hidden="true">5.1.1.</strong> Depth-First</a></li><li class="chapter-item expanded "><a href="../tree/traverse/bfs.html"><strong aria-hidden="true">5.1.2.</strong> Breed-First</a></li></ol></li><li class="chapter-item expanded "><a href="../tree/b-tree/index.html"><strong aria-hidden="true">5.2.</strong> BinaryTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/b-tree/binarytree.html"><strong aria-hidden="true">5.2.1.</strong> BasicBinaryTree</a></li><li class="chapter-item expanded "><a href="../tree/b-tree/binarysearchtree/index.html"><strong aria-hidden="true">5.2.2.</strong> BinarySearchTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/b-tree/binarysearchtree/redblacktree.html"><strong aria-hidden="true">5.2.2.1.</strong> RedBlackTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/redblack-and-avl-tree.html"><strong aria-hidden="true">5.2.2.1.1.</strong> Redblack and AVL Tree</a></li><li class="chapter-item expanded "><a href="../tree/treemap.html"><strong aria-hidden="true">5.2.2.1.2.</strong> TreeMap</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../tree/heap.html"><strong aria-hidden="true">5.3.</strong> Heap</a></li><li class="chapter-item expanded "><a href="../tree/treeset.html"><strong aria-hidden="true">5.4.</strong> TreeSet</a></li></ol></li><li class="chapter-item expanded "><a href="../quene/index.html"><strong aria-hidden="true">6.</strong> Quene</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../quene/dequeue.html"><strong aria-hidden="true">6.1.</strong> Deque</a></li><li class="chapter-item expanded "><a href="../quene/priorityqueue.html" class="active"><strong aria-hidden="true">6.2.</strong> PriorityQueue</a></li></ol></li><li class="chapter-item expanded "><a href="../list/index.html"><strong aria-hidden="true">7.</strong> List</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../list/arr-linked-list.html"><strong aria-hidden="true">7.1.</strong> Array&amp;LinkedList</a></li><li class="chapter-item expanded "><a href="../list/skiplist.html"><strong aria-hidden="true">7.2.</strong> SkipList</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>优先队列</p>
+<hr />
+<p>优先队列基于<a href="https://en.wikipedia.org/wiki/Heap_%28data_structure%29">堆(Heap)</a>，是一种通过优先级进行调度的策略。在输入元素时，将通过Comparable实现优先级的对比，进而实现按照优先级“插队”的调度，举个例子</p>
+<ul>
+<li>Picasso在加载图片时内部的线程池使用了优先队列进行线程的调度，进而实现多个不同图片优先级的显示（这里通过优先队列实现了OkHttp的网络请求）。更广泛地说，只要涉及到调度策略，肯定要与优先队列有关系。</li>
+<li>MQ中间件: 在后台的订单派发、抢购活动中，基本上都涉及到MQ的优先级</li>
+<li>同样在笔试中，用于解决TopK问题</li>
+</ul>
+<p>为了简化目标，本文仅分析JDK(基于1.8.0_101)下 <em>PriorityQueue</em> 的入队与出队操作。</p>
+<h2 id="什么是优先队列"><a class="header" href="#什么是优先队列">什么是优先队列？</a></h2>
+<p>优先队列(PriorityQueue)由堆(<em>heap</em>)构成，即一个<a href="https://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees">完全二叉树</a>，在本文中，子(<em>child</em>)节点总是小于父(<em>parent</em>)节点。</p>
+<pre><code>     2
+ 3      5
+5 7   6
+
+`(3 `(3 5 7) `(5 6))
+</code></pre>
+<p>在JDK实现的PriorityQueue中，当输入元素时，首先将元素放到最下层的叶节点（数组的末尾），接着<strong>从叶节点向上爬</strong>，并取代比它小的元素；当移除元素时，首先移除最高的根节点，然后下面向上填坑，由下面的小元素将它取而代之。</p>
+<blockquote>
+<p>“堆”密度大的沉在下面，密度小的飘到上面。</p>
+</blockquote>
+<h4 id="heap与bst的区别"><a class="header" href="#heap与bst的区别">HEAP与BST的区别</a></h4>
+<p>假设这是一个树``(p l r)`</p>
+<ul>
+<li>BST需要保证 l &lt; p &lt; r</li>
+<li>而Heap需要保证 p &lt; (or l r)，同级的排序不涉及，因此设计与插入维护更加简单</li>
+</ul>
+<h4 id="入队操作"><a class="header" href="#入队操作">入队操作</a></h4>
+<p>入队是最常见的操作，将数据放到堆的末端叶子，一般用于生产者，比如将一个含优先级的请求放入线程池，必须实现<em>Comparable</em>或者<em>Comparator</em>接口。源代码如下</p>
+<pre><code class="language-java">//添加元素到队尾
+public boolean offer(E e) {
+  if (e == null)
+    throw new NullPointerException();
+  modCount++;
+  int i = size;
+  //如果需要扩容
+  if (i &gt;= queue.length)
+    // 通过System.arraycopy 扩容加一
+    grow(i + 1);
+  size = i + 1;
+  if (i == 0)
+    queue[0] = e;
+  els
+    siftUp(i, e);
+  return true;
+}
+</code></pre>
+<p>在siftUp中代码如下，通过此处可以看出，JDK中默认采用的是小堆(Heaps where the parent key is less than the child keys are called <em>min-heaps</em>)，也就是堆顶(<em>queue[0]</em>)是数组中最小的值，接着调用了 <em>siftUp</em> 方法进行“升迁”排序，具体实现如下</p>
+<pre><code class="language-java">//如果小于Parent，就替换掉它
+//k: queue.size();
+//E: Data to insert
+private void siftUpComparable(int k, E x) {
+  Comparable&lt;? super E&gt; key = (Comparable&lt;? super E&gt;) x;
+  // 首与parent对比，如果比它小或等，就替换掉。
+  while (k &gt; 0) {
+    int parent = (k - 1) &gt;&gt;&gt; 1;//也就是 除以2
+    Object e = queue[parent];
+    if (key.compareTo((E) e) &gt;= 0)
+      break;
+    queue[k] = e;
+    k = parent;
+  }
+  queue[k] = key;
+}
+</code></pre>
+<p>举个例子，比如我要依次插入<code>[6,3,7,9,2,1]</code>，Scheme代码如下</p>
+<pre><code class="language-scheme">(offer () 6) = (6 nil nil)
+(offer (6) 3) = (3 6 nil)
+(offer (3 6) 7) = (3 6 7)
+(offer (3 6 7) 9) = (3 (2 9 nil) 7)
+(offer (3 (6 9 nil) 7) 2) = (2 (3 9 6) 7)
+(offer (2 (3 9 6) 7) 1) = (1 (3 9 6) (2 7 nil))
+</code></pre>
+<p>从上面的例子可以看出，第一个元素，也就是根节点总是最小的值，这个<code>sitfup</code>也就是插队的流程。</p>
+<blockquote>
+<p>这里也可以看出，优先队列内部并不是全量依次排序的</p>
+</blockquote>
+<h3 id="提取元素"><a class="header" href="#提取元素">提取元素</a></h3>
+<p>此场景在消费者中经常使用，从堆顶中拿出最小的元素，空缺位置从下向上依此提拔。</p>
+<pre><code class="language-java">public E poll() {
+  if (size == 0)
+    return null;
+  int s = --size;
+  modCount++;
+  //队首最小的元素
+  E result = queue[0];
+  //队尾元素
+  E x = queue[s];
+  queue[s] = null;
+  if (s != 0)
+    //开始内部替换，并取而代之queue[0]
+    siftDown(0, x);
+  return result;
+}
+</code></pre>
+<p>具体套路是这样的</p>
+<pre><code class="language-java">//k=0 x=leaf, 
+private void siftDownComparable(int k, E x) {
+  int half = size &gt;&gt;&gt; 1;        // loop while a non-leaf
+  //不断向下
+  while (k &lt; half) {
+    // getSmallerChild start
+    int child = (k &lt;&lt; 1) + 1; // assume left child is least
+    E c = queue[child];
+    int right = child + 1;
+    if (right &lt; size &amp;&amp; c.compareTo(queue[right]) &gt; 0){
+      c = queue[child = right];      
+    }
+    // getSmallerChild end
+    if (x.compareTo(c) &lt;= 0)
+      break;
+    queue[k] = c;
+    k = child;
+  }
+  queue[k] = x;
+}
+</code></pre>
+<p>总之，这个与公司的职级晋升很像。</p>
+<h2 id="优先队列的迭代"><a class="header" href="#优先队列的迭代">优先队列的迭代</a></h2>
+<p>优先队列的默认实现是数组从左到右边依此输出，等价于树(从左到右的)广度遍历BFS，但是由于左右叶子没有规范大小，因此输出是毫无意义的。<strong>唯一有意义的就是最小值<code>queue[0]</code></strong>，因此如果需要排序结果，那么只能用循环实现，而且还只能从小到大 （或者像下面这样从0插入）。</p>
+<pre><code class="language-java">//descending order
+public &lt;T, R&gt; List&lt;R&gt; itrQueueDesc(Queue&lt;T&gt; queue, Function&lt;T, R&gt; function) {
+  List&lt;R&gt; list = new ArrayList&lt;&gt;(); //array runs faster than the link in LeetCode, haha
+  while (!queue.isEmpty()) {
+    T poll = queue.poll();
+    list.add(0, function.apply(poll));
+  }
+  return list;
+}
+</code></pre>
+<blockquote>
+<p>toString 也是同理，没有输出意义</p>
+</blockquote>
+<h2 id="oj的topk例子"><a class="header" href="#oj的topk例子">OJ的TopK例子</a></h2>
+<p>维护一个固定长度为K的队列，时间复杂度为logN，占用内存为N</p>
+<pre><code class="language-java">//215. Kth Largest Element in an Array https://leetcode.com/problems/kth-largest-element-in-an-array/
+public &lt;T&gt; Queue&lt;T&gt; fixedQueue(Collection&lt;T&gt; ts, int k, Comparator&lt;T&gt; comparator) {
+  Queue&lt;T&gt; queue = new PriorityQueue&lt;&gt;(k, comparator);
+  for (T t : ts) {
+    // 此处有判断size再插入的方法，但是性能差距不大
+    queue.add(t);
+    if (queue.size() &gt; k) {
+      queue.poll();
+    }
+  }
+  return queue;
+}
+</code></pre>
+<h2 id="oj的wordfreq问题"><a class="header" href="#oj的wordfreq问题">OJ的WordFreq问题</a></h2>
+<p>词频统计(CountBy)，先GroupBy，后TopN，注意这个与Elastic的InvertedIndex是没有关系的</p>
+<pre><code class="language-java">// 688. https://leetcode.com/problems/top-k-frequent-words
+public List&lt;String&gt; topKFrequent(String[] words, int k) {
+  // count by 
+  // 此部分在Eureka的一致性Hash中也有出现，用于校验增量更新，比如UP_3_DOWN_2
+  Map&lt;String, Long&gt; collect = new HashMap&lt;&gt;();
+  for (String w : words) {
+    collect.put(w, collect.getOrDefault(w, 0l) + 1);
+  }
+  Queue&lt;Map.Entry&lt;String, Long&gt;&gt; queue = fixedQueue(collect.entrySet(), k, 
+    (newVal, oldVal) -&gt; {
+      //  from highest to lowest
+      int i = newVal.getValue().compareTo(oldVal.getValue());
+      if (i == 0) {
+        return oldVal.getKey().compareTo(newVal.getKey()); //lower alphabetical comes first
+      }
+      return i;
+  });
+  return itrQueueDesc(queue, Map.Entry::getKey);
+}
+</code></pre>
+<p>此外还有基于Redis的<a href="https://leetcode.com/problems/top-k-frequent-words/discuss/294424/Redis-based-TopN">ZSET</a>的实现</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../quene/dequeue.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../list/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../quene/dequeue.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../list/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

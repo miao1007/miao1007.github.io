@@ -1,0 +1,913 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>N4</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="favors.html"><strong aria-hidden="true">1.</strong> 授受关系(favors)</a></li><li class="chapter-item expanded "><a href="conjugation/变形.html"><strong aria-hidden="true">2.</strong> 变形</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="conjugation/敬体与简体.html"><strong aria-hidden="true">2.1.</strong> 敬体与简体</a></li><li class="chapter-item expanded "><a href="conjugation/adj.html"><strong aria-hidden="true">2.2.</strong> adj</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="conjugation/adj/i.html"><strong aria-hidden="true">2.2.1.</strong> adj-i</a></li></ol></li><li class="chapter-item expanded "><a href="conjugation/inflections.html"><strong aria-hidden="true">2.3.</strong> 动词变形</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="conjugation/vdict.html"><strong aria-hidden="true">2.3.1.</strong> 辞書形</a></li><li class="chapter-item expanded "><a href="conjugation/vmasu.html"><strong aria-hidden="true">2.3.2.</strong> ます形</a></li><li class="chapter-item expanded "><a href="conjugation/vte.html"><strong aria-hidden="true">2.3.3.</strong> て形</a></li><li class="chapter-item expanded "><a href="conjugation/vnai.html"><strong aria-hidden="true">2.3.4.</strong> ない形</a></li><li class="chapter-item expanded "><a href="conjugation/vta.html"><strong aria-hidden="true">2.3.5.</strong> た形</a></li><li class="chapter-item expanded "><a href="conjugation/ikoukei.html"><strong aria-hidden="true">2.3.6.</strong> 意向形(いこうけい)</a></li><li class="chapter-item expanded "><a href="conjugation/meirei.html"><strong aria-hidden="true">2.3.7.</strong> 命令形(めいれいけい)</a></li><li class="chapter-item expanded "><a href="conjugation/kanou.html"><strong aria-hidden="true">2.3.8.</strong> 可能形(かのうけい)</a></li><li class="chapter-item expanded "><a href="conjugation/shieki.html"><strong aria-hidden="true">2.3.9.</strong> 使役形(しえきけい)</a></li><li class="chapter-item expanded "><a href="conjugation/ukemi.html"><strong aria-hidden="true">2.3.10.</strong> 受け身(うけみ)</a></li><li class="chapter-item expanded "><a href="conjugation/shiekiukemi.html"><strong aria-hidden="true">2.3.11.</strong> 使役受け身(しえきうけみ)</a></li><li class="chapter-item expanded "><a href="conjugation/kateikei.html"><strong aria-hidden="true">2.3.12.</strong> 仮定形(かていけい)</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="compose/index.html"><strong aria-hidden="true">3.</strong> 组合助词</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="compose/nested/nested.html"><strong aria-hidden="true">3.1.</strong> 嵌套</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="compose/nested/tokorodesu.html"><strong aria-hidden="true">3.1.1.</strong> ところです</a></li><li class="chapter-item expanded "><a href="compose/nested/niyoruto.html"><strong aria-hidden="true">3.1.2.</strong> によると</a></li><li class="chapter-item expanded "><a href="compose/nested/nitsuite.html"><strong aria-hidden="true">3.1.3.</strong> について</a></li><li class="chapter-item expanded "><a href="compose/nested/niyotte.html"><strong aria-hidden="true">3.1.4.</strong> によって</a></li></ol></li><li class="chapter-item expanded "><a href="compose/compose.html"><strong aria-hidden="true">3.2.</strong> 复句</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="compose/if/if.html"><strong aria-hidden="true">3.2.1.</strong> 条件&amp;原因</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="compose/if/fact.html"><strong aria-hidden="true">3.2.1.1.</strong> 必然</a></li><li class="chapter-item expanded "><a href="compose/if/aeni.html"><strong aria-hidden="true">3.2.1.2.</strong> 前に</a></li><li class="chapter-item expanded "><a href="compose/if/to.html"><strong aria-hidden="true">3.2.1.3.</strong> と</a></li><li class="chapter-item expanded "><a href="compose/if/nara.html"><strong aria-hidden="true">3.2.1.4.</strong> なら</a></li><li class="chapter-item expanded "><a href="compose/if/tara.html"><strong aria-hidden="true">3.2.1.5.</strong> たら</a></li><li class="chapter-item expanded "><a href="compose/if/node.html"><strong aria-hidden="true">3.2.1.6.</strong> ので</a></li><li class="chapter-item expanded "><a href="compose/if/noni.html"><strong aria-hidden="true">3.2.1.7.</strong> のに</a></li><li class="chapter-item expanded "><a href="compose/if/sorete.html"><strong aria-hidden="true">3.2.1.8.</strong> それて</a></li></ol></li><li class="chapter-item expanded "><a href="compose/and/and.html"><strong aria-hidden="true">3.2.2.</strong> 并列</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="compose/and/shi.html"><strong aria-hidden="true">3.2.2.1.</strong> し</a></li><li class="chapter-item expanded "><a href="compose/and/toka.html"><strong aria-hidden="true">3.2.2.2.</strong> とか</a></li></ol></li><li class="chapter-item expanded "><a href="compose/change/change.html"><strong aria-hidden="true">3.2.3.</strong> 变化</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="compose/change/ninaru.html"><strong aria-hidden="true">3.2.3.1.</strong> になる</a></li><li class="chapter-item expanded "><a href="compose/change/teiku.html"><strong aria-hidden="true">3.2.3.2.</strong> ていく</a></li><li class="chapter-item expanded "><a href="compose/change/tekuru.html"><strong aria-hidden="true">3.2.3.3.</strong> てくる</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="compose/uncatalogued/uncatalogued.html"><strong aria-hidden="true">3.3.</strong> uncatalogued</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="compose/uncatalogued/koto.html"><strong aria-hidden="true">3.3.1.</strong> こと</a></li><li class="chapter-item expanded "><a href="compose/uncatalogued/demo.html"><strong aria-hidden="true">3.3.2.</strong> でも</a></li><li class="chapter-item expanded "><a href="compose/uncatalogued/tokoru.html"><strong aria-hidden="true">3.3.3.</strong> ところ</a></li><li class="chapter-item expanded "><a href="compose/uncatalogued/temo.html"><strong aria-hidden="true">3.3.4.</strong> ても</a></li><li class="chapter-item expanded "><a href="compose/uncatalogued/made.html"><strong aria-hidden="true">3.3.5.</strong> まで</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="sentense/通用句.html"><strong aria-hidden="true">4.</strong> 非语法的常见句</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sentense/观点.html"><strong aria-hidden="true">4.1.</strong> 观点</a></li><li class="chapter-item expanded "><a href="sentense/wish.html"><strong aria-hidden="true">4.2.</strong> 意愿</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="sentense/wish/kotoni.html"><strong aria-hidden="true">4.2.1.</strong> にする</a></li><li class="chapter-item expanded "><a href="compose/uncatalogued/mitai.html"><strong aria-hidden="true">4.2.2.</strong> みたい</a></li><li class="chapter-item expanded "><a href="sentense/wish/tsumori.html"><strong aria-hidden="true">4.2.3.</strong> つもり</a></li><li class="chapter-item expanded "><a href="sentense/wish/tameni.html"><strong aria-hidden="true">4.2.4.</strong> ために</a></li><li class="chapter-item expanded "><a href="sentense/wish/garu.html"><strong aria-hidden="true">4.2.5.</strong> がる</a></li></ol></li><li class="chapter-item expanded "><a href="sentense/お世話.html"><strong aria-hidden="true">4.3.</strong> お世話</a></li><li class="chapter-item expanded "><a href="sentense/gasuru.html"><strong aria-hidden="true">4.4.</strong> がする</a></li></ol></li><li class="chapter-item expanded "><a href="word/word.html"><strong aria-hidden="true">5.</strong> 单字</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="word/性别.html"><strong aria-hidden="true">5.1.</strong> 性别</a></li><li class="chapter-item expanded "><a href="word/polite.html"><strong aria-hidden="true">5.2.</strong> polite</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="word/degozaimasu.html"><strong aria-hidden="true">5.2.1.</strong> でございます</a></li></ol></li><li class="chapter-item expanded "><a href="word/sa.html"><strong aria-hidden="true">5.3.</strong> さ</a></li><li class="chapter-item expanded "><a href="word/reduplication.html"><strong aria-hidden="true">5.4.</strong> 畳語（じょうご）</a></li><li class="chapter-item expanded "><a href="word/other.html"><strong aria-hidden="true">5.5.</strong> others</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="word/other/yotei.html"><strong aria-hidden="true">5.5.1.</strong> 予定</a></li><li class="chapter-item expanded "><a href="word/other/henji.html"><strong aria-hidden="true">5.5.2.</strong> 返事</a></li><li class="chapter-item expanded "><a href="word/other/okureru.html"><strong aria-hidden="true">5.5.3.</strong> 遅れる</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="tags.html">Tags</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">N4</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <blockquote><p> 课本页面: 83</p></blockquote>
+<ul>
+<li>
+<p><a href="http://www.guidetojapanese.org/learn/grammar/favors">http://www.guidetojapanese.org/learn/grammar/favors</a></p>
+<p><a href="https://www.tomojuku.com/blog/jujumono/6-2/">https://www.tomojuku.com/blog/jujumono/6-2/</a></p>
+<p><a href="https://www.tomojuku.com/blog/jujumono/2-2/">https://www.tomojuku.com/blog/jujumono/2-2/</a></p>
+</li>
+</ul>
+<p>给</p>
+<p>中文：被/把</p>
+<p>英文：is send</p>
+<p>目上の人/親密度の低い人</p>
+<h1 id="我"><a class="header" href="#我">我</a></h1>
+<h3 id="我给他人"><a class="header" href="#我给他人">我给他人</a></h3>
+<p>我给同级人：（天気の子：汉堡）あげる，内緒（ないしょ）ね</p>
+<p>我给目下の人/花草/动物：やる（）</p>
+<p>别人给我：くれる</p>
+<p>我给别人买礼物</p>
+<h4 id="我收到他人"><a class="header" href="#我收到他人">我收到他人</a></h4>
+<p>我收到同级人：もらう</p>
+<p>我收到目下の人：もらう</p>
+<p>我收到目上の人: いただきます　私はxxに仕事をいただきます</p>
+<p>依頼を受ける</p>
+<p>ごめんね、君の気持をちもらう</p>
+<blockquote>
+<p>注意这里与持っていく很类似</p>
+</blockquote>
+<h2 id="第三者与第三者"><a class="header" href="#第三者与第三者">第三者与第三者</a></h2>
+<p>A给目下のB: やる（A角度）</p>
+<p>A给B：あげる（A角度）</p>
+<p>A给目上のB: さしあげます（A角度，过于客气疏远）</p>
+<p>A给目下のB: くださいます（B角度）</p>
+<p>A给B：くれる（B角度）</p>
+<p>A给目上のB: くれる（B角度）</p>
+<h3 id="从别人收到"><a class="header" href="#从别人收到">从别人收到</a></h3>
+<p>主語（しゅご）が受け手（うけて）</p>
+<h2 id="帮助干事情"><a class="header" href="#帮助干事情">帮助干事情</a></h2>
+<h2 id="求助"><a class="header" href="#求助">求助</a></h2>
+<p>誰か（私に）歌ってくれませんか？找一个人给我</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#あげる'>あげる</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#くれる'>くれる</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#もらう'>もらう</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="简体"><a class="header" href="#简体">简体</a></h2>
+<h4 id="什么时候用简体"><a class="header" href="#什么时候用简体">什么时候用简体</a></h4>
+<ul>
+<li>嵌套场景
+<ul>
+<li>从句</li>
+<li>观点（という）</li>
+<li>名词化（[小句]+の）</li>
+</ul>
+</li>
+<li>亲近关系（不用masu）</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="adj"><a class="header" href="#adj">adj</a></h1>
+<p>TBD</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h4 id="是否去掉i"><a class="header" href="#是否去掉i">是否去掉i</a></h4>
+<ul>
+<li>美味しい -&gt; 美味しくない</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="动词变形inflections"><a class="header" href="#动词变形inflections">动词变形（inflections）</a></h2>
+<p>共11种
+辞書形</p>
+<ul>
+<li>N5: ます(include 連用形)　て　な　た </li>
+<li>N4: 
+<ul>
+<li>初级难度
+<ul>
+<li>命令形</li>
+<li>可能形</li>
+<li>使役形</li>
+</ul>
+</li>
+<li>中级别
+<ul>
+<li>被动</li>
+</ul>
+</li>
+<li>高难度
+<ul>
+<li>使役被动</li>
+<li>假定</li>
+<li>意志</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>此外，还有一种用变形后的后缀来分类，适合举一反三，比如</p>
+<ul>
+<li>られる</li>
+<li>される</li>
+<li>xxx</li>
+</ul>
+<p>这种分类属于倒排索引，也最好都掌握</p>
+<h2 id="动词分类n5"><a class="header" href="#动词分类n5">动词分类（N5）</a></h2>
+<p>复习，按照发音分类</p>
+<ul>
+<li>一类（Iグループ）V1
+<ul>
+<li>*　＋　非ろ：話す、書く</li>
+<li>あ・う・お　＋　る</li>
+</ul>
+</li>
+<li>二类（IIグループ）V2
+<ul>
+<li>い・え　＋　る：起きる （咧嘴露牙的元音）</li>
+</ul>
+</li>
+<li>三类（IIIグループ）V3
+<ul>
+<li>する</li>
+<li>来（く）る</li>
+<li>汉字/外来语する</li>
+</ul>
+</li>
+</ul>
+<p>帰る　知る 是一类</p>
+<p>其中</p>
+<ul>
+<li>如果你按照3，1，2的顺序进行匹配运算，那么ok，但是这种匹配算法效率低</li>
+<li>如果你按照3，2，1的顺序匹配，那么帰る　知る是特例</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="辞書形"><a class="header" href="#辞書形">辞書形</a></h1>
+<ul>
+<li>分词工具：<a href="https://www.jpmarumaru.com/tw/toolJPAnalysis.html">https://www.jpmarumaru.com/tw/toolJPAnalysis.html</a></li>
+</ul>
+<p>词根与词缀</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="ます形"><a class="header" href="#ます形">ます形</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="vて-form"><a class="header" href="#vて-form">Vて form</a></h1>
+<h2 id="常见含义"><a class="header" href="#常见含义">常见含义</a></h2>
+<ul>
+<li>正在做（ing）：比如正在吃饭，看电影</li>
+<li>正持续处于某个做过的事情的后果中（being in a state）：比如知道了，结婚了</li>
+</ul>
+<h2 id="持续状态"><a class="header" href="#持续状态">持续状态</a></h2>
+<h4 id="某个行为的持续后果"><a class="header" href="#某个行为的持续后果">某个行为的持续后果</a></h4>
+<p>比如”知道了，明白了，交往了，结婚了”等状态的持续后果。</p>
+<p>而不是我“正在知道”</p>
+<p>eg</p>
+<ol>
+<li>この歌を知っていますか？（你是否有“明白了”这个状态？）</li>
+<li>今日、この歌を知りました。</li>
+</ol>
+<p>ごめんなさい，わたし、もう<strong>付（つ）き合（あ）っている</strong>人がいるの</p>
+<p>市によりますと、ワクチンは市の施設で専用の冷凍庫に入れられ保管<strong>されてい</strong>ました</p>
+<h4 id="动作动词motion-verb"><a class="header" href="#动作动词motion-verb">动作动词(Motion Verb)</a></h4>
+<p>行き、来</p>
+<p>日本からのお土産を持って行（い）きます！楽しみにしていて下さい</p>
+<blockquote>
+<p>这里并不是表示「正在走」，而是处于给你带来了的状态中</p>
+</blockquote>
+<h2 id="状态接续"><a class="header" href="#状态接续">状态接续</a></h2>
+<p>TBD</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#て'>て</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="ない"><a class="header" href="#ない">ない</a></h1>
+<p>否定</p>
+<ul>
+<li>死ぬ 	死なない</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="た"><a class="header" href="#た">た</a></h1>
+<h2 id="过去"><a class="header" href="#过去">过去</a></h2>
+<h2 id="意愿"><a class="header" href="#意愿">意愿</a></h2>
+<p>たい</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="意志形"><a class="header" href="#意志形">意志形</a></h1>
+<p>初期介于N5与N4，后期N4会更深入</p>
+<ul>
+<li>我邀请/建议别人做什么，比如“去吃饭吧”</li>
+<li>我个人的意愿/想做/想要，比如我想去旅游</li>
+</ul>
+<h4 id="变形"><a class="header" href="#变形">变形</a></h4>
+<ul>
+<li>V1: V-root + to_O(v-suffix) + う</li>
+<li>V2: V-root + よう</li>
+<li>V3: しょう</li>
+</ul>
+<p>くる：こよう</p>
+<h4 id="eg"><a class="header" href="#eg">eg</a></h4>
+<p>V1 行く　行こう
+V1 買う　買おう</p>
+<h4 id="context"><a class="header" href="#context">context</a></h4>
+<h2 id="对比"><a class="header" href="#对比">对比</a></h2>
+<h4 id="がほし-たい"><a class="header" href="#がほし-たい">がほし　たい</a></h4>
+<h4 id="たいと思う"><a class="header" href="#たいと思う">たいと思う</a></h4>
+<p>片付けろ	</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 172</p></blockquote>
+<h1 id="命令imperative"><a class="header" href="#命令imperative">命令（Imperative）</a></h1>
+<h4 id="使用原因"><a class="header" href="#使用原因">使用原因</a></h4>
+<ul>
+<li>命令</li>
+<li>凶狠的语气</li>
+<li>你给我记着！（热血类漫画很多）</li>
+</ul>
+<h4 id="变形-1"><a class="header" href="#变形-1">变形</a></h4>
+<ul>
+<li>V1: u-&gt;e</li>
+<li>V2: ru -&gt; ro</li>
+<li>V3: suru -&gt; しろ　せよ</li>
+</ul>
+<p>特殊</p>
+<ul>
+<li>来：くる　こい</li>
+<li><a href="conjugation/../compose/uncatalogued/koto.html">できます</a></li>
+</ul>
+<h4 id="eg-1"><a class="header" href="#eg-1">eg</a></h4>
+<ul>
+<li>V1 死（し）ぬ（nu）　死ね  死ぬな 死になさい</li>
+<li>V1 殺（koro）す 殺せ</li>
+<li>V1 出す　出せ お金を出せ</li>
+<li>V1 黙（だま）る　-&gt;　黙れ　-&gt; 黙りなさい</li>
+<li>V1 止（と）まれ</li>
+<li>V1 打つ　打て（射击）</li>
+</ul>
+<p>帰る　帰れ</p>
+<h4 id="context-1"><a class="header" href="#context-1">context</a></h4>
+<ul>
+<li>勘弁（かんべん）しろください</li>
+<li>お前は、いい加減（かげん）にしろ</li>
+<li>来い！ 青眼白龍（blue eyes white dragon）！（召唤青眼白龙）</li>
+<li>姐さんを返せ！</li>
+</ul>
+<h3 id=""><a class="header" href="#"></a></h3>
+<p>てはいけない、てはならない、てはだめだ」</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#しよ'>しよ</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#せよ'>せよ</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 97</p></blockquote>
+<h1 id="可能potential"><a class="header" href="#可能potential">可能（Potential）</a></h1>
+<p>will/can</p>
+<p>能力，比如面试，比如房间的料理功能
+许可，比如图书馆打电话</p>
+<h4 id="变形-2"><a class="header" href="#变形-2">变形</a></h4>
+<ul>
+<li>V1: V-root + u-&gt;eる</li>
+<li>V2: V-root + られる</li>
+<li>V3: できる</li>
+</ul>
+<p>变形后还可能接续另外的变形（比如ta、i）</p>
+<h4 id="eg-2"><a class="header" href="#eg-2">eg</a></h4>
+<p>勝つ　勝てる　勝てない</p>
+<h4 id="context-2"><a class="header" href="#context-2">context</a></h4>
+<p>病気はこれで治る！</p>
+<p>V-dict: 負ける</p>
+<ul>
+<li>绝対に負けない: 绝对不能输（辞书型）</li>
+<li>負けられる人: （容易）失败的人</li>
+</ul>
+<p>俺が殺されるから、勘弁しろ</p>
+<p>消す：消せない夢も、止まれない今も
+なる：強くなれる理由を知った
+ーー鬼滅</p>
+<h2 id="对比-1"><a class="header" href="#对比-1">对比</a></h2>
+<h4 id="ことができます"><a class="header" href="#ことができます">ことができます</a></h4>
+<p>详见<a href="conjugation/gitbook/n4/src/compose/uncategory/koto.html">こと</a></p>
+<h4 id="与ない形对比"><a class="header" href="#与ない形对比">与ない形对比</a></h4>
+<p>当否定某人时，到底是否则可能性，还是否定事实？</p>
+<p>君は僕に敵（かな）わない （你打不过我）</p>
+<p>この空間（くうかん）に私に勝てないわ</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#られる'>られる</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 143</p></blockquote>
+<h1 id="使役causative"><a class="header" href="#使役causative">使役（Causative）</a></h1>
+<h4 id="使用原因-1"><a class="header" href="#使用原因-1">使用原因</a></h4>
+<p>仅用于上对下
+比如先生は生徒を</p>
+<h4 id="变形-3"><a class="header" href="#变形-3">变形</a></h4>
+<ul>
+<li>V1: V-root + u-&gt;aせる</li>
+<li>V2: V-root + させる</li>
+<li>V3: させる</li>
+</ul>
+<p>特殊</p>
+<ul>
+<li>来：くる　こさせる</li>
+</ul>
+<h4 id="eg-3"><a class="header" href="#eg-3">eg</a></h4>
+<p>V1: 帰る -&gt; 帰らせる -&gt; 帰らせられる
+V1: 笑う -&gt; 笑わせる -&gt; 笑わせられる
+V1: 歌う -&gt; 歌わせる</p>
+<h4 id="context-3"><a class="header" href="#context-3">context</a></h4>
+<ul>
+<li>私があなたにさせるか？　（休想，想让我给干活？）</li>
+<li>その笑顔 その瞳 全てがドキドキさせる（歌词，让我dokidoki）</li>
+</ul>
+<h4 id="我被使役"><a class="header" href="#我被使役">我被使役</a></h4>
+<p>请让我来</p>
+<p>私に払わせてください</p>
+<p>请允许我做</p>
+<p>请求对方为我等待一下</p>
+<h2 id="其它"><a class="header" href="#其它">其它</a></h2>
+<p>我对上司说：任（まか）せてください</p>
+<p>不需要任何变形</p>
+<p>面接で「EC2で、webサーバ立てられます」って言ったら「はぁ(ため息)、今どき子供でもできますね（笑）」って言われたことがある。 あかんか…そんなレベルだと…</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#せる'>せる</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#させる'>させる</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 129</p></blockquote>
+<h1 id="受け身うけみ"><a class="header" href="#受け身うけみ">受け身(うけみ)</a></h1>
+<p>Passive</p>
+<h4 id="使用原因-2"><a class="header" href="#使用原因-2">使用原因</a></h4>
+<h4 id="变形-4"><a class="header" href="#变形-4">变形</a></h4>
+<ul>
+<li>V1: v-root + u-&gt;aれる</li>
+<li>V2: v-root + られる</li>
+<li>V3: v-root + される</li>
+</ul>
+<p>特殊
+する→される
+来る→来られる（可能形と同じ）
+　</p>
+<h4 id="eg-4"><a class="header" href="#eg-4">eg</a></h4>
+<ul>
+<li>V1: 買う　買われる</li>
+<li>V1: 困る　困れる</li>
+<li>V1: 話す　話さねる</li>
+<li>V1: 忘れる　忘れられる</li>
+<li>V2: 見る　見られる</li>
+<li>V2: 片付（かたず）ける　片付けられる</li>
+</ul>
+<h4 id="context-4"><a class="header" href="#context-4">context</a></h4>
+<p>熊に会ったら殺されるよ</p>
+<p>私は夕食（ゆうしょく）に招待（しょうたい）された　I was invited to dinner.</p>
+<p>上野動物園（どうぶつえん）ではパンダが見られる（可能）
+上野動物園（どうぶつえん）ではパンダに見られる（受け身）</p>
+<p>免除（めんじょ）された消費税（しょうひぜい）被免除的消费税</p>
+<p>このプログラムはAさんによってCで書かれた</p>
+<p>国内から多くの観光客が<strong>訪（おとず）れる</strong>古都（こと）・京都</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#れる'>れる</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#られる'>られる</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#される'>される</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="使役受け身しえきうけみ"><a class="header" href="#使役受け身しえきうけみ">使役受け身(しえきうけみ)</a></h1>
+<p>Causative-Passive</p>
+<h4 id="使用原因-3"><a class="header" href="#使用原因-3">使用原因</a></h4>
+<ul>
+<li>主语被要求，不得不</li>
+</ul>
+<h4 id="变形-5"><a class="header" href="#变形-5">变形</a></h4>
+<ul>
+<li>
+<p>V1: V-root + u-&gt;a　される</p>
+</li>
+<li>
+<p>V2: V-root + させられる</p>
+</li>
+<li>
+<p>V3: させられる</p>
+</li>
+<li>
+<p>来（く）る -&gt;　くさせられる</p>
+</li>
+<li>
+<p>食べる -&gt; 食べさせられる</p>
+</li>
+</ul>
+<h4 id="context-5"><a class="header" href="#context-5">context</a></h4>
+<ul>
+<li>市によりますと、ワクチンは市の施設で専用の冷凍庫に入れられ保管されていました</li>
+<li>私は先輩にお酒を飲まされました</li>
+</ul>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#される'>される</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#させられる'>させられる</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h4 id="仮定形かていけい"><a class="header" href="#仮定形かていけい">仮定形(かていけい)</a></h4>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#ば'>ば</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="组合助词"><a class="header" href="#组合助词">组合助词</a></h1>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%89%AF%E8%A9%9E">副词</a>(Adverb, adv)：得的地，比如慢慢地，经常，刚刚</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="嵌套"><a class="header" href="#嵌套">嵌套</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 85</p></blockquote>
+<ul>
+<li>缩短时间的距离感</li>
+<li>非kotorodesu</li>
+</ul>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#ところです'>ところです</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 83</p></blockquote>
+<h2 id="例句"><a class="header" href="#例句">例句</a></h2>
+<p>福岡県北九州市<strong>によりますと</strong>、廃棄されるのはスポーツセンターに保管されていたワクチン114回分です。</p>
+<p>BBC<strong>によりますと</strong>、xxx</p>
+<p>天気予報（よほう）<strong>によると</strong>、今夜台風が近づいてくる<strong>そうです</strong>。
+据说。。。大概。。。</p>
+<h2 id="n3根据原因"><a class="header" href="#n3根据原因">N3根据/原因</a></h2>
+<p>によって
+により</p>
+<p>これまでも新型コロナウィルス感染症（かんせんしょう）の感染拡大（かくだい）の影響（えいきょう）により、</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#によると'>によると</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#そうです'>そうです</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#について'>について</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>この小説は大江健三郎によって書かれた</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#によって'>によって</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h3 id="总分类"><a class="header" href="#总分类">总分类</a></h3>
+<p>按照汉语复句二分法进行分类</p>
+<ul>
+<li>复杂单句/従属節（嵌套句型）
+<ul>
+<li>主语从句：<strong>この事実を指摘したの</strong>は鈴木さんだ。</li>
+<li>宾语从句：鈴木さんは<strong>車の調子が悪いことに</strong>気づいた。</li>
+<li>定语从句：<strong>この作品で新人賞を取った</strong>鈴木さんは、現在は海外を旅行中だ</li>
+</ul>
+</li>
+<li>复句/并列節（用逗号隔开的）
+<ul>
+<li>联合复句：并列/选择/递进/解释
+<ul>
+<li><strong>太郎は音楽が好きで</strong>、花子は映画が好きだ。</li>
+</ul>
+</li>
+<li>偏正复句：事实·假设/顺接·逆接
+<ul>
+<li>假设顺接：薬を飲めば，頭痛が治る</li>
+<li>事实顺接：薬を飲んだので，頭痛が治った</li>
+<li>假设顺接：薬を飲んでも，頭痛が治らない</li>
+<li>事实逆接：薬を飲んだのに，頭痛が治らなかった</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>参考《汉日转折关联词语对比与翻译》</p>
+<table><thead><tr><th>Name</th><th>LEVEL</th><th>Tags</th><th>Page</th><th>Created</th></tr></thead><tbody>
+<tr><td>から</td><td>N5</td><td>事实, 顺接</td><td></td><td>May 15, 2021 12:24 AM</td></tr>
+<tr><td>ですが</td><td>N5</td><td>事实, 顺接</td><td></td><td>May 15, 2021 9:46 AM</td></tr>
+<tr><td>Adj+で</td><td>N5</td><td>事实, 顺接</td><td>199</td><td>May 15, 2021 9:43 AM</td></tr>
+<tr><td>Vて（先后顺序/ 伴随）</td><td>N4</td><td>并列</td><td></td><td>May 14, 2021 11:40 PM</td></tr>
+<tr><td>Vて</td><td>N4</td><td>事实, 顺接</td><td>7</td><td>May 12, 2021 11:17 PM</td></tr>
+<tr><td>なので/ので</td><td>N4</td><td>事实, 顺接</td><td>8</td><td>May 15, 2021 12:03 AM</td></tr>
+<tr><td>で</td><td>N4</td><td>事实, 顺接</td><td>9</td><td>May 15, 2021 12:08 AM</td></tr>
+<tr><td>といえば</td><td>N4</td><td>解注</td><td>18</td><td>May 15, 2021 12:12 AM</td></tr>
+<tr><td>V-dict/Nのために</td><td>N4</td><td>事实, 顺接</td><td>30</td><td>May 12, 2021 10:19 PM</td></tr>
+<tr><td>たら</td><td>N4</td><td>假设, 顺接</td><td>30</td><td>May 15, 2021 12:18 AM</td></tr>
+<tr><td>〜し、〜し</td><td>N4</td><td>并列</td><td>43</td><td>May 15, 2021 12:46 AM</td></tr>
+<tr><td>なら</td><td>N4</td><td>假设, 顺接</td><td>72</td><td>May 15, 2021 12:46 AM</td></tr>
+<tr><td>ても・でも</td><td>N4</td><td>事实, 逆接</td><td>72</td><td>May 15, 2021 9:36 AM</td></tr>
+<tr><td></td><td></td><td></td><td></td><td>May 15, 2021 9:37 AM</td></tr>
+</tbody></table>
+<h2 id="接续"><a class="header" href="#接续">接续</a></h2>
+<p>それで　157</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#ので'>ので</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#のに'>のに</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="条件"><a class="header" href="#条件">条件</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="必然"><a class="header" href="#必然">必然</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="前に"><a class="header" href="#前に">前に</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="と"><a class="header" href="#と">と</a></h1>
+<p>一度（いちど）提出（ていしゅつ）すると修正（しゅうせい）できません</p>
+<p>一旦提交表单，就无法修改</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="ので"><a class="header" href="#ので">ので</a></h1>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#ので'>ので</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 84, 132</p></blockquote>
+<p>本点虽然是N4，但是也可能放到N3。N4只介绍其中&quot;目的&quot;的用法。</p>
+<h2 id="语法"><a class="header" href="#语法">语法</a></h2>
+<h2 id="例句-1"><a class="header" href="#例句-1">例句</a></h2>
+<h4 id="使用目的"><a class="header" href="#使用目的">使用目的</a></h4>
+<p>切手（きって）は手紙を出すのに使います。</p>
+<h4 id="抱怨意外惊讶残念"><a class="header" href="#抱怨意外惊讶残念">抱怨、意外、惊讶、残念</a></h4>
+<p>旅先の店 新闻の隅<br />
+tabi saki no mise,shinbun no sumi</p>
+<p>こんなとこにあるはずもないのに<br />
+konna tokoni aru hasu mo nai noni</p>
+<h4 id="其它不相关例句"><a class="header" href="#其它不相关例句">其它不相关例句</a></h4>
+<p>明明是我先来的ーー白色相簿</p>
+<p>あたしが、先だった……先だったんだ……キスしたのも、抱き合ったのも。そいつのこと好きになったのも。</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#のに'>のに</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="それて"><a class="header" href="#それて">それて</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="并列"><a class="header" href="#并列">并列</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="し"><a class="header" href="#し">し</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 84</p></blockquote>
+<h2 id="とか"><a class="header" href="#とか">とか</a></h2>
+<p>りんごとかみかんとか、くだものを沢山買いました。</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#並列助詞'>並列助詞</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="变化"><a class="header" href="#变化">变化</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#になる'>になる</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#となる'>となる</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="ていく"><a class="header" href="#ていく">ていく</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="てくる"><a class="header" href="#てくる">てくる</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="uncategory"><a class="header" href="#uncategory">uncategory</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 59</p></blockquote>
+<h3 id="v-ta-こと-が-あります-59"><a class="header" href="#v-ta-こと-が-あります-59">v-ta こと が　あります 59</a></h3>
+<ul>
+<li>V-ta たことがあります - 曾经有做过/回忆的经历</li>
+<li>ことがあります・こともあります - 有时</li>
+</ul>
+<p>一度もありません</p>
+<h3 id="v-dictこと-が-できます-20"><a class="header" href="#v-dictこと-が-できます-20">v-dictこと　が　できます 20</a></h3>
+<p>可能形(かのうけい)</p>
+<p>「お買い物で通常使うカード」 として設定することができます（可以设定默认购买用卡）</p>
+<p>比原生使用可能形（かのうけん）更加书面</p>
+<p>不加こと也可以利用</p>
+<p>右のQRコードからアケセスてきます</p>
+<h2 id="变化-1"><a class="header" href="#变化-1">变化</a></h2>
+<h4 id="ことになる"><a class="header" href="#ことになる">ことになる</a></h4>
+<p>自然客观的原因导致的变化</p>
+<h4 id="ことにする"><a class="header" href="#ことにする">ことにする</a></h4>
+<p>主观原因导致的的变化</p>
+<h4 id="ことにしている"><a class="header" href="#ことにしている">ことにしている</a></h4>
+<p>表示习惯做某事</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#こと'>こと</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#あります'>あります</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#できます'>できます</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#可能'>可能</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 145</p></blockquote>
+<h1 id="でも"><a class="header" href="#でも">でも</a></h1>
+<p>连。。。都</p>
+<p>子供（ども）でも知っている</p>
+<p>大人でも知らない</p>
+<p>使用招式也砍不断</p>
+<h2 id="其它-1"><a class="header" href="#其它-1">其它</a></h2>
+<p>だって转折 n3</p>
+<p>生きているのなら、神様だって殺してみせる</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#でも'>でも</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#だって'>だって</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="ところ"><a class="header" href="#ところ">ところ</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2>__---
+tags: ['でも', 'ても']
+translate: 连...也...</h2>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="まで"><a class="header" href="#まで">まで</a></h1>
+<p>今まで本当にありがとうございました</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="非语法的常见句"><a class="header" href="#非语法的常见句">非语法的常见句</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><ul>
+<li>かもしれません</li>
+<li>だろう・でしょう</li>
+<li>と思います</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="意愿-1"><a class="header" href="#意愿-1">意愿</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 59</p></blockquote>
+<p>V（辞書形 / ナイ形）+ことにする
+__</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#にする'>にする</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#ことにする'>ことにする</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><blockquote><p> 课本页面: 84</p></blockquote>
+<p>类似/像</p>
+<p>对比</p>
+<p>「よう」的漢字寫成「様」，本身是個名詞</p>
+<p>作为形容词，放在句尾等</p>
+<table><thead><tr><th></th><th>ようです・だ</th><th>みたい</th></tr></thead><tbody>
+<tr><td>n</td><td>馬鹿のようです</td><td>馬鹿みたい</td></tr>
+<tr><td>adj-na</td><td>词干+な+よう</td><td>全词+みたい</td></tr>
+<tr><td>adj-i</td><td>全词+よう</td><td>全词+みたい</td></tr>
+<tr><td>v</td><td>辞书+よう</td><td>辞书+みたい</td></tr>
+</tbody></table>
+<p>但是它经常嵌套到更细的句子中，作为Adj-na的副词化，修饰动词/形容词</p>
+<p>N5</p>
+<ul>
+<li>adj-na-prefix + な + n.</li>
+<li>adj-na-prefix + に + verb/adj.</li>
+</ul>
+<p>よう</p>
+<ul>
+<li>人形（にんぎょう）のような顔</li>
+<li>人形のように座る少女の姿</li>
+<li>彼は鬼のように怖です</li>
+<li>私は大阪のような「賑やかな街」が好きです。</li>
+</ul>
+<p>みたい</p>
+<ul>
+<li>子供は<strong>天使みたい</strong>です</li>
+<li>子供は<strong>天使みたい</strong>にきれいです</li>
+<li><strong>天使みたい</strong>にきれい子供</li>
+<li><strong>天使みたい</strong>な子供</li>
+</ul>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#みたい'>みたい</a>
+<a class='tag-link' href='/gitbook/n4/tags.html#よう'>よう</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="つもり"><a class="header" href="#つもり">つもり</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="ために"><a class="header" href="#ために">ために</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>他人的情感描述</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#がる'>がる</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><ul>
+<li>お世話になっている</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="がする"><a class="header" href="#がする">がする</a></h1>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#がする'>がする</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="单字词"><a class="header" href="#单字词">单字/词</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><ul>
+<li>女（おんな）の子</li>
+<li>女の人</li>
+<li>少女（しょうじょ）</li>
+<li>男（おとこ）の子</li>
+<li>男の人</li>
+<li>少年（しょうねん）</li>
+</ul>
+<h4 id="你"><a class="header" href="#你">你</a></h4>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="polite"><a class="header" href="#polite">polite</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="でございます"><a class="header" href="#でございます">でございます</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>程度</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="畳語じょうご"><a class="header" href="#畳語じょうご">畳語（じょうご）</a></h1>
+<h2 id="ときどき"><a class="header" href="#ときどき">ときどき</a></h2>
+<p>時々
+たまに</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="others"><a class="header" href="#others">others</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="予定"><a class="header" href="#予定">予定</a></h1>
+<p>なんの予定ですか？
+勉強する予定です</p>
+<p>plan to do: 日本に行く予定です</p>
+<p>土曜日は予定があいますんか？</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="返事"><a class="header" href="#返事">返事</a></h1>
+<p>返事があります</p>
+<div class='tags'><a class='tag-link' href='/gitbook/n4/tags.html#あります'>あります</a></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="遅れる"><a class="header" href="#遅れる">遅れる</a></h1>
+<ul>
+<li>仕事に遅れました</li>
+<li>仕事に遅れてすみません</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h3 id="あげる"><a href="tags.html#あげる" class="header">#あげる</a></h3>
+<p></p>
+<p><a href='favors.html'>授受关系(favors)</a></p>
+<h3 id="くれる"><a href="tags.html#くれる" class="header">#くれる</a></h3>
+<p></p>
+<p><a href='favors.html'>授受关系(favors)</a></p>
+<h3 id="もらう"><a href="tags.html#もらう" class="header">#もらう</a></h3>
+<p></p>
+<p><a href='favors.html'>授受关系(favors)</a></p>
+<h3 id="て"><a href="tags.html#て" class="header">#て</a></h3>
+<p></p>
+<p><a href='conjugation/vte.html'>て形</a></p>
+<h3 id="しよ"><a href="tags.html#しよ" class="header">#しよ</a></h3>
+<p></p>
+<p><a href='conjugation/meirei.html'>命令形(めいれいけい)</a></p>
+<h3 id="せよ"><a href="tags.html#せよ" class="header">#せよ</a></h3>
+<p></p>
+<p><a href='conjugation/meirei.html'>命令形(めいれいけい)</a></p>
+<h3 id="られる"><a href="tags.html#られる" class="header">#られる</a></h3>
+<p>助動詞である「られる」には可能、受け身、自発、尊敬という意味があります</p>
+<p><a href='conjugation/kanou.html'>可能形(かのうけい)</a></p>
+<p><a href='conjugation/ukemi.html'>受け身(うけみ)</a></p>
+<h3 id="せる"><a href="tags.html#せる" class="header">#せる</a></h3>
+<p></p>
+<p><a href='conjugation/shieki.html'>使役形(しえきけい)</a></p>
+<h3 id="させる"><a href="tags.html#させる" class="header">#させる</a></h3>
+<p></p>
+<p><a href='conjugation/shieki.html'>使役形(しえきけい)</a></p>
+<h3 id="れる"><a href="tags.html#れる" class="header">#れる</a></h3>
+<p></p>
+<p><a href='conjugation/ukemi.html'>受け身(うけみ)</a></p>
+<h3 id="される"><a href="tags.html#される" class="header">#される</a></h3>
+<p></p>
+<p><a href='conjugation/ukemi.html'>受け身(うけみ)</a></p>
+<p><a href='conjugation/shiekiukemi.html'>使役受け身(しえきうけみ)</a></p>
+<h3 id="させられる"><a href="tags.html#させられる" class="header">#させられる</a></h3>
+<p></p>
+<p><a href='conjugation/shiekiukemi.html'>使役受け身(しえきうけみ)</a></p>
+<h3 id="ば"><a href="tags.html#ば" class="header">#ば</a></h3>
+<p></p>
+<p><a href='conjugation/kateikei.html'>仮定形(かていけい)</a></p>
+<h3 id="ところです"><a href="tags.html#ところです" class="header">#ところです</a></h3>
+<p></p>
+<p><a href='compose/nested/tokorodesu.html'>ところです</a></p>
+<h3 id="によると"><a href="tags.html#によると" class="header">#によると</a></h3>
+<p></p>
+<p><a href='compose/nested/niyoruto.html'>によると</a></p>
+<h3 id="そうです"><a href="tags.html#そうです" class="header">#そうです</a></h3>
+<p></p>
+<p><a href='compose/nested/niyoruto.html'>によると</a></p>
+<h3 id="について"><a href="tags.html#について" class="header">#について</a></h3>
+<p></p>
+<p><a href='compose/nested/nitsuite.html'>について</a></p>
+<h3 id="によって"><a href="tags.html#によって" class="header">#によって</a></h3>
+<p></p>
+<p><a href='compose/nested/niyotte.html'>によって</a></p>
+<h3 id="ので"><a href="tags.html#ので" class="header">#ので</a></h3>
+<p></p>
+<p><a href='compose/compose.html'>复句</a></p>
+<p><a href='compose/if/node.html'>ので</a></p>
+<h3 id="のに"><a href="tags.html#のに" class="header">#のに</a></h3>
+<p></p>
+<p><a href='compose/compose.html'>复句</a></p>
+<p><a href='compose/if/noni.html'>のに</a></p>
+<h3 id="並列助詞"><a href="tags.html#並列助詞" class="header">#並列助詞</a></h3>
+<p></p>
+<p><a href='compose/and/toka.html'>とか</a></p>
+<h3 id="になる"><a href="tags.html#になる" class="header">#になる</a></h3>
+<p></p>
+<p><a href='compose/change/ninaru.html'>になる</a></p>
+<h3 id="となる"><a href="tags.html#となる" class="header">#となる</a></h3>
+<p></p>
+<p><a href='compose/change/ninaru.html'>になる</a></p>
+<h3 id="こと"><a href="tags.html#こと" class="header">#こと</a></h3>
+<p></p>
+<p><a href='compose/uncatalogued/koto.html'>こと</a></p>
+<h3 id="あります"><a href="tags.html#あります" class="header">#あります</a></h3>
+<p></p>
+<p><a href='compose/uncatalogued/koto.html'>こと</a></p>
+<p><a href='word/other/henji.html'>返事</a></p>
+<h3 id="できます"><a href="tags.html#できます" class="header">#できます</a></h3>
+<p></p>
+<p><a href='compose/uncatalogued/koto.html'>こと</a></p>
+<h3 id="可能"><a href="tags.html#可能" class="header">#可能</a></h3>
+<p></p>
+<p><a href='compose/uncatalogued/koto.html'>こと</a></p>
+<h3 id="でも"><a href="tags.html#でも" class="header">#でも</a></h3>
+<p></p>
+<p><a href='compose/uncatalogued/demo.html'>でも</a></p>
+<h3 id="だって"><a href="tags.html#だって" class="header">#だって</a></h3>
+<p></p>
+<p><a href='compose/uncatalogued/demo.html'>でも</a></p>
+<h3 id="にする"><a href="tags.html#にする" class="header">#にする</a></h3>
+<p></p>
+<p><a href='sentense/wish/kotoni.html'>にする</a></p>
+<h3 id="ことにする"><a href="tags.html#ことにする" class="header">#ことにする</a></h3>
+<p></p>
+<p><a href='sentense/wish/kotoni.html'>にする</a></p>
+<h3 id="みたい"><a href="tags.html#みたい" class="header">#みたい</a></h3>
+<p></p>
+<p><a href='compose/uncatalogued/mitai.html'>みたい</a></p>
+<h3 id="よう"><a href="tags.html#よう" class="header">#よう</a></h3>
+<p></p>
+<p><a href='compose/uncatalogued/mitai.html'>みたい</a></p>
+<h3 id="がる"><a href="tags.html#がる" class="header">#がる</a></h3>
+<p></p>
+<p><a href='sentense/wish/garu.html'>がる</a></p>
+<h3 id="がする"><a href="tags.html#がする" class="header">#がする</a></h3>
+<p></p>
+<p><a href='sentense/gasuru.html'>がする</a></p>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

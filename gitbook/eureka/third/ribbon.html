@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ribbon与负载均衡</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../introduce/index.html"><strong aria-hidden="true">2.</strong> Eureka简介</a></li><li class="chapter-item expanded "><a href="../client/index.html"><strong aria-hidden="true">3.</strong> Eureka客户端</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../client/eureka-client-springboot.html"><strong aria-hidden="true">3.1.</strong> EurekaClient与SpringBoot</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-rpc.html"><strong aria-hidden="true">3.2.</strong> EurekaClient的RPC流程与心跳</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-without-spring-boot.html"><strong aria-hidden="true">3.3.</strong> Eureka集成遗留项目</a></li><li class="chapter-item expanded "><a href="../client/generate-stub-by-swagger.html"><strong aria-hidden="true">3.4.</strong> 使用Swagger生成Feign桩</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-with-quartz.html"><strong aria-hidden="true">3.5.</strong> 基于Eureka的分布式定时任务</a></li></ol></li><li class="chapter-item expanded "><a href="../server/index.html"><strong aria-hidden="true">4.</strong> Eureka服务端</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../server/eureka-server-naming.html"><strong aria-hidden="true">4.1.</strong> 命名服务</a></li><li class="chapter-item expanded "><a href="../server/replicate.html"><strong aria-hidden="true">4.2.</strong> Replicate</a></li></ol></li><li class="chapter-item expanded "><a href="../third/index.html"><strong aria-hidden="true">5.</strong> 第三方组件</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../third/feign.html"><strong aria-hidden="true">5.1.</strong> Feign简介与Spring代理自动注入</a></li><li class="chapter-item expanded "><a href="../third/ribbon.html" class="active"><strong aria-hidden="true">5.2.</strong> Ribbon与负载均衡</a></li><li class="chapter-item expanded "><a href="../third/sleuth-log-collector.html"><strong aria-hidden="true">5.3.</strong> Sleuth与日志收集</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../other/reference.html"><strong aria-hidden="true">6.</strong> 参考文献与Wiki</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ribbon与客户端load-balance"><a class="header" href="#ribbon与客户端load-balance">Ribbon与客户端Load balance</a></h1>
+<h2 id="qualifications-before-read"><a class="header" href="#qualifications-before-read">Qualifications Before Read</a></h2>
+<ul>
+<li>Experience in RxJava/Promise</li>
+<li>Experience in Feign/Retrofit' inteceptor</li>
+<li>Familiarity with debug tools</li>
+</ul>
+<h2 id="springcloud层分析"><a class="header" href="#springcloud层分析">SpringCloud层分析</a></h2>
+<p>我们基于拦截器机制并直接进入到了如下位置</p>
+<pre><code class="language-java">org.springframework.cloud.netflix.feign.ribbon.LoadBalancerFeignClient
+</code></pre>
+<p>最终实现类是</p>
+<pre><code class="language-java">com.netflix.client.AbstractLoadBalancerAwareClient#executeWithLoadBalancer
+</code></pre>
+<p>如下，非常类似于NodeJS/Netty中的<code>await Promise</code>，也就是基于事件队列的实现机制，这类代码的特点就是写起来非常爽，读起来需要一定阅读量（如果阅读RxJava困难的话，可以学习前端的Promise加速理解）。</p>
+<p>为了节约版面，我将所有的异常处理全部去掉了，代码核心在submit中，下面的代码只是一个柯里化</p>
+<pre><code class="language-java">LoadBalancerCommand&lt;T&gt; command = buildLoadBalancerCommand(request, requestConfig);
+// 提交后返回的是一个Promise，并没有立刻获取到
+return command.submit(
+    // 这里的入参是一个Operation接口，初学者可能看不懂代码是怎么来回跳转的
+    // 实际上它本质是柯里化（Currying），用Interface模拟函数
+    new ServerOperation&lt;T&gt;() {
+        @Override
+        public Observable&lt;T&gt; call(Server server) {
+            // 此处的Server已经是**负载均衡后**的了，后面请求为原生HTTP请求
+            URI finalUri = reconstructURIWithServer(server, request.getUri());
+            S requestForServer = (S) request.replaceUri(finalUri);
+            return Observable
+                .just(AbstractLoadBalancerAwareClient.this.execute(requestForServer, requestConfig));
+        }
+    })
+    // 类似于前端的await，在Java中用CountDownLatch实现
+    .toBlocking()
+    .single();
+</code></pre>
+<p>整理后，获取单个Server的关键代码如下，主要在submit中这一行</p>
+<pre><code class="language-java">// 获取当前的服务列表xml，并缓存到本地
+Server server = loadBalancerContext.getServerFromLoadBalancer(loadBalancerURI, loadBalancerKey);
+</code></pre>
+<p>本人不会全屏贴代码供读者参考的，因此跳转分析技巧需要自己多练习</p>
+<hr />
+<h2 id="iloadbalancer分析"><a class="header" href="#iloadbalancer分析">ILoadBalancer分析</a></h2>
+<p>在Ribbon中，请求关键伪代码如下</p>
+<pre><code class="language-puml">a--&gt;b: getLoadBalancer
+b--&gt;s: chooseServer
+s--&gt;Server: IRule
+</code></pre>
+<p>整个流程与ElasticSearch等客户端框架相差不大，比如最常见的<code>com.netflix.loadbalancer.BaseLoadBalancer</code></p>
+<p>默认负载均衡算法(RoundRobinRule)与Elastic完全一样，也是通过数组取余进行计算</p>
+<ul>
+<li>RoundRobinRule: 通过数组环与Atomic自增取余</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../third/feign.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../third/sleuth-log-collector.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../third/feign.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../third/sleuth-log-collector.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

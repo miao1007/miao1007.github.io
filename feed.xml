@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>KOTOWAZA</title>
+  
+  
+  <link href="/feed.xml" rel="self"/>
+  
+  <link href="https://miao1007.github.io/"/>
+  <updated>2023-05-20T03:42:14.079Z</updated>
+  <id>https://miao1007.github.io/</id>
+  
+  <author>
+    <name>諺</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Memory diagnosis for java application on kubernetes</title>
+    <link href="https://miao1007.github.io/a95d39a0-a300-11ed-80b9-75225f37e68f/"/>
+    <id>https://miao1007.github.io/a95d39a0-a300-11ed-80b9-75225f37e68f/</id>
+    <published>2023-02-08T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.079Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This post will introduce how to analyse native and JVM memory on containers.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Kubernetes" scheme="https://miao1007.github.io/tags/Kubernetes/"/>
+    
+      <category term="Docker" scheme="https://miao1007.github.io/tags/Docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>托业通过800攻略分享</title>
+    <link href="https://miao1007.github.io/e2ba19f0-1aea-11ed-8441-43404ce966c8/"/>
+    <id>https://miao1007.github.io/e2ba19f0-1aea-11ed-8441-43404ce966c8/</id>
+    <published>2023-01-10T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文供英语已经通过CET6级，希望通过托业听力阅读（TOEIC LR）考试800分的读者。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ESL" scheme="https://miao1007.github.io/tags/ESL/"/>
+    
+      <category term="Language" scheme="https://miao1007.github.io/tags/Language/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Profiling IO performance on different buffer size</title>
+    <link href="https://miao1007.github.io/4a8a9a40-6024-11ed-8119-5f6dd9acb4fe/"/>
+    <id>https://miao1007.github.io/4a8a9a40-6024-11ed-8119-5f6dd9acb4fe/</id>
+    <published>2022-12-12T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.079Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Recently I’m working on a project with the IO streams, here are some details.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Okio" scheme="https://miao1007.github.io/tags/Okio/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2022 summary</title>
+    <link href="https://miao1007.github.io/e0b7adf6-b3d6-11ec-a501-edcd1db81294/"/>
+    <id>https://miao1007.github.io/e0b7adf6-b3d6-11ec-a501-edcd1db81294/</id>
+    <published>2022-12-04T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;虽然还没有到年底，但是后续已经没有意外了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="非技术类" scheme="https://miao1007.github.io/categories/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="Summary" scheme="https://miao1007.github.io/tags/Summary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>英语时态与Modality大纲</title>
+    <link href="https://miao1007.github.io/89a1cf40-40b3-11ed-b96e-470e547aeeed/"/>
+    <id>https://miao1007.github.io/89a1cf40-40b3-11ed-b96e-470e547aeeed/</id>
+    <published>2022-10-09T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文供已经有一定水平，但是需要完整复习实验的读者使用，并提供了优先级规划。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ESL" scheme="https://miao1007.github.io/tags/ESL/"/>
+    
+      <category term="Time" scheme="https://miao1007.github.io/tags/Time/"/>
+    
+      <category term="Language" scheme="https://miao1007.github.io/tags/Language/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>英语语法大纲</title>
+    <link href="https://miao1007.github.io/d3289de0-31a6-11ed-a479-71ee1148f5e2/"/>
+    <id>https://miao1007.github.io/d3289de0-31a6-11ed-a479-71ee1148f5e2/</id>
+    <published>2022-09-11T15:53:29.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文是假设英语已经有一定水平，再次系统复习需要注意的点。语法复习主要难在时态、接续与从句上。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ESL" scheme="https://miao1007.github.io/tags/ESL/"/>
+    
+      <category term="Language" scheme="https://miao1007.github.io/tags/Language/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于词频的背单词方案</title>
+    <link href="https://miao1007.github.io/e0b786f0-b3d6-a501-a501-edcd1db81292/"/>
+    <id>https://miao1007.github.io/e0b786f0-b3d6-a501-a501-edcd1db81292/</id>
+    <published>2022-08-29T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文将提出一个可实施、可跟踪与度量的背单词方案，能够在2.5个月（ 70 工时）内将单词量从4000稳定地提升到7000。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Server" scheme="https://miao1007.github.io/categories/Server/"/>
+    
+    
+      <category term="ESL" scheme="https://miao1007.github.io/tags/ESL/"/>
+    
+      <category term="Language" scheme="https://miao1007.github.io/tags/Language/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A comparison on git Multi-Site geo-replication</title>
+    <link href="https://miao1007.github.io/bf63df00-f9ab-11ec-ba7b-c95f56bc253a/"/>
+    <id>https://miao1007.github.io/bf63df00-f9ab-11ec-ba7b-c95f56bc253a/</id>
+    <published>2022-07-02T10:07:38.000Z</published>
+    <updated>2023-05-20T03:42:14.079Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here are some solutions for repository Multi-Site(cross data-center) replication for enterprise.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="DevOps" scheme="https://miao1007.github.io/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于算法、物理与哲学中的时间观念整理</title>
+    <link href="https://miao1007.github.io/6ab17860-e48d-11ec-8766-e7f5bf1a8d1e/"/>
+    <id>https://miao1007.github.io/6ab17860-e48d-11ec-8766-e7f5bf1a8d1e/</id>
+    <published>2022-06-13T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在研究递归算法、分布式Raft的Term、语言中的因果关系与康德的先天综合中，都不可避免地涉及到时空观。本文依据历史时间线对主流观点进行整理。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="非技术类" scheme="https://miao1007.github.io/categories/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="Philosophy" scheme="https://miao1007.github.io/tags/Philosophy/"/>
+    
+      <category term="Time" scheme="https://miao1007.github.io/tags/Time/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初探《纯粹理性批判》</title>
+    <link href="https://miao1007.github.io/e0b786e6-b3d6-11ec-a501-edcd1db81291/"/>
+    <id>https://miao1007.github.io/e0b786e6-b3d6-11ec-a501-edcd1db81291/</id>
+    <published>2022-05-29T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;康德（1724～1804，大约是乾隆年号）是调和了经验主义与理性主义的伟大思想家，最主要的著作是《&lt;a href=&quot;https://zh.m.wikipedia.org/wiki/%E7%BA%AF%E7%B2%B9%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4&quot;&gt;纯粹理性批判&lt;/a&gt;》（&lt;a href=&quot;https://zh.m.wikipedia.org/zh-hans/1781%E5%B9%B4&quot;&gt;1781年&lt;/a&gt;，大清还在处理起义），尤其讨论了认识论。当然他不仅是思想家，他在道德、美学等领域，甚至教书也有很多成就。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Philosophy" scheme="https://miao1007.github.io/tags/Philosophy/"/>
+    
+      <category term="Time" scheme="https://miao1007.github.io/tags/Time/"/>
+    
+      <category term="VSI" scheme="https://miao1007.github.io/tags/VSI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>罗素《Wisdom of the West》的读书导图</title>
+    <link href="https://miao1007.github.io/1d5b3110-bcb9-11ec-9bf3-bd6f3e9f4198/"/>
+    <id>https://miao1007.github.io/1d5b3110-bcb9-11ec-9bf3-bd6f3e9f4198/</id>
+    <published>2022-04-23T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文是对罗素著作《哲学简史》进行整理的、并补充作者写作时期后的一些现代观点。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="非技术类" scheme="https://miao1007.github.io/categories/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="Book" scheme="https://miao1007.github.io/tags/Book/"/>
+    
+      <category term="Philosophy" scheme="https://miao1007.github.io/tags/Philosophy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>递归在应试场景下的使用</title>
+    <link href="https://miao1007.github.io/a13f5ba0-b3d6-11ec-bc8b-a33112d068ea/"/>
+    <id>https://miao1007.github.io/a13f5ba0-b3d6-11ec-bc8b-a33112d068ea/</id>
+    <published>2022-04-23T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.079Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在上一篇的&lt;a href=&quot;/a13f3492-b3d6-11ec-bc8b-a33112d068ea&quot;&gt;递归&lt;/a&gt;中，我们从形而上的角度（数码物）去了解递归，本文从工程角度对递归进行进一步分析。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Recursion" scheme="https://miao1007.github.io/tags/Recursion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java</title>
+    <link href="https://miao1007.github.io/5708bc10-b3dc-11ec-8e40-db0ec937306e/"/>
+    <id>https://miao1007.github.io/5708bc10-b3dc-11ec-8e40-db0ec937306e/</id>
+    <published>2022-04-04T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2&gt;Algo 的排名&lt;/h2&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>K8S与常见加固</title>
+    <link href="https://miao1007.github.io/e0b82334-b3d6-11ec-a501-edcd1db81294/"/>
+    <id>https://miao1007.github.io/e0b82334-b3d6-11ec-a501-edcd1db81294/</id>
+    <published>2022-03-27T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.079Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开源版K8S以繁琐复杂而闻名，本文是在其基础上的常见加固方案。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="DevOps" scheme="https://miao1007.github.io/tags/DevOps/"/>
+    
+      <category term="Kubernetes" scheme="https://miao1007.github.io/tags/Kubernetes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SVN/JFrog/NFS的ACL权限模型介绍</title>
+    <link href="https://miao1007.github.io/e0b82324-b3d6-11ec-a501-edcd1db81294/"/>
+    <id>https://miao1007.github.io/e0b82324-b3d6-11ec-a501-edcd1db81294/</id>
+    <published>2022-03-06T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.079Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;很多版本管理工具都基于ACL Path实现了管理权限，本文加以综述介绍。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="DevOps" scheme="https://miao1007.github.io/tags/DevOps/"/>
+    
+      <category term="Artifactory" scheme="https://miao1007.github.io/tags/Artifactory/"/>
+    
+      <category term="Subversion" scheme="https://miao1007.github.io/tags/Subversion/"/>
+    
+      <category term="Authz" scheme="https://miao1007.github.io/tags/Authz/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>递归相关的形而上思考整理</title>
+    <link href="https://miao1007.github.io/a13f3492-b3d6-11ec-bc8b-a33112d068ea/"/>
+    <id>https://miao1007.github.io/a13f3492-b3d6-11ec-bc8b-a33112d068ea/</id>
+    <published>2022-02-28T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文整理了递归的历史和观点，并综述了各个时期的学者对递归的哲学思考。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="非技术类" scheme="https://miao1007.github.io/categories/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="Philosophy" scheme="https://miao1007.github.io/tags/Philosophy/"/>
+    
+      <category term="Recursion" scheme="https://miao1007.github.io/tags/Recursion/"/>
+    
+      <category term="Ontologies" scheme="https://miao1007.github.io/tags/Ontologies/"/>
+    
+      <category term="Time" scheme="https://miao1007.github.io/tags/Time/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>n2</title>
+    <link href="https://miao1007.github.io/e0b7fc1e-b3d6-11ec-a501-edcd1db81294/"/>
+    <id>https://miao1007.github.io/e0b7fc1e-b3d6-11ec-a501-edcd1db81294/</id>
+    <published>2022-01-03T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;N2相当于CET6的难度。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>云中的网络相关介绍</title>
+    <link href="https://miao1007.github.io/e0b84a31-b3d6-11ec-a501-edcd1db81294/"/>
+    <id>https://miao1007.github.io/e0b84a31-b3d6-11ec-a501-edcd1db81294/</id>
+    <published>2022-01-03T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.079Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近接触了私有云相关的应用方案部署设计，将部分云上的网络知识记录。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="System Design" scheme="https://miao1007.github.io/tags/System-Design/"/>
+    
+      <category term="IaaS" scheme="https://miao1007.github.io/tags/IaaS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021 Summary</title>
+    <link href="https://miao1007.github.io/e0b7d50a-b3d6-11ec-a501-edcd1db81294/"/>
+    <id>https://miao1007.github.io/e0b7d50a-b3d6-11ec-a501-edcd1db81294/</id>
+    <published>2021-12-29T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.075Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今年总体上非常杂，同时又给自己加了很多附带的活，导致非常忙。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Summary" scheme="https://miao1007.github.io/tags/Summary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>部分UML图的介绍</title>
+    <link href="https://miao1007.github.io/a13f3494-b3d6-11ec-bc8b-a33112d068ea/"/>
+    <id>https://miao1007.github.io/a13f3494-b3d6-11ec-bc8b-a33112d068ea/</id>
+    <published>2021-11-21T00:00:00.000Z</published>
+    <updated>2023-05-20T03:42:14.083Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;很多开发者可能将软件工程的UML模型仅作为“考试题目”。其实这些理论本身都是其他领域fork出来的字系统，尤其是咨询与制造领域，还是值得看一下的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="System Design" scheme="https://miao1007.github.io/tags/System-Design/"/>
+    
+      <category term="UML" scheme="https://miao1007.github.io/tags/UML/"/>
+    
+  </entry>
+  
+</feed>

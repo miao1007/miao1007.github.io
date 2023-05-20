@@ -1,0 +1,416 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>利率相关读书笔记</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../how-to.html"><strong aria-hidden="true">2.</strong> 如何阅读</a></li><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">3.</strong> IT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../it/mybatis.html"><strong aria-hidden="true">3.1.</strong> Mybatis从入门到精通</a></li></ol></li><li class="chapter-item expanded "><a href="../financial/index.html"><strong aria-hidden="true">4.</strong> 金融</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../financial/interest-rate.html" class="active"><strong aria-hidden="true">4.1.</strong> 利率相关读书笔记</a></li></ol></li><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">5.</strong> 历史</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../history/Révolution-française.html"><strong aria-hidden="true">5.1.</strong> 旧制度与大革命</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="利率相关读书笔记"><a class="header" href="#利率相关读书笔记">利率相关读书笔记</a></h1>
+<p>各种金融术语的收集</p>
+<hr />
+<p>作为码农，最近分配了一些时间去看非技术类的书籍，本文主要讲<a href="https://zh.wikipedia.org/wiki/%E5%88%A9%E7%8E%87">利率(interest rate)</a>，本文的目标是掌握一些基本术语，不求投机挣钱(精力，本金，专业耗不起)，能够看懂新闻即可。</p>
+<blockquote>
+<p>初次由代码跨行写作，虽然每篇内容都有参考文献，但是本文内容都是<strong>民科与快餐</strong>，仅供参考索引使用，切勿当作论据或者投资使用。</p>
+</blockquote>
+<h2 id="什么是利率"><a class="header" href="#什么是利率">什么是利率</a></h2>
+<p>利率就是在计息周期内的利/本，直接上公式吧，最简单的计算方法如下</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d5d9c78b58a5f6f9619cda8183b5085ccfd81038" alt="img" /></p>
+<p>参数名称如下</p>
+<pre><code>in = 名义利率(nominal interest rate)
+ir = 实际利率(Real interest rate)
+pe = 期间的预期通货膨胀率(inflation rate)
+</code></pre>
+<p>其中，pe可以近似用CPI(<strong>Consumer Price Index</strong>)代替，比如可以看<a href="https://tradingeconomics.com/china/inflation-cpi">这里</a>，比如现在年度CPI是2%，那么我们可以近似估算出</p>
+<pre><code>in = ir + 2% + 暂时忽略
+</code></pre>
+<p>一般来说，银行/余额宝存的利率就是in，因此in要大于CPI才有的赚，如果你把现金埋到罐子里，那么每年都等于在亏钱。再比如说，首先向你借钱，然后再印钱还你，你也是亏了。</p>
+<blockquote>
+<p>上面介绍的是最简单，最理论的内容，CPI是加权后的inflation，实际情况某些商品价格增幅肯定比CPI更高</p>
+</blockquote>
+<pre><code>M2 = GDP + CPI
+M2 = GDP * 2
+其中2为菜菜系数
+</code></pre>
+<h2 id="中国银行与中国人民银行"><a class="header" href="#中国银行与中国人民银行">中国银行与中国人民银行</a></h2>
+<p>在过马路时，经常看到【中国银行】网点的招牌，那么这两者有什么区别呢</p>
+<ul>
+<li>中国银行是我国的一家四大国有商业银行（中行、建行、工行、农行）之一，是可以去办业务存钱贷款的，有很多网点。</li>
+<li><a href="https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E9%93%B6%E8%A1%8C">中国人民银行</a>是中国的央行，类似于美帝的美联储，是中国银行的主管单位。类似于中国电信与工信部的关系。</li>
+</ul>
+<h2 id="同业拆放利率"><a class="header" href="#同业拆放利率">同业拆放利率</a></h2>
+<p><a href="https://zh.wikipedia.org/wiki/%E9%8A%80%E8%A1%8C%E5%90%8C%E6%A5%AD%E6%8B%86%E6%81%AF">同业拆放利率</a>指市场上银行与银行同业之间的拆出、借入资金的息率，一般有隔夜、一月、一月、一年等指标，可以看作获取资金的最低成本。比如可以参考如下指标</p>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E4%B8%8A%E6%B5%B7%E9%93%B6%E8%A1%8C%E9%97%B4%E5%90%8C%E4%B8%9A%E6%8B%86%E6%94%BE%E5%88%A9%E7%8E%87">上海银行间同业拆放利率</a> (<a href="https://en.wikipedia.org/wiki/SHIBOR">SHIBOR</a>， Shanghai Interbank offered rate): 可以看作国内的基本利率。</li>
+<li><a href="https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E9%8A%80%E8%A1%8C%E5%90%8C%E6%A5%AD%E6%8B%86%E6%81%AF">香港银行同业拆息</a> (<a href="https://en.wikipedia.org/wiki/HIBOR">HIBOR</a>，Hong Kong Interbank offered rate): 可以用于分析离岸人民币的利率。</li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%80%AB%E6%95%A6%E9%8A%80%E8%A1%8C%E5%90%8C%E6%A5%AD%E6%8B%86%E6%81%AF">伦敦银行同业拆息</a> (<a href="https://en.wikipedia.org/wiki/LIBOR">LIBOR</a>，London Interbank offered rate): 一般来说是<a href="https://zh.wikipedia.org/wiki/%E7%BE%8E%E5%85%83">美元</a>的同業拆息。</li>
+</ul>
+<p>此外还有</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Federal_funds_rate">美国联邦基金利率</a>(FEDFUNDS, Effective Federal Funds Rate): 指银行向美联储借钱的利率，美联储通过公开市场等操作(<a href="https://en.wikipedia.org/wiki/Open_market_operation">OMO</a>, open market operation)控制<a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E5%84%AA%E6%83%A0%E5%88%A9%E7%8E%87">基本利率</a>(比如购买出售国债)，我们常说的加息就是这里在加息。美帝实际的银行同业拆息在此利率周围波动。</li>
+</ul>
+<h4 id="shibor利率介绍"><a class="header" href="#shibor利率介绍">SHIBOR利率介绍</a></h4>
+<p>首先看下国内的<a href="http://www.shibor.org/">SHIBOR</a>，它的具体介绍如下</p>
+<blockquote>
+<p>全国银行间同业拆借中心受权Shibor的报价计算和信息发布。每个交易日根据各报价行的报价，剔除最高、最低各4家报价，对其余报价进行算术平均计算后，得出每一期限品种的Shibor，并于11:00对外发布。</p>
+</blockquote>
+<p>如下图是某年27号的利率</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-c58f99ce456bb336.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400" alt="img" /></p>
+<p>横向看，其中第一个为期限(O/N是隔夜拆借，后面W是Week，M是Month，Y是Year)，接着是利率与涨幅。比如9M这一列表示银行愿意以4.3414的利率获取其它银行的现金，并于9个月后还。后面的涨跌指当前9月期限的现金非常紧张，钱更值钱，因此会出现涨幅。</p>
+<blockquote>
+<p>此处利率有点类似期货，只不过拆借是还钱时间，期货是交割时间，此处有一本正在看的书可以推荐《<em>期权</em>、<em>期货</em>和其他<em>衍生品</em>》</p>
+</blockquote>
+<p>余额宝/陆金所的“活期理财”本质是货币基金(指投入<a href="https://zh.wikipedia.org/wiki/%E7%8F%BE%E9%87%91">现金</a>定存以及高信用评等的短期票券（一般在1年以下）的基金)，它们一般略低或者略落后于SHIBOR，毕竟人家也要赚差价。</p>
+<p>纵向看，我们可以发现3月期居然比1年期利率更高，接着通过数据建立2017的折线表格</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-c4280e5d46b707d0.png" alt="img" /></p>
+<p>从上图可以看出一些结论</p>
+<ul>
+<li>3M的利率大于1Y的利率</li>
+<li>9M/1Y/基准利率基本上是一致的</li>
+<li>所有期现的利率长期走高</li>
+</ul>
+<p>我们再回到之前的问题，理论上可以购买1Y的然后再通过3M卖出实现套利，但是各大银行却没有这样做，原因是SHIBOR主要成交量在短期拆借，1Y的成交量很少</p>
+<h4 id="美帝拆放利率"><a class="header" href="#美帝拆放利率">美帝拆放利率</a></h4>
+<p>美帝</p>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E5%84%AA%E6%83%A0%E5%88%A9%E7%8E%87">最优惠利率(Prime rate)</a></li>
+</ul>
+<p>一般来说</p>
+<pre><code>PrimeRate &gt; IBOR
+</code></pre>
+<p>还是要分配时间去看非技术类的书籍。最近网上主要是几件事引起了我的疑问</p>
+<ul>
+<li>
+<p>什么是贷款，利息如何计算？</p>
+</li>
+<li>
+<p>高利贷是什么，为什么最终导致悲剧？</p>
+</li>
+<li>
+<p>美联储加息意味着什么？</p>
+</li>
+<li>
+<p>为什么余额宝的利息也在涨?</p>
+</li>
+<li>
+<p>什么是上海银行间同业拆放利率（The Shanghai Interbank Offered Rate，缩写为<em>Shibor</em>）?</p>
+</li>
+<li>
+<p><a href="https://zh.wikipedia.org/wiki/%E4%B8%8A%E6%B5%B7%E9%93%B6%E8%A1%8C%E9%97%B4%E5%90%8C%E4%B8%9A%E6%8B%86%E6%94%BE%E5%88%A9%E7%8E%87">上海银行间同业拆放利率</a></p>
+</li>
+<li>
+<p>​</p>
+</li>
+</ul>
+<p>FCI(金融形势指数): </p>
+<blockquote>
+<p>借鑒Goodhart和Hofmann(2001)，我們可以構造金融形勢指數(Financial Condition Index，簡稱FCI)如下：</p>
+<p>　　<img src="http://wiki.mbalib.com/w/images/math/f/8/0/f80e9375d57c0090e485690b8e01a13f.png" alt="img" /></p>
+<p>　　其中，*P*<em>i**t</em>是資產i(i=1，2，3，4)在t期的真實價格，是資產i在t期的均衡值或長期趨勢值。上式中各資產依次為<a href="http://wiki.mbalib.com/zh-tw/%E7%9C%9F%E5%AE%9E%E5%88%A9%E7%8E%87">真實利率</a>、真實<a href="http://wiki.mbalib.com/zh-tw/%E6%9C%89%E6%95%88%E6%B1%87%E7%8E%87">有效匯率</a>、真實<a href="http://wiki.mbalib.com/zh-tw/%E6%88%BF%E5%9C%B0%E4%BA%A7%E4%BB%B7%E6%A0%BC">房地產價格</a>和真實股票價格。<img src="http://wiki.mbalib.com/w/images/math/7/1/e/71e60331baa0a9c0327be6650424c955.png" alt="img" />是資產i的真實價格與其長期均衡值的差，也稱為資產i在t期的價格缺口。Wi是資產i在FCI中的<a href="http://wiki.mbalib.com/zh-tw/%E6%9D%83%E9%87%8D">權重</a>，計算它的值可以採用下列三種估計方法：一是大型巨集觀經濟聯立性模型；二是簡化形式的總需求模型；二是<a href="http://wiki.mbalib.com/zh-tw/VaR">VaR</a><a href="http://wiki.mbalib.com/w/index.php?title=%E8%84%89%E5%86%B2%E5%93%8D%E5%BA%94%E5%87%BD%E6%95%B0&amp;action=edit">脈衝響應函數</a>。這裡採取第三種估計方法。</p>
+</blockquote>
+<h2 id="如何自学跨领域知识"><a class="header" href="#如何自学跨领域知识">如何自学跨领域知识</a></h2>
+<p>跨领域知识很多都是终身受用的内容，不想当前的前端一样隔6个月就来个炒冷饭。对于经济领域，可以参考如下网址</p>
+<ul>
+<li>寻找信息源: 通过网站，微博，知乎等内容了解一些快餐知识</li>
+<li>分析专有名词: 通过维基百科<strong>英文版</strong>进行搜索与查询，掌握领域专业内容的解释</li>
+<li>阅读专业书籍: 通过上面的专业书籍，到Kindle/豆瓣中搜索出相关书籍并阅读。首先跳读，对之前名词进行再分析，接着全面阅读，并输出自己的总结，以存储到外部记忆装置中。</li>
+</ul>
+<h2 id="其它"><a class="header" href="#其它">其它</a></h2>
+<p>一些生活中的金融知识</p>
+<h4 id="过桥资金首付贷"><a class="header" href="#过桥资金首付贷">过桥资金/首付贷</a></h4>
+<p>比如某人通过贷款购买了房产，还没有还清贷款时又想再买一套，此时可以通过借取过桥资金一次性还清费用，接着再以房产作为抵押再次贷款，还清过桥费用后，剩下的钱用来购买二套房。这样他的资金如下</p>
+<pre><code>负债: 一套还了一半的房子负债，一套高杠杆负债
+资产: 两套房子
+</code></pre>
+<p>这种玩法<strong>风险极高</strong>，需要资产涨幅远高过利息，而且自己有持续的现金流。有关部门通过提高二套房首付/限购/现卖/低估值来解决此问题。</p>
+<h4 id="等额本息与等额本金"><a class="header" href="#等额本息与等额本金">等额本息与等额本金</a></h4>
+<p>等额本息(EMI,<strong>equated monthly installment</strong>)指每月还款额度相同，通过<a href="https://en.wikipedia.org/wiki/Equated_monthly_installment">百科</a>可以得知公式如下</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/003fa86fa36e554e7fd794f933a3207f4df83faa" alt="img" /></p>
+<blockquote>
+<p><em>P</em> is the principal amount borrowed <em>A</em> is the periodic amortization payment, <em>r</em> is the periodic interest rate divided by 100 (annual interest rate also divided by 12 in case of monthly installments), and <em>n</em> is the total number of payments (for a 30-year loan with monthly payments <em>n</em> = 30 × 12 = 360).</p>
+</blockquote>
+<p>上面英文看不懂也没关系，只用记住r是计息周期利率，n是计息周期，接下来我们以某呗的分期实际利率为例进行介绍</p>
+<p>比如某人想购买SkuPrice为3788的P10手机，某宝上的报价如下(以下均含税)</p>
+<table><thead><tr><th>总额</th><th>分期</th><th>无息</th><th>某呗</th><th>每月利息</th></tr></thead><tbody>
+<tr><td>3788</td><td>12</td><td>315.6666667</td><td>340.91</td><td>25.24333333</td></tr>
+<tr><td>3788</td><td>9</td><td>420.8888889</td><td>446.13</td><td>25.24111111</td></tr>
+<tr><td>3788</td><td>6</td><td>631.3333333</td><td>659.73</td><td>28.39666667</td></tr>
+</tbody></table>
+<p>以12期为例，普通人是这样计算的</p>
+<pre><code>var monthlyInterestRate = 25.24333333/315.6666667
+=&gt; 0.079968321013728
+</code></pre>
+<p>由于等额本息年利率与月利率是“一样的”，看起来1Y期利率只有不到8%吧，看起来还行吧，现在余额宝都4.2了呢，但是不要忘记了这里是“等额本息”的。</p>
+<p>将上面参数带入EMI公式，计息周期内利率为0.07996，计息周期为12M，再通过<a href="https://www.wolframalpha.com">wolframalpha</a>进行科学计算(也有很多APP或者在线网页提供计算，搜索EMI即可)</p>
+<pre><code>(0.07996 * pow((1+0.07996),12))/(pow(1+0.07996,12)-1)
+=&gt; 0.132668
+</code></pre>
+<p>最终实际利率是13.2668%，性价比与信用卡类似。</p>
+<blockquote>
+<p>其实还有一种近似的计算方法, 通过<code>0.07996*(12*2)/(12+1)=0.147618</code>即可</p>
+</blockquote>
+<p>通过上面可以得出如下结论</p>
+<ul>
+<li>近似计算的话，等额本息实际利率一般为你看到的2倍</li>
+<li>等额本息中，你还给银行的现金后，计息仍然是按照最开始的总金额计算，也就是越久越亏</li>
+</ul>
+<h4 id="银行广告中的按天计息随借随换是什么意思"><a class="header" href="#银行广告中的按天计息随借随换是什么意思">银行广告中的【按天计息，随借随换】是什么意思？</a></h4>
+<p>在500强企业、事业单位周围都有银行的工作人员发的类似广告。</p>
+<blockquote>
+<p>这也是“选大公司还是小公司”中选择大公司的隐形福利，大公司凭工卡就可以办理高额度信用卡、贷款，而小公司却需要折腾很久才能审批下来。</p>
+</blockquote>
+<p>下面是一些综合对比: </p>
+<ul>
+<li>存款/余额宝(4%~5%)</li>
+</ul>
+<p>假如银行利率假如是年5%，那么10w给银行，一年后才会给我们本息，10500元，这就是真实的5%利率；</p>
+<ul>
+<li>信用卡/消费贷(13%左右)</li>
+</ul>
+<ol>
+<li>一次本息：现在我们去银行借款，如果有一种信用贷标榜年息5%，到期一次性还本息，那么不要犹豫，有多少要多少，这个5%就是真实的利率，不过没有这么傻的银行；</li>
+<li>先息后本：某信用贷是5%年利率，先息后本，那么也还不错，因为大头本金都是到期才还，每个月只需要还点利息，这种贷款真实利率大约是1.05倍，非常不错了，有多少要多少；</li>
+<li>等额本息：还是5%年利率，10w额度，但是每个月都还固定数字，这种是最不划算的，因为我们手上可用资金是每个月慢慢变少的，但是利息是第一个月计算生成的，这非常坑爹，这种利率实际是1.8-1.95倍，基本接近翻倍，其实也很好理解，最后几个月你的可用资金基本接近为0；</li>
+<li>等额本金(利随本清)：和等额本息一个鸟样，利率也是翻倍的，但是稍微低一点，前期压力大</li>
+</ol>
+<ul>
+<li>房贷(定期存款+2~3%)</li>
+</ul>
+<p>与消费贷不同，银行是按照每个月真实欠款来计算利息的，不用翻倍</p>
+<blockquote>
+<p>房贷利率会浮动，但是折扣一旦申请一般就一直有了</p>
+</blockquote>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%B2%A8%E5%B9%A3%E5%9F%BA%E9%87%91">货币基金</a></li>
+<li>《<em>期权</em>、<em>期货</em>和其他<em>衍生品</em>》</li>
+<li>《利率史》</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../financial/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../financial/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

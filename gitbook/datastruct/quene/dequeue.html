@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Deque</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduce</a></li><li class="chapter-item expanded "><a href="../number/index.html"><strong aria-hidden="true">2.</strong> Number</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../number/bignumber.html"><strong aria-hidden="true">2.1.</strong> BigNumber</a></li></ol></li><li class="chapter-item expanded "><a href="../string/index.html"><strong aria-hidden="true">3.</strong> String</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../string/editdistance.html"><strong aria-hidden="true">3.1.</strong> EditDistance</a></li><li class="chapter-item expanded "><a href="../string/literal-expression.html"><strong aria-hidden="true">3.2.</strong> Literal-expression</a></li><li class="chapter-item expanded "><a href="../string/similar.html"><strong aria-hidden="true">3.3.</strong> Similar</a></li></ol></li><li class="chapter-item expanded "><a href="../map/index.html"><strong aria-hidden="true">4.</strong> Map</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../map/hashmap.html"><strong aria-hidden="true">4.1.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="../map/currenthashmap.html"><strong aria-hidden="true">4.2.</strong> CurrentHashMap(zk)</a></li><li class="chapter-item expanded "><a href="../map/copyonwritemap.html"><strong aria-hidden="true">4.3.</strong> CopyonWritMap(zk)</a></li><li class="chapter-item expanded "><a href="../map/lrumap.html"><strong aria-hidden="true">4.4.</strong> LinkedHashMap(LRU)</a></li></ol></li><li class="chapter-item expanded "><a href="../tree/index.html"><strong aria-hidden="true">5.</strong> Tree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/traverse/index.html"><strong aria-hidden="true">5.1.</strong> Traverse</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/traverse/dfs.html"><strong aria-hidden="true">5.1.1.</strong> Depth-First</a></li><li class="chapter-item expanded "><a href="../tree/traverse/bfs.html"><strong aria-hidden="true">5.1.2.</strong> Breed-First</a></li></ol></li><li class="chapter-item expanded "><a href="../tree/b-tree/index.html"><strong aria-hidden="true">5.2.</strong> BinaryTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/b-tree/binarytree.html"><strong aria-hidden="true">5.2.1.</strong> BasicBinaryTree</a></li><li class="chapter-item expanded "><a href="../tree/b-tree/binarysearchtree/index.html"><strong aria-hidden="true">5.2.2.</strong> BinarySearchTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/b-tree/binarysearchtree/redblacktree.html"><strong aria-hidden="true">5.2.2.1.</strong> RedBlackTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/redblack-and-avl-tree.html"><strong aria-hidden="true">5.2.2.1.1.</strong> Redblack and AVL Tree</a></li><li class="chapter-item expanded "><a href="../tree/treemap.html"><strong aria-hidden="true">5.2.2.1.2.</strong> TreeMap</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../tree/heap.html"><strong aria-hidden="true">5.3.</strong> Heap</a></li><li class="chapter-item expanded "><a href="../tree/treeset.html"><strong aria-hidden="true">5.4.</strong> TreeSet</a></li></ol></li><li class="chapter-item expanded "><a href="../quene/index.html"><strong aria-hidden="true">6.</strong> Quene</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../quene/dequeue.html" class="active"><strong aria-hidden="true">6.1.</strong> Deque</a></li><li class="chapter-item expanded "><a href="../quene/priorityqueue.html"><strong aria-hidden="true">6.2.</strong> PriorityQueue</a></li></ol></li><li class="chapter-item expanded "><a href="../list/index.html"><strong aria-hidden="true">7.</strong> List</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../list/arr-linked-list.html"><strong aria-hidden="true">7.1.</strong> Array&amp;LinkedList</a></li><li class="chapter-item expanded "><a href="../list/skiplist.html"><strong aria-hidden="true">7.2.</strong> SkipList</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="double-queue双端队列"><a class="header" href="#double-queue双端队列">Double Queue(双端队列)</a></h2>
+<h4 id="特点"><a class="header" href="#特点">特点</a></h4>
+<p>ArrayDeque</p>
+<p>基于数组，本质上是一个SlidingWindow，性能比LinkedList或者树性能更强。`</p>
+<pre><code>// push A B C into deque
+value                A B C
+index head(min) 1 2  . . .  tail(max)
+</code></pre>
+<p><strong>录入</strong></p>
+<p>分别作为Stack与Quque</p>
+<pre><code>addFirst: push
+addLast: offer, add
+</code></pre>
+<p><strong>迭代</strong></p>
+<p>与数组一样，从head开始到tail，满足栈的先进后出与队列的先进先出。</p>
+<blockquote>
+<p>此外还有双端链表LinkedList，请在其它章节进行了解。</p>
+</blockquote>
+<h2 id="okhttp内部请求队列实现"><a class="header" href="#okhttp内部请求队列实现">OkHttp内部请求队列实现</a></h2>
+<p>(本部分基于<code>git checkout tags/parent-3.9.1</code>版本分析)</p>
+<p>在okhttp内部，采用了ArrayDeque实现请求的排队，它主要有如下两个对象</p>
+<pre><code>AsyncCall extend NamedRunnable: 对Runnable的封装，非HTTP请求
+RealCall extend Call: 真正的HTTP请求
+</code></pre>
+<h4 id="同步请求场景"><a class="header" href="#同步请求场景">同步请求场景</a></h4>
+<p>同步请求是按照顺序阻塞调用的，内部维护了排队队列</p>
+<pre><code class="language-java">// 线程不安全，但是入队与出队加了synchronized锁，自动扩容
+private final Deque&lt;RealCall&gt; runningSyncCalls = new ArrayDeque&lt;&gt;();
+</code></pre>
+<p>请求侧如下</p>
+<pre><code class="language-java">// okhttp3.RealCall#execute
+ try {
+ 	 //　enque the element to tail
+   client.dispatcher().executed(this);
+   // blocking IO works
+   Response result = getResponseWithInterceptorChain();
+   if (result == null) throw new IOException(&quot;Canceled&quot;);
+   return result;
+ } catch (IOException e) {
+   eventListener.callFailed(this, e);
+   throw e;
+ } finally {
+   // poll the head element: 注意它是head元素，删除的不一定是刚刚入队的this
+   client.dispatcher().finished(this);
+ }
+</code></pre>
+<p>同步队列主要用于多个线程阻塞调用OkHttp时Call的引用计数，方便某些场景下执行<code>cancelAll</code>，事实上把这个Queue删除，同步请求也照样能使用的。</p>
+<h4 id="异步请求场景"><a class="header" href="#异步请求场景">异步请求场景</a></h4>
+<p>异步请求中维护了两个Runnable队列，虽然Deque可以自动扩容，但是下面通过外置条件控制了running状态，注意异步请求中由于readyAsyncCalls不一定是排序，当某个Host请求多后，少的Host会优先。</p>
+<pre><code class="language-java">/** Ready async calls in the order they'll be run. */
+private final Deque&lt;AsyncCall&gt; readyAsyncCalls = new ArrayDeque&lt;&gt;();
+/** Running asynchronous calls. Includes canceled calls that haven't finished yet. */
+private final Deque&lt;AsyncCall&gt; runningAsyncCalls = new ArrayDeque&lt;&gt;();
+</code></pre>
+<p>入队实现如下</p>
+<pre><code class="language-java">synchronized void enqueue(AsyncCall call) {
+  // 某些并行MAX条件
+ 	if (runningAsyncCalls.size() &lt; maxRequests &amp;&amp; runningCallsForHost(call) &lt; maxRequestsPerHost) {
+ 	  runningAsyncCalls.add(call);
+    // 执行 AsyncCall.run()
+    // 它的finally中也会执行 finished(runningAsyncCalls, call, true); 进行出队
+    // 因此当请求没有达到并行MAX条件时，与阻塞调用类似
+ 	  executorService().execute(call);
+ 	} else {
+    // 我们只分析这里
+ 	  readyAsyncCalls.add(call);
+ 	}
+ }
+</code></pre>
+<p>当请求达到了并行MAX条件时，就会涉及排队了。当某个请求完成后，将调用finished</p>
+<pre><code class="language-java">// okhttp3.Dispatcher#finished(java.util.Deque&lt;T&gt;, T, boolean)
+// 通过同步锁实现控制两个队列的原子操作
+synchronized (this) {
+  // 将运行的队列移除，由于是异步，这里**并非**移动的是第一个元素，而是最差N次循环数组才能找
+  if (!calls.remove(call)) throw new AssertionError(&quot;Call wasn't in-flight!&quot;);
+  // 通过判断MAX条件，for循环查找尽可能将 readyAsyncCalls 移动到 runningCalls
+  promoteCalls();
+  runningCallsCount = runningCallsCount();
+}
+</code></pre>
+<p>值得注意的是，readyAsyncCalls并不是完全按照先进先出实现排序，而是外部包装了<code>maxRequestsPerHost</code>判断，因此同样是排队，Host少的就是比Host的快，同时PerHost还保持着排序</p>
+<blockquote>
+<p>声明：网上的<code>OkHttp3源码分析【任务队列】 </code>是我以前写的，但是有疏漏（这里并不是移动ready的tail到running的head，而是N次查找），所以我全删了，网上未经授权抄的我救不了啦，要有批判思维。</p>
+</blockquote>
+<p>我们可以参考这些思路去做自己的多参数场景（比如MQ基于IP分发），实现比优先队列更加灵活的排队调度</p>
+<h4 id="oj题目-cooling-interval"><a class="header" href="#oj题目-cooling-interval">OJ题目: cooling interval</a></h4>
+<p>https://leetcode.com/problems/task-scheduler/</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../quene/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../quene/priorityqueue.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../quene/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../quene/priorityqueue.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CountDownLatch</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../../css/variables.css">
+        <link rel="stylesheet" href="../../../../css/general.css">
+        <link rel="stylesheet" href="../../../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../../highlight.css">
+        <link rel="stylesheet" href="../../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../../../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../../../java/index.html"><strong aria-hidden="true">2.</strong> Java/JVM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../java/gc/index.html"><strong aria-hidden="true">2.1.</strong> 垃圾回收</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../java/gc/analyze-full-gc.html"><strong aria-hidden="true">2.1.1.</strong> analyze-full-gc</a></li></ol></li><li class="chapter-item expanded "><a href="../../../../java/classloader/index.html"><strong aria-hidden="true">2.2.</strong> ClassLoader</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../java/classloader/class.html"><strong aria-hidden="true">2.2.1.</strong> Class的结构</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../../../juc/index.html"><strong aria-hidden="true">3.</strong> 并发编程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../juc/final/index.html"><strong aria-hidden="true">3.1.</strong> final/ThreadLocal</a></li><li class="chapter-item expanded "><a href="../../../../juc/thread/index.html"><strong aria-hidden="true">3.2.</strong> 线程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../juc/thread/nativethread.html"><strong aria-hidden="true">3.2.1.</strong> NativeThread</a></li><li class="chapter-item expanded "><a href="../../../../juc/thread/jvmthread.html"><strong aria-hidden="true">3.2.2.</strong> JVM线程</a></li><li class="chapter-item expanded "><a href="../../../../juc/thread/threadpool.html"><strong aria-hidden="true">3.2.3.</strong> ThreadPool</a></li></ol></li><li class="chapter-item expanded "><a href="../../../../juc/lock/index.html"><strong aria-hidden="true">3.3.</strong> 锁</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../juc/lock/cas/index.html"><strong aria-hidden="true">3.3.1.</strong> CAS与AQS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../juc/lock/cas/cas-impl.html"><strong aria-hidden="true">3.3.1.1.</strong> CAS的实现</a></li><li class="chapter-item expanded "><a href="../../../../juc/lock/cas/aqs/aqs-impl.html"><strong aria-hidden="true">3.3.1.2.</strong> AQS的实现</a></li><li class="chapter-item expanded "><a href="../../../../juc/lock/cas/aqs/reentrantlock.html"><strong aria-hidden="true">3.3.1.3.</strong> ReentrantLock</a></li><li class="chapter-item expanded "><a href="../../../../juc/lock/cas/aqs/countdownlatch.html" class="active"><strong aria-hidden="true">3.3.1.4.</strong> CountDownLatch</a></li><li class="chapter-item expanded "><a href="../../../../juc/lock/cas/aqs/read-write-lock.html"><strong aria-hidden="true">3.3.1.5.</strong> ReadWriteLock</a></li></ol></li><li class="chapter-item expanded "><a href="../../../../juc/lock/synchronized/index.html"><strong aria-hidden="true">3.3.2.</strong> synchronized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../../juc/lock/synchronized/jvm-sync.html"><strong aria-hidden="true">3.3.2.1.</strong> sync的native实现</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../../../juc/juc-problems.html"><strong aria-hidden="true">3.4.</strong> 常见并发问题</a></li><li class="chapter-item expanded "><a href="../../../../juc/cow/index.html"><strong aria-hidden="true">3.5.</strong> 写时复制</a></li></ol></li><li class="chapter-item expanded "><a href="../../../../microservice/index.html"><strong aria-hidden="true">4.</strong> 微服务中间件</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="countdownlatch"><a class="header" href="#countdownlatch">CountDownLatch</a></h2>
+<h3 id="英文名词"><a class="header" href="#英文名词">英文名词</a></h3>
+<ul>
+<li>predecessor| ˈpriːdɪsɛsə |: 前任者; 先輩. eg: the Prime Minister learned from his predecessor's mistakes.</li>
+<li>latch: 门闩，CountDownLatch表示自动倒计时关上的门锁</li>
+<li>elide | ɪˈlʌɪd |: 省略. eg: the null check may be elided.</li>
+</ul>
+<h3 id="应用"><a class="header" href="#应用">应用</a></h3>
+<p>CountDownLatch一般用于异步转同步操作，比如SpringCloud/ElasticSearch中在主线程实现阻塞等待Response</p>
+<p>比如SpringCloud中的Feign框架利用Rxjava等待异步网络请求，并转为同步操作</p>
+<pre><code class="language-groovy">return command.submit(request)
+    // 类似于前端的await，在Java中用CountDownLatch实现
+    .toBlocking()
+    .single();
+</code></pre>
+<p>再比如ElasticSearch客户端中基于Netty异步请求，同样也是基于await实现的</p>
+<p>CountDownLatch是并发编程中通过CAS队列包装实现的锁，先举个例子(Groovy代码)</p>
+<pre><code class="language-groovy">def s = Executors.newCachedThreadPool()
+def latch = new CountDownLatch(3)
+3.times{
+    s.execute(new Runnable() {
+        @Override
+        void run() {
+            try {
+                println &quot;start ${it}&quot;
+                TimeUnit.SECONDS.sleep(2)
+                println &quot;end ${it}&quot;
+            }catch (Exception e){
+                e.printStackTrace()
+            }finally{
+                latch.countDown()
+            }
+        }
+    })
+}
+latch.await()
+println &quot;latch complete&quot;
+</code></pre>
+<p>通过执行上面的Groovy代码段可以发现，无论executor线程池中怎么运行，只要不阻塞死，主线程一定会在所有线程池计数归零时才开始运行。</p>
+<h4 id=""><a class="header" href="#"></a></h4>
+<h2 id="countdownlatch的应用"><a class="header" href="#countdownlatch的应用">CountDownLatch的应用</a></h2>
+<h4 id="app启动页"><a class="header" href="#app启动页">App启动页</a></h4>
+<p>在某些App启动时，既要加载广告，又要加载首屏数据，涉及到两个请求，这时可以让两个线程同时跑，主线程</p>
+<h4 id="流式链式调用回掉"><a class="header" href="#流式链式调用回掉">流式/链式调用回掉</a></h4>
+<h4 id="watchdog"><a class="header" href="#watchdog">WatchDog</a></h4>
+<h2 id="countdownlatch的源码分析"><a class="header" href="#countdownlatch的源码分析">CountDownLatch的源码分析</a></h2>
+<p>CountDownLatch代码很少，去掉注释只有100多行。它本质上是对队列<code>AbstractQueuedSynchronizer</code>的包装，底层通过CAS实现了原子性，其中CAS之前文章已经写过了，本质是自旋与CPU硬件实现。</p>
+<h4 id="abstractqueuedsynchronizer分析"><a class="header" href="#abstractqueuedsynchronizer分析">AbstractQueuedSynchronizer分析</a></h4>
+<pre><code class="language-java">private void doAcquireSharedInterruptibly(int arg)
+  throws InterruptedException {
+  // 此处通过包装CAS实现原子性
+  final Node node = addWaiter(Node.SHARED);
+  boolean failed = true;
+  try {
+    for (;;) {
+      final Node p = node.predecessor();
+      if (p == head) {
+        int r = tryAcquireShared(arg);
+        if (r &gt;= 0) {
+          setHeadAndPropagate(node, r);
+          p.next = null; // help GC
+          failed = false;
+          return;
+        }
+      }
+      if (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
+          parkAndCheckInterrupt())
+        throw new InterruptedException();
+    }
+  } finally {
+    if (failed)
+      cancelAcquire(node);
+  }
+}
+</code></pre>
+<h4 id="unsafecompareandswapobject在jvm侧的c实现"><a class="header" href="#unsafecompareandswapobject在jvm侧的c实现">Unsafe.compareAndSwapObject在JVM侧的C实现</a></h4>
+<p>其实这部分以前<a href="http://www.jianshu.com/p/8c3c0426e4f7">已经分析过</a>，下面的代码是JamVM的实现，本质上是CPU硬件帮你把事情搞定了</p>
+<pre><code class="language-c">//  unsafe.compareAndSwapObject(node, nextOffset, expect, update)
+uintptr_t *compareAndSwapObject(Class *class, MethodBlock *mb,
+                                uintptr_t *ostack) {
+
+    long long offset = *((long long *)&amp;ostack[2]);
+    uintptr_t *addr = (uintptr_t*)((char *)ostack[1] + offset);
+    uintptr_t expect = ostack[4];
+    uintptr_t update = ostack[5];
+    int result;
+	// 此部分通过 __asm__ 汇编代码段实现
+    result = COMPARE_AND_SWAP(addr, expect, update);
+    *ostack++ = result;
+    return ostack;
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../../../juc/lock/cas/aqs/reentrantlock.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../../../juc/lock/cas/aqs/read-write-lock.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../../../juc/lock/cas/aqs/reentrantlock.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../../../juc/lock/cas/aqs/read-write-lock.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
