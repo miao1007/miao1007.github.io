@@ -1,0 +1,428 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>CAS的实现</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../../favicon.png">
+        
+        <link rel="stylesheet" href="../../../css/variables.css">
+        <link rel="stylesheet" href="../../../css/general.css">
+        <link rel="stylesheet" href="../../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../../highlight.css">
+        <link rel="stylesheet" href="../../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../../java/index.html"><strong aria-hidden="true">2.</strong> Java/JVM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../java/gc/index.html"><strong aria-hidden="true">2.1.</strong> 垃圾回收</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../java/gc/analyze-full-gc.html"><strong aria-hidden="true">2.1.1.</strong> analyze-full-gc</a></li></ol></li><li class="chapter-item expanded "><a href="../../../java/classloader/index.html"><strong aria-hidden="true">2.2.</strong> ClassLoader</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../java/classloader/class.html"><strong aria-hidden="true">2.2.1.</strong> Class的结构</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../../juc/index.html"><strong aria-hidden="true">3.</strong> 并发编程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../juc/final/index.html"><strong aria-hidden="true">3.1.</strong> final/ThreadLocal</a></li><li class="chapter-item expanded "><a href="../../../juc/thread/index.html"><strong aria-hidden="true">3.2.</strong> 线程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../juc/thread/nativethread.html"><strong aria-hidden="true">3.2.1.</strong> NativeThread</a></li><li class="chapter-item expanded "><a href="../../../juc/thread/jvmthread.html"><strong aria-hidden="true">3.2.2.</strong> JVM线程</a></li><li class="chapter-item expanded "><a href="../../../juc/thread/threadpool.html"><strong aria-hidden="true">3.2.3.</strong> ThreadPool</a></li></ol></li><li class="chapter-item expanded "><a href="../../../juc/lock/index.html"><strong aria-hidden="true">3.3.</strong> 锁</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../juc/lock/cas/index.html"><strong aria-hidden="true">3.3.1.</strong> CAS与AQS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../juc/lock/cas/cas-impl.html" class="active"><strong aria-hidden="true">3.3.1.1.</strong> CAS的实现</a></li><li class="chapter-item expanded "><a href="../../../juc/lock/cas/aqs/aqs-impl.html"><strong aria-hidden="true">3.3.1.2.</strong> AQS的实现</a></li><li class="chapter-item expanded "><a href="../../../juc/lock/cas/aqs/reentrantlock.html"><strong aria-hidden="true">3.3.1.3.</strong> ReentrantLock</a></li><li class="chapter-item expanded "><a href="../../../juc/lock/cas/aqs/countdownlatch.html"><strong aria-hidden="true">3.3.1.4.</strong> CountDownLatch</a></li><li class="chapter-item expanded "><a href="../../../juc/lock/cas/aqs/read-write-lock.html"><strong aria-hidden="true">3.3.1.5.</strong> ReadWriteLock</a></li></ol></li><li class="chapter-item expanded "><a href="../../../juc/lock/synchronized/index.html"><strong aria-hidden="true">3.3.2.</strong> synchronized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../../juc/lock/synchronized/jvm-sync.html"><strong aria-hidden="true">3.3.2.1.</strong> sync的native实现</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../../juc/juc-problems.html"><strong aria-hidden="true">3.4.</strong> 常见并发问题</a></li><li class="chapter-item expanded "><a href="../../../juc/cow/index.html"><strong aria-hidden="true">3.5.</strong> 写时复制</a></li></ol></li><li class="chapter-item expanded "><a href="../../../microservice/index.html"><strong aria-hidden="true">4.</strong> 微服务中间件</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="快速结论"><a class="header" href="#快速结论">快速结论</a></h2>
+<ul>
+<li>Java的CAS是通过汇编命令<code>cmpxchg</code>进行的包装与定制实现atomic memory operation (AMO) i</li>
+<li>CAS由于是进行主动比较，因此<code>compareAndSet</code>一定会放在一个自旋中，它适用于冲突(自旋次数)比较少的场景。在某些激烈的场景下可能性能还不如互斥锁。</li>
+<li>CPU汇编层面没有实现CAS的公平调用，需要上层业务自行实现</li>
+</ul>
+<h2 id="cas的简介"><a class="header" href="#cas的简介">CAS的简介</a></h2>
+<p>如果没有听过CAS的话，下面是简要入门，比如下面可以达到最终总是100，而不会小于100</p>
+<pre><code class="language-groovy">AtomicInteger a = new AtomicInteger(0)
+def runnable = {
+    println &quot;a=${a.incrementAndGet()}, ${Thread.currentThread().getName()}&quot;
+}
+100.times {
+    new Thread(runnable).start()
+}
+Thread.currentThread().join()
+</code></pre>
+<blockquote>
+<p><a href="https://dzone.com/articles/how-cas-compare-and-swap-java">CAS入门文章</a></p>
+</blockquote>
+<h2 id="配置gdb断点选读"><a class="header" href="#配置gdb断点选读">配置GDB断点(选读)</a></h2>
+<p>本文将通过GDB调试JamVM实现对CAS的源码分析，首先要搭建GDB调试环境，然后才能进行测试</p>
+<p>测试代码如下</p>
+<pre><code class="language-java">import java.util.concurrent.atomic.AtomicInteger;
+
+class A{
+    public static void main(String[] args){
+        AtomicInteger a = new AtomicInteger(1);
+        System.out.println(&quot;a = &quot; + a.incrementAndGet());
+    }
+}
+</code></pre>
+<p>接着使用Javac进行编译</p>
+<pre><code class="language-sh">javac A.java
+</code></pre>
+<p>最后使用JamVM与GDB进行断点测试</p>
+<pre><code class="language-sh">jamvm -cp . A
+</code></pre>
+<p>断点打在<code>natives.c</code>的<code>compareAndSwapInt</code>方法中，就可以分析调用栈了</p>
+<h2 id="cas在jvm上的流程分析"><a class="header" href="#cas在jvm上的流程分析">CAS在JVM上的流程分析</a></h2>
+<h4 id="cas在java层上的实现"><a class="header" href="#cas在java层上的实现">CAS在Java层上的实现</a></h4>
+<p>CAS在Java中最后的实现都是<code>sun.misc.Unsafe</code>类，而它几乎全部是Native方法，几乎没有什么可以分析，值得注意的是，在不同JVM中实现的过程不一定一样，但是最后肯定都有一个循环与CAS，下文是OracleJDK的实现</p>
+<pre><code class="language-java">// 1. 开发者调用JDK
+AtomicInteger.incrementAndGet();
+// 2. JDK内部自旋并不断尝试(getAndAddInt)
+int var5;
+do {
+  var5 = getIntVolatile(this, offset);
+} while(!compareAndSwapInt(this, offset, var5, var5 + 1));
+return var5;
+</code></pre>
+<p>其中<code>offset</code>是通过Unsafe方法获取<code>var5</code>相对于AtomicInteger这个class的native内存地址偏移</p>
+<p>上面的 <code>getIntVolatile</code> 与 <code>compareAndSwapInt</code> 均是native方法，其中<code>this</code>指<code>AtomicInteger</code>这个结构体</p>
+<ul>
+<li>this与offset: 表示内存中的数值</li>
+<li>var5: 是旧的数值</li>
+<li>var5+1: 是新的数值</li>
+</ul>
+<p>在多线程下，如果没有竞争，1～2次就可以完成循环；在有一定竞争情况下，也就是memory被反复改，它通过不断自旋实现重试</p>
+<h4 id="cas在native层的实现"><a class="header" href="#cas在native层的实现">CAS在native层的实现</a></h4>
+<p>下面是迷你虚拟机JamVM的unsafe.compareAndSwapInt的C语言实现，最终还是调用到了汇编，通过CPU硬件实现</p>
+<p>首先分析<code>objectFieldOffset</code>，它本质是获取Class的Slot中的“value”对应的偏移量</p>
+<pre><code class="language-c">// 在Java中，获取结构体的偏移位置
+// Field f = AtomicInteger.class.getDeclaredField(&quot;value&quot;)
+// valueOffset = unsafe.objectFieldOffset(f);
+//JamVM natives.c
+uintptr_t *objectFieldOffset(Class *class, MethodBlock *mb, uintptr_t *ostack) {
+    FieldBlock *fb = fbFromReflectObject((Object*)ostack[1]);
+
+    *(long long*)ostack = (long long)(uintptr_t)
+                          &amp;(INST_DATA((Object*)NULL, int, fb-&gt;u.offset));
+    return ostack + 2;
+}
+</code></pre>
+<p>在本文的 <code>AtomicInteger</code> 中，valueOffset为12常量，为什么要做这一步呢，因此CAS基本上都是native操作，需要直接操作内存，后续将通过<code>valueOffset</code>获取到 <code>value</code></p>
+<p>接着分析<code>compareAndSwapInt</code></p>
+<pre><code class="language-c">// 在Java中，调用如下
+// compareAndSwapInt(this, offset, var5, var5 + 1)
+//JamVM natives.c
+uintptr_t *compareAndSwapInt(Class *class, MethodBlock *mb, uintptr_t *ostack) {
+    long long offset = *((long long *)&amp;ostack[2]);
+    unsigned int *addr = (unsigned int*)((char *)ostack[1] + offset);
+    unsigned int expect = ostack[4];
+    unsigned int update = ostack[5];
+    int result;
+      //调用平台CPU特定的汇编代码实现
+    result = COMPARE_AND_SWAP_32(addr, expect, update);
+    *ostack++ = result;
+    return ostack;
+}
+
+// x86-64 的汇编实现宏
+#define COMPARE_AND_SWAP_32(addr, old_val, new_val)        \
+({                                                         \
+    char result;                                           \
+    __asm__ __volatile__ (&quot;                                \
+        lock;                                              \
+        cmpxchgl %4, %1;                                   \
+        sete %0&quot;                                           \
+    : &quot;=q&quot; (result), &quot;=m&quot; (*addr)/*out*/                   \
+    : &quot;m&quot; (*addr), &quot;a&quot; (old_val), &quot;r&quot; (new_val) /*in*/     \
+    : &quot;memory&quot;);     /*Clobbers, reload from memory*/      \
+    result;                                                \
+})
+</code></pre>
+<blockquote>
+<p>通过使用CLion对源码进行文本搜索<code>compareAndSwapInt</code>方法，可以快速找到CAS的实现类</p>
+</blockquote>
+<p>`</p>
+<p>这里的汇编格式阅读起来就比较费劲了，你可以选择<a href="https://www.ibm.com/developerworks/library/l-ia/">学一下</a>它的格式(如果要看JVM代码，早晚都得学)，并通过<a href="https://gcc.gnu.org/onlinedocs/gcc-6.3.0/gcc/Machine-Constraints.html#Machine-Constraints">这里</a>与<a href="https://gcc.gnu.org/viewcvs/gcc/trunk/gcc/config/i386/constraints.md?view=co&amp;revision=198401&amp;content-type=text/plain">这里</a>的文档了解<code>q,m,r</code>是什么意思</p>
+<p>如果你不想看的话，直接上HopperDisassembler将二进制的进行反编译，注意这里正好操作是反过来的</p>
+<pre><code class="language-asm">                     compareAndSwapInt:
+0000000000030e80         mov        rcx, qword [ds:rdx+0x10]
+0000000000030e84         mov        rax, qword [ds:rdx+0x20]
+0000000000030e88         add        rcx, qword [ds:rdx+0x8]
+0000000000030e8c         mov        rsi, qword [ds:rdx+0x28]
+/* COMPARE_AND_SWAP_32 start */
+0000000000030e90         lock cmpxchg dword [ds:rcx], esi
+0000000000030e94         sete       al
+0000000000030e97         movsx      rax, al
+/* COMPARE_AND_SWAP_32 end */
+0000000000030e9b         mov        qword [ds:rdx], rax
+0000000000030e9e         lea        rax, qword [ds:rdx+0x8]
+0000000000030ea2         ret
+</code></pre>
+<blockquote>
+<p>你可能需要知道各个寄存器的<a href="https://zh.wikipedia.org/wiki/X86%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A">相关约定</a></p>
+</blockquote>
+<p>最终<code>COMPARE_AND_SWAP_32</code>的伪代码如下，如果兴趣非常强，可以看网上开源的Verilog实现</p>
+<pre><code class="language-asm">//下文的 &lt;- 指赋值的意思，Intel文档也是这样写的
+--INPUT:
+rcx &lt;- memory &lt;- addr
+al &lt;- old_val
+esi &lt;- new_val
+--OUTPUT:
+rax &lt;- result
+rcx &lt;-memory &lt;- addr
+--PROCEDURE:
+//cmpxchg dword [ds:rcx], esi
+IF al == rcx
+THEN
+  ZF &lt;- 1;
+  rcx &lt;- esi;
+ELSE
+  ZF &lt;- 0;
+  al &lt;- rcx;
+FI;
+//sete       al
+IF ZF == 1
+THEN
+  al &lt;- 0;
+ELSE
+  al &lt;- 1;
+FI;
+//movsx      rax, al
+rax &lt;- al
+return rax
+</code></pre>
+<p>用C语言简化是这样的</p>
+<pre><code class="language-c">if(old_val == *addr){
+  *addr = new_val;
+  return true;
+} else{
+  old_val = *addr;
+  return false;
+}
+</code></pre>
+<p>详细汇编分析可以参考这篇类似的<a href="http://www.lenky.info/archives/2012/11/2028">文章</a>与<a href="https://stackoverflow.com/questions/27837731/is-x86-cmpxchg-atomic">Is x86 CMPXCHG atomic?</a></p>
+<blockquote>
+<p>注意上面CPU里的Lock是用来锁多核下的Bus实现内存屏障，而不是高级语言中锁代码段的，只是碰巧名称类似而已</p>
+</blockquote>
+<h2 id="附录"><a class="header" href="#附录">附录</a></h2>
+<h4 id="cmpxchg-的一些介绍"><a class="header" href="#cmpxchg-的一些介绍">CMPXCHG 的一些介绍</a></h4>
+<p>通过查询Intel<a href="http://faydoc.tripod.com/cpu/cmpxchg.htm">文档</a>，可以得知</p>
+<table><thead><tr><th>Opcode</th><th>Instruction</th><th>Description</th></tr></thead><tbody>
+<tr><td>0F B0/<em>r</em></td><td>CMPXCHG <em>r/m8,r8</em></td><td>Compare AL(accumulator, 累加器) with <em>r/m8</em>. If equal, ZF is set and <em>r8</em> is loaded into <em>r/m8</em>. Else, clear ZF and load <em>r/m8</em> into AL.</td></tr>
+</tbody></table>
+<p>调用方法</p>
+<pre><code class="language-asm">CMPXCHG DEST, SRC
+</code></pre>
+<p>伪代码</p>
+<pre><code>IF accumulator == DEST
+THEN
+  ZF &lt;- 1;
+  DEST &lt;- SRC;
+ELSE
+  ZF &lt;- 0;
+  accumulator &lt;- DEST;
+FI;
+</code></pre>
+<h2 id="cas中aba的问题"><a class="header" href="#cas中aba的问题">CAS中ABA的问题</a></h2>
+<p>使用<code>AtomicStampedReference</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../../juc/lock/cas/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../../juc/lock/cas/aqs/aqs-impl.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../../juc/lock/cas/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../../juc/lock/cas/aqs/aqs-impl.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
