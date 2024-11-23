@@ -1,0 +1,1819 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="introduce/index.html"><strong aria-hidden="true">2.</strong> Eureka简介</a></li><li class="chapter-item expanded "><a href="client/index.html"><strong aria-hidden="true">3.</strong> Eureka客户端</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="client/eureka-client-springboot.html"><strong aria-hidden="true">3.1.</strong> EurekaClient与SpringBoot</a></li><li class="chapter-item expanded "><a href="client/eureka-client-rpc.html"><strong aria-hidden="true">3.2.</strong> EurekaClient的RPC流程与心跳</a></li><li class="chapter-item expanded "><a href="client/eureka-client-without-spring-boot.html"><strong aria-hidden="true">3.3.</strong> Eureka集成遗留项目</a></li><li class="chapter-item expanded "><a href="client/generate-stub-by-swagger.html"><strong aria-hidden="true">3.4.</strong> 使用Swagger生成Feign桩</a></li><li class="chapter-item expanded "><a href="client/eureka-client-with-quartz.html"><strong aria-hidden="true">3.5.</strong> 基于Eureka的分布式定时任务</a></li></ol></li><li class="chapter-item expanded "><a href="server/index.html"><strong aria-hidden="true">4.</strong> Eureka服务端</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="server/eureka-server-naming.html"><strong aria-hidden="true">4.1.</strong> 命名服务</a></li><li class="chapter-item expanded "><a href="server/replicate.html"><strong aria-hidden="true">4.2.</strong> Replicate</a></li></ol></li><li class="chapter-item expanded "><a href="third/index.html"><strong aria-hidden="true">5.</strong> 第三方组件</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="third/feign.html"><strong aria-hidden="true">5.1.</strong> Feign简介与Spring代理自动注入</a></li><li class="chapter-item expanded "><a href="third/ribbon.html"><strong aria-hidden="true">5.2.</strong> Ribbon与负载均衡</a></li><li class="chapter-item expanded "><a href="third/sleuth-log-collector.html"><strong aria-hidden="true">5.3.</strong> Sleuth与日志收集</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="other/reference.html"><strong aria-hidden="true">6.</strong> 参考文献与Wiki</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>本书是对SpringCloud/Netflix开源的Eureka组件分析系列文章，保证不太监，正在撰写中，欢迎各位Star与PR</p>
+<h4 id="面向读者"><a class="header" href="#面向读者">面向读者</a></h4>
+<ul>
+<li>了解过分布式系统，有Zookeeper, etcd等经验更佳</li>
+<li>已经掌握Eureka入门，最低要搭过Demo</li>
+</ul>
+<h4 id="为读者提供了"><a class="header" href="#为读者提供了">为读者提供了</a></h4>
+<ul>
+<li>Eureka的中文介绍</li>
+<li>Eureka的断点级源码分析</li>
+<li>遗留老系统改造方法</li>
+</ul>
+<h4 id="关于微服务"><a class="header" href="#关于微服务">关于微服务</a></h4>
+<p>虽然本书主要讲的是SpringCloud，但是微服务改造是一个庞大的工程问题，并不是简单的引入几个Jar包就可以，而是需要Jenkins打包，Maven私服，配置中心，DevOps运维，日志管理等大批自动化维护工具，以及质量流程，测试QA结合使用，所以有心进行Eureka服务化的人在行动前，一定要计算投入产出比，避免上车后带不动。</p>
+<p>同时，假如你要推进改造，那么必须有上级支持或者有小弟，否则自己单干也干不起来。</p>
+<p>本书也仅仅达到工程水平，远不能达到&quot;格物&quot;水平。</p>
+<h4 id="如何划分微服务"><a class="header" href="#如何划分微服务">如何划分微服务？</a></h4>
+<p>我的个人建议是按照<strong>混血型组织</strong>进行划分，格鲁夫的组织理论在服务化中依然存在</p>
+<ul>
+<li>（横向的）业务服务：比如CURD、流程等业务，由各个模块负责人主导，它是横向的组织，如果大家权责不清晰，先在业务层上做WBS，再搞服务化。</li>
+<li>（纵向的）公共服务：比如数据字典、权限管理、SSO等方案，它们都可以做到多租户/业务无关的SAAS实现，而且网上有开源实现，基本上就是纯搬砖工作量。</li>
+</ul>
+<h4 id="技术交流"><a class="header" href="#技术交流">技术交流</a></h4>
+<p>邮件: <a href="mailto:miao1007@gmail.com">miao1007@gmail.com</a></p>
+<h4 id="license"><a class="header" href="#license">license</a></h4>
+<p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可。</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="eureka简介"><a class="header" href="#eureka简介">Eureka简介</a></h1>
+<h4 id="eureka与覆盖网络"><a class="header" href="#eureka与覆盖网络">Eureka与覆盖网络</a></h4>
+<p>Eureka在IP网络的基础上提供了<a href="https://zh.wikipedia.org/zh-hant/%E8%A6%86%E7%9B%96%E7%BD%91%E7%BB%9C">覆盖网络</a>(Overlay Network)，所谓覆盖网络，实际上就是在网络上的网络，比如VoIP，DNS，DHT，VxN协议甚至热炒的区块链，它们的特点就是节点间通信与下层IP协议解藕(比如地址，端口，协议等): A用户给B用户打电话，只需要知道对方的电话号码，而不需要对方的IP地址，这里的“电话号码”就可以看作一个NodeId，而电话连线的过程对用户是透明的。</p>
+<p>在Eureka中，通过VIP(Virtual IP，同义词，非真正的VIP协议)来表示一个节点集群的ID，节点间通信只需要考虑VIP，而不用考虑其下层网络的属性(是否可用，IP是否又变了等)。</p>
+<h4 id="eureka的数据结构"><a class="header" href="#eureka的数据结构">Eureka的数据结构</a></h4>
+<p>Eureka实际就是维护了一个远程<strong>中心化</strong>的Map，key为Virtual IP，也就是Application的名称，Value为可用服务实例列表（Instance）</p>
+<pre><code class="language-java">Map&lt;String, List&lt;ServiceInstance&gt;&gt;
+</code></pre>
+<p>它的函数原型大致如下</p>
+<pre><code class="language-java">void put(KEY vip, List&lt;ServiceInstance&gt; services);  // 发送实例到中心服务器
+List&lt;ServiceInstance&gt; get(KEY vip);  // 通过VIP获取实例
+</code></pre>
+<p>因此，当你看到“云”，“微服务”时，千万不要产生胆怯心理，也不要被忽悠了。Eureka相比于Dubbo等RPC框架简单了许多，更比通信领域简单了太多。普通开发可以在一下午上手，中级开发看完本书后即可了解70%的流程。</p>
+<h2 id="与其他组件的对比"><a class="header" href="#与其他组件的对比">与其他组件的对比</a></h2>
+<h4 id="从客户端的角度"><a class="header" href="#从客户端的角度">从客户端的角度</a></h4>
+<p>如果说让我来做个类比的话，那么DNS中的特例“HTTP DNS”就是Eureka最好的类比。HTTP DNS在Android等客户端中广泛使用，客户端向DNS发送域名，服务端返回了一串解析后的IP列表</p>
+<pre><code class="language-sh"># 下为OpenDNS的例子
+$ curl http://119.29.29.29/d?dn=gitbook.com
+104.25.212.20;104.25.213.20                                                
+</code></pre>
+<p>而Eureka也一样，通过向EurekaServer发送VIP(Virtual IP，你可以把它看作内网域名)名称，也返回一串地址，Java代码中对应的请求是</p>
+<pre><code class="language-sh"># api-prod-sz1就是vip，它对应了很多Server实例
+$ curl localhost:8761/eureka/vips/api-prod-sz1
+</code></pre>
+<p>返回了如下(以XML为例)</p>
+<pre><code class="language-xml">&lt;applications&gt;
+    &lt;versions__delta&gt;-1&lt;/versions__delta&gt;
+    &lt;apps__hashcode&gt;UP_1_&lt;/apps__hashcode&gt;
+    &lt;application&gt;
+        &lt;name&gt;API-PROD-SZ1&lt;/name&gt;
+        &lt;instance&gt;
+            &lt;instanceId&gt;10.0.0.4:api-prod-sz1&lt;/instanceId&gt;
+            &lt;hostName&gt;10.0.0.4&lt;/hostName&gt;
+            &lt;app&gt;API-PROD-SZ1&lt;/app&gt;
+            &lt;ipAddr&gt;10.0.0.4&lt;/ipAddr&gt;
+            &lt;status&gt;UP&lt;/status&gt;
+            &lt;overriddenstatus&gt;UNKNOWN&lt;/overriddenstatus&gt;
+            &lt;port enabled=&quot;true&quot;&gt;8080&lt;/port&gt;
+            &lt;securePort enabled=&quot;false&quot;&gt;443&lt;/securePort&gt;
+            &lt;countryId&gt;1&lt;/countryId&gt;
+            &lt;dataCenterInfo class=&quot;com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo&quot;&gt;
+                &lt;name&gt;MyOwn&lt;/name&gt;
+            &lt;/dataCenterInfo&gt;
+            &lt;leaseInfo&gt;
+                ...
+            &lt;/leaseInfo&gt;
+            &lt;metadata&gt;
+                &lt;management.port&gt;8080&lt;/management.port&gt;
+                &lt;jmx.port&gt;53894&lt;/jmx.port&gt;
+            &lt;/metadata&gt;
+            ...
+            &lt;vipAddress&gt;api-prod-sz1&lt;/vipAddress&gt;
+        &lt;/instance&gt;
+    &lt;/application&gt;
+&lt;/applications&gt;
+</code></pre>
+<p>因此从客户端黑盒的角度来看，Eureka与HTTP DNS没有很大的差别</p>
+<table><thead><tr><th></th><th>Eureka</th><th>HTTP DNS</th></tr></thead><tbody>
+<tr><td>实例粒度</td><td>节点级</td><td>节点级</td></tr>
+<tr><td>侵入式</td><td>有，也可以使用RESTfulAPI</td><td>无</td></tr>
+<tr><td>短板</td><td>老项目不好改</td><td>需要跨防火墙，维护成本高，背后隐藏着Nginx(upsource等)</td></tr>
+<tr><td>控制域</td><td>与命名服务直连</td><td>与命名服务直连</td></tr>
+<tr><td>用户域</td><td>P2P</td><td>P2P</td></tr>
+<tr><td>传输语法</td><td>HTTP</td><td>HTTP</td></tr>
+<tr><td>抽象语法</td><td>按照Wiki的几个API来搞</td><td>发送一个QueryString即可</td></tr>
+</tbody></table>
+<p>所以千万不要畏惧Eureka这样的新技术，它们的使用并不需要非常高的编码水平。</p>
+<blockquote>
+<p>网上有很多文章拿Eureka与Nginx进行对比，我认为这个是不公平的，Nginx本身定位是位于防火墙前面向客户的，而Eureka用于内部PRC的。对于我个人来说，Nginx/DNS这一套折腾下来最麻烦的就是防火墙的各种开通，需要各种跳板去调试配置，分析定位速度非常慢。</p>
+</blockquote>
+<h3 id="从cap的角度"><a class="header" href="#从cap的角度">从CAP的角度</a></h3>
+<p>根据<a href="https://zh.wikipedia.org/zh-hant/CAP%E5%AE%9A%E7%90%86">CAP定律</a>，C——数据一致性，A——服务可用性，P——服务对网络分区故障的容错性，这三个无法同时满足，因此各个微服务框架均侧重选了2个</p>
+<table><thead><tr><th></th><th>Zookeeper</th><th>Eureka</th></tr></thead><tbody>
+<tr><td>C(Consistence)</td><td>Y</td><td>N</td></tr>
+<tr><td>A(Avaliabilty)</td><td>N</td><td>Y</td></tr>
+</tbody></table>
+<blockquote>
+<p>上面说的只是理论问题，实际上Zookeeper在真正生产使用时，<strong>稍微请求多一点就跪了</strong>，雪崩(连接数太多)直接导致所有服务无法使用，比如在生产环境用遇到过</p>
+<ul>
+<li>断电(没想到吧) -&gt; Zk持久化EOF错误了 -&gt; 无法启动 -&gt; 负载压到少数机器 -&gt; 慢慢变慢最终爆掉</li>
+<li>负载过多 -&gt; 连接数下不来 -&gt; 线程卡在Netty的NIO等待，没法更新树-&gt;最终爆掉</li>
+</ul>
+<p>此外还有Zk难以抓包定位，无可视化界面等问题，这些都需要自己维护定制工具</p>
+</blockquote>
+<h4 id="与dubbo的关系"><a class="header" href="#与dubbo的关系">与Dubbo的关系</a></h4>
+<ul>
+<li>正如上面的Curl例子所示，Eureka的命名服务主要是通过VIP帮你找到IP，不支持方法级服务的注册发现，因此比基于zk的Dubbo更简化（但是可以用Swagger+Feign来实现）。</li>
+<li>Eureka的增量更新不是原子操作，但是保证最终一致性</li>
+<li>基于Eureka的RPC一般是HTTP调用，也就是服务端开一个RestController就可以了，比Dubbo等微服务框架侵入性更低</li>
+</ul>
+<h4 id="与springcloudfunction的关系"><a class="header" href="#与springcloudfunction的关系">与SpringCloudFunction的关系</a></h4>
+<p>Eureka与Spring Cloud Function(FAAS)没有任何关系。Spring的FAAS开源实现目前还不成熟，内部直接用文件做的全局共享，不存在分布式特性</p>
+<h2 id="eureka的主要概念"><a class="header" href="#eureka的主要概念">Eureka的主要概念</a></h2>
+<p>在Eureka中，Netflix基于AWS设计出了很多Java类</p>
+<ul>
+<li>
+<p>EurekaServer: 服务注册发现的实现，你可以把它看作Zookeeper, etcd等</p>
+</li>
+<li>
+<p>EurekaClient: 一个对Eureka的RESTful规范的实现，心跳，注册等流程均通过这里以HTTP请求的形式发出，你暂时可以把它理解为轮询HTTP请求发生器。</p>
+</li>
+<li>
+<p>VIP(Virtual IP): 虚拟IP，命名服务中的Key，类似于域名</p>
+</li>
+<li>
+<p>Feign: 注解形式的HTTP客户端，API基本与Retrofit一致，内部通过动态代理拼装HTTP请求，我之前也写Retrofit的文章，这里就多不介绍了。</p>
+</li>
+<li>
+<p>SpringCloud-xxx: 对上面的包装，重点在于它的AutoConfiguration帮你干了很多重复工作，此外Maven的依赖问题也帮你解决了(老项目的工作量就在这了)</p>
+</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="eureka客户端"><a class="header" href="#eureka客户端">Eureka客户端</a></h2>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="springboot的eureka-client分析"><a class="header" href="#springboot的eureka-client分析">SpringBoot的Eureka-client分析</a></h2>
+<p>虽然本文主要讲的是Eureka，但是绝大部分初级中级读者应该还是从SpringBoot开始上手，因此本部分将讲解SpringBoot下Eureka的启动流程。</p>
+<blockquote>
+<p>首先要注意的是，由于作者不精通SpringBoot，下面断点方法有投机取巧的意味，仅用于拉通对齐端到端主流程，而不能让你深入理解SpringBoot的启动原理</p>
+</blockquote>
+<h2 id="结论"><a class="header" href="#结论">结论</a></h2>
+<p>通过进一步的封装，将原生的<code>eureka-client</code>转换为SpringBoot常用的yaml，通过AutoConfiguration这种注解DSL帮你节约样板代码的配置时间</p>
+<ul>
+<li>SpringBoot-starter等框架大部分均是一层包装，千万不要畏惧</li>
+<li>善于用工具解决问题，避免把时间耗在Spring的细节中</li>
+<li>充分利用构造函数来断点分析Bean</li>
+</ul>
+<h2 id="预先准备"><a class="header" href="#预先准备">预先准备</a></h2>
+<ul>
+<li>按照网上任意教程搭建Server与Client的环境，比如<a href="http://www.baeldung.com/spring-cloud-netflix-eureka">这里</a></li>
+<li>旗舰版IntellijIDEA工具</li>
+</ul>
+<h2 id="springboot自动装箱扫盲"><a class="header" href="#springboot自动装箱扫盲">SpringBoot自动装箱扫盲</a></h2>
+<h4 id="configuration注解的含义"><a class="header" href="#configuration注解的含义">@Configuration注解的含义</a></h4>
+<p>我们首先复习一下传统Spring的Java注解。除了传统的XML标记Bean以外，专业书籍中更推荐使用JavaConfig配置来代替繁琐的Xml标记</p>
+<blockquote>
+<p>比如在《Spring In Action》中，作者是这样推荐的
+&quot;I’d favor the type-safe and more powerful JavaConfig over XML.&quot;</p>
+</blockquote>
+<p>通过在传统项目的<code>web.xml(WebApplicationInitializer)</code>中配置<code>@ComponentScan</code>或者SpringBoot中配置<code>@SpringBootApplication</code>进行扫描，带有<code>@Configuration</code>的Class将被自动注入，比如下面就是一个Bean。</p>
+<pre><code class="language-java">@Configuration
+public class WebConfig{
+    @Bean
+    public SSOFilter ssofilter(){
+        ....
+    }
+}
+</code></pre>
+<h4 id="enableautoconfiguration的含义"><a class="header" href="#enableautoconfiguration的含义">@EnableAutoConfiguration的含义</a></h4>
+<p>在<code>@SpringBootApplication</code>注解中，最重要的是<code>EnableAutoConfiguration</code>这个注解，它就是SpringBoot自动装配各种配置的关键</p>
+<pre><code class="language-java">// EnableAutoConfiguration注解对应的代码
+@Import({EnableAutoConfigurationImportSelector.class})
+public @interface EnableAutoConfiguration {
+   ...
+}
+</code></pre>
+<p>我们对它的最终实现类进行如下断点</p>
+<pre><code class="language-java">org.springframework.boot.autoconfigure.AutoConfigurationImportSelector#selectImports
+</code></pre>
+<p>可以发现这里调用了SpringFactoriesLoader读取factories并返回了一个数组</p>
+<pre><code class="language-java">org.springframework.core.io.support.SpringFactoriesLoader#loadSpringFactories
+</code></pre>
+<blockquote>
+<p>SpringFactoriesLoader是老Spring项目中已经存在的工具类(比如Dubbo中对Bean的xsd进行定制以支持Zookeeper)，而非SpringBoot新造的轮子。它硬编码了<code>META-INF/spring.factories</code>作为properties配置读取并反序列化，并通过反射实例化标记为<code>@Configuration</code>的JavaConfig</p>
+<p>—— 此部分可以参考《SpringBoot揭秘: 快速构建微服务》</p>
+</blockquote>
+<p>所以说 ，<code>EnableAutoConfiguration</code>并不是什么黑科技，它只是反序列化了properties配置并读取JavaConfig，并没有很高深的技巧。</p>
+<p>这里就不详细讲了，在本场景中返回了70多个bean，这些将后续被实例化并加载到上下文后进行Refresh。</p>
+<p>如果读者有兴趣的话，可以参考mybatis-starter中的配置，这个比Eureka依赖更简单，更加适合入门学习</p>
+<h2 id="eureka都自动注入了啥"><a class="header" href="#eureka都自动注入了啥">Eureka都自动注入了啥</a></h2>
+<h4 id="eureka中的autoconfiguration"><a class="header" href="#eureka中的autoconfiguration">Eureka中的AutoConfiguration</a></h4>
+<p>我们接着去查看Eureka中的配置文件(spring-cloud-netflix-eureka-client-1.4.2.RELEASE.jar!/META-INF/spring.factories)，可以发现内部有如下配置</p>
+<pre><code class="language-properties"># 注意: value的前缀被我节约版面干掉了
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+EurekaClientConfigServerAutoConfiguration,\
+EurekaDiscoveryClientConfigServiceAutoConfiguration,\
+EurekaClientAutoConfiguration,\
+RibbonEurekaAutoConfiguration,\
+EurekaDiscoveryClientConfiguration
+...
+</code></pre>
+<p>这么多配置如何分析呢，对于这类问题我们可以考虑购买高效工具(IntellijIDEA)来提高生产力</p>
+<p>首先我们最常见使用的对象是这个</p>
+<pre><code class="language-java">@Autowired
+private DiscoveryClient discoveryClient;
+</code></pre>
+<p>使用IDEA的行左边绿色的Bean分析功能，可以发现是<code>CompositeDiscoveryClientAutoConfiguration</code>注入的。</p>
+<p>打开这个Config，在构造<code>compositeDiscoveryClient</code>下打断点，可以发现实现类分别是<code>EurekaDiscoveryClient</code>与<code>SimpleDiscoveryClient</code>，明显前一个才是真正负责RPC业务的客户端。</p>
+<p>接着在<code>EurekaDiscoveryClient</code>的构造函数上打断点，发现构造这个是在<code>EurekaClientAutoConfiguration</code>被调用，两个入参均为netflix的包名，说明我们已经走到Spring封装的尽头</p>
+<pre><code class="language-java">@Bean
+public DiscoveryClient discoveryClient(EurekaInstanceConfig config, EurekaClient client) {
+  return new EurekaDiscoveryClient(config, client);
+}
+</code></pre>
+<p>接下来依次分析config与client的构造函数</p>
+<h4 id="eurekainstanceconfig"><a class="header" href="#eurekainstanceconfig">EurekaInstanceConfig</a></h4>
+<p>第一个比较好分析，它只是一个Properties类</p>
+<pre><code class="language-java">@ConfigurationProperties(&quot;eureka.instance&quot;)
+public class EurekaInstanceConfigBean {
+  //可以发现这个类就是一个单纯的反序列化类
+}
+</code></pre>
+<h4 id="eurekaclient"><a class="header" href="#eurekaclient">EurekaClient</a></h4>
+<p>这部分在断点中为动态代理，实现类是CloudEurekaClient，我们在它的构造函数上打断点</p>
+<pre><code class="language-java">public CloudEurekaClient(ApplicationInfoManager applicationInfoManager,
+                         EurekaClientConfig config,
+                         AbstractDiscoveryClientOptionalArgs&lt;?&gt; args,
+                         ApplicationEventPublisher publisher) {
+  //这里进行了耗时的注册初始化等流程，后续我们会在neflix中单独分析
+  super(applicationInfoManager, config, args);
+  this.applicationInfoManager = applicationInfoManager;
+  this.publisher = publisher;
+  this.eurekaTransportField = ReflectionUtils.findField(DiscoveryClient.class, &quot;eurekaTransport&quot;);
+  ReflectionUtils.makeAccessible(this.eurekaTransportField);
+}
+</code></pre>
+<p>可以发现，在如下位置进行<code>@Lazy</code>初始化Bean</p>
+<pre><code class="language-java">org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration.RefreshableEurekaClientConfiguration#eurekaClient
+</code></pre>
+<p>这里注入了3个类</p>
+<ul>
+<li>ApplicationInfoManager: Spring 直接注入的Singleton</li>
+<li>EurekaClientConfigBean: 反序列化<code>eureka.client</code>的配置信息</li>
+<li>EurekaInstanceConfig: 同上,反序列化<code>eureka.instance</code>的配置信息</li>
+</ul>
+<p>这样EurekaClient的启动流程就分析完了</p>
+<h4 id="总结"><a class="header" href="#总结">总结</a></h4>
+<p>说白了SpringBoot就是自动帮你反序列化并new出来一个Client，并配置了很多默认值。</p>
+<h2 id="关于enablediscoveryclient注解"><a class="header" href="#关于enablediscoveryclient注解">关于<code>@EnableDiscoveryClient</code>注解</a></h2>
+<p>读者可能会问：为什么这个注解放到最后写呢，它明明应该是“入口”啊。</p>
+<p>关于这个入口，读者可以做一个黑盒实验，把<code>@EnableDiscoveryClient</code>注解给去掉重新跑。发现无论是否加这个注解，在默认的配置下，都会自动注入<code>EurekaClient</code>这些Bean，EurekaClient也照样会发送RPC心跳请求。</p>
+<p>首先配置日志等级</p>
+<pre><code class="language-properties">logging.level.org.springframework.boot.autoconfigure=DEBUG
+</code></pre>
+<p>我们点击进入这个注解，这个注解实际实现类是<code>EnableDiscoveryClientImportSelector</code>，在这里打上断点</p>
+<pre><code class="language-java">org.springframework.cloud.client.discovery.EnableDiscoveryClientImportSelector#selectImports
+</code></pre>
+<p>然后启动SpringBoot，在<code>Edgware.SR1</code>版本下，断点进入，返回</p>
+<pre><code class="language-java">org.springframework.cloud.client.serviceregistry.AutoServiceRegistrationConfiguration
+</code></pre>
+<p>这个类基本啥也没干，只是一个反序列化类</p>
+<p>因此网上大部分的Eureka源码分析文章从第一步入口就得出了错误的结论，这个注解与<code>@EnableAutoConfiguration</code>虽然用的都是一个<code>SpringFactoriesLoader</code>，但是<strong>并不是它帮你组装了各种类</strong>，也不是一个开关，返回的并不是同一个值。</p>
+<p>因此建议各位读者无论看我的文章还是其他的博文，都要有<a href="https://program-think.blogspot.com/2013/05/difference-between-fact-and-opinion.html">批判性思维</a>。除了精确校对的技术书籍，博客中的内容都是需要验证的。</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="eurekaclient的rpc与心跳分析"><a class="header" href="#eurekaclient的rpc与心跳分析">EurekaClient的RPC与心跳分析</a></h2>
+<p>Eureka是SpringCloud中推荐的NamingServer，自然就少不了心跳。如果要是来类比的话，我认为网络中的<a href="https://zh.wikipedia.org/wiki/%E5%8B%95%E6%85%8BDNS">DDNS</a>，或者LTE中的控制侧平面协议与本文所讲比较类似。</p>
+<h2 id="本文结论"><a class="header" href="#本文结论">本文结论</a></h2>
+<p>Eureka的客户端启动后开了2个轮询线程池</p>
+<ul>
+<li>通过定时PUT发送实例心跳</li>
+<li>通过定时GET获取增量信息</li>
+<li>上述心跳与增量信息均不是原子操作，但是有最终一致性</li>
+</ul>
+<p>说完了结论，我们现在就可以开始动手抓包了</p>
+<h2 id="抓包准备工作"><a class="header" href="#抓包准备工作">抓包准备工作</a></h2>
+<p>本文直接上Wireshark进行抓包分析(再发个感慨，Eureka的几个HTTP包相比LTE通信中的RRC等信令抓包实在是太简单了，同样也是服务发现，通信专业比所谓的微服务难很多，但工资却不如IT)</p>
+<h4 id="准备工作"><a class="header" href="#准备工作">准备工作</a></h4>
+<ul>
+<li>配置netflix的日志级别为DEBUG的多台Client/Server程序</li>
+<li>Wireshark抓包工具，并配置好监听的网卡(如果你用的是localhost，一般是选择Loopback)</li>
+</ul>
+<h4 id="术语概念"><a class="header" href="#术语概念">术语概念</a></h4>
+<p><strong>appID</strong> is the name of the application and <strong>instanceID</strong> is the unique id associated with the instance. In AWS cloud, instanceID is the <strong>instance id</strong> of the instance and in other data centers, it is the <strong>hostname</strong> of the instance.</p>
+<h2 id="心跳抓包"><a class="header" href="#心跳抓包">心跳抓包</a></h2>
+<h4 id="抓包准备"><a class="header" href="#抓包准备">抓包准备</a></h4>
+<p>启动EurekaServer，打开Wireshark，选择你要监听的网卡(如果你用的是localhost，一般是选择Loopback)，然后配置如下过滤器</p>
+<pre><code>http&amp;&amp;tcp.port==8761
+</code></pre>
+<h4 id="单机client启动与心跳renew场景"><a class="header" href="#单机client启动与心跳renew场景">单机Client启动与心跳(RENEW)场景</a></h4>
+<p>如下是Server早已经启动后，Client从零开始发送的所有请求</p>
+<table><thead><tr><th>Time</th><th>Info</th></tr></thead><tbody>
+<tr><td>26.609128</td><td>GET /eureka/apps/ HTTP/1.1</td></tr>
+<tr><td>26.610332</td><td>HTTP/1.1 200   (application/json)</td></tr>
+<tr><td>26.78631</td><td>POST /eureka/apps/API-PROD-SZ1 HTTP/1.1   (application/json)</td></tr>
+<tr><td>56.406603</td><td>HTTP/1.1 204</td></tr>
+<tr><td>56.673179</td><td>GET /eureka/apps/ HTTP/1.1</td></tr>
+<tr><td>56.67615</td><td>HTTP/1.1 200   (application/json)</td></tr>
+<tr><td>56.676931</td><td>PUT  /eureka/apps/API-PROD-SZ1/10.0.0.4:api-prod-sz1?status=UP&amp;lastDirtyTimestamp=1519311933974  HTTP/1.1</td></tr>
+<tr><td>56.679674</td><td>HTTP/1.1 200</td></tr>
+<tr><td>86.688146</td><td>PUT  /eureka/apps/API-PROD-SZ1/10.0.0.4:api-prod-sz1?status=UP&amp;lastDirtyTimestamp=1519311933974  HTTP/1.1</td></tr>
+<tr><td>86.691646</td><td>HTTP/1.1 200</td></tr>
+<tr><td>86.725409</td><td>GET /eureka/apps/delta HTTP/1.1</td></tr>
+<tr><td>86.729934</td><td>HTTP/1.1 200   (application/json)</td></tr>
+</tbody></table>
+<p>其中获取增量更新Delta的返回如下，也就是一个Diff操作</p>
+<pre><code class="language-json">{&quot;applications&quot;:{&quot;versions__delta&quot;:&quot;11&quot;,&quot;apps__hashcode&quot;:&quot;UP_1_&quot;,&quot;application&quot;:[]}}
+</code></pre>
+<p>而心跳就更简单了，只是一个PUT操作更新实例</p>
+<h4 id="节点的正常上线"><a class="header" href="#节点的正常上线">节点的正常上线</a></h4>
+<p>在当前负载下额外启动一个Client，可以发现如下现象</p>
+<ul>
+<li>新增Client通过POST发送当前实例信息给Server</li>
+<li>其它Client通过GET增量信息接受新增Client的信息</li>
+<li>当POST发布实例操作没有完成时，其它Client获取的delta是空白的；操作完成后，其它Client获取的delta有了新增的实例</li>
+</ul>
+<h4 id="节点的正常下线"><a class="header" href="#节点的正常下线">节点的正常下线</a></h4>
+<p>清空Wireshark日志，然后<code>Kill 15</code>关闭Eureka的某个Client，可以发现有如下请求发出</p>
+<p>首先POST报文将JSON中的状态配置为<code>DOWN</code></p>
+<pre><code>POST /eureka/apps/API-PROD-SZ1 HTTP/1.1  (application/json)
+</code></pre>
+<p>接着删除了此APP的实例(无论剩下的Client有几个都发送了)</p>
+<pre><code>DELETE /eureka/apps/API-PROD-SZ1/10.0.0.4:api-prod-sz1 HTTP/1.1 
+</code></pre>
+<p>其中</p>
+<ul>
+<li>appID: API-PROD-SZ1</li>
+<li>instanceID: 10.0.0.4:api-prod-sz1</li>
+</ul>
+<h4 id="节点的异常下线"><a class="header" href="#节点的异常下线">节点的异常下线</a></h4>
+<p>异常下线后，判断逻辑肯定在Server端，本文暂时不分析。当然默认是90s后自动下线。</p>
+<h4 id="抓包结论"><a class="header" href="#抓包结论">抓包结论</a></h4>
+<p>由上面可以得出如下结论</p>
+<ul>
+<li>POST发布app全量实例的操作<strong>不是一个(阻塞的)原子操作</strong></li>
+<li>通过轮询全量或增量同步应用信息，但是Eureka不保证各个节点的Consistence(也就是CAP的C没法保证)，但是在多次轮询后可以达到最终一致性</li>
+<li>心跳本身很简单，只是PUT应用的实例信息</li>
+</ul>
+<h2 id="java侧请求"><a class="header" href="#java侧请求">Java侧请求</a></h2>
+<p>在EurekaClient的构造函数中，主要有两步操作：第一步反序列化配置文件，第二步启动定时线程池(心跳与更新缓存)，下文简要提供相关断点位置</p>
+<p>首先进入构造函数</p>
+<pre><code class="language-java">com.netflix.discovery.DiscoveryClient#DiscoveryClient
+</code></pre>
+<p>通过分析，可以发现在本地缓存如下</p>
+<pre><code class="language-java">// 本地通过CAS实现
+private final AtomicReference&lt;Applications&gt; localRegionApps = new AtomicReference&lt;&gt;();
+</code></pre>
+<p>通过REST接口反查第一次RPC请求断点位于，将获取全量的APP信息</p>
+<pre><code class="language-java">com.netflix.discovery.DiscoveryClient#fetchRegistry
+</code></pre>
+<p>后续将通过轮询进行增量更新与心跳</p>
+<h2 id="全量更新"><a class="header" href="#全量更新">全量更新</a></h2>
+<p>当本地缓存为空时，将进行全量更新</p>
+<pre><code class="language-java">com.netflix.discovery.DiscoveryClient#getAndStoreFullRegistry
+</code></pre>
+<p>通过CAS保证本地线程安全</p>
+<pre><code class="language-java"> if (fetchRegistryGeneration.compareAndSet(currentUpdateGeneration, currentUpdateGeneration + 1)) {
+     // 此处的过滤操作类似于groupBy操作符过滤出状态为up的实例
+     localRegionApps.set(this.filterAndShuffle(apps));
+     logger.debug(&quot;Got full registry with apps hashcode {}&quot;, apps.getAppsHashCode());
+ } else {
+     logger.warn(&quot;Not updating applications as another thread is updating it already&quot;);
+ }
+</code></pre>
+<h2 id="增量更新"><a class="header" href="#增量更新">增量更新</a></h2>
+<p>当通过定时轮询从服务端获取到增量更新(Applications对象)后，将在本地CAS锁(ReentrantLock)更新</p>
+<pre><code class="language-java">//com.netflix.discovery.DiscoveryClient#getAndUpdateDelta
+if (fetchRegistryGeneration.compareAndSet(currentUpdateGeneration, currentUpdateGeneration + 1)) {
+    logger.debug(&quot;Got delta update with apps hashcode {}&quot;, delta.getAppsHashCode());
+    String reconcileHashCode = &quot;&quot;;
+    if (fetchRegistryUpdateLock.tryLock()) {
+        try {
+            // 通过ActionType更新hashSet，此处内部也有锁
+            updateDelta(delta);
+            reconcileHashCode = getReconcileHashCode(applications);
+        } finally {
+            fetchRegistryUpdateLock.unlock();
+        }
+    } else {
+        logger.warn(&quot;Cannot acquire update lock, aborting getAndUpdateDelta&quot;);
+    }
+}
+</code></pre>
+<h3 id="updatedelta"><a class="header" href="#updatedelta">updateDelta</a></h3>
+<p>此部分比较简单，通过遍历并进行ActionType模式匹配更新Application列表中的状态</p>
+<h4 id="本地hash校验"><a class="header" href="#本地hash校验">本地Hash校验</a></h4>
+<p>此处虽然有个所谓的一致性Hash的唬人名字，实际上就是本地与远程的对比，类似于分段下载完iso文档后进行CheckSum校验，<strong>它与环型的一致性Hash不是一个东西</strong>。</p>
+<p>举一个例子，比如当前有如下的机器</p>
+<pre><code class="language-js">[
+    &quot;vip1&quot;: [UP, UP]
+    &quot;vip2&quot;: [UP, UP]
+    &quot;appHashCode&quot;: &quot;UP_4_&quot;
+]
+</code></pre>
+<p>其中某一台挂了，服务端返回如下</p>
+<pre><code class="language-js">[
+    &quot;vip1&quot;: [UP, UP]
+    &quot;vip2&quot;: [UP, DONW]
+    &quot;appHashCode&quot;: &quot;DOWN_1_UP_3_&quot;
+]
+</code></pre>
+<p>本地增量更新远程的状态(updateDelta)后，也将进行Hash计算(getReconcileHashCode)，并与远程的计算结果相对比。</p>
+<p>此处校验算法虽然有一堆for循环，但是它实际上是类似Groovy中函数式编程<code>countBy</code>的实现，伪代码如下</p>
+<pre><code class="language-groovy">// getReconcileHashCode 的伪代码
+// 本地增量后的 localRegionApps
+def localRegionApps = [&quot;UP&quot;,'UP','DOWN','DOWN','UP','UP','UP','UP'];
+getReconcileHashCode(list){
+    def map = list.countBy {it}
+    //=&gt;{UP=6, DOWN=2}
+    def list = map.collect { k, v -&gt; k + &quot;_&quot; + v + &quot;_&quot; }
+    //=&gt;[UP_6_, DOWN_2_]
+    // 注意，此处仅仅为伪代码，因为真实使用KetSet遍历的是基于TreeMap(按照Key)进行排序
+    def hash = list.inject(&quot;&quot;) { old, it -&gt; it.concat(old) }
+    //=&gt;DOWN_2_UP_6_
+}
+getReconcileHashCode(localRegionApps)
+// =&gt; DOWN_2_UP_6_
+</code></pre>
+<p>如果hashCode相同，那么此次更新就成功了；如果hashCode不相同(我还没有见过，肯定是在本地合并的那一步)，将会进行全量更新</p>
+<h4 id="hash碰撞特例"><a class="header" href="#hash碰撞特例">Hash碰撞特例</a></h4>
+<p>上面的Hash算法太简单了，比如</p>
+<pre><code class="language-js">[
+    &quot;vip1&quot;: [UP, UP]
+    &quot;vip2&quot;: [UP, DONW]
+    &quot;appHashCode&quot;: &quot;DOWN_1_UP_3_&quot;
+]
+</code></pre>
+<p>变成了</p>
+<pre><code class="language-js">[
+    &quot;vip1&quot;: [UP, DONW]
+    &quot;vip2&quot;: [UP, UP]
+    &quot;appHashCode&quot;: &quot;DOWN_1_UP_3_&quot;
+]
+</code></pre>
+<p>此时本地updateDelta也更新失败的话，那么这次增量更新校验却被认为是更新成功了，这里的就存在碰撞问题。</p>
+<p>此处待确认。</p>
+<h2 id="附录"><a class="header" href="#附录">附录</a></h2>
+<h4 id="服务端代码位置"><a class="header" href="#服务端代码位置">服务端代码位置</a></h4>
+<p>此部分的服务端代码在如下位置</p>
+<pre><code class="language-java">eureka-core-1.8.6.jar!/com/netflix/eureka/resources
+</code></pre>
+<h4 id="rpc实现"><a class="header" href="#rpc实现">RPC实现</a></h4>
+<p>Eureka在内部均采用了sun的jersey作为HTTP请求客户端，你可以把它类比为OkHttp或者HttpClient</p>
+<p>例如获取Application就调用了如下</p>
+<pre><code class="language-java">com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient#getApplications
+</code></pre>
+<p>注意这里的Java代码也是通过Override闭包回掉的形式来实现分层的，与ServiceComb有点类似，因此读者在打断点时要明白代码并不一定是从上到下走的</p>
+<p>如果你第一次看Eureka的源码，建议将下的所有<code>AbstractJerseyEurekaHttpClient</code>下的<code>Jersey HTTP</code>字符串日志相关的行都打上断点，先分析再把断点读薄。</p>
+<h4 id="nodejs中的client"><a class="header" href="#nodejs中的client">NodeJS中的Client</a></h4>
+<p>在NodeJS等其它平台中，如果希望集成到Eureka的服务发现中，可以使用<a href="https://www.npmjs.com/package/eureka-js-client">EurekaClient</a>实现，内部原理很简单，就是一个Timer定时请求。我在部分项目中也有使用，但是NodeJS圈子有一个常见的问题就容易撒手不管，所以如果使用的话可能需要进行定制。</p>
+<h4 id="参考"><a class="header" href="#参考">参考</a></h4>
+<p><a href="https://program-think.blogspot.com/2017/09/Introduction-DHT-Kademlia-Chord.html">聊聊分布式散列表（DHT）的原理——以 Kademlia（Kad） 和 Chord 为例</a></p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="eureka集成遗留项目"><a class="header" href="#eureka集成遗留项目">Eureka集成遗留项目</a></h2>
+<p>How to use eureka without spring boot?</p>
+<p>虽然SpringCloud开发效率很爽，但是现有项目很多是遗留老项目(比如Struts等)，基本上不可能升级到SpringBoot。本文将介绍SpringCloud中Eureka组件与老项目的集成方法。</p>
+<p>一听到最新的SpringCloud组件与老项目集成，有经验的老码农可能会说“不可能吧，Jar包兼容性就一堆坑”。针对这个问题，本文已经解决了。</p>
+<h4 id="本文目标"><a class="header" href="#本文目标">本文目标</a></h4>
+<ul>
+<li>保持现有非SpringBoot项目结构不变，确保兼容性</li>
+<li>集成Eureka服务</li>
+</ul>
+<h2 id="清理maven依赖遗留问题"><a class="header" href="#清理maven依赖遗留问题">清理Maven依赖遗留问题</a></h2>
+<p>使用eureka很简单，只用引入一个Jar包maven依赖就可以了。实际上并不然，对于老项目来说，拔出萝卜带出泥，引入一个Jar包，就像npm一样下载了一堆文件，这些同名不同版本的jar包混到一起，让开发者无从下手。</p>
+<h4 id="maven的runtime依赖介绍"><a class="header" href="#maven的runtime依赖介绍">maven的runtime依赖介绍</a></h4>
+<p>在eureka的scope中有一种叫runtime的依赖，这些包在打包(比如War包)时将被导入，而在使用时如果你没有显示申明依赖了它，它在IDE中仍然是红的代码</p>
+<table><thead><tr><th></th><th>引入pom后代码中是否仍然变红</th><th>是否打入war包</th></tr></thead><tbody>
+<tr><td>compile</td><td>N</td><td>Y</td></tr>
+<tr><td>provided(比如私有Framework)</td><td>N</td><td>N</td></tr>
+<tr><td>runtime(比如JDBC)</td><td>Y</td><td>Y</td></tr>
+</tbody></table>
+<p>因此如果我们代码中使用Eureka中依赖的jar包库(比如javax.inject)，需要在<code>dependency</code>中重复再次显性声明依赖。</p>
+<h4 id="maven中的systempath处理"><a class="header" href="#maven中的systempath处理">maven中的systemPath处理</a></h4>
+<p>有些很老的系统是从Jar包迁移到Maven来的，经历过几次转手，项目源码中本身就有很多Jar包，比如有如下结构</p>
+<pre><code>- common
+	-lib
+		- spring-4.0.9.jar
+		- mybatis.jar
+    -src
+    	- java
+    		...
+</code></pre>
+<p>这些jar包在maven中是这样定义的</p>
+<pre><code class="language-xml">&lt;!-- bad practice in maven --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;xxxx&lt;/groupId&gt;
+  &lt;artifactId&gt;xxxx&lt;/artifactId&gt;
+  &lt;version&gt;1.3.2&lt;/version&gt;
+  &lt;type&gt;jar&lt;/type&gt;
+  &lt;scope&gt;system&lt;/scope&gt;
+  &lt;systemPath&gt;${project.basedir}/libs/spring-4.0.9.jar&lt;/systemPath&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>对于这类万年大坑，建议花专门的时间去把这些本地的jar包换成maven正常依赖的形式，以免产生jar包版本冲突，这类问题与Eureka无关，<strong>反正迟早要做，不如趁现在改了</strong>，对于这类问题，建议最小化分批替换原则，并多留出测试时间，建议发完版本立刻开搞</p>
+<blockquote>
+<p>至于版本兼容性，可以考虑对Jar包进行MD5判断</p>
+</blockquote>
+<h4 id="使用dependency-management管理版本号"><a class="header" href="#使用dependency-management管理版本号">使用Dependency Management管理版本号</a></h4>
+<p>由于eureka引入了很多第三方的jar包(比如guava)，而这些第三方的Jar包对我来说，我不希望一点点去exclude，并折腾各种版本兼容性。因此可以使用Dependency Management来统一管理此问题，在老项目中使用<code>spring-cloud</code>与<code>spring-boot</code>作为依赖管理。</p>
+<pre><code class="language-xml">&lt;project&gt;
+    &lt;!-- 虽然这里是Parent，但是不会引入任何包 --&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;1.5.10.RELEASE&lt;/version&gt;
+        &lt;relativePath/&gt;
+    &lt;/parent&gt;
+    
+    &lt;properties&gt;
+        &lt;!-- 这里可以覆盖parent中的版本 --&gt;
+        &lt;spring-cloud.version&gt;Edgware.SR5&lt;/spring-cloud.version&gt;
+    &lt;/properties&gt;
+    
+    &lt;dependencies&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;com.netflix.eureka&lt;/groupId&gt;
+        &lt;artifactId&gt;eureka-client&lt;/artifactId&gt;
+      &lt;/dependency&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;com.netflix.archaius&lt;/groupId&gt;
+        &lt;artifactId&gt;archaius-core&lt;/artifactId&gt;
+      &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;dependencyManagement&gt;
+      	&lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+                &lt;version&gt;${spring-cloud.version}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt; 
+&lt;/project&gt;
+</code></pre>
+<p>这样，你在项目中就<strong>复用了SpringBoot的版本号管理维护工作量</strong>，以后你只用修改这里的version与其它同级微服务中的SpringCloud版本一致，内部的Eureka，Jackson等版本号就不用自己折腾了。</p>
+<blockquote>
+<h4 id="intellij中的暗坑"><a class="header" href="#intellij中的暗坑">Intellij中的暗坑</a></h4>
+<p>在Intellij中，当你从SVN中删除某个文件，这个文件只是Scheduled to remove from svn。并没有真的从FS删除，因此当你删除了Jar包后，需要立刻提交到SVN中，这样FS中才会被删除掉。这个地方坑了我一天，导致出现多个Jackson，而导致反序列化失败</p>
+<p>如果你反复删不掉，可以使用Everything等工具，jar包可能放在你意想不到的位置(比如WEB-INF中)</p>
+</blockquote>
+<h2 id="集成eureka"><a class="header" href="#集成eureka">集成Eureka</a></h2>
+<p>集成Eureka的难度不大，它内部也就是2个定时发请求的线程池，并不存在高大上的东西。</p>
+<h4 id="log4j调试配置"><a class="header" href="#log4j调试配置">Log4j调试配置</a></h4>
+<p>分析任何框架第一件事就是配置Log</p>
+<p>比较偷懒的方法是在Log4j中配置如下为Debug</p>
+<pre><code class="language-properties">com.netflix=DEBUG
+</code></pre>
+<p>配置后就可以看到200，204，400等各种RPC回掉了</p>
+<h4 id="java侧配置"><a class="header" href="#java侧配置">Java侧配置</a></h4>
+<p>集成Eureka主要需要控制它的生命周期，如果你的项目还在用web.xml，那么可以把它挂到Listener中，或者用纯Java的<code>@PostConstruct</code>来控制Bean。此处可以参考<a href="https://github.com/Netflix/eureka/blob/8fc233f871fa3b92db124fdd2052870c022c04d9/eureka-examples/src/main/java/com/netflix/eureka/ExampleEurekaClient.java#L45-L44">Github</a>配置</p>
+<pre><code class="language-java">@Configuration
+public EurekaClassicConfig{
+    @PostConstruct
+    public void init(){
+        // 详见GitHub配置, 这一步会阻塞30s
+        EurekaClient client = initializeEurekaClient(applicationInfoManager, new DefaultEurekaClientConfig());
+    }
+}
+</code></pre>
+<p>唯一注意的就是client初始化非常久，需要多等待</p>
+<h4 id="properties的配置"><a class="header" href="#properties的配置">Properties的配置</a></h4>
+<p>配置文件名一定是: eureka-client.properties，因为这个是硬编码写死的，不能自定义</p>
+<p>另外，Properties中最重要的是配置VIP(Virtual IP, 类似Nginx的UpSource)名称，而SpringBoot中已经默认配置好了，如果没配置将导致后续<strong>注册后仍然无法使用</strong>，下面是最简配置</p>
+<pre><code class="language-properties">eureka.vipAddress=&quot;miaomiao&quot;
+eureka.name=&quot;miaomiao&quot;
+# 与Tomcat一致
+eureka.port=&quot;8080&quot;
+eureka.serviceUrl.default=http://localhost:8080/eureka/v2
+</code></pre>
+<p>官网的Wiki比较旧，可以参考如下对象进行配置</p>
+<ul>
+<li>PropertyBasedClientConfigConstants</li>
+</ul>
+<p>此外，虽然在官网中的Wiki中的url是以“/”结尾的，但是我发现请求时出现了<code>//</code>这样的问题，因此我建议在<code>serviceUrl</code>不要加入<code>/</code>后缀，具体可以打Log验证</p>
+<h4 id="功能验证"><a class="header" href="#功能验证">功能验证</a></h4>
+<p>通过下面的Controller获取<code>ServiceInstance</code>，打断点查看是否能获取它的host与port信息</p>
+<pre><code class="language-java">@RestController
+class ServiceInstanceRestController {
+
+    @Autowired
+    private DiscoveryClient discoveryClient;
+
+    @Autowired
+    private LoadBalancerClient client;
+
+    @RequestMapping(&quot;/service-instances/{applicationName}&quot;)
+    public List&lt;ServiceInstance&gt; serviceInstancesByApplicationName(
+    @PathVariable String applicationName) {
+        // 打断点
+        return this.discoveryClient.getInstances(applicationName);
+    }
+
+    @RequestMapping(&quot;/service-instance/{applicationName}&quot;)
+    public ServiceInstance serviceInstanceByApplicationName(
+    @PathVariable String applicationName) {
+        return this.client.choose(applicationName);
+    }
+}
+</code></pre>
+<p>任意客户端进行curl调用</p>
+<pre><code class="language-http">GET /service-instance/miaomiao
+</code></pre>
+<p>如果获取到了JSON数据，就说明注册成功了。其它组件就可以通过调用RestController的形式来请求了。</p>
+<h2 id="集成后常见问题"><a class="header" href="#集成后常见问题">集成后常见问题</a></h2>
+<h4 id="启动速度变慢"><a class="header" href="#启动速度变慢">启动速度变慢</a></h4>
+<p>由于默认注册的间隔是30s，因此测试环境中可以把它改小点</p>
+<h4 id="注册中心单点故障"><a class="header" href="#注册中心单点故障">注册中心单点故障</a></h4>
+<p>当注册中心挂掉后，启动就会失败。更深的问题是EurekaServer没有实现HA(High Availability)。针对这种问题，最简单的是配置多台Server，它们之间通过<a href="https://github.com/Netflix/eureka/wiki/Understanding-Eureka-Peer-to-Peer-Communication">P2P</a>进行Replicate</p>
+<h4 id="怎么输入鉴权密码"><a class="header" href="#怎么输入鉴权密码">怎么输入鉴权密码</a></h4>
+<p>在URL中直接配置，输入方法同配置HTTP代理，如果你不希望明文放密码，可以使用<code> {cipher}</code>进行加密</p>
+<pre><code>http://USERNAME:PASSWORD@PROXYIP:PROXYPORT
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="使用swagger生成feign桩"><a class="header" href="#使用swagger生成feign桩">使用Swagger生成Feign桩</a></h1>
+<p>在Eureka中，默认通过RestController进行RPC调用，虽然使用比较简单，但是纯手写还是比较麻烦的。目前一般有如下调用方法</p>
+<table><thead><tr><th>RPC Stub</th><th>PROS</th><th>CONS</th></tr></thead><tbody>
+<tr><td>HttpClient/OkHttp</td><td>hight customized</td><td>maintains urls, serialization</td></tr>
+<tr><td>Feign/Retrofit</td><td>Dynamic Proxy, Interceptors</td><td>maintains source code</td></tr>
+<tr><td>Swagger Codegen</td><td>Auto generated maven jar</td><td>maintains templates</td></tr>
+</tbody></table>
+<p>其中Swagger Codegen方法中可以通过手动更新到VSC与通过Jenkins部署到MVN上实现，在实际项目中，你可以首先以源码形式进行管理，后面在切到全部自动化管理</p>
+<pre><code class="language-mermaid">graph LR
+	a2--mvn deploy--&gt;b1
+    subgraph Swagger
+    a1(API)--swagger codegen maven plugin--&gt;a2(POM Source)
+    end
+    subgraph Maven nexus
+    b1(Jar)
+    end
+</code></pre>
+<p>虽然网上讲Swagger代码生成很多 ，但是中文似乎研究的人并不多，而且官方的生成器模版有一堆定制问题，因此本文进行一下介绍</p>
+<h2 id="简易生成代码桩"><a class="header" href="#简易生成代码桩">简易生成代码桩</a></h2>
+<p>这个仅用于没有负担的入门项目</p>
+<ul>
+<li>没有鉴权(no auth)</li>
+<li>没有多环境配置(no env profiles)</li>
+</ul>
+<p>代码如下</p>
+<pre><code class="language-sh"># download the stable release jar
+wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.3.1/swagger-codegen-cli-2.3.1.jar -O swagger-codegen-cli.jar
+# run codegen with petstore
+java -jar swagger-codegen-cli.jar generate -i http://petstore.swagger.io/v2/swagger.yaml -o gen -l spring --library spring-cloud
+</code></pre>
+<blockquote>
+<p>Do not use codegen3, it not works now.</p>
+</blockquote>
+<h2 id="高度定制生成代码桩"><a class="header" href="#高度定制生成代码桩">高度定制生成代码桩</a></h2>
+<p>虽然Swagger看似一键生成了代码，但是生成的内容效果都不是很好，因此建议自己维护一份模板，原因如下</p>
+<ul>
+<li>在业务中一般会定制Encoder与鉴权插件，此部分仅仅修改模版是不够的</li>
+<li>由于SpringCloud更新速度很快的原因，如果你使用SpringBoot2.0，那么需要自己定制<a href="https://github.com/swagger-api/swagger-codegen/blob/master/modules/swagger-codegen/src/main/resources/JavaSpring/libraries/spring-cloud/apiClient.mustache">模版</a>中的import。</li>
+</ul>
+<p>具体教程如下</p>
+<h4 id="配置maven-plugin"><a class="header" href="#配置maven-plugin">配置Maven plugin</a></h4>
+<p>首先在Maven中配置<a href="https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen-maven-plugin">插件</a>，其中插件参数如下</p>
+<pre><code class="language-xml">&lt;profiles&gt;
+    &lt;profile&gt;
+        &lt;id&gt;swagger-gen&lt;/id&gt;
+        &lt;!-- eg: passed by mvn -Dkey=value --&gt;
+        &lt;properties&gt;
+            &lt;url&gt;http://petstore.swagger.io/v2/swagger.yaml&lt;/url&gt;
+            &lt;package&gt;com.github.miao1007&lt;/package&gt;
+            &lt;timestamp&gt;${maven.build.timestamp}&lt;/timestamp&gt;
+            &lt;maven.build.timestamp.format&gt;yyyyMMdd&lt;/maven.build.timestamp.format&gt;
+        &lt;/properties&gt;
+        &lt;build&gt;
+            &lt;plugins&gt;
+                &lt;plugin&gt;
+                    &lt;groupId&gt;io.swagger&lt;/groupId&gt;
+                    &lt;artifactId&gt;swagger-codegen-maven-plugin&lt;/artifactId&gt;
+                    &lt;version&gt;2.3.1&lt;/version&gt;
+                    &lt;executions&gt;
+                        &lt;execution&gt;
+                            &lt;!-- see https://stackoverflow.com/a/3169340/4016014 --&gt;
+                            &lt;id&gt;default-cli&lt;/id&gt;
+                            &lt;goals&gt;
+                                &lt;goal&gt;generate&lt;/goal&gt;
+                            &lt;/goals&gt;
+                            &lt;configuration&gt;
+                                &lt;inputSpec&gt;${url}&lt;/inputSpec&gt;
+                                &lt;language&gt;spring&lt;/language&gt;
+                                &lt;apiPackage&gt;${package}.api&lt;/apiPackage&gt;
+                                &lt;modelPackage&gt;${package}.model&lt;/modelPackage&gt;
+                                &lt;groupId&gt;${package}&lt;/groupId&gt;
+                                &lt;artifactId&gt;sdk&lt;/artifactId&gt;
+                                &lt;artifactVersion&gt;${timestamp}-SNAPSHOTS&lt;/artifactVersion&gt;
+                                &lt;invokerPackage&gt;${package}.invoker&lt;/invokerPackage&gt;
+                                &lt;templateDirectory&gt;template&lt;/templateDirectory&gt;
+                                &lt;configOptions&gt;
+                                    &lt;library&gt;spring-cloud&lt;/library&gt;
+                                    &lt;dateLibrary&gt;java8&lt;/dateLibrary&gt;
+                                &lt;/configOptions&gt;
+                            &lt;/configuration&gt;
+                        &lt;/execution&gt;
+                    &lt;/executions&gt;
+                &lt;/plugin&gt;
+            &lt;/plugins&gt;
+        &lt;/build&gt;
+    &lt;/profile&gt;
+&lt;/profiles&gt;
+</code></pre>
+<p>注意这里专门开了一个profile，避免与其他打包产生影响。</p>
+<h4 id="生成源码generate-source-code"><a class="header" href="#生成源码generate-source-code">生成源码(Generate source code)</a></h4>
+<p>执行如下</p>
+<pre><code class="language-sh"># please replace the url to your own's
+mvn -P swagger-gen -Durl=http://petstore.swagger.io/v2/swagger.yaml -f pom.xml
+</code></pre>
+<h4 id="部署到mavendeploy-to-maven"><a class="header" href="#部署到mavendeploy-to-maven">部署到Maven(Deploy to maven)</a></h4>
+<p>执行如下</p>
+<pre><code class="language-sh"># it won't work now because we havn't configure the template file in the pom
+mvn clean deploy -f target/generated-sources/swagger/pom.xml
+</code></pre>
+<blockquote>
+<p>此处deploy需要一个Nexus私服，这个自己搭</p>
+</blockquote>
+<h4 id="使用桩"><a class="header" href="#使用桩">使用桩</a></h4>
+<p>在其他需要此项目的pom文件中加入如下</p>
+<pre><code class="language-xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.github.miao1007&lt;/groupId&gt;
+        &lt;artifactId&gt;sdk&lt;/artifactId&gt;
+        &lt;name&gt;sdk&lt;/name&gt;
+        &lt;!-- you can customize your own timestamp --&gt;
+        &lt;version&gt;20180724-SNAPSHOTS&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<p>通过上述流程，你的代码生成器应该就可以用了，但是默认模版还有以下问题</p>
+<ul>
+<li>不支持Eureka的value属性(Do not support Eureka's dynamic naming service)，而是hard coding url</li>
+<li>pom过于简单，不支持上传源码(maven-source-plugin)</li>
+</ul>
+<h2 id="定制模版"><a class="header" href="#定制模版">定制模版</a></h2>
+<p>首先在根目录下创建文件夹<code>template</code></p>
+<p>然后，你需要覆盖文件的形式定制，从这里下载需要定制的文件，并放到刚刚的<code>template</code>目录</p>
+<pre><code># 注意不需要文件夹层次
+https://github.com/swagger-api/swagger-codegen/tree/master/modules/swagger-codegen/src/main/resources/JavaSpring
+</code></pre>
+<h4 id="定制apiclient动态模版"><a class="header" href="#定制apiclient动态模版">定制apiClient动态模版</a></h4>
+<p>举个例子，需要支持基于yaml获取Eureka的name，那么需要进行如下定制，此处path相当于tomcat的contextPath，原版的模版中并不支持</p>
+<p>File: template/apiClient.mustache</p>
+<pre><code class="language-js">package {{package}};
+
+import org.springframework.cloud.netflix.feign.FeignClient;
+import {{configPackage}}.ClientConfiguration;
+
+{{=&lt;% %&gt;=}}
+@FeignClient(name=&quot;${&lt;%groupId%&gt;.name}&quot;, path=&quot;${&lt;%groupId%&gt;.path}&quot;)
+&lt;%={{ }}=%&gt;
+public interface {{classname}}Client extends {{classname}} {
+}
+</code></pre>
+<p>然后生成的代码如下</p>
+<pre><code class="language-java">//generated file by mustache
+@FeignClient(name=&quot;${com.github.miao1007.name}&quot;, path=&quot;${com.github.miao1007.path}&quot;)
+public interface PetApiClient extends PetApi {
+}
+</code></pre>
+<p>接着我们在客户机的<code>application.yaml</code>中配置即可</p>
+<pre><code class="language-yaml"># eureka client config example 
+io:
+  github:
+  	miao1007:
+  	  sdk:
+  	  	# eureka's name
+        name: EUREKA-ORDER-PROD
+        # tomcat's context path
+        path: /context
+</code></pre>
+<p>然后就可以像往常一样注入服务即可</p>
+<pre><code class="language-java">@Autowired
+private PetApiClient client;
+//use
+client.queryBy...
+</code></pre>
+<blockquote>
+<p>如果你想明白底层原理的话，可以看<a href="client/../third/feign.html">这里</a></p>
+</blockquote>
+<h4 id="定制pom源码模版"><a class="header" href="#定制pom源码模版">定制POM源码模版</a></h4>
+<p>同理，由于默认模版中只上传了jar，导致用户使用时参数可能是var1, var2，这里可以通过配置源码插件实现</p>
+<p>File: template/pom.mustache</p>
+<pre><code class="language-diff">+ &lt;plugin&gt;  
++    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;  
++    &lt;artifactId&gt;maven-source-plugin&lt;/artifactId&gt;  
++    &lt;version&gt;2.1.1&lt;/version&gt;  
++    &lt;executions&gt;  
++        &lt;execution&gt;  
++            &lt;id&gt;attach-sources&lt;/id&gt;  
++            &lt;phase&gt;package&lt;/phase&gt;
++            &lt;goals&gt;  
++                &lt;goal&gt;jar-no-fork&lt;/goal&gt;  
++            &lt;/goals&gt;  
++        &lt;/execution&gt;  
++    &lt;/executions&gt;  
++ &lt;/plugin&gt;
+</code></pre>
+<p>以及nexus上传定制</p>
+<pre><code class="language-diff">+ &lt;distributionManagement&gt;
++     &lt;repository&gt;
++         &lt;id&gt;releases&lt;/id&gt;
++         &lt;!-- your nexus url --&gt;
++         &lt;url&gt;http://127.0.0.1:8081/nexus/content/repositories/releases&lt;/url&gt;
++     &lt;/repository&gt;
++     &lt;snapshotRepository&gt;
++         &lt;id&gt;snapshots&lt;/id&gt;
++         &lt;url&gt;http://127.0.0.1:8081/nexus/content/repositories/snapshots&lt;/url&gt;
++     &lt;/snapshotRepository&gt;
++ &lt;/distributionManagement&gt;
+</code></pre>
+<p>这个不属于本文范畴，可以自行学习</p>
+<h2 id="feign-file-upload"><a class="header" href="#feign-file-upload">Feign File upload</a></h2>
+<p>这个地方简直天坑了</p>
+<ul>
+<li>首先Swagger生成的代码有问题，没有<code>@ParamPart</code>，导致上传无法使用，详见解决办法<a href="https://github.com/swagger-api/swagger-codegen/issues/8419">#8419</a></li>
+<li>Feign代码写的水平远不如Retrofit/OkHttp优雅，它不支持免配置上传二进制文件，我目前的解决如下</li>
+</ul>
+<p>依赖如下</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.github.openfeign.form&lt;/groupId&gt;
+    &lt;artifactId&gt;feign-form-spring&lt;/artifactId&gt;
+    &lt;version&gt;3.3.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>全局配置如下，需要被扫描</p>
+<pre><code class="language-java">// Feign client config
+@Configuration
+class FeignConfig {
+    
+    @Autowired
+	private ObjectFactory&lt;HttpMessageConverters&gt; messageConverters;
+    
+    @Bean
+    public Encoder feignEncoder() {
+        Encoder dft = new SpringEncoder(this.messageConverters);
+        Encoder form = new SpringFormEncoder();
+        return new Encoder(){
+          public void encode(Object object, Type bodyType, RequestTemplate template) {
+              if (bodyType == MultipartFile.class) {
+                form.encode(object, bodyType, template);
+              } else {
+                dft.encode(object, bodyType, template);
+              }
+            }
+        };
+    }
+}
+</code></pre>
+<blockquote>
+<p>为什么不单独在接口中独立写Encoder呢？这样写的问题是，Feign内部的FeignContext使用name作为key，configuration作为value，因此如果你这里定制了不同的configuration，那么相同name下的configuration将被覆盖，详见FactoryBean中实现。</p>
+</blockquote>
+<h4 id=""><a class="header" href="#"></a></h4>
+<h2 id="总结与建议"><a class="header" href="#总结与建议">总结与建议</a></h2>
+<p>Feign与Swagger的结合可以说是一堆问题，当然网上并没有像Dubbo那么完善的方案，因此需要注意</p>
+<ul>
+<li>如果使用Controller作为RPC的实现，那么在写Controller时一定<strong>不要用Map</strong>作为入参出参，这样RPC序列化时将无法使用。我在项目中发现了很多外包这样写，导致后期维护成本较高。再次感慨招人与静态检测的重要性。</li>
+<li>如果需要鉴权，那么不用桩中支持，而是直接外部全局配置拦截器即可，在服务端的业务代码中也不要加入鉴权相关的<code>@ApiParams</code></li>
+<li>如果使用基于编码TCP的形式进行RPC，那么需要自己定制模版，但是SpringCloud的调用链，日志均等生态就无法使用了</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="基于springcloud的分布式定时调度任务"><a class="header" href="#基于springcloud的分布式定时调度任务">基于SpringCloud的分布式定时调度任务</a></h2>
+<p>本文讲如何设计一款对开发者友好的定时任务调度框架。</p>
+<blockquote>
+<p>根据相关规定，具体实现将不开源。不过本文可以介绍此框架的分析过程以及使用的技术。</p>
+</blockquote>
+<p>如果当前有PaaS，那么基于PaaS实现最推荐：比如Kubernetes、Nomad进行容器级、无状态的调度。不推荐阅读下文。</p>
+<h2 id="1-backgroud"><a class="header" href="#1-backgroud">1. Backgroud</a></h2>
+<p>定时任务几乎在每个项目都广泛存在，普通项目中一般通过注解或者Bean等形式进行管理Job。不过当你的任务比较多时，你就会发现来坑了(开源软件啥都有，但啥都不全) —— </p>
+<ul>
+<li>Quartz调度过程为黑盒，无法查看历史，也不支持各种调度管理(暂停/新增/下线/立刻执行等)功能</li>
+<li>基于Xml/Java的Bean很难统一维护，后面接手的人谁也不敢动</li>
+<li>Quartz如同它的名字（QuartzCrystal，晶振，也就是时钟发生器，类似CPU中的PLL电路），只是触发器而已，它本身不要与负载均衡混到一起(内部本身通过竞争Row锁实现，连均分都做不到)</li>
+</ul>
+<p>虽然当当等调度开源框架进行了二次定制，但是它们仍然属于库文件，侵入式太强(需要继承某个类或者注解等代码污染)，因此把上面的逻辑SAAS(Schedule-As-A-Service)化可能是更好的选择</p>
+<h1 id="2-requirement"><a class="header" href="#2-requirement">2. Requirement</a></h1>
+<p>针对以上问题，做出如下愿景</p>
+<h4 id="服务化"><a class="header" href="#服务化">服务化</a></h4>
+<p>将原有的Java方法调用换为RPC，调度逻辑（触发实现，同步还是异步）与业务分离</p>
+<table><thead><tr><th></th><th>Quartz</th><th>新定时任务</th></tr></thead><tbody>
+<tr><td>调度逻辑</td><td>硬编码到Java/XML中，修改需要重启</td><td>通过外部DSL(比如JSON)以Web界面的形式实时管理(暂停/新增/下线/立刻执行等)，作为调度客户端RPC请求执行器</td></tr>
+<tr><td>侵入性</td><td>与业务框架强耦合</td><td>连Quartz都不用引入，通过Eureka以<a href="https://zh.wikipedia.org/zh-hant/%E8%A6%86%E7%9B%96%E7%BD%91%E7%BB%9C">覆盖网络</a>的形式进行节点间通信。甚至连Eureka都可以不用，而使用Nginx作为命名服务。</td></tr>
+<tr><td>运维特性</td><td>黑盒</td><td>能够记录JobHistory，以便以后<strong>有据可查</strong></td></tr>
+</tbody></table>
+<h4 id="用户侧执行器需要做什么改造"><a class="header" href="#用户侧执行器需要做什么改造">用户侧(执行器)需要做什么改造？</a></h4>
+<ol>
+<li>用户侧暴露任务的Endpoint，最简单的是暴露为RestController</li>
+<li>用户在定时任务Web管理界面上传配置，如下，其中url中的host是VIP，VIP的可用性由执行器自己保证</li>
+</ol>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;SendMail&quot;,
+    &quot;url&quot;: &quot;http://eureka-busi-sz1/app/task/sendmail.task&quot;,
+    &quot;cron&quot;: &quot; */2 * * * *&quot;,
+    &quot;fail&quot;: &quot;miao1007@gitbook.com&quot;
+}
+</code></pre>
+<p>这样，定时任务调度就会在相应的时间间隔发送RPC请求，客户自己就不用维护调度逻辑了。</p>
+<h2 id="3-action"><a class="header" href="#3-action">3. Action</a></h2>
+<p>针对上面的需求，我们可以把</p>
+<h4 id="31-定时任务后台rpc请求流程图"><a class="header" href="#31-定时任务后台rpc请求流程图">3.1. 定时任务后台RPC请求流程图</a></h4>
+<p>总体设计如下，只要服务注册到Eureka即可获取到IP，并执行RPC</p>
+<pre><code class="language-mermaid">sequenceDiagram
+  	Scheduler-&gt;&gt;EurekeServer: &quot;eureka-busi-sz1&quot;的IP是多少
+    activate EurekeServer
+    EurekeServer--&gt;&gt;Scheduler: 它的IP是[a,b,c]
+    deactivate EurekeServer
+    loop 客户端负载均衡
+        Scheduler-&gt;&gt;Scheduler: 选出一个IP
+    end
+    Scheduler -&gt;&gt; Business: RPC call
+    activate Business
+    Business --&gt;&gt; Scheduler: 完成业务
+    deactivate Business
+</code></pre>
+<p>高可用方案</p>
+<ul>
+<li>定时任务本身复用Quartz的统一数据库中心，多台横向部署即可。部署时建议在相同的Region中，<strong>时间间隔必须小于1s</strong></li>
+<li>EurekaServer: 参考Netflix的HA教程，配置多台即可</li>
+<li>Business高可用: 取决于业务，一般来说横向部署多台，注册到Eureka即可。</li>
+</ul>
+<h4 id="32-eurekaokhttpquartz解决方案"><a class="header" href="#32-eurekaokhttpquartz解决方案">3.2. Eureka+OkHttp+Quartz解决方案</a></h4>
+<p>针对上述选型，实现如下功能</p>
+<ul>
+<li>Web界面: 对于编程人员全部通过鼠标或者脚本导入导出定时任务，我个人通过 Angular搞了一套简单的表格式管理页面</li>
+<li>调度管理: 通过对Quartz的Scheduler进行封装暴露，使用JobStoreTX(持久化)</li>
+<li>分布式锁: 通过Quartz默认内置Row级Lock(SELECT FOR UPDATE)</li>
+<li>命名服务: 通过Eureka实现服务实例的获取(代码中利用OkHttp的DNS进行Override)</li>
+<li>负载均衡: 使用Ribbon，如果你不喜欢它的数组轮询方式，可以自己实现IRule。这里需要结合业务实现，<strong>无状态的数组轮询/Hash即可，有状态的需要维护一个结构体</strong>。</li>
+<li>RPC: 默认HTTP阻塞调用，不过受限于SpringMVC/Tomcat的<a href="https://tomcat.apache.org/connectors-doc/common_howto/timeouts.html">超时</a>，此方案不支持获取阻塞时间过长的<strong>任务结果</strong>（这类更应该用MQ来实现，比如索引任务，这类可以参考<a href="https://www.cloud.alipay.com/docs/2/56108">SofaBoot</a>的实现），当然如果你只要求能发送请求而不在乎返回结果，那么这个功能就已经够了，可以考虑加入回写。这个是方案的短板，长期阻塞IO将导致线程并发数能力弱。</li>
+<li>RPC鉴权: 此部分与调度是无关的，但是可以采用定制Header的Interceptor等方法实现</li>
+</ul>
+<p>最终通过SpringBoot一个Jar包进行多机部署，此架构<strong>单点故障主要在中心的JobStore（比如数据库）上</strong></p>
+<h4 id="33-quartz的定制"><a class="header" href="#33-quartz的定制">3.3. Quartz的定制</a></h4>
+<p>本文不会过多涉及到非Eureka的篇章，因此建议如下</p>
+<ul>
+<li>使用Plugin注册Job监听器，并模仿LogBack的DBAppender实现历史日志记录，如果你的日志是非结构化的(比如返回了JSON报文)，我建议放到ElasticSearch上</li>
+<li>多看多学Quartz的调度API，并封装为RESTful接口</li>
+<li>由于是给所有小组用，而且很多人都喜欢放在6点跑定时任务，因此Quartz的<strong>执行线程池必须调大</strong>，而不是默认的10条，否则会Missfire</li>
+</ul>
+<h4 id="34-定制okhttp的dns接口实现命名服务"><a class="header" href="#34-定制okhttp的dns接口实现命名服务">3.4. 定制OkHttp的Dns接口实现命名服务</a></h4>
+<p>Eureka从客户端来看，它非常像HTTP DNS。虽然在Android中经常使用，不过我们的Quartz也相当于是客户端，因此可以在Quartz中的请求Job的RPC中，定制如下</p>
+<pre><code class="language-java">LoadBalancerClient client;
+final Dns eurekaDns = new Dns() {
+    @Override
+    List&lt;InetAddress&gt; lookup(String vip) throws UnknownHostException {
+        if (!vip?.trim()){
+            throw new UnknownHostException(&quot;hostname is null&quot;)
+        }
+        ServiceInstance instance = client.choose(vip)
+        if (instance){
+            String realHost = instance.getHost()
+            return InetAddress.getAllByName(realHost)
+        } else {//这种场景仅用于输入的不是VIP
+            return Dns.SYSTEM.lookup(vip)
+        }
+    }
+}
+OkHttpClient ok = new OkHttpClient.Builder().dns(eurekaDns).build()
+//注意这里输入的HostName是Eureka中的VIP(Virtual IP)
+Request request = new Request.Builder().url(&quot;http://eureka-instance/api/xxx.json&quot;).build()
+ok.newCall(request)
+</code></pre>
+<p>这样，非常简单复用了各种开源软件的接口，没有造一点轮子，就搞定了找服务的问题</p>
+<ul>
+<li>OkHttp自动帮你Parse了URL，因此你不用自己手动获取HostName，OkHttp内部的双端Dequeue队列可以保证所有任务按序发送。</li>
+<li>Ribbon帮你实现了<a href="https://github.com/Netflix/ribbon/wiki/Working-with-load-balancers">负载均衡</a>，注意这里是客户端负载均衡算法，本文场景仅供应用服务层调度，不支持cgroup/namespace层的调度（比如nomad/k8s）。</li>
+<li>Eureka帮你实现了VIP的服务发现(这里被Ribbon给封装了看不见)</li>
+<li>InetAddress.getAllByName这个调用只是本地拼装IP，没有再次进行DNS请求</li>
+</ul>
+<p>此方案的好处是，假如后续你的服务换成了Consul/etcd/kubernertes，也能无损切换。定时任务就要做到功能单一，不要和“调度”混到一起。</p>
+<h2 id="4-summary"><a class="header" href="#4-summary">4. Summary</a></h2>
+<h4 id="项目收益"><a class="header" href="#项目收益">项目收益</a></h4>
+<p>上述方案已经在生产环境中使用，目前收益如下</p>
+<ul>
+<li>比较俗的，就是个人搞到一个演讲分享的机会，然后部门内评了一个奖并推广</li>
+<li>通过定时执行日志统计出了很多特殊业务场景下的失败BUG并改进，晚上睡觉再也不心虚了</li>
+<li>任务调度与业务真正解藕，没有代码污染，业务代码中可以只留一份JSON作为存档</li>
+<li>统一邮件警报功能，任务挂掉后马上掌握</li>
+</ul>
+<p>特别发现了一些严重的编码问题，比如某些不负责的员工代码中<strong>把异常全局try/catch住，打印一个报错，就认为“我已经处理好异常”了</strong>，这种代码导致了很多任务看似成功实则失败，这种行为的确让人心累，以后招聘一定要好好把关！</p>
+<h4 id="方案缺点"><a class="header" href="#方案缺点">方案缺点</a></h4>
+<p>虽然本方案在小项目组内（也就是200多个任务）完全ok，但是</p>
+<ul>
+<li>阻塞架构：受限于被请求端的超时配置，不支持长阻塞任务获取结果；过多的长阻塞任务<strong>占用数据库大量连接池</strong>。需要用MQ/Webhook来进行回写处理(没做)</li>
+<li>无法检测到Missfired的任务(因为只配置了Job监听器，而没有配置Trigger监听器)</li>
+<li>受限于Quartz本身处理Missfired的逻辑(可以看那个For循环源码)，<strong>重启后cron任务会一次性跑完</strong>，导致可能影响业务，比如邮件集中发一堆被客户吊（这个需要定制Quartz源码）</li>
+</ul>
+<h2 id="5-附录"><a class="header" href="#5-附录">5. 附录</a></h2>
+<h4 id="其它技术调研"><a class="header" href="#其它技术调研">其它技术调研</a></h4>
+<p>通过技术调研(<del>搜索开源项目</del>)，有如下方法</p>
+<ul>
+<li>最原始的crontab+curl脚本实现Trigger: 这样一套做下来，基本上除了开发本人，谁也不敢碰代码了。缺点也非常明显，Shell维护性差</li>
+<li>使用Quartz+分布式锁实现调度(现有状态): 目前还算是比较主流的实现，毕竟不是所有的业务都需要“云化”，很可能几台就够用了，缺点是每台机子都要折腾自己的Bean，只要有人离职就心慌</li>
+<li>使用zk+Quartz实现: 比较完善的一种方案，当然这套系统需要自研要耗费人力，而网上似乎只有<a href="http://www.infoq.com/cn/articles/dangdang-distributed-work-framework-elastic-job">当当网的分布式作业框架elastic-job</a>进行了开源，这个写的很有水平，但是当当的是通过zk注册Bean实现调用Java类，对老系统侵入较强: 需要引入新的Jar包(开源合规/信息安全等等)，还要继承一个黑盒Class，同时它对zk暴露的是Class，不支持微服务RPC调用。</li>
+<li>某闭源zk实现: 某电信级项目中间件，通过定制Zk服务发现，自研线程池与DSL脚本实现，此方案优点是高度定制适配业务，缺点是普通业务团队养不起。</li>
+<li>其它国产框架: XXL-Job等框架. 虽然架构框图画一堆，评奖也很多，但是并没有看出针对上述Quartz缺点(比如阻塞，抽取Loadbalancer，Misfire，上下文持久化)的定制改造，说白了就是一个Wrapper而已，没有达到中间件团队的能力。虽然我认可作者的能力，但我对国产(包括阿里的)开源还是比较谨慎的。(国产开源特点: 面相KPI与个人品牌而开源)</li>
+</ul>
+<p>最后结论是，现有的开源调度系统<strong>都有侵入式</strong>，而且都不支持微服务，因此只好自己进行开发了，上面是我的探索思路，希望会有帮助。我个人还是建议项目组自行定制定时任务，因为每个项目的鉴权，微服务框架，业务执行时间都是不同的，这也是业界好用的不开源，开源的不好用的原因。</p>
+<h4 id="附加题调度器实现bin-packing-systen-design"><a class="header" href="#附加题调度器实现bin-packing-systen-design">附加题：调度器实现（Bin Packing Systen Design）</a></h4>
+<p>某项目需要专门的编译器集群去跑编译任务</p>
+<ul>
+<li>任务是一堆代码，它将消耗一种特殊的硬件进行运行。</li>
+<li>某种硬件设备集群，有两个指标，一个是存放软件源码的磁盘容量【S】，一个是编译速度【V】MB/H；编译器始终高可用，但是可以中途新增编译器；不考虑磁盘加载等非编译时间消耗。</li>
+<li>软件项目不能分拆到两个编译器上跑；同一个编译器可以跑多个项目。</li>
+</ul>
+<p>求给出两个调度设计（均分负载到多台/优先堆满一台）的SASS的方案。如果读者有兴趣的话，可以联系本人内推。</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="eureka服务端"><a class="header" href="#eureka服务端">Eureka服务端</a></h1>
+<p>本部分主要是对Eureka内部数据结构的维护与集群复制的分析，相比于其它源码分析类文章，本文更像是实验过程，而不是粘一堆代码后得出结论。</p>
+<h2 id="搭建环境"><a class="header" href="#搭建环境">搭建环境</a></h2>
+<h4 id="配置单机版host"><a class="header" href="#配置单机版host">配置单机版Host</a></h4>
+<p>编辑本机的Hosts(/etc/hosts)</p>
+<pre><code>127.0.0.1 peer1
+127.0.0.1 peer2
+127.0.0.1 peer3 
+</code></pre>
+<h4 id="搭建测试环境"><a class="header" href="#搭建测试环境">搭建测试环境</a></h4>
+<p>配置如下配置属性，详见<a href="https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-eureka-server.html#spring-cloud-eureka-server-zones-and-regions">High Availability, Zones and Regions</a>，注意<code>defaultZone</code>在Server侧需要写全，在Client侧可以写部分，否则没写的不会收到心跳信息，导致Server报错&quot;Renews threshold&quot;</p>
+<pre><code class="language-yaml">eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8081/eureka/,http://peer2:8082/eureka/,http://peer3:8083/eureka/
+  instance:
+    appname: eureka-server
+---
+spring:
+  profiles: peer1
+eureka:
+  instance:
+    hostname: peer1
+    instance-id: peer-id1
+server:
+  port: 8081
+---
+spring:
+  profiles: peer2
+eureka:
+  instance:
+    hostname: peer2
+    instance-id: peer-id2
+server:
+  port: 8082
+---
+spring:
+  profiles: peer3
+eureka:
+  instance:
+    hostname: peer3
+    instance-id: peer-id3
+server:
+  port: 8083
+</code></pre>
+<p>然后再加入<code>@EnableEurekaServer</code>注解，就完成搭建一个Server了，依此启动这三个profile的SpringBoot程序</p>
+<p>如果搭建成功，应该可以发现下面三个地址可以访问了</p>
+<pre><code>http://localhost:8081/
+http://localhost:8082/
+http://localhost:8083/
+</code></pre>
+<p>在启动过程中，不断刷新如下地址，可以发现<code>apps__hashcode</code>会不断更新</p>
+<pre><code>http://localhost:8081/eureka/apps
+</code></pre>
+<h2 id="执行分析"><a class="header" href="#执行分析">执行分析</a></h2>
+<p>打开Wireshark，分析localhost网卡，进行如下过滤</p>
+<pre><code class="language-sh"># 发送与接收
+http&amp;&amp;(tcp.port==8081 || tcp.port==8082 || tcp.port==8083)
+# 接收
+http&amp;&amp;(tcp.dstport==8081 || tcp.dstport==8082 || tcp.dstport==8083)
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="eurekaserver如何维护命名服务"><a class="header" href="#eurekaserver如何维护命名服务">EurekaServer如何维护命名服务</a></h1>
+<p>本文只讲EurekaServer如何装箱的过程，后续再详细讲Eureka本身的细节。</p>
+<h2 id="启动分析"><a class="header" href="#启动分析">启动分析</a></h2>
+<pre><code class="language-puml">@startuml
+Bob -&gt; Alice : hello
+@enduml
+</code></pre>
+<h4 id="从注解开始分析"><a class="header" href="#从注解开始分析">从注解开始分析</a></h4>
+<p>打开<code>@EnableEurekaServer</code>这个注解，可以发现了一个空的Class</p>
+<pre><code class="language-java">org.springframework.cloud.netflix.eureka.server.EurekaServerMarkerConfiguration.Marker
+</code></pre>
+<p>通过以往经验，这个Marker可能是一个flag标记，对它进行findUsage分析</p>
+<p>可以发现它是如下JavaConfig的前置条件</p>
+<pre><code class="language-java">@Configuration
+@Import(EurekaServerInitializerConfiguration.class)
+@ConditionalOnBean(EurekaServerMarkerConfiguration.Marker.class)
+@EnableConfigurationProperties({ EurekaDashboardProperties.class,
+		InstanceRegistryProperties.class })
+@PropertySource(&quot;classpath:/eureka/server.properties&quot;)
+public class EurekaServerAutoConfiguration {}
+</code></pre>
+<p>这里导入的Bean太多，如果强行分析也是可以，但是很容易陷入Spring的细节中，投入时间划不来。仔细看可以发现<code>javax.ws</code>这种涉及到RESTful接口的，打上断点</p>
+<pre><code class="language-java">EurekaServerAutoConfiguration#jerseyApplication
+</code></pre>
+<p>分析它内部扫描的Class，整理所有接口如下</p>
+<pre><code class="language-java">@Path(value=/{version}/instances)
+@Path(value=/{version}/status)
+@Path(value=/{version}/vips)
+@Path(value=/serverinfo)
+@Path(value=/{version}/svips)
+@Path(value=/{version}/peerreplication)
+@Path(value=/{version}/apps)
+@Path(value=/{version}/asg)
+</code></pre>
+<p>在之前的<a href="server/../client/eureka-client-rpc.html">Client抓包分析</a>中，客户端通过HTTP请求进行RPC，所以只要分析断点上述Server端的接口，即可明白其内部工作原理了。</p>
+<blockquote>
+<p>Eureka这里使用了jersey作为它的路由实现，在Filter中代替了Servlet的工作，这点类似Struts框架。</p>
+</blockquote>
+<p>此外进行全局搜索，发现Spring也用mvc包装了部分Controller</p>
+<pre><code>org.springframework.cloud.netflix.eureka.server.EurekaController
+</code></pre>
+<h2 id="断点请求"><a class="header" href="#断点请求">断点请求</a></h2>
+<h4 id="获取app列表"><a class="header" href="#获取app列表">获取APP列表</a></h4>
+<p>比如最简单的接口</p>
+<pre><code class="language-http">GET /eureka/apps/ HTTP/1.1
+</code></pre>
+<p>通过上面的<code>jerseyApplication</code>可以发现如下类负责此接口</p>
+<pre><code class="language-java">ApplicationsResource#ApplicationsResource(EurekaServerContext)
+</code></pre>
+<p>在这个类中的构造函数与路由位置，各打上断点后启动，发现没有断上，分析可能是lasyload模式，接着上curl</p>
+<pre><code class="language-sh">curl localhost:8761/eureka/apps
+</code></pre>
+<p>这次断点成功了，接着按照调用栈，在如下位置打上断点，可以发现Eureka在维护Apps使用了如下结构</p>
+<pre><code class="language-java">ResponseCacheImpl#get(Key, boolean)
+</code></pre>
+<h4 id="获取instance列表"><a class="header" href="#获取instance列表">获取Instance列表</a></h4>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="eurekaserver的集群间复制replicate"><a class="header" href="#eurekaserver的集群间复制replicate">EurekaServer的集群间复制(Replicate)</a></h2>
+<p>首先按照上一章节搭建环境并用wireshark抓包后，可以发现它们内部通过三个轮询请求进行同步</p>
+<pre><code>POST /eureka/peerreplication/batch/
+PUT /eureka/apps/EUREKA-SERVER/pc_name:8081?status=UP&amp;lastDirtyTimestamp=15575xxxxxxxx
+GET /eureka/apps/delta
+</code></pre>
+<h4 id="peerreplication流程"><a class="header" href="#peerreplication流程">PeerReplication流程</a></h4>
+<p>我们依然不先看源码，先搞清楚RPC，以peer1为例</p>
+<pre><code class="language-sh"># 找到peer1的连接信息
+lsof -i -n -P |grep  `ps aux|grep java|grep peer1| awk '{print $2}'`
+</code></pre>
+<p>可以看出EurekaServer连接的关系是P2P关系，三个Peer两两相连</p>
+<p>用Wireshark进行调试</p>
+<pre><code class="language-sh"># 所有发送给Peer1的请求
+http.request.uri contains &quot;peerreplication&quot; &amp;&amp; tcp.dstport==8081
+</code></pre>
+<p>可以发现这是一个30s间隔的轮询（scheduled updates）</p>
+<p>然后在接收侧打上断点</p>
+<pre><code>com.netflix.eureka.resources.PeerReplicationResource#batchReplication
+</code></pre>
+<p>通过断点照成的超时，找到发送侧的报错stacktrace</p>
+<pre><code>com.netflix.eureka.cluster.ReplicationTaskProcessor#process
+</code></pre>
+<p>这样就可以迅速分析源码了</p>
+<h4 id="renew流程"><a class="header" href="#renew流程">renew流程</a></h4>
+<p>对客户端的ClientUrl进行追踪，可以发现拼装侧在如下位置，来自配置文件</p>
+<pre><code>com.netflix.eureka.cluster.PeerEurekaNodes#resolvePeerUrls
+</code></pre>
+<p>以peer1为例，它将for循环依此请求peer2与peer3，在接收侧接收HTTP请求后，同Client一样的方法，更新自己的Memory内存中的信息，这些过程是没锁的对所有地址的广播（ broadcast replication）。</p>
+<p>好吧，就写到这吧，我个人认为没有必要继续分析下去，这个方案太浩大了，个人目前只能给出工程断点，缺少视野，否则接着只能写出粘贴源码类的文章了。</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="第三方组件"><a class="header" href="#第三方组件">第三方组件</a></h1>
+<p>本部分介绍Eureka与第三方组件的集成</p>
+<ul>
+<li>基于注解的Feign与负载均衡</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="feign简介与spring代理自动注入"><a class="header" href="#feign简介与spring代理自动注入">Feign简介与Spring代理自动注入</a></h2>
+<p>Feign是一款Java的基于注解的HTTP客户端，主要在服务端使用较广，属于Netflix系列。本文从动态代理开始介绍，然后推广到如何分离硬编码，到最后基于Spring的扫描装配实现。</p>
+<p>面向读者</p>
+<ul>
+<li>有一定的Feign, Retrofit, Mybatis等基础</li>
+<li>了解Spring，反射，动态代理等技术</li>
+</ul>
+<p>读者将学到</p>
+<ul>
+<li>Feign的关键代码位置</li>
+<li>如何持续改进项目，降低硬编码</li>
+<li>如何自己实现Spring的自动注入</li>
+</ul>
+<h2 id="feign的简单介绍"><a class="header" href="#feign的简单介绍">Feign的简单介绍</a></h2>
+<h4 id="注解与动态代理"><a class="header" href="#注解与动态代理">注解与动态代理</a></h4>
+<p><a href="https://github.com/OpenFeign/feign">Feign</a>本身只是一个注解的Parser，<strong>并没有</strong>负载均衡的功能。它与Retrofit类似，通过注解这种外部DSL拼装出容易理解的HTTP请求，并通过JDK动态代理实现</p>
+<pre><code class="language-java">feign.ReflectiveFeign#newInstance
+</code></pre>
+<p>默认的Handler实现</p>
+<pre><code class="language-java">feign.InvocationHandlerFactory.Default#create
+</code></pre>
+<p>默认动态代理调用实现是</p>
+<pre><code class="language-java">feign.SynchronousMethodHandler#invoke
+</code></pre>
+<h4 id="网络请求客户端"><a class="header" href="#网络请求客户端">网络请求客户端</a></h4>
+<p>网络传输Client是通过对OkHttp/自带/RxJava等客户端的包装实现，只用实现Client接口，就可以对业务进行定制。比如自带的如下</p>
+<pre><code class="language-java">// 自带网络请求实现
+feign.Client.Default#execute
+</code></pre>
+<p>再比如SpringCloud中的负载均衡客户端如下</p>
+<pre><code class="language-java">// Ribbon负载均衡
+org.springframework.cloud.netflix.feign.ribbon.LoadBalancerFeignClient#execute
+</code></pre>
+<p>总的来说，有读过Retrofit的人再看这个难度不大，相反由于使用了Java8，代码量进一步减小</p>
+<blockquote>
+<p>上述过程可以参考Retrofit的相关资料，比如参考<a href="https://www.jianshu.com/p/a56c61da55dd">这里</a></p>
+</blockquote>
+<h4 id="-1"><a class="header" href="#-1"></a></h4>
+<h2 id="使用feign一步步简化业务硬编码"><a class="header" href="#使用feign一步步简化业务硬编码">使用Feign一步步简化业务硬编码</a></h2>
+<p>在IT业务开发中，一般会涉及到与其它小组进行对接，其它组可能并没有用Eureka，而是采用了传统的HTTP接口。这时问题就来了，如果有多个业务需要拉通，就需要维护多个URL，传统的手段是采用多个HTTPClient类进行拼装与解析JSON，但是效率非常低（比如某些外包，拿着上万的工资，宁可复制20份url，写20个HTTPClient，也不想办法去思考改进，害人害己，30岁就废了），这个代码例子就不举例了。</p>
+<p>对此，我们可以参考MybatisSpring的Mapper搜索，SpringCloud等源码中的实现方法，并进行学习吸收，实现简化与第三方的拉通。</p>
+<h4 id="使用feign干掉模版代码"><a class="header" href="#使用feign干掉模版代码">使用Feign干掉模版代码</a></h4>
+<p>假如说，我们现有业务系统需要集成对接一个HTTP DNS的服务</p>
+<pre><code class="language-sh"># 下为DNSPod的例子
+$ curl http://119.29.29.29/d?dn=gitbook.com
+104.25.212.20;104.25.213.20  
+</code></pre>
+<p>现在我们可以仿照Feign官网的例子，写一个Demo</p>
+<pre><code class="language-java">DNSPodService service = Feign.builder().decoder(new Decoder() {
+    @Override
+    public List&lt;String&gt; decode(Response response, Type type) throws IOException, DecodeException, FeignException {
+        // 下面没有校验，为了节约版面
+        String s = Util.toString(response.body().asReader());
+        if (s.contains(&quot;;&quot;)) {
+            return Arrays.asList(s.split(&quot;;&quot;));
+        }
+        return Collections.singletonList(s);
+    }
+}).target(DNSPodService.class, &quot;http://119.29.29.29&quot;);
+List&lt;String&gt; ipInfo = service.getIpInfo(&quot;gitbook.io&quot;);
+</code></pre>
+<p>接口如下</p>
+<pre><code class="language-java">// 下面的dn是硬编码，不要在意这些细节，因为我没有引入复杂的Encoder
+public interface DNSPodService {
+    @RequestLine(&quot;GET /d?dn={domain}&quot;)
+    List&lt;String&gt; getIpInfo(@Param(&quot;domain&quot;) String domain);
+}
+</code></pre>
+<p>这样，我们的一个服务就完成了，当接口中的方法比较多时，相对于纯HTTPClient的写法，这种收益就比较明显了。</p>
+<h4 id="通过注解替换java中的地址硬编码"><a class="header" href="#通过注解替换java中的地址硬编码">通过注解替换Java中的地址硬编码</a></h4>
+<p>上面的代码中的Url是在Java中硬编码写死的，这样肯定不好维护。我们考虑加入如下注解</p>
+<pre><code class="language-java">@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface HTTPUrl {
+    String value() default &quot;&quot;;
+}
+</code></pre>
+<p>然后加到接口中</p>
+<pre><code class="language-java">@HTTPUrl(&quot;http://119.29.29.29&quot;)
+public interface DNSPodService {
+	...
+}
+</code></pre>
+<p>接着，使用反射获取值</p>
+<pre><code class="language-java">HTTPUrl anno = DNSPodService.class.getAnnotation(HTTPUrl.class);
+// 此处可以用CucurrentHashMap&lt;Class,String&gt;来做缓存
+String url = anno.value();
+// 下文省略了Decoder
+Feign.builder().target(DNSPodService.class, url)
+</code></pre>
+<p>通过注解标记，看起来更加连贯，读者心理上阅读代码会更加顺畅，看到这个接口就能想到有哪些服务需要维护。</p>
+<h4 id="通过properties配置中心数据字典干掉注解硬编码"><a class="header" href="#通过properties配置中心数据字典干掉注解硬编码">通过Properties/配置中心/数据字典干掉注解硬编码</a></h4>
+<p>虽然这样修改有了一定改进，但是这样做仍然没有解决硬编码的问题，我们首先修改接口为如下</p>
+<pre><code class="language-diff">+ @HTTPUrl(&quot;dnspod.addr&quot;)
+- @HTTPUrl(&quot;http://119.29.29.29&quot;)
+public interface DNSPodService {
+
+}
+</code></pre>
+<p>接着新增一个命名服务的接口 </p>
+<pre><code class="language-java">// 此接口将读取&quot;dnspod.addr&quot;，并返回真正的url
+public interface Resolvable {
+    String resolve(String key);
+}
+</code></pre>
+<p>然后我们先实现一个基于properties的实现类</p>
+<pre><code class="language-java">public class PropertiesResolvable implements  Resolvable {
+    Environment env;
+    public PropertiesResolvable(Environment env) {
+        this.env = env;
+    }
+    @Override
+    public String resolve(String key) {
+        return env.getProperty(key);
+    }
+}
+</code></pre>
+<p>然后在<code>application.properties</code>中配置好这个kv，接着跑起来</p>
+<pre><code class="language-java">// 你的SpringBoot项目实现CommandLineRunner接口
+@Autowired
+Environment env;
+
+@Override
+public void run(String... args) throws Exception {
+    HTTPUrl anno = DNSPodService.class.getAnnotation(HTTPUrl.class);
+    String value = anno.value();
+    Resolvable resolvable = new PropertiesResolvable(env);
+    String realAddr = resolvable.resolve(value);
+    // 下文省略了Decoder
+    DNSPodService service = Feign.builder().target(DNSPodService.class, realAddr);
+    List&lt;String&gt; ipInfo = service.getIpInfo(&quot;gitbook.io&quot;);
+    System.out.println(&quot;ipInfo = &quot; + ipInfo);
+}
+</code></pre>
+<p>可以发现，目前我们实现了将硬编码管理转移到了Properties上，同时没有丢失Java代码的可读性</p>
+<p>使用配置中心/数据字典的例子同上，只要实现了<code>Resolvable</code>接口即可热部署。</p>
+<h2 id="使用spring与扫描器实现自动注册"><a class="header" href="#使用spring与扫描器实现自动注册">使用Spring与扫描器实现自动注册</a></h2>
+<h4 id="制定目标----通过autowired自动生成feign实例"><a class="header" href="#制定目标----通过autowired自动生成feign实例">制定目标----通过<code>@Autowired</code>自动生成Feign实例</a></h4>
+<p>我们希望通过自动/主动装配实现Feign自动生成接口</p>
+<pre><code class="language-java">@Autowired
+private DNSPodService service;
+//然后直接使用
+</code></pre>
+<p>在本文开始时，曾经讲过可以参考Mybatis扫描Mapper的形式，或者SpringCloud的形式实现Feign的自动注入。</p>
+<p>比如Mybatis通过如下注解实现注入</p>
+<pre><code class="language-java">org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.AutoConfiguredMapperScannerRegistrar
+</code></pre>
+<p>再比如SpringCloud中通过如下注解实现注入</p>
+<pre><code class="language-java">org.springframework.cloud.netflix.feign.FeignClientsRegistrar#registerFeignClients
+</code></pre>
+<h4 id="准备工作-1"><a class="header" href="#准备工作-1">准备工作</a></h4>
+<p>我们首先仿照Mybatis等框架，写一个<code>@Enable</code>的注解</p>
+<pre><code class="language-java">@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@Documented
+@Import(ClientRegistrar.class)
+public @interface EnableScanFeign {
+    String path() default &quot;&quot;;
+}
+</code></pre>
+<p>并注解到Application中</p>
+<pre><code class="language-java">@SpringBootApplication
+@EnableScanFeign(path = &quot;com.example.demo.feign&quot;)
+public class DemoApplication{}
+</code></pre>
+<blockquote>
+<p><code>@import</code>这个注解除了直接注入各种Config外，也可以使用自定义的Selector</p>
+</blockquote>
+<p>接着实现<code>ClientRegistrar</code>，它将在启动时读取注解的上下文</p>
+<pre><code class="language-java">
+public class ClientRegistrar implements ImportBeanDefinitionRegistrar {
+
+    @Override
+    public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
+        String path = ((String) metadata.getAnnotationAttributes(EnableScanFeign.class.getName()).get(&quot;path&quot;));
+        ResolverUtil&lt;Class&lt;?&gt;&gt; resolverUtil = new ResolverUtil&lt;Class&lt;?&gt;&gt;();
+        resolverUtil.findAnnotated(HTTPUrl.class, path);
+        Set&lt;Class&lt;? extends Class&lt;?&gt;&gt;&gt; classes = resolverUtil.getClasses();
+        System.out.println(&quot;classes = &quot; + classes);
+    }
+}
+</code></pre>
+<p>这样如果顺利的话，你就可以看到被扫描的接口了，不过目前这些只是接口，而没有实现类</p>
+<blockquote>
+<p>为了降低文章难度，我们这里借用了Mybatis的VFS工具类，因此暂时需要导入Mybatis的包，你可以学习扫描jar包是如何实现的。此外，还有更简单的ClassPathMapperScanner或者更简单的ClassPathScanningCandidateComponentProvider也可以学习一个</p>
+</blockquote>
+<h4 id="bean的注册流程"><a class="header" href="#bean的注册流程">Bean的注册流程</a></h4>
+<p>在Spring第三方库的开发中，我们可以从中学到常见的注册方法如下</p>
+<pre><code class="language-java">// 接着上文的System.out来写
+classes.stream()
+    .map(this::generateHolder)// todo 生成BeanDefinitionHolder
+    .forEach(holder -&gt;
+         BeanDefinitionReaderUtils.registerBeanDefinition(holder, registry)
+);
+</code></pre>
+<p>其中generateHolder就是我们抽出来的需要完善的方法，本文没有直接用Spring自带的来生成</p>
+<h4 id="配置factorybean"><a class="header" href="#配置factorybean">配置FactoryBean</a></h4>
+<p>FactoryBean也是一种Bean，在真实项目中一般定制的就是这里</p>
+<pre><code class="language-java">public static class ClientFactoryBean implements FactoryBean {
+
+    // 这里通过properties写入
+    private Class type;
+    private String path;
+
+    public Class getType() {
+        return type;
+    }
+    public void setType(Class type) {
+        this.type = type;
+    }
+    public String getPath() {
+        return path;
+    }
+    public void setPath(String path) {
+        this.path = path;
+    }
+    @Override
+    public Object getObject() throws Exception {
+        return Feign.builder()
+            .decoder(/*同上*/)
+            .target(DNSPodService.class, path);
+    }
+    @Override
+    public Class&lt;?&gt; getObjectType() {
+        return type;
+    }
+    @Override
+    public boolean isSingleton() {
+        return false;
+    }
+}
+</code></pre>
+<h4 id="beanholder的实现"><a class="header" href="#beanholder的实现">BeanHolder的实现</a></h4>
+<p>这里其实很简单，就是首先构造一个beanDefinition，接着通过property传递参数给Factory即可</p>
+<pre><code class="language-java">// 带 Aware 的继承，都可以在生命周期中获得某个上下文对象
+public class ClientRegistrar implements ImportBeanDefinitionRegistrar, EnvironmentAware {
+
+    Environment environment;
+
+    @Override
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
+    }
+
+    // 除了样板代码外，主要就是传递property
+    private BeanDefinitionHolder generateHolder(Class&lt;? extends Class&lt;?&gt;&gt; aClass) {
+        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(ClientFactoryBean.class);
+        beanDefinitionBuilder.addPropertyValue(&quot;type&quot;, aClass);
+        String value = aClass.getAnnotation(HTTPUrl.class).value();
+        beanDefinitionBuilder.addPropertyValue(&quot;path&quot;, environment.getProperty(value));
+        BeanDefinition beanDefinition = beanDefinitionBuilder.getBeanDefinition();
+        return new BeanDefinitionHolder(beanDefinition, aClass.getName());
+    }
+}
+</code></pre>
+<h4 id="测试用例"><a class="header" href="#测试用例">测试用例</a></h4>
+<p>测试如下，发现只要是Autowired即可自动注解</p>
+<pre><code class="language-java">@SpringBootApplication
+@EnableScanFeign(path = &quot;com.example.demo.feign&quot;)
+public class DemoApplication implements ApplicationRunner {
+
+    @Autowired
+    DNSPodService service;
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+    
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        List&lt;String&gt; ipInfo = service.getIpInfo(&quot;www.qq.com&quot;);
+        System.out.println(&quot;ipInfo = &quot; + ipInfo);
+    }
+}
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="ribbon与客户端load-balance"><a class="header" href="#ribbon与客户端load-balance">Ribbon与客户端Load balance</a></h1>
+<h2 id="qualifications-before-read"><a class="header" href="#qualifications-before-read">Qualifications Before Read</a></h2>
+<ul>
+<li>Experience in RxJava/Promise</li>
+<li>Experience in Feign/Retrofit' inteceptor</li>
+<li>Familiarity with debug tools</li>
+</ul>
+<h2 id="springcloud层分析"><a class="header" href="#springcloud层分析">SpringCloud层分析</a></h2>
+<p>我们基于拦截器机制并直接进入到了如下位置</p>
+<pre><code class="language-java">org.springframework.cloud.netflix.feign.ribbon.LoadBalancerFeignClient
+</code></pre>
+<p>最终实现类是</p>
+<pre><code class="language-java">com.netflix.client.AbstractLoadBalancerAwareClient#executeWithLoadBalancer
+</code></pre>
+<p>如下，非常类似于NodeJS/Netty中的<code>await Promise</code>，也就是基于事件队列的实现机制，这类代码的特点就是写起来非常爽，读起来需要一定阅读量（如果阅读RxJava困难的话，可以学习前端的Promise加速理解）。</p>
+<p>为了节约版面，我将所有的异常处理全部去掉了，代码核心在submit中，下面的代码只是一个柯里化</p>
+<pre><code class="language-java">LoadBalancerCommand&lt;T&gt; command = buildLoadBalancerCommand(request, requestConfig);
+// 提交后返回的是一个Promise，并没有立刻获取到
+return command.submit(
+    // 这里的入参是一个Operation接口，初学者可能看不懂代码是怎么来回跳转的
+    // 实际上它本质是柯里化（Currying），用Interface模拟函数
+    new ServerOperation&lt;T&gt;() {
+        @Override
+        public Observable&lt;T&gt; call(Server server) {
+            // 此处的Server已经是**负载均衡后**的了，后面请求为原生HTTP请求
+            URI finalUri = reconstructURIWithServer(server, request.getUri());
+            S requestForServer = (S) request.replaceUri(finalUri);
+            return Observable
+                .just(AbstractLoadBalancerAwareClient.this.execute(requestForServer, requestConfig));
+        }
+    })
+    // 类似于前端的await，在Java中用CountDownLatch实现
+    .toBlocking()
+    .single();
+</code></pre>
+<p>整理后，获取单个Server的关键代码如下，主要在submit中这一行</p>
+<pre><code class="language-java">// 获取当前的服务列表xml，并缓存到本地
+Server server = loadBalancerContext.getServerFromLoadBalancer(loadBalancerURI, loadBalancerKey);
+</code></pre>
+<p>本人不会全屏贴代码供读者参考的，因此跳转分析技巧需要自己多练习</p>
+<hr />
+<h2 id="iloadbalancer分析"><a class="header" href="#iloadbalancer分析">ILoadBalancer分析</a></h2>
+<p>在Ribbon中，请求关键伪代码如下</p>
+<pre><code class="language-puml">a--&gt;b: getLoadBalancer
+b--&gt;s: chooseServer
+s--&gt;Server: IRule
+</code></pre>
+<p>整个流程与ElasticSearch等客户端框架相差不大，比如最常见的<code>com.netflix.loadbalancer.BaseLoadBalancer</code></p>
+<p>默认负载均衡算法(RoundRobinRule)与Elastic完全一样，也是通过数组取余进行计算</p>
+<ul>
+<li>RoundRobinRule: 通过数组环与Atomic自增取余</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="sleuth与服务调用日志收集"><a class="header" href="#sleuth与服务调用日志收集">Sleuth与服务调用日志收集</a></h1>
+<p>在SpringCloud中，官方推荐使用Sleuth与Zipkin实现日志的收集与可视化，本文将介绍一下日志收集的主要流程</p>
+<p>注意: Zipkin<strong>仅对RPC通信过程进行记录</strong>，注意它<strong>与业务代码日志是无关的</strong>，如果你希望找到一款LogAppender来分析所有Log4j留下的日志，那么建议还是使用Kakfa+ELK这种传统的方法来实现。</p>
+<h2 id="术语"><a class="header" href="#术语">术语</a></h2>
+<ul>
+<li>Span/Trace: 来自Google的<a href="https://ai.google/research/pubs/pub36356">Dapper论文</a>，Span表示单个调用的间隔描述，Trace表示Span的集合，在Zipskin中作为Span的JSON数组</li>
+<li>spring-cloud-starter-sleuth: 英文名是侦探，它的功能是在项目中自动为日志加入Tag与序列号</li>
+<li><a href="https://github.com/openzipkin">Zipkin</a>: 来自Twitte的分布式日志收集工具，分为上传端(spring-cloud-starter-zipkin，集成到项目中)与服务端(独立部署，默认将数据存到内存中)</li>
+</ul>
+<h2 id="内部实现"><a class="header" href="#内部实现">内部实现</a></h2>
+<h4 id="综述"><a class="header" href="#综述">综述</a></h4>
+<ul>
+<li>调用侧请求中加入额外的Span序列号等上下文信息放入Header中(通过注入Feign定制Client实现)</li>
+<li>被调用侧通过全局Filter模拟AOP记录执行情况，计算执行情况与耗时，并存入定制的ByteBoundedQueue队列中，然后通过HTTP等将信息异步发送到Zipkin收集器中</li>
+<li>Zipkin收集器通过UI显示调用详情</li>
+</ul>
+<blockquote>
+<p>考虑到可能有通信的小伙伴，Zipkin实现与电话计费中的CDR(Call Detail Record, 呼叫详情记录)比较类似</p>
+</blockquote>
+<h4 id="使用前"><a class="header" href="#使用前">使用前</a></h4>
+<p>假设有如下调用UpperCase的微服务调用，其中Feign是请求，UpperCaseService是被调用的微服务</p>
+<pre><code class="language-mermaid">sequenceDiagram
+  	Feign--&gt;&gt;UpperCaseService: POST /uppercase?s=Test
+    activate UpperCaseService
+    UpperCaseService--&gt;&gt;Feign: HTTP 1.1/OK
+    deactivate UpperCaseService
+</code></pre>
+<p>（上述过程具体可以去<a href="third/./feign.html">Feign</a>中查看）</p>
+<p>可以发现，如果服务出现异常/过载问题，我们只能配置Feign的LogLevel，翻本地Log文件了，效率比较低</p>
+<h4 id="使用sleuth与zip后"><a class="header" href="#使用sleuth与zip后">使用Sleuth与Zip后</a></h4>
+<p>首先我们按照<a href="https://cloud.spring.io/spring-cloud-sleuth/">Tutorial</a>搭建环境后，并在<a href="https://zipkin.io/pages/quickstart.html">Zipkin</a>上下载收集器后（此部分自行搭建），执行服务调用，在Zipkin的本地页面即可看到请求详细路线图。</p>
+<p>总体修改后的流程如下</p>
+<pre><code class="language-mermaid">sequenceDiagram
+  	Feign-&gt;&gt;modifiedRequest: TraceFeignClient
+  	modifiedRequest--&gt;&gt;TraceFilter: POST /uppercase?s=Test
+  	TraceFilter-&gt;&gt;UpperCaseService: 
+    activate UpperCaseService
+    UpperCaseService--&gt;&gt;Feign: HTTP 1.1/OK
+    deactivate UpperCaseService
+    TraceFilter-&gt;&gt;Zipkin: async send log to collector
+
+
+</code></pre>
+<p>其中添加了如下组件</p>
+<ul>
+<li>TraceFeignClient: 请求端注入的FeignClient，为Request的Header添加SpanID, TraceID等信息</li>
+<li>TraceFilter: 接收端注入的定制Filter，它将解析Request中的Header，执行业务，计算耗时，最终算出一个完整的JSON格式的Span，通过队列异步发送到收集器ZipKin中</li>
+<li>ZipKin: 日志收集器，读取JSON格式的SPAN信息，并存储与展示</li>
+</ul>
+<h4 id="源码分析"><a class="header" href="#源码分析">源码分析</a></h4>
+<p>分析请求端源码，发现在请求端为Feign集成了新的Client，为请求加入了Span的Header编码</p>
+<pre><code class="language-java">// add span http headers in http request
+org.springframework.cloud.sleuth.instrument.web.client.feign.TraceFeignClient#execute
+</code></pre>
+<blockquote>
+<p>值得注意的是，这里添加Header是在Client中进行，而不是在Inteceptors中，因此就算Feign的日志级别配置为FULL，也无法看到真实发送的请求</p>
+</blockquote>
+<p>分析接收端源码，发现新增了一个全局Filter以拦截Span请求，注意这里不是AOP，而是try/finally包装实现的</p>
+<pre><code class="language-java">// org.springframework.cloud.sleuth.instrument.web.TraceFilter
+@Override
+public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
+                     FilterChain filterChain) throws IOException, ServletException {
+    //...
+    String name = HTTP_COMPONENT + &quot;:&quot; + uri;
+    Throwable exception = null;
+    try {
+        // parse Span headers from request
+        spanFromRequest = createSpan(request, skip, spanFromRequest, name);
+        // do business
+        filterChain.doFilter(request, new TraceHttpServletResponse(response, spanFromRequest));
+    } finally {
+        // add span to Queue with BoundedAsyncReporter#report
+        // it will be sent in another thread
+        detachOrCloseSpans(request, response, spanFromRequest, exception);
+    }
+}
+</code></pre>
+<p>接收侧在<code>AsyncReporter</code>专门开了一个消费者线程，用于异步发送缓存的Span信息</p>
+<pre><code class="language-java">// 接收侧通过新开一个线程消费队列（ByteBoundedQueue）
+final Thread flushThread = new Thread(&quot;AsyncReporter{&quot; + sender + &quot;}&quot;) {
+    @Override public void run() {
+         //...
+         // 循环执行 zipkin2.reporter.AsyncReporter.BoundedAsyncReporter#flush
+         // 通过 Condition 进行阻塞轮循获取Filter刚刚放入的信息
+         while (!result.closed.get()) {
+             result.flush(consumer);
+         }
+         //...
+    }
+};
+</code></pre>
+<p>总的来说，还是一套比较复杂的方案，原理挺好懂，但是让自己来写队列，异步就困难了。</p>
+<h2 id="refference"><a class="header" href="#refference">REFFERENCE</a></h2>
+<ul>
+<li>http://tech.lede.com/2017/04/19/rd/server/SpringCloudSleuth/</li>
+<li>https://wu-sheng.github.io/me/articles/metrics-tracing-and-logging</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="参考文献与wiki"><a class="header" href="#参考文献与wiki">参考文献与Wiki</a></h1>
+<p>本部分搜集了Eureka的第三方资料</p>
+<h4 id="参考书籍"><a class="header" href="#参考书籍">参考书籍</a></h4>
+<p>有关入门使用可以参考如下书籍</p>
+<ul>
+<li><a href="http://book.itmuch.com/">使用Spring Cloud与Docker实战微服务</a></li>
+<li>SpringBoot揭秘: 快速构建微服务</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
