@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>存储过程</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../dynamic-sql/index.html"><strong aria-hidden="true">2.</strong> 动态SQL与LanguageDriver</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dynamic-sql/ognl.html"><strong aria-hidden="true">2.1.</strong> OGNL的简介</a></li><li class="chapter-item expanded "><a href="../dynamic-sql/xml-to-ast.html"><strong aria-hidden="true">2.2.</strong> XML如何转换为ASTNode</a></li><li class="chapter-item expanded "><a href="../dynamic-sql/dynamic-proxy.html"><strong aria-hidden="true">2.3.</strong> 执行与动态代理</a></li></ol></li><li class="chapter-item expanded "><a href="../mapping/index.html"><strong aria-hidden="true">3.</strong> Nested映射实现</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mapping/impl.html"><strong aria-hidden="true">3.1.</strong> 映射实现</a></li><li class="chapter-item expanded "><a href="../mapping/merge-left-join.html"><strong aria-hidden="true">3.2.</strong> 如何合并LEFT-JOIN</a></li></ol></li><li class="chapter-item expanded "><a href="../practice/index.html"><strong aria-hidden="true">4.</strong> Mybatis实践与SQL优化</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../practice/cache.html"><strong aria-hidden="true">4.1.</strong> L2 Cache</a></li><li class="chapter-item expanded "><a href="../practice/multi-join.html"><strong aria-hidden="true">4.2.</strong> 多级联查</a></li><li class="chapter-item expanded "><a href="../practice/parent-child-tree.html"><strong aria-hidden="true">4.3.</strong> Parent-child-id-tree</a></li><li class="chapter-item expanded "><a href="../practice/transaction.html"><strong aria-hidden="true">4.4.</strong> 事务</a></li></ol></li><li class="chapter-item expanded "><a href="../datebase/dds.html"><strong aria-hidden="true">5.</strong> 分布式数据库</a></li><li class="chapter-item expanded "><a href="../datebase/procedure.html" class="active"><strong aria-hidden="true">6.</strong> 存储过程</a></li><li class="chapter-item expanded "><a href="../datebase/index.html"><strong aria-hidden="true">7.</strong> 索引</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../datebase/bitmap-index.html"><strong aria-hidden="true">7.1.</strong> 位图索引</a></li><li class="chapter-item expanded "><a href="../datebase/inverted-index.html"><strong aria-hidden="true">7.2.</strong> NoSQL与倒排索引</a></li></ol></li><li class="chapter-item expanded "><a href="../other/sql-explain.html"><strong aria-hidden="true">8.</strong> 调试执行计划</a></li><li class="chapter-item expanded "><a href="../datebase/transaction.html"><strong aria-hidden="true">9.</strong> 事务</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../datebase/transaction/readcommit.html"><strong aria-hidden="true">9.1.</strong> read commit</a></li><li class="chapter-item expanded "><a href="../datebase/transaction/repeatable.html"><strong aria-hidden="true">9.2.</strong> Repeatable read</a></li><li class="chapter-item expanded "><a href="../datebase/transaction/serializable.html"><strong aria-hidden="true">9.3.</strong> Serializable</a></li></ol></li><li class="chapter-item expanded "><a href="../other/dws.html"><strong aria-hidden="true">10.</strong> DWS</a></li><li class="chapter-item expanded "><a href="../other/ges.html"><strong aria-hidden="true">11.</strong> 图数据库</a></li><li class="chapter-item expanded "><a href="../other/reference.html"><strong aria-hidden="true">12.</strong> 参考文献与Wiki</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h3 id="快速过一下存储过程"><a class="header" href="#快速过一下存储过程">快速过一下存储过程</a></h3>
+<p>学习流程</p>
+<ul>
+<li>先去Wiki/IBM等资料库快速学习入门一下</li>
+<li>掌握一下某个厂商(比如Oracle)的DDL</li>
+<li>掌握其在Hibernate等库中的使用方法(本文略)</li>
+</ul>
+<h4 id="如何创建存储过程"><a class="header" href="#如何创建存储过程">如何创建存储过程？</a></h4>
+<p>存储过程即可以通过鼠标在软件中点点点完成创建(强烈推荐)，也可以直接手写</p>
+<p>Oracle的<a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_6009.htm">文档</a>中对存储过程有一个明确的定义，可以看出它过于接近原生AST了，因此写起来有样板代码过多的感觉。</p>
+<p><img src="https://docs.oracle.com/cd/B19306_01/server.102/b14200/img/create_procedure.gif" alt="create_procedure" /></p>
+<p>我们在网上找一个PROCEDURE的例子</p>
+<pre><code class="language-sql">CREATE OR REPLACE PROCEDURE count_comments (  
+   postId IN NUMBER,  
+   commentCount OUT NUMBER )  
+AS 
+BEGIN 
+    SELECT COUNT(*) INTO commentCount  
+    FROM post_comment  
+    WHERE post_id = postId; 
+END;
+</code></pre>
+<p>如果通过Groovy的Closure进行类比，它实际上就是这样的</p>
+<pre><code class="language-groovy">def count_comments = {NUMBER postId-&gt;
+	NUMBER commentCount = &quot;SELECT COUNT(*) FROM post_comment WHERE post_id = postId&quot;.eval();
+  	return commentCount
+}
+</code></pre>
+<p>所以存储过程是一个非常简单的函数，纯体力劳动，甚至外包都会写。并不是很多博客上说的高级DBA操作。</p>
+<h4 id="一般用存储过程干啥"><a class="header" href="#一般用存储过程干啥">一般用存储过程干啥？</a></h4>
+<p>上面也说了存储过程一般只是一个纯函数，而在实际业务开发中，我们通常直接用XML/注解等DSL在Java源码中去描述数据库中的对象，然后再调用Hibernate等工具帮你生成SQL，而不是手动拼接SQL(有注入风险，而且拼接的SQL项目难维护)。</p>
+<p>那么为什么需要存储过程呢？当然是不得不用时才会用，比如超大数据，性能问题才会使用。</p>
+<p>SQL是一种对数据库进行查询操作的外部DSL，相对于Java/js等语言来说，学起来并不舒服。王垠曾在<a href="http://www.yinwang.org/blog-cn/2014/04/24/relational">一篇文章</a>中批评过“数据库完全可以使用普通的程序语言（Java，Scheme 等）的“远程执行”来进行查询，而不需要专门的查询语言&quot;。</p>
+<p>今天本文说的<a href="https://zh.wikipedia.org/wiki/%E5%AD%98%E5%82%A8%E7%A8%8B%E5%BA%8F">存储过程</a>就是SQL中的”函数“，它用于直接操作数据库中的”结构体“数组，与JVM类语言中设计的Closure并没有什么本质的不同。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../datebase/dds.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../datebase/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../datebase/dds.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../datebase/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
