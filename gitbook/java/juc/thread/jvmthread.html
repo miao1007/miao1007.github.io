@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JVM线程</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../java/index.html"><strong aria-hidden="true">2.</strong> Java/JVM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../java/gc/index.html"><strong aria-hidden="true">2.1.</strong> 垃圾回收</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../java/gc/analyze-full-gc.html"><strong aria-hidden="true">2.1.1.</strong> analyze-full-gc</a></li></ol></li><li class="chapter-item expanded "><a href="../../java/classloader/index.html"><strong aria-hidden="true">2.2.</strong> ClassLoader</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../java/classloader/class.html"><strong aria-hidden="true">2.2.1.</strong> Class的结构</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../juc/index.html"><strong aria-hidden="true">3.</strong> 并发编程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../juc/final/index.html"><strong aria-hidden="true">3.1.</strong> final/ThreadLocal</a></li><li class="chapter-item expanded "><a href="../../juc/thread/index.html"><strong aria-hidden="true">3.2.</strong> 线程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../juc/thread/nativethread.html"><strong aria-hidden="true">3.2.1.</strong> NativeThread</a></li><li class="chapter-item expanded "><a href="../../juc/thread/jvmthread.html" class="active"><strong aria-hidden="true">3.2.2.</strong> JVM线程</a></li><li class="chapter-item expanded "><a href="../../juc/thread/threadpool.html"><strong aria-hidden="true">3.2.3.</strong> ThreadPool</a></li></ol></li><li class="chapter-item expanded "><a href="../../juc/lock/index.html"><strong aria-hidden="true">3.3.</strong> 锁</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../juc/lock/cas/index.html"><strong aria-hidden="true">3.3.1.</strong> CAS与AQS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../juc/lock/cas/cas-impl.html"><strong aria-hidden="true">3.3.1.1.</strong> CAS的实现</a></li><li class="chapter-item expanded "><a href="../../juc/lock/cas/aqs/aqs-impl.html"><strong aria-hidden="true">3.3.1.2.</strong> AQS的实现</a></li><li class="chapter-item expanded "><a href="../../juc/lock/cas/aqs/reentrantlock.html"><strong aria-hidden="true">3.3.1.3.</strong> ReentrantLock</a></li><li class="chapter-item expanded "><a href="../../juc/lock/cas/aqs/countdownlatch.html"><strong aria-hidden="true">3.3.1.4.</strong> CountDownLatch</a></li><li class="chapter-item expanded "><a href="../../juc/lock/cas/aqs/read-write-lock.html"><strong aria-hidden="true">3.3.1.5.</strong> ReadWriteLock</a></li></ol></li><li class="chapter-item expanded "><a href="../../juc/lock/synchronized/index.html"><strong aria-hidden="true">3.3.2.</strong> synchronized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../juc/lock/synchronized/jvm-sync.html"><strong aria-hidden="true">3.3.2.1.</strong> sync的native实现</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../juc/juc-problems.html"><strong aria-hidden="true">3.4.</strong> 常见并发问题</a></li><li class="chapter-item expanded "><a href="../../juc/cow/index.html"><strong aria-hidden="true">3.5.</strong> 写时复制</a></li></ol></li><li class="chapter-item expanded "><a href="../../microservice/index.html"><strong aria-hidden="true">4.</strong> 微服务中间件</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>JVM线程生命周期的native实现</p>
+<hr />
+<p>本文不是入门文章，对读者的理论基础与折腾要求都有点高</p>
+<ul>
+<li>了解Java层Thread的各种玩法</li>
+<li>知道什么是pthread，什么是系统调用，什么是Glibc/NPTL(<em>Native POSIX Thread Library</em>)</li>
+<li>了解操作系统内核中线程的理论流程</li>
+<li>需要会配置Clion/VSCode</li>
+</ul>
+<h4 id="配置编译参数并测试"><a class="header" href="#配置编译参数并测试">配置编译参数并测试</a></h4>
+<p>首先还是按照上次讲的<a href="http://www.jianshu.com/p/ca46826073a0">使用Clion(GDB)调试小型JVM源码</a>方法编译，只是编译参数改一下，以免日志过多</p>
+<pre><code class="language-diff">- ./configure --with-classpath-install-dir=/tmp/classpath --enable-trace
++ ./configure --with-classpath-install-dir=/tmp/classpath --enable-tracethread
+</code></pre>
+<p>编译成功后，分别用直接运行与strace进行测试</p>
+<pre><code class="language-sh">➜  cd $HOME
+➜  $HOME/Desktop/jamvm-2.0.0/src/jamvm -cp . A
+....
+Hello
+➜  strace $HOME/Desktop/jamvm-2.0.0/src/jamvm -cp . A
+....
+clone(child_stack=0x7f96bf542ff0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f96bf5439d0, tls=0x7f96bf543700, child_tidptr=0x7f96bf5439d0) = 17140
+....
+</code></pre>
+<h2 id="new-thread创建的源码分析"><a class="header" href="#new-thread创建的源码分析">new Thread创建的源码分析</a></h2>
+<p>首先构造一个Java代码创建一个线程，并编译为Class文件</p>
+<pre><code class="language-java">//A.java
+class A{
+    public static void main(String[] args){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName()+&quot;233&quot;);
+            }
+        }).start();
+    }
+}
+</code></pre>
+<p>首先在Java层中使用普通JDK进行断点，并观察断点运行时的线程名称，位置如下</p>
+<ul>
+<li>start()</li>
+<li>run()</li>
+<li>exit()</li>
+<li>ThreadGroup.remove()断点</li>
+</ul>
+<p>接着看Java中线程的源码</p>
+<p>通过对Thread的<code>&lt;init&gt;</code>与<code>start</code>进行分析，可以发现<code>start</code>中调用了native方法。这里的<code>start</code>需要注意，在OracleJVM中使用了start0作为native方法，而在GNU Classpath/Android中出使用了<code>java.lang.VMThread.create(this, stacksize);</code>实现，本文主要分析<code>java.lang.VMThread.create</code>的实现createJavaThread。</p>
+<p>在JVM上通过断点调试可以发现，此native方法被JVM路由到thread.c的<code>createJavaThread</code>中</p>
+<p>我们在这里打断点</p>
+<pre><code class="language-c">// src/thread.c
+void createJavaThread(Object *jThread, long long stack_size) {
+   	
+  	...
+  	Thread *thread = sysMalloc(sizeof(Thread));
+	...
+  	// native 与 Java 线程的上下文环境进行绑定
+    thread-&gt;ee = ee;
+    ee-&gt;thread = jThread;
+    ee-&gt;stack_size = stack_size;
+    ...
+
+    disableSuspend(self);
+	// 通过系统调用创建native线程, `threadStart`是创建成功后的回掉函数指针
+    if(pthread_create(&amp;thread-&gt;tid, &amp;attributes, threadStart, thread)) {
+        ...
+        return;
+    }
+
+  	/* 自旋等待线程变更状态，这里一般来说将会变为 RUNNING */
+    pthread_mutex_lock(&amp;lock);
+    /* Wait for thread to start */
+    while(classlibGetThreadState(thread) == CREATING)
+        pthread_cond_wait(&amp;cv, &amp;lock);
+    pthread_mutex_unlock(&amp;lock);
+    enableSuspend(self);
+}
+</code></pre>
+<p>当通过系统调用创建线程完成后，在新的线程中调用<code>threadStart</code>函数指针</p>
+<pre><code class="language-c">// 新线程启动后将立刻调用的函数
+void *threadStart(void *arg) {
+    Thread *thread = (Thread *)arg;
+    Object *jThread = thread-&gt;ee-&gt;thread;
+
+    /* Parent thread created thread with suspension disabled.
+       This is inherited so we need to enable */
+    enableSuspend(thread);
+
+    /* Complete initialisation of the thread structure, create the thread
+       stack and add the thread to the thread list */
+    initThread(thread, INST_DATA(jThread, int, daemon_offset), &amp;thread);
+
+    /* Add thread to thread ID map hash table. */
+    addThreadToHash(thread);
+
+    /* Set state to running and notify creating thread */
+  	// 设置状态为 RUNNING，通过`pthread_cond_broadcast`结束`pthread_cond_wait`的状态
+    signalThreadRunning(thread);
+
+    /* Execute the thread's run method */
+  	/* 开始执行Java代码 class=java.lang.Thread,nam=run,sign=`()v` */
+    executeMethod(jThread, CLASS_CB(jThread-&gt;class)-&gt;method_table[run_mtbl_idx]);
+
+    /* Run has completed.  Detach the thread from the VM and exit */
+  	/* 这里执行了java.lang.ThreadGroup: removeThread(Ljava/lang/Thread;)V */
+    detachThread(thread);
+
+    TRACE(&quot;Thread %p id: %d exited\n&quot;, thread, thread-&gt;id);
+    return NULL;
+}
+</code></pre>
+<blockquote>
+<p>如何通过Class引用打印名称 slash2DotsDup(CLASS_CB(class)-&gt;name)</p>
+</blockquote>
+<p>可以发现，总体流程是非常清晰的</p>
+<ol>
+<li>主线程通过pthread_create创建新线程</li>
+<li>新线程执行<code>Thread.run()</code> 的Java代码段，执行完成后detach，移除ThreadGroup，结束线程</li>
+</ol>
+<p>总的来说，这里分析并不是非常细致，主要是把流程先通起来，后续有具体例子(比如线程池)时再分析</p>
+<h2 id="总结"><a class="header" href="#总结">总结</a></h2>
+<p>在JamVM中</p>
+<ul>
+<li>Java线程与pthread线程一一对应，通过内核调度实现。但是不同厂商不一定。</li>
+<li>在Java代码中Runnable中的<strong>代码段</strong>的执行实际上通过<code>pthread_create</code>的函数指针<code>threadStart</code>进行包装后，最终调用<code>executeMethod</code>实现解释字节码</li>
+</ul>
+<h2 id="附录"><a class="header" href="#附录">附录</a></h2>
+<h4 id="pthead相关知识"><a class="header" href="#pthead相关知识">pthead相关知识</a></h4>
+<p>在<a href="http://www.jianshu.com/p/4bc9bd138034">线程模型的综述</a>中已经讲过pthread相关知识，这里再回顾一下。JamVM使用pthread的头文件进行开发，在Linux中一般由Glibc实现，最后通过SYSCALL<a href="http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/">系统调用</a>通过内核去创建线程。</p>
+<pre><code>java.lang.Thread
+    |
+POSIX thread(user mode){
+    1. pthread_create(pthread.h，标准库头文件)
+    2. bionic/glibc等标准库下的so文件，进行SystemCall
+    3. 用户态陷入内核态
+}
+    |
+Kernal thread(kernal mode)
+</code></pre>
+<h4 id="pthead_create参数解释"><a class="header" href="#pthead_create参数解释">pthead_create参数解释</a></h4>
+<p>入参如下</p>
+<pre><code class="language-c">extern int pthread_create (pthread_t *__restrict __newthread,
+			   const pthread_attr_t *__restrict __attr,
+			   void *(*__start_routine) (void *),
+			   void *__restrict __arg) __THROWNL __nonnull ((1, 3));
+</code></pre>
+<p>相关参数</p>
+<ul>
+<li><code>_newthread</code>: 即tid, 通过某种算法计算出唯一的Id</li>
+<li><code>_attr</code>: 线程类型，初学者可以配置为默认，即NULL</li>
+<li><code>_start_routine</code>: 是一个函数指针，类似于动态语言中的闭包(Closure)。线程创建后将执行此函数</li>
+<li><code>_arg</code>: 供<code>_start_routine</code>使用的入参</li>
+</ul>
+<h4 id="glibc中nptl的pthread_create的实现"><a class="header" href="#glibc中nptl的pthread_create的实现">Glibc中NPTL的pthread_create的实现</a></h4>
+<p>下次有人再问你线程与进程的区别这种烂大街的问题，你就回答它们就是flag不同，导致(通过COW)共享的内存也不同而已</p>
+<pre><code class="language-java">// glibc-2.25/sysdeps/unix/sysv/linux/createthread.c
+const int clone_flags = (CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SYSVSEM
+			   | CLONE_SIGHAND | CLONE_THREAD
+			   | CLONE_SETTLS | CLONE_PARENT_SETTID
+			   | CLONE_CHILD_CLEARTID
+			   | 0);
+
+TLS_DEFINE_INIT_TP (tp, pd);
+
+// 此部分调用 external `__clone`
+if (__glibc_unlikely (ARCH_CLONE (&amp;start_thread, STACK_VARIABLES_ARGS,
+                                  clone_flags, pd, &amp;pd-&gt;tid, tp, &amp;pd-&gt;tid)
+                      == -1))
+  return errno;
+</code></pre>
+<p><code>__clone</code>的实现在内核中，通过 x86_64 ABI与<a href="https://stackoverflow.com/questions/26812977/linux-x86-64-assembly-examples-of-threading-sys-clone">网上找的例子</a>，最终汇编代码如下</p>
+<pre><code class="language-asm">eax = 120 (syscall number for sys_clone)
+ebx = unsigned long flags
+ecx = void *child_stack
+edx = void *ptid
+esi = void *ctid
+edi = struct pt_regs *regs  
+int 80H
+</code></pre>
+<p>内核收到80H中断请求后，将进行内核态线程的创建与调度，后面内核线程以后再写...</p>
+<h4 id="jvm中自动启动的线程"><a class="header" href="#jvm中自动启动的线程">JVM中自动启动的线程</a></h4>
+<p>在JVM中，创建了main线程(Native线程，对应 JVM下的用户主线程) + 如下4个Java-level的线程 ，可以通过对<code>createVMThread</code>进行findUsage定位</p>
+<h5 id="1-gc线程"><a class="header" href="#1-gc线程">1. GC线程</a></h5>
+<p>通过WhileLoop与Sleep每隔1000ms进行一次GC，这里后期将专门分析GC流程(当初买的一本GC实现终于可以用啦)</p>
+<pre><code class="language-c">/* Create and start VM thread for asynchronous GC */
+if(args-&gt;asyncgc)
+  createVMThread(&quot;Async GC&quot;, asyncGCThreadLoop);
+</code></pre>
+<h5 id="2-reference处理线程"><a class="header" href="#2-reference处理线程">2. Reference处理线程</a></h5>
+<p>这里配合GC的线程，共2个，日后在详细讲</p>
+<pre><code class="language-c">/* Create and start VM threads for the reference handler and finalizer */
+createVMThread(&quot;Finalizer&quot;, finalizerThreadLoop);
+createVMThread(&quot;Reference Handler&quot;, referenceHandlerThreadLoop);
+</code></pre>
+<h5 id="3-信号处理线程"><a class="header" href="#3-信号处理线程">3. 信号处理线程</a></h5>
+<p>通过WhileLoop+<code>sigwait()</code>系统阻塞监听信号实现处理 <code>SIGINT</code> 与 <code>SIGQUIT</code></p>
+<pre><code class="language-c"> /* Create the signal handler thread.  It is responsible for
+ catching and handling SIGQUIT (thread dump) and SIGINT
+ (user-termination of the VM, e.g. via Ctrl-C).  Note it
+ must be a valid Java-level thread as it needs to run the
+ shutdown hooks in the event of user-termination */
+createVMThread(&quot;Signal Handler&quot;, classlibSignalThread);
+</code></pre>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ul>
+<li><a href="http://www.epubit.com.cn/book/details/4222">操作系统真象还原</a>: 类似于读书笔记吧，功力在普通国产书之上</li>
+<li><a href="http://syscalls.kernelgrok.com/">http://syscalls.kernelgrok.com/</a>: 在线查阅各种系统调用</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../juc/thread/nativethread.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../juc/thread/threadpool.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../juc/thread/nativethread.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../juc/thread/threadpool.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
