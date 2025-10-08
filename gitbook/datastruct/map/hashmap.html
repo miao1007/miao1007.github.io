@@ -1,0 +1,476 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>HashMap</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduce</a></li><li class="chapter-item expanded "><a href="../number/index.html"><strong aria-hidden="true">2.</strong> Number</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../number/bignumber.html"><strong aria-hidden="true">2.1.</strong> BigNumber</a></li></ol></li><li class="chapter-item expanded "><a href="../string/index.html"><strong aria-hidden="true">3.</strong> String</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../string/editdistance.html"><strong aria-hidden="true">3.1.</strong> EditDistance</a></li><li class="chapter-item expanded "><a href="../string/literal-expression.html"><strong aria-hidden="true">3.2.</strong> Literal-expression</a></li><li class="chapter-item expanded "><a href="../string/similar.html"><strong aria-hidden="true">3.3.</strong> Similar</a></li></ol></li><li class="chapter-item expanded "><a href="../map/index.html"><strong aria-hidden="true">4.</strong> Map</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../map/hashmap.html" class="active"><strong aria-hidden="true">4.1.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="../map/currenthashmap.html"><strong aria-hidden="true">4.2.</strong> CurrentHashMap(zk)</a></li><li class="chapter-item expanded "><a href="../map/copyonwritemap.html"><strong aria-hidden="true">4.3.</strong> CopyonWritMap(zk)</a></li><li class="chapter-item expanded "><a href="../map/lrumap.html"><strong aria-hidden="true">4.4.</strong> LinkedHashMap(LRU)</a></li></ol></li><li class="chapter-item expanded "><a href="../tree/index.html"><strong aria-hidden="true">5.</strong> Tree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/traverse/index.html"><strong aria-hidden="true">5.1.</strong> Traverse</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/traverse/dfs.html"><strong aria-hidden="true">5.1.1.</strong> Depth-First</a></li><li class="chapter-item expanded "><a href="../tree/traverse/bfs.html"><strong aria-hidden="true">5.1.2.</strong> Breed-First</a></li></ol></li><li class="chapter-item expanded "><a href="../tree/b-tree/index.html"><strong aria-hidden="true">5.2.</strong> BinaryTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/b-tree/binarytree.html"><strong aria-hidden="true">5.2.1.</strong> BasicBinaryTree</a></li><li class="chapter-item expanded "><a href="../tree/b-tree/binarysearchtree/index.html"><strong aria-hidden="true">5.2.2.</strong> BinarySearchTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/b-tree/binarysearchtree/redblacktree.html"><strong aria-hidden="true">5.2.2.1.</strong> RedBlackTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/redblack-and-avl-tree.html"><strong aria-hidden="true">5.2.2.1.1.</strong> Redblack and AVL Tree</a></li><li class="chapter-item expanded "><a href="../tree/treemap.html"><strong aria-hidden="true">5.2.2.1.2.</strong> TreeMap</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../tree/heap.html"><strong aria-hidden="true">5.3.</strong> Heap</a></li><li class="chapter-item expanded "><a href="../tree/treeset.html"><strong aria-hidden="true">5.4.</strong> TreeSet</a></li></ol></li><li class="chapter-item expanded "><a href="../quene/index.html"><strong aria-hidden="true">6.</strong> Quene</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../quene/dequeue.html"><strong aria-hidden="true">6.1.</strong> Deque</a></li><li class="chapter-item expanded "><a href="../quene/priorityqueue.html"><strong aria-hidden="true">6.2.</strong> PriorityQueue</a></li></ol></li><li class="chapter-item expanded "><a href="../list/index.html"><strong aria-hidden="true">7.</strong> List</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../list/arr-linked-list.html"><strong aria-hidden="true">7.1.</strong> Array&amp;LinkedList</a></li><li class="chapter-item expanded "><a href="../list/skiplist.html"><strong aria-hidden="true">7.2.</strong> SkipList</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="hashmap的优化与实践"><a class="header" href="#hashmap的优化与实践">HashMap的优化与实践</a></h2>
+<h2 id="文章速读"><a class="header" href="#文章速读">文章速读</a></h2>
+<ul>
+<li>HashMap通过计算哈希实现数据的索引</li>
+<li>当碰撞达到8时，将链表转为红黑树(一种对称的<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9">二叉查找树</a>)</li>
+<li>HashMap进行rehash时性能较差，因此需要设计一个好的容量，或者使用Redis的渐进式rehash</li>
+</ul>
+<h2 id="hashmap的复杂度"><a class="header" href="#hashmap的复杂度">HashMap的复杂度</a></h2>
+<p>如图是ArrayList/LinkedList/HashMap三个数据结构的复杂度对比，可以看出HashMap整体上性能都非常不错，但是不稳定，为O(N/Buckets)，N就是以数组中没有发生碰撞的元素，Buckets是因碰撞产生的链表。</p>
+<table><thead><tr><th align="left"></th><th align="left">获取</th><th align="left">查找</th><th align="left">添加/删除</th><th align="left">空间</th><th align="left"></th></tr></thead><tbody>
+<tr><td align="left"></td><td align="left">ArrayList</td><td align="left">O(1)</td><td align="left">O(1)</td><td align="left">O(N)</td><td align="left">O(N)</td></tr>
+<tr><td align="left"></td><td align="left">LinkedList</td><td align="left">O(N)</td><td align="left">O(N)</td><td align="left">O(1)</td><td align="left">O(N)</td></tr>
+<tr><td align="left"></td><td align="left">HashMap</td><td align="left">O(N/Bucket_size)</td><td align="left">O(N/Bucket_size)</td><td align="left">O(N/Bucket_size)</td><td align="left">O(N)</td></tr>
+</tbody></table>
+<blockquote>
+<p>注：发生碰撞实际上是非常稀少的，所以N/Bucket_size约等于1</p>
+</blockquote>
+<p>HashMap是对Array与Link的折衷处理，Array与Link可以说是两个速度方向的极端，Array注重于数据的获取，而处理修改（添加/删除）的效率非常低；Link由于是每个对象都保持着下一个对象的指针，查找某个数据需要遍历之前所有的数据，所以效率比较低，而在修改操作中比较快。</p>
+<blockquote>
+<p>复杂度是如何考察的？</p>
+<p>对于数据结构，在时间上我们需要考察Acessing ,Search, Deletion/Insertion的平均与最差的复杂度。在空间上，我们要考虑维护这个数据结构所占用的内存空间。</p>
+<p>常见的数据结构与排序的复杂度都在<a href="http://bigocheatsheet.com/">这里</a></p>
+</blockquote>
+<h2 id="hashmap的实现"><a class="header" href="#hashmap的实现">HashMap的实现</a></h2>
+<p>本文以JDK8的API实现进行分析</p>
+<h3 id="1-什么是hash什么是碰撞"><a class="header" href="#1-什么是hash什么是碰撞">1. 什么是hash，什么是碰撞？</a></h3>
+<ul>
+<li>
+<p>Hash：是一种信息摘要算法，一般用于验证完整性，它还叫做哈希，或者散列，但是它<strong>不是加密</strong>。我们平时使用的MD5,SHA1,SSL中的公私钥验证都属于Hash算法，通过输入key进行Hash计算，就可以获取key的HashCode()，比如我们通过校验MD5来验证文件的完整性。</p>
+</li>
+<li>
+<p>碰撞：好的Hash算法可以出计算几乎出独一无二的HashCode，如果出现了重复的hashCode，就称作碰撞;</p>
+</li>
+</ul>
+<blockquote>
+<p>就算是MD5这样优秀的算法也会发生碰撞，即两个不同的key也有可能生成相同的MD5。</p>
+</blockquote>
+<h3 id="2-hashmap中是如何实现写入与读取的"><a class="header" href="#2-hashmap中是如何实现写入与读取的">2. HashMap中是如何实现写入与读取的？</a></h3>
+<p>HashMap实现了Map接口，保存着K-V这样的集合。我们以put操作为例</p>
+<h4 id="21-对key进行hash计算"><a class="header" href="#21-对key进行hash计算">2.1. 对key进行Hash计算</a></h4>
+<p>在JDK8中，由于使用了红黑树来处理大的链表开销，所以hash这边可以更加省力了，只用计算hashCode并移动到低位就可以了</p>
+<pre><code class="language-java">static final int hash(Object key) {
+    int h;
+    //计算hashCode，并无符号移动到低位
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);
+}
+</code></pre>
+<p>举个例子: 363771819^(363771819 &gt;&gt;&gt; 16)</p>
+<pre><code>0001 0101 1010 1110 1011 0111 1010 1011(363771819)
+0000 0000 0000 0000 0001 0101 1010 1110(5550) XOR
+--------------------------------------- =
+0001 0101 1010 1110 1010 0010 0000 0101(363766277)
+</code></pre>
+<p>这样做可以实现了高地位更加均匀地混到一起，详见<a href="http://stackoverflow.com/a/2334251/4016014">这里</a></p>
+<p>下面给出几个常用的哈希码(hashCode)的算法。</p>
+<ol>
+<li>Object类的hashCode. 返回对象的经过处理后的内存地址，由于每个对象的内存地址都不一样，所以哈希码也不一样。这个是native方法，取决于JVM的内部设计，一般是某种C地址的偏移。</li>
+<li>String类的hashCode. 根据String类包含的字符串的内容，根据一种特殊算法返回哈希码，只要字符串的内容相同，返回的哈希码也相同。</li>
+<li>Integer等包装类，返回的哈希码就是Integer对象里所包含的那个整数的数值，例如Integer i1=new Integer(100),i1.hashCode的值就是100 。由此可见，2个一样大小的Integer对象，返回的哈希码也一样。</li>
+<li>int，char这样的基础类，它们不需要hashCode，如果需要存储时，将进行自动装箱操作，计算方法同上。</li>
+</ol>
+<h4 id="22-获取到当前的位置"><a class="header" href="#22-获取到当前的位置">2.2. 获取到当前的位置</a></h4>
+<p>计算了Hash，我们现在要把它插入数组中了</p>
+<pre><code>i = (tab.length - 1) &amp; hash；
+</code></pre>
+<blockquote>
+<p>通过位运算，确定了当前的位置，因为HashMap数组的大小总是2^n，所以实际的运算就是 (0xfff...ff) &amp; hash ，这里的tab.length-1相当于一个mask，滤掉了大于当前长度位的hash，使每个i都能插入到数组中。</p>
+</blockquote>
+<h4 id="23-生成包装类"><a class="header" href="#23-生成包装类">2.3. 生成包装类</a></h4>
+<p>这个对象是一个包装类，<code>Node&lt;K,V&gt;</code>，内部有key,value,hash还有next，可以看出来它是一个链表。</p>
+<pre><code class="language-java">static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; {
+        final int hash;
+        final K key;
+        V value;
+        Node&lt;K,V&gt; next;
+        //getter and setter .etc.
+}
+</code></pre>
+<h4 id="24-插入包装类到数组"><a class="header" href="#24-插入包装类到数组">2.4. 插入包装类到数组</a></h4>
+<p>(1). 如果输入当前的位置是空的，就插进去，如图，左为插入前，右为插入后</p>
+<pre><code>0           0
+|           |
+1 -&gt; null   1 - &gt; null
+|           |
+2 -&gt; null   2 - &gt; null
+|           | 
+..-&gt; null   ..- &gt; null
+|           | 
+i -&gt; null   i - &gt; new node
+|           |
+n -&gt; null   n - &gt; null
+</code></pre>
+<p>(2). 如果当前位置已经有了node，且它们发生了碰撞，则新的放到前面，旧的放到后面，这叫做链地址法处理冲突。</p>
+<pre><code>0           0
+|           |
+1 -&gt; null   1 - &gt; null
+|           |
+2 -&gt; null   2 - &gt; null
+|           | 
+..-&gt; null   ..- &gt; null
+|           | 
+i -&gt; old    i - &gt; new - &gt; old
+|           |
+n -&gt; null   n - &gt; null
+</code></pre>
+<p>我们可以发现，失败的hashCode算法会导致HashMap的性能由数组下降为链表，所以想要避免发生碰撞，就要提高hashCode结果的均匀性。当然，在JDK8中，采用了红黑二叉树进行了处理，这个我们后面详细介绍。</p>
+<p>&gt;</p>
+<blockquote>
+<p>什么是Hash攻击?</p>
+<p>通过请求大量key不同，但是hashCode相同的数据，让HashMap不断发生碰撞，硬生生的变成了SingleLinkedList</p>
+<pre><code>0
+|
+1 -&gt; a -&gt;b -&gt; c -&gt; d(撞！撞！撞！复杂度由O(1)变成了O(N))
+|
+2 -&gt; null(本应该均匀分布，这里却是空的)
+|
+3 -&gt; null
+|
+4 -&gt; null
+</code></pre>
+<p>这样put/get性能就从O(1)变成了O(N)，CPU负载呈直线上升，形成了放大版DDOS的效果，这种方式就叫做hash攻击。在Java8中通过使用TreeMap，提升了处理性能，可以一定程度的防御Hash攻击。</p>
+</blockquote>
+<h3 id="3-扩容"><a class="header" href="#3-扩容">3. 扩容</a></h3>
+<p>如果当表中的75%已经被占用，即视为需要扩容了</p>
+<pre><code>(threshold = capacity * load factor ) &lt; size
+</code></pre>
+<p>它主要有两个步骤：</p>
+<h4 id="1-容量加倍"><a class="header" href="#1-容量加倍">1. 容量加倍</a></h4>
+<p>左移1位，就是扩大到两倍，用位运算取代了乘法运算</p>
+<pre><code>newCap = oldCap &lt;&lt; 1;
+newThr = oldThr &lt;&lt; 1;
+</code></pre>
+<h4 id="2-遍历计算hash"><a class="header" href="#2-遍历计算hash">2. 遍历计算Hash</a></h4>
+<pre><code class="language-java">for (int j = 0; j &lt; oldCap; ++j) {
+                Node&lt;K,V&gt; e;
+                //如果发现当前有Bucket
+                if ((e = oldTab[j]) != null) {
+                    oldTab[j] = null;
+                    //如果这里没有碰撞
+                    if (e.next == null)
+                        //重新计算Hash，分配位置
+                        newTab[e.hash &amp; (newCap - 1)] = e;
+                    //这个见下面的新特性介绍，如果是树，就填入树
+                    else if (e instanceof TreeNode)
+                        ((TreeNode&lt;K,V&gt;)e).split(this, newTab, j, oldCap);
+                    //如果是链表，就保留顺序....目前就看懂这点
+                    else { // preserve order
+                        Node&lt;K,V&gt; loHead = null, loTail = null;
+                        Node&lt;K,V&gt; hiHead = null, hiTail = null;
+                        Node&lt;K,V&gt; next;
+                        do {
+                            next = e.next;
+                            if ((e.hash &amp; oldCap) == 0) {
+                                if (loTail == null)
+                                    loHead = e;
+                                else
+                                    loTail.next = e;
+                                loTail = e;
+                            }
+                            else {
+                                if (hiTail == null)
+                                    hiHead = e;
+                                else
+                                    hiTail.next = e;
+                                hiTail = e;
+                            }
+                        } while ((e = next) != null);
+                        if (loTail != null) {
+                            loTail.next = null;
+                            newTab[j] = loHead;
+                        }
+                        if (hiTail != null) {
+                            hiTail.next = null;
+                            newTab[j + oldCap] = hiHead;
+                        }
+                    }
+                }
+            }
+</code></pre>
+<p>由此可以看出扩容需要遍历并重新赋值，成本非常高，所以选择一个好的初始容量非常重要。</p>
+<h2 id="如何提升性能"><a class="header" href="#如何提升性能">如何提升性能？</a></h2>
+<ol>
+<li>
+<p>解决扩容损失：如果知道大致需要的容量，把初始容量设置好以解决扩容损失；<br />
+比如我现在有1000个数据，需要 1000/0.75 = 1333 个坑位，又 1024 &lt; 1333 &lt; 2048，所以最好使用2048作为初始容量。</p>
+</li>
+<li>
+<p>解决碰撞损失：使用高效的HashCode与loadFactor，这个...由于JDK8的高性能出现，这儿问题也不大了。</p>
+</li>
+<li>
+<p>解决数据结构选择的错误：在大型的数据与搜索中考虑使用别的结构比如TreeMap，这个就是知识积累了。一般需要key排序时，建议使用TreeMap，本文暂不讨论；</p>
+</li>
+</ol>
+<h2 id="hashmap与hashtable的主要区别"><a class="header" href="#hashmap与hashtable的主要区别">HashMap与HashTable的主要区别</a></h2>
+<p>在很多的Java基础书上都已经说过了，他们的主要区别其实就是Table全局加了线程同步保护</p>
+<ul>
+<li>HashTable线程更加安全，代价就是因为它粗暴的添加了this同步锁，所以会有性能损失。</li>
+<li>其实有更好的concurrentHashMap可以替代HashTable，它采用了CAS实现了数组元素的插入</li>
+</ul>
+<h2 id="jdk8中hashmap的新特性"><a class="header" href="#jdk8中hashmap的新特性">JDK8中HashMap的新特性</a></h2>
+<p>如果某个桶中的链表记录过大的话（当前是TREEIFY_THRESHOLD = 8），就会把这个链动态变成红黑二叉树，使查询最差复杂度由O(N)变成了O(logN)。</p>
+<pre><code class="language-java">//e 为临时变量，p为当前的链
+for (int binCount = 0; ; ++binCount) {
+    if ((e = p.next) == null) {
+        p.next = newNode(hash, key, value, null);
+        if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 for 1st
+            treeifyBin(tab, hash);
+        break;
+    }
+    if (e.hash == hash &amp;&amp;
+        ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+        break;
+    p = e;
+}
+</code></pre>
+<p>JDK8在其他地方也有提升，更多的可以看<a href="http://openjdk.java.net/jeps/180">这里</a>。</p>
+<h2 id="hashmap的装箱空间效率"><a class="header" href="#hashmap的装箱空间效率">HashMap的装箱空间效率</a></h2>
+<p>在笔试题中，一般“内存限制”是不考虑装箱的，而在现实中HashMap空间效率之低，你却不一定知道。</p>
+<p>比如定义了一个 <code>HashMap&lt;Long,Long&gt;</code></p>
+<h4 id="1-long的装箱"><a class="header" href="#1-long的装箱">1. Long的装箱</a></h4>
+<p>在对象头中，加入额外的指针8Bype，加入8Bype的MarkWord(hashcode与锁信息)，这里就是16Byte</p>
+<p>也就是说，long在装箱后，效率为 8/24 = 1/3</p>
+<h4 id="2-mapentry的装箱"><a class="header" href="#2-mapentry的装箱">2. Map.Entry的装箱</a></h4>
+<p>字段空间: hash(4) + padding(4) ＋ next(8) = 16Byte，这里的padding是字节对齐</p>
+<p>对象头: 16Byte，指针+MarkWord</p>
+<p>也就是说，维护一个Entry需要32Byte的空间</p>
+<pre><code class="language-java">static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt;
+{    
+    final int hash;    
+    final K key;    
+    V value;    
+    Node&lt;K,V&gt; next;
+}
+</code></pre>
+<h4 id="3-总效率"><a class="header" href="#3-总效率">3. 总效率</a></h4>
+<p>8/(24 + 32) = 1/7</p>
+<blockquote>
+<p>计算结果可能有差异，本文主要在强调装箱过程造成的损失</p>
+</blockquote>
+<p>如果你想挑战OJ的TOP1，必须通过数组等手段实现Map</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../map/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../map/currenthashmap.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../map/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../map/currenthashmap.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
