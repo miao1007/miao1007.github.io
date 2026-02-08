@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>EditDistance</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduce</a></li><li class="chapter-item expanded "><a href="../number/index.html"><strong aria-hidden="true">2.</strong> Number</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../number/bignumber.html"><strong aria-hidden="true">2.1.</strong> BigNumber</a></li></ol></li><li class="chapter-item expanded "><a href="../string/index.html"><strong aria-hidden="true">3.</strong> String</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../string/editdistance.html" class="active"><strong aria-hidden="true">3.1.</strong> EditDistance</a></li><li class="chapter-item expanded "><a href="../string/literal-expression.html"><strong aria-hidden="true">3.2.</strong> Literal-expression</a></li><li class="chapter-item expanded "><a href="../string/similar.html"><strong aria-hidden="true">3.3.</strong> Similar</a></li></ol></li><li class="chapter-item expanded "><a href="../map/index.html"><strong aria-hidden="true">4.</strong> Map</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../map/hashmap.html"><strong aria-hidden="true">4.1.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="../map/currenthashmap.html"><strong aria-hidden="true">4.2.</strong> CurrentHashMap(zk)</a></li><li class="chapter-item expanded "><a href="../map/copyonwritemap.html"><strong aria-hidden="true">4.3.</strong> CopyonWritMap(zk)</a></li><li class="chapter-item expanded "><a href="../map/lrumap.html"><strong aria-hidden="true">4.4.</strong> LinkedHashMap(LRU)</a></li></ol></li><li class="chapter-item expanded "><a href="../tree/index.html"><strong aria-hidden="true">5.</strong> Tree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/traverse/index.html"><strong aria-hidden="true">5.1.</strong> Traverse</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/traverse/dfs.html"><strong aria-hidden="true">5.1.1.</strong> Depth-First</a></li><li class="chapter-item expanded "><a href="../tree/traverse/bfs.html"><strong aria-hidden="true">5.1.2.</strong> Breed-First</a></li></ol></li><li class="chapter-item expanded "><a href="../tree/b-tree/index.html"><strong aria-hidden="true">5.2.</strong> BinaryTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/b-tree/binarytree.html"><strong aria-hidden="true">5.2.1.</strong> BasicBinaryTree</a></li><li class="chapter-item expanded "><a href="../tree/b-tree/binarysearchtree/index.html"><strong aria-hidden="true">5.2.2.</strong> BinarySearchTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/b-tree/binarysearchtree/redblacktree.html"><strong aria-hidden="true">5.2.2.1.</strong> RedBlackTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tree/redblack-and-avl-tree.html"><strong aria-hidden="true">5.2.2.1.1.</strong> Redblack and AVL Tree</a></li><li class="chapter-item expanded "><a href="../tree/treemap.html"><strong aria-hidden="true">5.2.2.1.2.</strong> TreeMap</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../tree/heap.html"><strong aria-hidden="true">5.3.</strong> Heap</a></li><li class="chapter-item expanded "><a href="../tree/treeset.html"><strong aria-hidden="true">5.4.</strong> TreeSet</a></li></ol></li><li class="chapter-item expanded "><a href="../quene/index.html"><strong aria-hidden="true">6.</strong> Quene</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../quene/dequeue.html"><strong aria-hidden="true">6.1.</strong> Deque</a></li><li class="chapter-item expanded "><a href="../quene/priorityqueue.html"><strong aria-hidden="true">6.2.</strong> PriorityQueue</a></li></ol></li><li class="chapter-item expanded "><a href="../list/index.html"><strong aria-hidden="true">7.</strong> List</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../list/arr-linked-list.html"><strong aria-hidden="true">7.1.</strong> Array&amp;LinkedList</a></li><li class="chapter-item expanded "><a href="../list/skiplist.html"><strong aria-hidden="true">7.2.</strong> SkipList</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>编辑距离</p>
+<h2 id="应用场景"><a class="header" href="#应用场景">应用场景</a></h2>
+<ul>
+<li>Elastic中项目要用的真实例子: https://www.elastic.co/blog/found-fuzzy-search 模糊（Fuzzy）搜索以及拼写错误（Spell checker）</li>
+<li>OJ例子: https://leetcode.com/problems/edit-distance/</li>
+<li>更难的例子: https://leetcode.com/problems/regular-expression-matching/</li>
+<li>Java业务: 通过EditDistance反射找到Bean（使用Common库实现）</li>
+</ul>
+<h2 id="理论教程"><a class="header" href="#理论教程">理论教程</a></h2>
+<p>详见这个胶片 <a href="https://web.stanford.edu/class/cs124/lec/med.pdf">https://web.stanford.edu/class/cs124/lec/med.pdf</a></p>
+<h2 id="实现"><a class="header" href="#实现">实现</a></h2>
+<p>本处实现是参考算法书中最通用的动态规划实现(其中replace复杂度为1)，与Elastic/<a href="https://github.com/apache/lucene-solr/blob/master/lucene/suggest/src/java/org/apache/lucene/search/spell/LuceneLevenshteinDistance.java">Lucene</a>等专业实现肯定还是有很大性能区别。还有值得注意的是，编辑距离不要求枚举所有的路线图，而只要求计算结果。如果需要保存路线，那么就相当于实现了一份Diff了</p>
+<pre><code class="language-java">// https://leetcode.com/problems/edit-distance/
+</code></pre>
+<p>相比Fibonacci中使用Map作为缓存，由于EditDistance有两个入参，因此需要一个二维数组(cost array)来实现记忆化</p>
+<p><code>cost[m][n]</code>表示缓存了字符串<code>word1</code>前m个字符串与<code>word2</code>前n个字符串，从<code>word1</code>到<code>word2</code>的编辑距离</p>
+<pre><code>// 前N个含有0，因此需要加一
+int[][] cost = new int[word1.length+1][word2.length+1];
+</code></pre>
+<p>比如现在有两个字符串，分别是 abcd 与 ccd，通过大脑计算显然可以看出需要删1换1，最终是2，我们现在用记忆化实现一下，我们将数组维护为一个Table，</p>
+<p>首先完成边界起始迭代，由于是纯ADD/DEL操作，比如<code>cost[3][0]</code>表示将abc删成&quot;&quot;，操作数当然是3</p>
+<table><thead><tr><th>0</th><th>1(c)</th><th>2(c)</th><th>3(d)</th><th>4</th><th>5</th></tr></thead><tbody>
+<tr><td>1(a)</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2(b)</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>3(c)</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>4(d)</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<p>这一部分可以用如下Java代码实现</p>
+<pre><code class="language-java">// for word1 delete to word2
+for (int i = 0; i&lt; word1.length+1;i++){
+  cost[i][0] = i;
+}
+// for word1 add to word2
+for (int i = 0; i&lt; word2.length+1;i++){
+  cost[0][i] = i;
+}
+</code></pre>
+<p>然后我们就可以基于预知条件，做一套从它的上面，左边与左对角线的迁移状态机，在上面的预制条件找最优解了</p>
+<p>比如求值</p>
+<ul>
+<li><code>cost[1][1]</code>=distance('a','c')
+<ul>
+<li>REPLACE: 由于<code>a</code>不等于<code>c</code>，因此成本是1</li>
+<li>delete_first: 先计算distance('','c') ，再计算 distance('','c') -&gt; distance('a','c')，转换成本是1 </li>
+<li>delele_second: 先计算distance('a','') ，再计算 distance('a','') -&gt; distance('a','c')，转换成本是1 </li>
+</ul>
+</li>
+<li><code>cost[1][2]</code>=distance('a','cc')
+<ul>
+<li>REPLACE: 由于<code>a</code>不等于<code>c</code>，因此成本是1</li>
+<li>delete_first: 先计算distance('','cc')，再计算 distance('','cc') -&gt; distance('a','cc')，转换成本是1</li>
+<li>delele_second: 先计算distance('a','c') ，再计算 distance('a','c') -&gt; distance('a','cc')，转换成本是1 </li>
+</ul>
+</li>
+</ul>
+<p>这里代码如下</p>
+<pre><code class="language-java">// calculate every transformation cost
+for (int i = 1; i &lt; len1 + 1; i++) {
+  char c1 = word1.charAt(i - 1);
+  for (int j = 1; j &lt; len2 + 1; j++) {
+    int swapCost = (c1 == word2.charAt(j - 1) ? 0 : 1);
+    int delete_both_to_normal = cost[i - 1][j - 1] + swapCost;
+    // 网上有很多用add作为命名，但是正如上文所写，状态转移最好命名长一点，避免歧义
+    int delete_first_to_normal = cost[i][j - 1] + 1;
+    int delele_second_to_normal = cost[i - 1][j] + 1;
+    cost[i][j] = Math.min(
+      Math.min(delete_first_to_normal, delele_second_to_normal), 
+      delete_both_to_normal
+    );
+  }
+}
+return [i][j];
+</code></pre>
+<p>白板注意事项</p>
+<ul>
+<li>不要写过长代码(eg: Math.min)，防止括号中加一位置计算错误，难以定位</li>
+<li>二维数组尽量直接操作index，不要用arr.length</li>
+<li>string的length方法有括号</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../string/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../string/literal-expression.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../string/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../string/literal-expression.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

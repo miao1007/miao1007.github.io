@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>L2 Cache</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../dynamic-sql/index.html"><strong aria-hidden="true">2.</strong> 动态SQL与LanguageDriver</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../dynamic-sql/ognl.html"><strong aria-hidden="true">2.1.</strong> OGNL的简介</a></li><li class="chapter-item expanded "><a href="../dynamic-sql/xml-to-ast.html"><strong aria-hidden="true">2.2.</strong> XML如何转换为ASTNode</a></li><li class="chapter-item expanded "><a href="../dynamic-sql/dynamic-proxy.html"><strong aria-hidden="true">2.3.</strong> 执行与动态代理</a></li></ol></li><li class="chapter-item expanded "><a href="../mapping/index.html"><strong aria-hidden="true">3.</strong> Nested映射实现</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../mapping/impl.html"><strong aria-hidden="true">3.1.</strong> 映射实现</a></li><li class="chapter-item expanded "><a href="../mapping/merge-left-join.html"><strong aria-hidden="true">3.2.</strong> 如何合并LEFT-JOIN</a></li></ol></li><li class="chapter-item expanded "><a href="../practice/index.html"><strong aria-hidden="true">4.</strong> Mybatis实践与SQL优化</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../practice/cache.html" class="active"><strong aria-hidden="true">4.1.</strong> L2 Cache</a></li><li class="chapter-item expanded "><a href="../practice/multi-join.html"><strong aria-hidden="true">4.2.</strong> 多级联查</a></li><li class="chapter-item expanded "><a href="../practice/parent-child-tree.html"><strong aria-hidden="true">4.3.</strong> Parent-child-id-tree</a></li><li class="chapter-item expanded "><a href="../practice/transaction.html"><strong aria-hidden="true">4.4.</strong> 事务</a></li></ol></li><li class="chapter-item expanded "><a href="../datebase/dds.html"><strong aria-hidden="true">5.</strong> 分布式数据库</a></li><li class="chapter-item expanded "><a href="../datebase/procedure.html"><strong aria-hidden="true">6.</strong> 存储过程</a></li><li class="chapter-item expanded "><a href="../datebase/index.html"><strong aria-hidden="true">7.</strong> 索引</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../datebase/bitmap-index.html"><strong aria-hidden="true">7.1.</strong> 位图索引</a></li><li class="chapter-item expanded "><a href="../datebase/inverted-index.html"><strong aria-hidden="true">7.2.</strong> NoSQL与倒排索引</a></li></ol></li><li class="chapter-item expanded "><a href="../other/sql-explain.html"><strong aria-hidden="true">8.</strong> 调试执行计划</a></li><li class="chapter-item expanded "><a href="../datebase/transaction.html"><strong aria-hidden="true">9.</strong> 事务</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../datebase/transaction/readcommit.html"><strong aria-hidden="true">9.1.</strong> read commit</a></li><li class="chapter-item expanded "><a href="../datebase/transaction/repeatable.html"><strong aria-hidden="true">9.2.</strong> Repeatable read</a></li><li class="chapter-item expanded "><a href="../datebase/transaction/serializable.html"><strong aria-hidden="true">9.3.</strong> Serializable</a></li></ol></li><li class="chapter-item expanded "><a href="../other/dws.html"><strong aria-hidden="true">10.</strong> DWS</a></li><li class="chapter-item expanded "><a href="../other/ges.html"><strong aria-hidden="true">11.</strong> 图数据库</a></li><li class="chapter-item expanded "><a href="../other/reference.html"><strong aria-hidden="true">12.</strong> 参考文献与Wiki</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="l2-cache"><a class="header" href="#l2-cache">L2 Cache</a></h2>
+<h3 id="如何启动l2-cachehow-to-enable-l2-cache"><a class="header" href="#如何启动l2-cachehow-to-enable-l2-cache">如何启动L2 Cache(How to enable L2 cache)</a></h3>
+<p>See at http://www.mybatis.org/mybatis-3/sqlmap-xml.html#cache</p>
+<h3 id="cache是如何工作的how-cache-works"><a class="header" href="#cache是如何工作的how-cache-works">Cache是如何工作的(How cache works)</a></h3>
+<h4 id="构造步骤construct-steps"><a class="header" href="#构造步骤construct-steps">构造步骤(Construct Steps)</a></h4>
+<p>We can read source code here </p>
+<pre><code class="language-java">// Impl: PERPETUAL(永久): org.apache.ibatis.cache.impl.PerpetualCache
+// Decorator: LRU(最近使用): org.apache.ibatis.cache.decorators.LruCache
+org.apache.ibatis.builder.MapperBuilderAssistant#useNewCache
+</code></pre>
+<ol>
+<li>Construct a new instance of <code>cache</code> using reflection.</li>
+<li>Set individual properties using SystemMetaObject.</li>
+<li>Call org.apache.ibatis.builder.InitializingObject#initialize for customization[/ˌkʌstəmɪ'zeʃən/], see <a href="https://github.com/mybatis/mybatis-3/issues/816">#816</a></li>
+<li>Add decorator cache chains by <code>build</code></li>
+<li>Put the <code>cache</code> into a <code>Map&lt;NameSpace, Cache&gt;</code></li>
+</ol>
+<p>If your are using a standard cache, your will get</p>
+<pre><code>// see org.apache.ibatis.annotations.CacheNamespace
+// It may **produce dirty data** on distributed scopes.
+SynchronizedCache -&gt; LoggingCache -&gt; LruCache -&gt; PerpetualCache
+</code></pre>
+<p>And if you are using a customized cache, you will get</p>
+<pre><code>LoggingCache -&gt; CustomCache
+</code></pre>
+<blockquote>
+<p>If you want to get a log, please override <code>getId</code>  and return the id with the mapper's namespace.</p>
+</blockquote>
+<h4 id="cache流程process-flow"><a class="header" href="#cache流程process-flow">Cache流程(Process flow)</a></h4>
+<p>By default(<code>cacheEnabled=true</code>), the framework will create a CachingExecutor[/ɪg'zekjʊtə/] as a proxy(which is called the second level cache) for the database executor. </p>
+<pre><code class="language-java">// Query -&gt; CachingExecutor -&gt; SimpleExecutor
+org.apache.ibatis.session.Configuration#newExecutor
+</code></pre>
+<p>There is a brief process flow digram demonstrates how Mybatis caches when a query comes.</p>
+<ul>
+<li>L1 cache implementation: Java HashMap, aka LocalCache.</li>
+<li>L2 cache implementation: Redis. <code>HGET</code> and <code>HSET</code> are commands for Redis <a href="https://redis.io/commands#hash">hash</a> data type. And id is the namespace of mapper.</li>
+</ul>
+<pre><code class="language-mermaid">sequenceDiagram
+  	Query--&gt;&gt;CacheExecutor: HGET id cacheKey?
+	CacheExecutor--&gt;&gt; SimpleExecutor: HashMap.get(cacheKey)
+	SimpleExecutor --&gt;&gt; DB: select * form TABLE
+	activate DB
+    DB --&gt;&gt; SimpleExecutor: value
+    deactivate DB
+    CacheExecutor --&gt;&gt; SimpleExecutor: HashMap.put(cacheKey, value)
+    SimpleExecutor --&gt;&gt; CacheExecutor: value
+    Query --&gt;&gt;CacheExecutor: HSET id cacheKey value
+    CacheExecutor--&gt;&gt;Query: value  	
+
+
+
+
+</code></pre>
+<p>For more information(distribute redis lock), read my gitbook for <a href="%7B%7Bbook.homePage%7D%7D">redis</a></p>
+<h3 id="事务transactionalcachemanager"><a class="header" href="#事务transactionalcachemanager">事务(TransactionalCacheManager)</a></h3>
+<p>In L2 cache, <strong>only <code>put</code>, <code>get</code> and <code>clear</code> will be called</strong> despite all methods of interface are implemented.</p>
+<h3 id="改进redis缓存redis-caching-improvement"><a class="header" href="#改进redis缓存redis-caching-improvement">改进Redis缓存(Redis caching Improvement)</a></h3>
+<p>In addition to LinkedHashMap-based LRU cache, We also use Redis for distributed caching. Of course, there is already a Jedis-based open source project called <a href="https://github.com/mybatis/redis-cache">Redis-cache</a></p>
+<p>However, there are some improvements to be done.</p>
+<ul>
+<li>it creates a pool on each construction, singleton instance is better.</li>
+<li>Doesn't support Redis <a href="https://redis.io/topics/sentinel">sentinel</a> mode.</li>
+<li>JDK-based Serializer is <a href="https://developers.slashdot.org/story/18/05/26/0520227/oracle-calls-java-serialization-a-horrible-mistake-plans-to-dump-it">risky</a> when deployed on different platform. JSON, XML or <a href="https://developer.android.com/reference/android/os/Parcelable">Parcelable</a> is preferred.</li>
+<li>Lack of namespace for Redis. <code>cache:com.xx.mapper</code> is more maintainable and debuggabe when you <code>DEL</code> keys by prefix.</li>
+</ul>
+<p>Your need to fork the project and create your own cache.</p>
+<h3 id="handle-mutiple-table-with-cache-ref"><a class="header" href="#handle-mutiple-table-with-cache-ref">Handle mutiple table with cache-ref</a></h3>
+<p>If there is a student with lessons, two mapper turns cache on.</p>
+<pre><code class="language-xml">&lt;!-- com.xxx.lessonMapper --&gt;
+&lt;mapper namespace=&quot;com.xxx.lessonMapper&quot;&gt;
+    &lt;cache type=&quot;REDIS&quot;/&gt;
+    &lt;select id=&quot;selectLessonWithStudent&quot;&gt;
+        SELECT s.name, s.age, l.name as L_NAME 
+        from student s left join lesson l
+        on s.lesson_id = l.id
+    &lt;/select&gt;
+&lt;/mapper&gt;
+&lt;!-- com.xxx.studentMapper --&gt;
+&lt;mapper namespace=&quot;com.xxx.studentMapper&quot;&gt;
+    &lt;cache type=&quot;REDIS&quot;/&gt;
+    &lt;update&gt;
+    UPDATE student set name= #name
+    &lt;/update&gt;
+&lt;/mapper&gt;
+
+</code></pre>
+<p>when student's name is updated, the result of  <code>selectLessonWithStudent</code> is not flushed, and dirty data will be fetched.</p>
+<p>fixed by shared namespace</p>
+<pre><code class="language-diff">&lt;!-- com.xxx.lessonMapper --&gt;
+&lt;mapper namespace=&quot;com.xxx.lessonMapper&quot;&gt;
+-    &lt;cache type=&quot;REDIS&quot;/&gt;
++    &lt;cache-ref namespace=&quot;com.xxx.studentMapper&quot;/&gt;
+    &lt;select id=&quot;selectLessonWithStudent&quot;&gt;
+        SELECT s.name, s.age, l.name as L_NAME 
+        from student s left join lesson l
+        on s.lesson_id = l.id
+    &lt;/select&gt;
+&lt;/mapper&gt;
+</code></pre>
+<p>When data in lesson or student updates, <code>flushCache</code> will be called, and <strong>ALL</strong> cache in the namespace will be flushed, <strong>no update by special cacheKey</strong>, so the hit ratio will be explicitly lower. </p>
+<pre><code class="language-java">// ALL cache in the same namespace will be flushed.
+org.apache.ibatis.executor.CachingExecutor#flushCacheIfRequired
+</code></pre>
+<p>Concuclusion</p>
+<ul>
+<li>It's better to use cache on the only one table.</li>
+<li>When using cache with joined tables, use cache-ref to share namespace or turn cache off  mannually. </li>
+<li>It's better to handle cache in business code and find your own cachekey(eg: put in Elastic as a document)</li>
+</ul>
+<p>Alternative performance improvement</p>
+<ul>
+<li>
+<p>analyse SQL AST in interceptor and flush only changed changed -&gt; It's too complex.</p>
+</li>
+<li>
+<p>Do static analyse on XML and SQL -&gt;  It's too complex too.</p>
+</li>
+</ul>
+<h2 id="appendix"><a class="header" href="#appendix">APPENDIX</a></h2>
+<h4 id="voiding-the-risk-of-l1-cache"><a class="header" href="#voiding-the-risk-of-l1-cache">Voiding the risk of L1 Cache</a></h4>
+<p>In most situations, turning L1 cache on is risky if you have <strong>no control over</strong> the project. The two cached results may refer to the same pointer(eg: repeat queries in a for loop).</p>
+<pre><code class="language-java">// eg: in a service
+List&lt;Student&gt; list1 = mapper.select();
+// do modification
+list1.get(0).setName(&quot;Modified&quot;);
+// get dirty data from cache
+List&lt;Student&gt; list2 = mapper.select();
+assert(list1 == list2)
+</code></pre>
+<p>to fix the problem</p>
+<ul>
+<li>
+<p>avoid same query in <code>@Transactional</code>, and always remove repeat queries.</p>
+</li>
+<li>
+<p>turn L1 cache off(see  issue #482) and directly hit the DB.</p>
+</li>
+</ul>
+<pre><code class="language-xml">&lt;settings&gt;
+  &lt;!-- will flush the hashMap after the query in BaseExecutor. --&gt;
+  &lt;setting name=&quot;localCacheScope&quot; value=&quot;STATEMENT&quot;/&gt;
+&lt;/settings&gt;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../practice/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../practice/multi-join.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../practice/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../practice/multi-join.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

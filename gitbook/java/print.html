@@ -1,0 +1,1759 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="java/index.html"><strong aria-hidden="true">2.</strong> Java/JVM</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java/gc/index.html"><strong aria-hidden="true">2.1.</strong> 垃圾回收</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java/gc/analyze-full-gc.html"><strong aria-hidden="true">2.1.1.</strong> analyze-full-gc</a></li></ol></li><li class="chapter-item expanded "><a href="java/classloader/index.html"><strong aria-hidden="true">2.2.</strong> ClassLoader</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="java/classloader/class.html"><strong aria-hidden="true">2.2.1.</strong> Class的结构</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="juc/index.html"><strong aria-hidden="true">3.</strong> 并发编程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="juc/final/index.html"><strong aria-hidden="true">3.1.</strong> final/ThreadLocal</a></li><li class="chapter-item expanded "><a href="juc/thread/index.html"><strong aria-hidden="true">3.2.</strong> 线程</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="juc/thread/nativethread.html"><strong aria-hidden="true">3.2.1.</strong> NativeThread</a></li><li class="chapter-item expanded "><a href="juc/thread/jvmthread.html"><strong aria-hidden="true">3.2.2.</strong> JVM线程</a></li><li class="chapter-item expanded "><a href="juc/thread/threadpool.html"><strong aria-hidden="true">3.2.3.</strong> ThreadPool</a></li></ol></li><li class="chapter-item expanded "><a href="juc/lock/index.html"><strong aria-hidden="true">3.3.</strong> 锁</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="juc/lock/cas/index.html"><strong aria-hidden="true">3.3.1.</strong> CAS与AQS</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="juc/lock/cas/cas-impl.html"><strong aria-hidden="true">3.3.1.1.</strong> CAS的实现</a></li><li class="chapter-item expanded "><a href="juc/lock/cas/aqs/aqs-impl.html"><strong aria-hidden="true">3.3.1.2.</strong> AQS的实现</a></li><li class="chapter-item expanded "><a href="juc/lock/cas/aqs/reentrantlock.html"><strong aria-hidden="true">3.3.1.3.</strong> ReentrantLock</a></li><li class="chapter-item expanded "><a href="juc/lock/cas/aqs/countdownlatch.html"><strong aria-hidden="true">3.3.1.4.</strong> CountDownLatch</a></li><li class="chapter-item expanded "><a href="juc/lock/cas/aqs/read-write-lock.html"><strong aria-hidden="true">3.3.1.5.</strong> ReadWriteLock</a></li></ol></li><li class="chapter-item expanded "><a href="juc/lock/synchronized/index.html"><strong aria-hidden="true">3.3.2.</strong> synchronized</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="juc/lock/synchronized/jvm-sync.html"><strong aria-hidden="true">3.3.2.1.</strong> sync的native实现</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="juc/juc-problems.html"><strong aria-hidden="true">3.4.</strong> 常见并发问题</a></li><li class="chapter-item expanded "><a href="juc/cow/index.html"><strong aria-hidden="true">3.5.</strong> 写时复制</a></li></ol></li><li class="chapter-item expanded "><a href="microservice/index.html"><strong aria-hidden="true">4.</strong> 微服务中间件</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="本书介绍"><a class="header" href="#本书介绍">本书介绍</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h3 id="java体系"><a class="header" href="#java体系">Java体系</a></h3>
+<p>要求熟悉以下</p>
+<ul>
+<li>JVM实现: 最好看过C源码，具体有ClassLoader，线程池，锁，NIO、反射</li>
+<li>GC: 常见GC的算法与区别</li>
+<li>EE方向: JMX, HotDeploy</li>
+<li>各种业务引擎: RuleEngine, TaskEngine, BPM</li>
+</ul>
+<p>本文直接分析JVM源码</p>
+<h4 id="使用cliongdb调试小型jvm源码"><a class="header" href="#使用cliongdb调试小型jvm源码">使用Clion(GDB)调试小型JVM源码</a></h4>
+<p>详见<a href="http://www.jianshu.com/p/ca46826073a0">使用Clion(GDB)调试小型JVM源码</a></p>
+<h4 id="jvm与源码阅读工具的选择"><a class="header" href="#jvm与源码阅读工具的选择">JVM与源码阅读工具的选择</a></h4>
+<p>初次学习JVM时，不建议去看Android Art、Hotspot等重量级JVM的实现，它内部的防御代码很多，还有android与libcore、bionic库紧密耦合，以及分层、内联甚至能把编译器的语义分析绕进去，因此找一个教学用的、嵌入式小型的JVM有利于节约自己的时间。因为以前折腾过OpenWrt，听过有大神推荐过<a href="java/jamvm.sourceforge.net">jamvm</a>，只有不到200个源文件，非常适合学习。</p>
+<p>在工具的选择上，个人推荐SourceInsight。对比了好几个工具clion，vscode，sublime，只有sourceinsight对索引、符号表的解析最准确。</p>
+<h4 id="sourceinsight的配置"><a class="header" href="#sourceinsight的配置">sourceInsight的配置</a></h4>
+<p>阅读C代码除了Clion外，还推荐使用sourceInsight，这个软件一般在H等硬件厂商用的多，虽然很丑但是速度很快，使用教程见<a href="http://www.sourceinsight.com.cn/tech3.htm">这里</a></p>
+<ul>
+<li>记得在View中打开Reference与ContextWindow</li>
+<li>使用时建议关闭浏览器与各种套壳应用(否则Reference会很慢)</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="什么是markswip"><a class="header" href="#什么是markswip">什么是MarkSwip</a></h2>
+<p>虽然以前在各种文档、面试题中看过这个算法（标记清除算法），但是它完整的定义是这样的：</p>
+<blockquote>
+<p>标记清除－将所有活动对象都做上标记，接着将没有标记的（非活动）对象进行回收的过程。</p>
+</blockquote>
+<p>在Java中，</p>
+<p>伪代码如下</p>
+<pre><code class="language-javascript">funtion(obj){
+  return 
+}
+</code></pre>
+<h2 id="引用计数法refference-count"><a class="header" href="#引用计数法refference-count">引用计数法(Refference Count)</a></h2>
+<p>在Python、iOS中，使用了引用计数法作为GC机制（当然iOS中的更高级，叫做ARC，是在编译时就搞定了自动控制内存）</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>如何分析full-gc</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="classloader"><a class="header" href="#classloader">ClassLoader</a></h2>
+<p>ClassLoader也就是类的加载器</p>
+<p>比如</p>
+<ul>
+<li>Spring与Quartz的<strong>ResourceLoaderClassLoadHelper</strong></li>
+<li>Mybatis中的<strong>ClassLoaderWrapper</strong></li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="java-class文件的结构"><a class="header" href="#java-class文件的结构">Java Class文件的结构</a></h2>
+<p>在*.class文件中，以Byte流的形式进行Class的存储，通过一系列Load，Parse后，Java代码实际上可以映射为下图的C结构体，这里可以用<code>javap -v -p</code>命令或者IDE插件进行查看。</p>
+<pre><code class="language-c">typedef struct {
+    u4             magic;/*0xCAFEBABE*/
+    u2             minor_version; /*网上有表可查*/
+    u2             major_version; /*网上有表可查*/
+    u2             constant_pool_count;
+    cp_info        constant_pool[constant_pool_count-1];
+    u2             access_flags;
+    u2             this_class;
+    u2             super_class;
+    u2             interfaces_count;
+    u2             interfaces[interfaces_count];
+    //重要
+    u2             fields_count;
+    field_info     fields[fields_count];
+    //重要
+    u2             methods_count;
+    method_info    methods[methods_count];
+    u2             attributes_count;
+    attribute_info attributes[attributes_count];
+}ClassBlock;
+</code></pre>
+<ul>
+<li>
+<p>常量池(constant pool):类似于C中的DATA段与BSS段，提供常量、字符串、方法名等值或者符号（可以看作偏移定值的指针）的存放</p>
+</li>
+<li>
+<p>access_flags: 对Class的flag修饰</p>
+<pre><code class="language-cpp">  typedef enum {
+  	ACC_PUBLIC = 0x0001,
+  	ACC_FINAL = 0x0010,
+  	ACC_SUPER = 0x0020,
+  	ACC_INTERFACE = 0x0200,
+  	ACC_ACSTRACT = 0x0400
+  }AccessFlag
+</code></pre>
+</li>
+<li>
+<p>this class/super class/interface: 一个长度为u2的指针，指向常量池中真正的地址，将在Link阶段进行符号解引。</p>
+</li>
+<li>
+<p>filed: 字段信息，结构体如下</p>
+<pre><code class="language-c">typedef struct fieldblock {
+   char *name;
+   char *type;
+   char *signature;
+   u2 access_flags;
+   u2 constant;
+   union {
+       union {
+           char data[8];
+           uintptr_t u;
+           long long l;
+           void *p;
+           int i;
+       } static_value; 
+       u4 offset;
+   } u;
+} FieldBlock;
+</code></pre>
+</li>
+<li>
+<p>method: 提供descriptor, access_flags, Code等索引，并指向常量池：</p>
+<p>它的结构体如下，详细在<a href="https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.6">这里</a></p>
+<pre><code class="language-c">  method_info {
+      u2             access_flags;
+      u2             name_index;
+      //the parameters that the method takes and the 
+      //value that it return
+      u2             descriptor_index;
+      u2             attributes_count;
+      attribute_info attributes[attributes_count];
+  }
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>以上具体内容可以参考</p>
+<ol>
+<li><a href="https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html">JVM文档</a></li>
+<li>周志明的《深入理解Java虚拟机》，少见的国内精品书籍</li>
+<li>一些国外教程的<a href="http://viralpatel.net/blogs/tutorial-java-class-file-format-revealed/">解析</a></li>
+</ol>
+</blockquote>
+<h4 id="class与object"><a class="header" href="#class与object">Class与Object</a></h4>
+<pre><code class="language-c">typedef struct object Class;
+
+typedef struct object {
+   uintptr_t lock;
+   Class *class;
+} Object;
+</code></pre>
+<p>本文指的<code>Class</code>指</p>
+<p>前提: 已经获取到<code>Class</code>结构体对应的指针</p>
+<p>下面是经过删减与注释的代码(删去了状态判断、Lock与异常处理)，并替换宏变量为字符串</p>
+<pre><code class="language-c">// class.c
+Class *initClass(Class *class) {
+   ClassBlock *cb = CLASS_CB(class);
+   ConstantPool *cp = &amp;cb-&gt;constant_pool;
+   FieldBlock *fb = cb-&gt;fields;
+   MethodBlock *mb;
+   Object *excep;
+   int state, i;
+
+   linkClass(class);
+
+   cb-&gt;state = CLASS_INITING;
+   cb-&gt;initing_tid = threadSelf()-&gt;id;
+
+   if(!(cb-&gt;access_flags &amp; ACC_INTERFACE) &amp;&amp; cb-&gt;super
+              &amp;&amp; (CLASS_CB(cb-&gt;super)-&gt;state != CLASS_INITED)) {
+      initClass(cb-&gt;super);
+   }
+
+   /* Never used to bother with this as only static finals use it and
+      the constant value's copied at compile time.  However, separate
+      compilation can result in a getstatic to a (now) constant field,
+      and the VM didn't initialise it... */
+
+   for(i = 0; i &lt; cb-&gt;fields_count; i++,fb++)
+      if((fb-&gt;access_flags &amp; ACC_STATIC) &amp;&amp; fb-&gt;constant) {
+         if((*fb-&gt;type == 'J') || (*fb-&gt;type == 'D'))
+            fb-&gt;u.static_value.l = *(u8*)&amp;(CP_INFO(cp, fb-&gt;constant));
+         else
+            fb-&gt;u.static_value.u = resolveSingleConstant(class, fb-&gt;constant);
+      }
+
+   if((mb = findMethod(class, &quot;&lt;clinit&gt;&quot;, &quot;()V&quot;)) != NULL)
+      executeStaticMethod(class, mb);
+ 
+   return class;
+}
+</code></pre>
+<p>贴出上面主要是为了让你明白</p>
+<ul>
+<li>调用<code>linkClass</code>进行连接</li>
+<li>调用<code>super</code>的class中的<code>initClass</code></li>
+<li>调用<code>&lt;clinit&gt;</code> 方法，也就是static代码段</li>
+</ul>
+<p>上面部分实际上是对Class进行模式匹配(<em>pattmatch</em>)的遍历，伪代码如下</p>
+<pre><code class="language-lisp">(define initClass
+  (lambda (exp)
+    (linkClass exp)
+    (match [(?isSuperInited superClass) (initClass superClass)])
+  	(clinit exp)))
+</code></pre>
+<p>在平时开发中，只需要背住就可以了。</p>
+<h2 id="class与依赖注入"><a class="header" href="#class与依赖注入">Class与依赖注入</a></h2>
+<p>很多人认为学习JVM是“高手”才去做的，平时写业务时没用，下面举一个Spring断点调试技巧。在分析Spring的依赖注入时，很多人看到复杂源码就无法接着分析了。其实可以这样，首先在Bean中加入static代码段，并打上断点，然后启动程序。</p>
+<pre><code class="language-java">@Bean(name=&quot;SSR&quot;)
+public class DemoBean{
+    static{
+      	// 此处打上断点
+        System.out.println(&quot;class loaded&quot;);
+    }
+  	....
+}
+</code></pre>
+<p>等断点跳到这里时，可以发现是<code>Class.newInstance()</code>方法被调用，进而调用<code>&lt;clinit&gt;</code>，此时再向上分析Spring的代码堆栈，阅读源码与流程就轻而易举了。</p>
+<h2 id="附录"><a class="header" href="#附录">附录</a></h2>
+<p>下面2个是常见面试题</p>
+<h4 id="求打印顺序"><a class="header" href="#求打印顺序">求打印顺序</a></h4>
+<p>实例化AChildChild后，求输出顺序</p>
+<pre><code class="language-java">public class AParent {
+    static {println(&quot;AParent clinit&quot;);}//1
+    public AParent() {System.out.println(&quot;AParent init&quot;);}//4
+}
+public class AChild extends AParent {
+    static {println(&quot;AChild clinit&quot;);}//2
+    public AChild() {println(&quot;AChild init&quot;);}// 5
+}
+public class AChildChild extends AChild {
+    static {println(&quot;AChildChild clinit&quot;);}//3
+    public AChildChild() {println(&quot;AChildChild init&quot;);}//6
+}
+AChildChild acc = new AChildChild();
+</code></pre>
+<p>其中1，2，3的顺序本文已经可以解释，4，5，6下次讲解<code>init</code>时进行分析</p>
+<h4 id="jdbc的加载"><a class="header" href="#jdbc的加载">JDBC的加载</a></h4>
+<p>下图是加载mysql的例子，当程序员调用<code>Class.forName</code>时，static代码段就会执行</p>
+<pre><code class="language-java">public class Driver extends NonRegisteringDriver implements java.sql.Driver {
+    static {
+        try {
+            java.sql.DriverManager.registerDriver(new Driver());
+        } catch (SQLException E) {
+            throw new RuntimeException(&quot;Can't register driver!&quot;);
+        }
+    }
+    public Driver() throws SQLException {}
+}
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="jucjavautilcurrent线程安全与并发的综述"><a class="header" href="#jucjavautilcurrent线程安全与并发的综述">JUC(java.util.current)、线程安全与并发的综述</a></h2>
+<p>本文先入一个门，方便学习并发</p>
+<ul>
+<li>线程安全的实现</li>
+<li>线程，线程池，JVM内部的实现</li>
+<li>CAS、Sync(以及区别)</li>
+<li>平时遇到的并发问题</li>
+</ul>
+<h4 id="什么是并发concurrent什么是并行parallels"><a class="header" href="#什么是并发concurrent什么是并行parallels">什么是并发(Concurrent)，什么是并行(Parallels)？</a></h4>
+<p>这个概率比较混乱，在书上与StackOverFlow上答案各有各的说法。以下是一本专业书籍的引用</p>
+<blockquote>
+<p>并发程序是指可以被同时发起执行的程序。而并行程序则是被设计成可以在并行的硬件上执行的并发程序。换句话说，并发程序代表了所有可以实现真正的或者可能的并发行为的程序。它是一个比较宽泛的概念。这其中包含了并行程序。并行程序是并发程序中的一种。 －《Go并发编程实战》</p>
+</blockquote>
+<p>总的来说，就是并行需要硬件支持，并发同时可以用硬件或者时间片模拟。因此并行是并发的子类。</p>
+<blockquote>
+<p>详细可以参考<a href="http://bytearcher.com/articles/parallel-vs-concurrent/">parallel-vs-concurrent</a></p>
+</blockquote>
+<h2 id="线程安全的实现"><a class="header" href="#线程安全的实现">线程安全的实现</a></h2>
+<p>线程安全与并发似乎天天都遇到，</p>
+<h3 id="1-无状态函数"><a class="header" href="#1-无状态函数">1. 无状态函数</a></h3>
+<p>无状态函数是指无副作用的函数，也就是函数式编程中所谓的“纯函数”，比如map，filter，它们在LISP语言中叫做Lambda表达式。因为不涉及共享变量，所以总是线程安全的。</p>
+<h3 id="2-final不可变"><a class="header" href="#2-final不可变">2. Final不可变</a></h3>
+<h3 id="3-锁"><a class="header" href="#3-锁">3. 锁</a></h3>
+<h4 id="31-cas锁"><a class="header" href="#31-cas锁">3.1. CAS锁</a></h4>
+<h4 id="32-互斥锁"><a class="header" href="#32-互斥锁">3.2. 互斥锁</a></h4>
+<h2 id="书籍推荐"><a class="header" href="#书籍推荐">书籍推荐</a></h2>
+<ul>
+<li>七周七并发模型</li>
+<li>Java虚拟机并发编程</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="final变量"><a class="header" href="#final变量">final变量</a></h2>
+<p>fina指read-only的意思，很容易理解</p>
+<h4 id="简单入门"><a class="header" href="#简单入门">简单入门</a></h4>
+<pre><code class="language-groovy">class Student {
+    final String name
+
+    Student(String name) {
+        this.name = name
+    }
+}
+
+Student student = new Student(&quot;smith&quot;)
+// 报错
+student.name = &quot;changed&quot;
+</code></pre>
+<h4 id="为什么string是final的"><a class="header" href="#为什么string是final的">为什么String是final的</a></h4>
+<p>String通过final class 与 final array表示String即无法继承，也无法修改，让String在语义上保证不可变性</p>
+<h2 id="threadlocal"><a class="header" href="#threadlocal">ThreadLocal</a></h2>
+<p>ThreadLocal是线程本地独有可见的变量(各管各的)，一般用于上下文管理</p>
+<h4 id="简单入门-1"><a class="header" href="#简单入门-1">简单入门</a></h4>
+<p>举个常见的反序列化例子</p>
+<pre><code class="language-java">private static ThreadLocal&lt;SimpleDateFormat&gt; f = new ThreadLocal&lt;SimpleDateFormat&gt;() {
+    @Override
+    protected SimpleDateFormat initialValue() {
+        return new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+    }
+};
+</code></pre>
+<h4 id="原理"><a class="header" href="#原理">原理</a></h4>
+<p>threadLocal看起来像是在“栈”上，实际上它还是<strong>Thread的成员变量</strong>，还是在堆上的，每次实际上通过访问如下获得</p>
+<pre><code class="language-java">//类型如下
+//Thread
+//ThreadLocal.ThreadLocalMap
+//ThreadLocal.ThreadLocalMap.Entry[]
+//T
+Thread.currentThread().threadLocals.table[i].value
+</code></pre>
+<p>其中</p>
+<ul>
+<li>i: 通过ThreadLocal的全局成员变量nextHashCode进行自增，每多一个ThreadLocal实例，自增一次</li>
+<li>value: 通过initialValue传入的对象</li>
+</ul>
+<h4 id="在企业开发中的作用"><a class="header" href="#在企业开发中的作用">在企业开发中的作用</a></h4>
+<p>ThreadLocal是线程本地独有可见的变量，一般用于上下文管理</p>
+<p>比如</p>
+<ul>
+<li>管理Spring-transaction: 数据库事务</li>
+<li>管理BPM流程上下文: 这个主要是在企业级应用中使用，自己跳自己的伞，一个线程走到底</li>
+<li>业务路由: Tomcat中的<code>getRequestDispatcher</code>进行重定向，比如资源静态化的Filter</li>
+</ul>
+<h4 id="在序列化的作用"><a class="header" href="#在序列化的作用">在序列化的作用</a></h4>
+<p>在进行序列化与反序列化时，内部一定会通过一个状态机来维护上下文，如果它不是线程安全的，那么状态机一定会出问题</p>
+<ul>
+<li>SimpleDataFormat.parse(不是线程安全)</li>
+<li>BigDecimal.toString(线程安全)</li>
+<li>String<code>.&lt;init&gt;</code>(线程安全)</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h4 id="线程进程区别"><a class="header" href="#线程进程区别">线程/进程区别</a></h4>
+<p>通过<code>strace</code>分析两个C语言写的<code>fork</code>与<code>pthread_create</code>，最终可以发现是系统调用<code>clone</code>的共享FLAG不用</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>a review for thread mode</p>
+<hr />
+<p>本文首先介绍了一些线程基础，比如并发、并行、内存分配、系统调用、POSIX线程。接着通过strace分析了线程与进程的区别。最后以Android、Golang等线程模型进行了分析。</p>
+<h2 id="1-基础"><a class="header" href="#1-基础">1. 基础</a></h2>
+<h3 id="11-os下如何进行内存分配用户区与内核区有什么区别"><a class="header" href="#11-os下如何进行内存分配用户区与内核区有什么区别">1.1. OS下如何进行内存分配？用户区与内核区有什么区别？</a></h3>
+<p>在32位的Linux操作系统中，当一个进程启动后，将被分配4G的虚拟内存。内存可以分为两个空间，一个是用户空间（0～3G），另一个是内核空间（3G～4G）。其中用户空间就是代码运行的空间，比如堆栈、BSS（未初始化数据段）、DATA（已经初始化数据段）、TEXT（代码二进制段）；而在内核空间中，是OS内核的映射，只有在执行syscall系统调用时，才能进行重写。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-9cb17f0304091fcc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="32 Bit OS Virtual Memory" /></p>
+<p>在用户态中，执行用户代码，比如直接运行C程序、或者运行JVM虚拟机等。</p>
+<p>在内核中，主要负责I/O(显示，层三以下的网络，FS)，Memory(虚拟内存，页面替换/缓存), Process（信号、线程/进程管理，CPU调度）的管理，直接控制CPU、内存等硬件，权限(privilege)非常大;</p>
+<h3 id="12-系统调用中断sci是什么"><a class="header" href="#12-系统调用中断sci是什么">1.2. 系统调用中断(SCI)是什么？</a></h3>
+<p>系统调用是用户与内核间的一个桩(stub)，当在用户态执行高权限任务，需要通过系统调用切换入内核态去执行最底层任务。比如在C语言中调用<code>getTime()</code>时，大致流程如下</p>
+<pre><code>1. app method(User Application)
+    |
+    |调用stdlibc标准库
+    |
+2. systemcall_stub(std libc)
+    |
+    |系统调用，进入内核态
+    |
+3. system_call_table[call_number](Kernel)
+    |
+    |通过查表调用硬件函数
+    |
+4. hardware_call(Kernel)
+</code></pre>
+<ol>
+<li>在App层面，开发者不需要自己写系统调用，系统会提供相关C标准库的SDK供开发者使用，比如开发者调用<code>getTime()</code>时，实际是使用了标准库的<code>time.h</code>头文件。</li>
+<li>代码在执行时，OS自动加载标准库。比如在android的bionic库中，实际执行getTime的系统调用是<a href="https://github.com/android/platform_bionic/blob/master/libc/arch-arm/syscalls/clock_gettime.S">这里</a>的平台相关的汇编代码，将系统调用的ID、参数传入内核。</li>
+<li>内核通过系统调用ID进行表的索引，寻找真正的硬件调用函数</li>
+<li>进行硬件相关的调用</li>
+</ol>
+<blockquote>
+<p>在Mac下打开ActivityManager或者在Terminal中运行top，就可以显示地看到用户与系统的CPU占用</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-a24e7c2ffc982584.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="User and Kernel CPU usage" /></p>
+</blockquote>
+<h3 id="13-posix线程模型"><a class="header" href="#13-posix线程模型">1.3. POSIX线程模型</a></h3>
+<p>POSIX是IEEE P1003.1中的线程标准，目前所有的系统，甚至windows都支持POSIX。它提供了用户态下的线程编程接口，开发者在进行线程开发时，只用引用<code>pthread.h</code>头文件调用即可。程序在运行时通过系统调用，在内核中进行线程的实现。它有很多函数，比如create, exit, join, yield等，具体可以去各个平台下的libc源码/sdk中去看Header文件中方法的定义，比如android中使用biolibc中pthread.h的代码在<a href="https://android.googlesource.com/platform/bionic/+/master/libc/include/pthread.h">这里</a>，这里的头文件是对内核线程的包装。</p>
+<h2 id="2-线程与进程的区别"><a class="header" href="#2-线程与进程的区别">2. 线程与进程的区别</a></h2>
+<p>这是一道经典的面试题，大多数回答者都是回忆起当初学习操作系统课本中的知识。然而课本中太偏向于内核，从开始就学习内核底层，而脱离开发，笔者认为是不太明智的。因此通过设计一个系统调用栈的分析，让读者有更清晰的了解。</p>
+<p>本文线程特指32位下使用glibc的Linux系统中的POSIX模型，即用户面线程，进程特指<code>unstd.h</code>中的fork产生的进程。</p>
+<p>本测试基于Ubuntu 14.04 i386</p>
+<h3 id="1-测试代码设计"><a class="header" href="#1-测试代码设计">1. 测试代码设计</a></h3>
+<h4 id="11-线程测试代码"><a class="header" href="#11-线程测试代码">1.1. 线程测试代码</a></h4>
+<pre><code class="language-c">//modified from https://computing.llnl.gov/tutorials/pthreads/samples/hello.c
+
+//todo run:
+//clang -Wall -g pthread.c -o pthread.out -lpthread
+//strace -Cfo ./pthread.strace.log ./pthread.out
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;pthread.h&gt;
+
+void*
+PrintHello(void *threadid)
+{
+   long tid;
+   tid = (long)threadid;
+   printf(&quot;Hello World! It's me, thread #%ld!\n&quot;, tid);
+   pthread_exit(NULL);
+}
+
+int 
+main(int argc, char *argv[]){
+   pthread_t thread;
+   int rc = 0;
+   long t = 0;
+   printf(&quot;In main: creating thread %ld\n&quot;, t);
+   //注意这里是一个函数指针，不要傻眼了
+   rc = pthread_create(&amp;thread, NULL, PrintHello, (void *)t);
+   if (rc){
+     exit(-1);
+   }
+}
+</code></pre>
+<h4 id="12-进程测试代码"><a class="header" href="#12-进程测试代码">1.2. 进程测试代码</a></h4>
+<pre><code class="language-c">//todo run:
+//clang -Wall -g fork.c -o fork.out
+//strace -Cfo ./fork.strace.log ./fork.out
+
+#include &lt;unistd.h&gt;
+
+int 
+main(int argc, char *argv[])
+{
+  pid_t pid;
+  pid = fork();
+  if(pid &lt; 0){
+    return -1;
+  }    
+  return 0;
+}
+</code></pre>
+<h3 id="2-测试结果"><a class="header" href="#2-测试结果">2. 测试结果</a></h3>
+<p>在编译完成后，调用<code>strace</code>命令后，结果如下</p>
+<h4 id="21-进程的strace路线如下"><a class="header" href="#21-进程的strace路线如下">2.1. 进程的strace路线如下</a></h4>
+<pre><code>19948 execve(&quot;./fork.out&quot;, [&quot;./fork.out&quot;], [/* 68 vars */]) = 0
+19948 brk(0)                            = 0x9bc000
+19948 open(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;, O_RDONLY|O_CLOEXEC) = 3
+19948 read(3, &quot;\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0&gt;\0\1\0\0\0\320\37\2\0\0\0\0\0&quot;..., 832) = 832
+.....
+19948 clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f5adac4ca10) = 19949
+....
+19949 +++ exited with 0 +++
+</code></pre>
+<h4 id="22-线程的strace路线如下"><a class="header" href="#22-线程的strace路线如下">2.2. 线程的strace路线如下</a></h4>
+<pre><code>21958 execve(&quot;./pthread.out&quot;, [&quot;./pthread.out&quot;], [/* 68 vars */]) = 0
+21958 open(&quot;/lib/x86_64-linux-gnu/libpthread.so.0&quot;, O_RDONLY|O_CLOEXEC) = 3
+....
+21958 access(&quot;/etc/ld.so.nohwcap&quot;, F_OK) = -1 ENOENT (No such file or directory)
+21958 open(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;, O_RDONLY|O_CLOEXEC) = 3
+21958 read(3, &quot;\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0&gt;\0\1\0\0\0\320\37\2\0\0\0\0\0&quot;..., 832) = 832
+21958 fstat(3, {st_mode=S_IFREG|0755, st_size=1845024, ...}) = 0
+21958 mmap(NULL, 3953344, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f34229e4000
+....
+21958 clone(child_stack=0x7f34229e2fb0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f34229e39d0, tls=0x7f34229e3700, child_tidptr=0x7f34229e39d0) = 21959
+....
+21958 +++ exited with 0 +++
+</code></pre>
+<h3 id="3-测试结论"><a class="header" href="#3-测试结论">3. 测试结论</a></h3>
+<p>通过上述的调用栈分析，可以得知均是通过调用<code>x86_64-linux-gnu</code>下的libc库，接着通过systemcall函数<code>clone()</code>实现对内核Process的控制，主要区别在<strong>函数参数中clone_flag上的不同</strong>，clone_flag指定了可以共享的资源，下图显示了进程与线程的flag</p>
+<pre><code>//clone flag between thread and process
+//⚠️: 省略了`CLONE_｀前缀
+
+//进程的FLAG参数
+flags=CHILD_CLEARTID|CHILD_SETTID|SIGCHLD
+
+//线程的FLAG参数
+flags=VM|FS|FILES|SIGHAND|THREAD|SYSVSEM|SETTLS|PARENT_SETTID|CHILD_CLEARTID
+</code></pre>
+<p>通过对<code>clone</code>进行man<a href="http://linux.die.net/man/2/clone">查询</a>，解释如下</p>
+<p>进程的参数解释：</p>
+<ul>
+<li><code>CLONE_CHILD_CLEARTID</code>: Erase child thread ID at location ctid in child memory when the child exits, and do a wakeup on the futex at that address。</li>
+<li><code>CLONE_SETTLS</code>: thread local storage (TLS) area，注意这个不可移植</li>
+<li><code>CLONE_SIGHAND</code>: 共享signal handlers</li>
+</ul>
+<p>线程的一些参数解释：</p>
+<ul>
+<li><code>CLONE_VM</code>: the calling process and the child process run in the same memory space. (注意这里说的是<code>memory space</code>，指通过mmap()分配的内存。再多说一点，线程中的栈内存由<code>pthread_attr_t</code>属性中的<code>pthread_attr_setstacksize()</code>函数实现，默认可能为8MB(你可以运行<code>ulimit -a</code>查看最大值)，当然在实际中我们使用栈内存大多都是几KB而已；堆内存是共享的，这里不讨论)</li>
+<li><code>CLONE_FS</code>: 共享文件系统，如下函数chroot(2), chdir(2), or umask(2)会被影响。</li>
+<li><code>CLONE_FILES</code>: 共享file descriptor table</li>
+<li><code>CLONE_SIGHAND</code>: 共享signal handlers</li>
+<li><code>CLONE_THREAD</code>: 共享thread group，即有相同的PID，独立的TID；</li>
+<li><code>CLONE_SYSVSEM</code>: 共享System V semaphore undo values列表，俺表示目前还不懂。</li>
+<li><code>CLONE_SETTLS</code>: thread local storage (TLS) area，注意这个不可移植</li>
+<li><code>CLONE_PARENT_SETTID</code>: Store child thread ID at location ptid in parent and child memory.</li>
+<li><code>CLONE_CHILD_CLEARTID</code>: Erase child thread ID at location ctid in child memory when the child exits, and do a wakeup on the futex at that address。</li>
+</ul>
+<p>接着结合一些教科书，可以得知最终结论</p>
+<table><thead><tr><th align="left"></th><th align="left">进程</th><th align="left">线程</th></tr></thead><tbody>
+<tr><td align="left">用户层函数</td><td align="left">fork()</td><td align="left">pthread_create()</td></tr>
+<tr><td align="left">内核实现</td><td align="left">clone()</td><td align="left">clone()</td></tr>
+<tr><td align="left">内存</td><td align="left">新复制的内存(Copy-on-Write)，独立4G(1G+3G)</td><td align="left">共享4G内存：其中8M左右的栈内存是私有的，可以通过参数决定；共享堆内存</td></tr>
+<tr><td align="left">创建耗时</td><td align="left">复制的flag少，所以耗时多</td><td align="left">低</td></tr>
+<tr><td align="left">上下文切换耗时</td><td align="left">主要是切换内存空间</td><td align="left">几乎只有进出内核的损失</td></tr>
+<tr><td align="left">内部通信</td><td align="left">IPC(Socket, Pipe, ASM...)</td><td align="left">共享的数据段(比如说DATA段的全局变量，更简单)</td></tr>
+<tr><td align="left">举例</td><td align="left">Redis备份，运行含全局锁的脚本语言...</td><td align="left">I/O Select 的消息处理、线程池...</td></tr>
+</tbody></table>
+<h2 id="高级语言对内核线程的封装实现"><a class="header" href="#高级语言对内核线程的封装实现">高级语言对内核线程的封装实现</a></h2>
+<p>除了通过POSIX标准外，高级语言也可以自己通过系统调用对内核的线程进行实现，主要有如下三种。</p>
+<h3 id="1-纯内核线程实现11"><a class="header" href="#1-纯内核线程实现11">1. 纯内核线程实现(1:1)</a></h3>
+<p>此线程模型将内核线程与App线程一一对应，可以看作为一种简单的映射关系，这里的代表有POSIX线程模型(pthread)，以及依赖pThread标准库的Java与Ruby(1.9+)线程模型。</p>
+<p>以在Android/ARTJvm下创建线程为例，具体实现调用栈如下</p>
+<pre><code>java.lang.Thread
+    |
+POSIX thread(user mode){
+    0. art.runtime.Thread::CreateNativeThread(cpp, in jvm)
+    1. pthread_create(pthread.h，标准库头文件)
+    2. bionic标准库下的so文件，进行SystemCall(libc)
+    3. 用户态陷入内核态
+}
+    |
+Kernal thread(kernal mode)
+</code></pre>
+<p>可以看出，在JVM下的实现主要是对POSIX线程的包装与映射，自己本身只是做了点微小的工作，特点如下：</p>
+<ol>
+<li>移植性较差，需要适配各种libc库，但是由于被OS直接管理，因此在分配任务上可以充分借用内核的高效调度，能够高效利用物理核并实现真正的并行。</li>
+<li>用户态与内核态切换有一定的消耗损失</li>
+</ol>
+<h3 id="2-纯用户态实现1n"><a class="header" href="#2-纯用户态实现1n">2. 纯用户态实现(1:N)</a></h3>
+<p>将线程的调度在用户态实现，也称<code>green thread</code>，自己写调度算法，可以将一个native线程映射为多个app thread(这里也可以叫做线程包)，这里的代表有Ruby(1.8-)，Java等老版本，特点如下：</p>
+<ol>
+<li>移植性好，没有切换、映射到内核的损失</li>
+<li>需要自己维护Scheduler</li>
+<li>由于内核并不了解调度细节，很难进行多核利用</li>
+</ol>
+<h3 id="3-混合实现mn"><a class="header" href="#3-混合实现mn">3. 混合实现(M:N)</a></h3>
+<p>可以同时运行M个kernel线程下管理N个app线程，比如golang。通过设置<code>GOMAXPROCS</code>个native线程，然后通过<code>go</code>关键词创建app线程，它的特点如下：</p>
+<ol>
+<li>调度器实现比较困难</li>
+<li>通过语法糖与管道简化了并发编程，切换损失低</li>
+<li>部分调度需要自己主动释放时间片</li>
+</ol>
+<pre><code>golang threading model(N)
+    ↓
+    ↓ goroutine
+    ↓
+Kernal thread model(M)
+</code></pre>
+<blockquote>
+<p>详见<a href="https://swtch.com/libtask/">libtask</a>与许式伟的《go语言编程》</p>
+</blockquote>
+<h2 id="总结"><a class="header" href="#总结">总结</a></h2>
+<ol>
+<li>Concurrent是Parallels的父类</li>
+<li>在启动一个程序后，将分配用户态与内核态任务，通过系统调用执行内核中的高权限任务</li>
+<li>POSIX是一种线程标准，或者是一种接口，由libc库实现</li>
+<li>线程与进程最大的区别在于内核函数<code>clone</code>函数的flag不同，导致共享资源不同。最终创建、切换耗时不同；以及内存分配、内部通信复杂度不同。</li>
+<li>在Java中，<code>java.lang.Thread</code>与内核线程一一对应；在某些旧版语言中，实现了一个内核线程对应多个高层线程；在golang中，通过<code>goroutine</code>实现M个内核线程对应N个高层线程；</li>
+</ol>
+<h2 id="refference"><a class="header" href="#refference">REFFERENCE</a></h2>
+<ol>
+<li><a href="https://www.zhihu.com/question/21461752">https://www.zhihu.com/question/21461752</a></li>
+<li><a href="https://blog.codinghorror.com/understanding-user-and-kernel-mode/">https://blog.codinghorror.com/understanding-user-and-kernel-mode/</a></li>
+<li><a href="http://stackoverflow.com/questions/1311402/differences-between-user-and-kernel-modes">http://stackoverflow.com/questions/1311402/differences-between-user-and-kernel-modes</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%BF%99%E7%A2%8C%E7%AD%89%E5%BE%85">https://zh.wikipedia.org/wiki/%E5%BF%99%E7%A2%8C%E7%AD%89%E5%BE%85</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-system-calls/">https://www.ibm.com/developerworks/cn/linux/l-system-calls/</a></li>
+</ol>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>JVM线程生命周期的native实现</p>
+<hr />
+<p>本文不是入门文章，对读者的理论基础与折腾要求都有点高</p>
+<ul>
+<li>了解Java层Thread的各种玩法</li>
+<li>知道什么是pthread，什么是系统调用，什么是Glibc/NPTL(<em>Native POSIX Thread Library</em>)</li>
+<li>了解操作系统内核中线程的理论流程</li>
+<li>需要会配置Clion/VSCode</li>
+</ul>
+<h4 id="配置编译参数并测试"><a class="header" href="#配置编译参数并测试">配置编译参数并测试</a></h4>
+<p>首先还是按照上次讲的<a href="http://www.jianshu.com/p/ca46826073a0">使用Clion(GDB)调试小型JVM源码</a>方法编译，只是编译参数改一下，以免日志过多</p>
+<pre><code class="language-diff">- ./configure --with-classpath-install-dir=/tmp/classpath --enable-trace
++ ./configure --with-classpath-install-dir=/tmp/classpath --enable-tracethread
+</code></pre>
+<p>编译成功后，分别用直接运行与strace进行测试</p>
+<pre><code class="language-sh">➜  cd $HOME
+➜  $HOME/Desktop/jamvm-2.0.0/src/jamvm -cp . A
+....
+Hello
+➜  strace $HOME/Desktop/jamvm-2.0.0/src/jamvm -cp . A
+....
+clone(child_stack=0x7f96bf542ff0, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tidptr=0x7f96bf5439d0, tls=0x7f96bf543700, child_tidptr=0x7f96bf5439d0) = 17140
+....
+</code></pre>
+<h2 id="new-thread创建的源码分析"><a class="header" href="#new-thread创建的源码分析">new Thread创建的源码分析</a></h2>
+<p>首先构造一个Java代码创建一个线程，并编译为Class文件</p>
+<pre><code class="language-java">//A.java
+class A{
+    public static void main(String[] args){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName()+&quot;233&quot;);
+            }
+        }).start();
+    }
+}
+</code></pre>
+<p>首先在Java层中使用普通JDK进行断点，并观察断点运行时的线程名称，位置如下</p>
+<ul>
+<li>start()</li>
+<li>run()</li>
+<li>exit()</li>
+<li>ThreadGroup.remove()断点</li>
+</ul>
+<p>接着看Java中线程的源码</p>
+<p>通过对Thread的<code>&lt;init&gt;</code>与<code>start</code>进行分析，可以发现<code>start</code>中调用了native方法。这里的<code>start</code>需要注意，在OracleJVM中使用了start0作为native方法，而在GNU Classpath/Android中出使用了<code>java.lang.VMThread.create(this, stacksize);</code>实现，本文主要分析<code>java.lang.VMThread.create</code>的实现createJavaThread。</p>
+<p>在JVM上通过断点调试可以发现，此native方法被JVM路由到thread.c的<code>createJavaThread</code>中</p>
+<p>我们在这里打断点</p>
+<pre><code class="language-c">// src/thread.c
+void createJavaThread(Object *jThread, long long stack_size) {
+   	
+  	...
+  	Thread *thread = sysMalloc(sizeof(Thread));
+	...
+  	// native 与 Java 线程的上下文环境进行绑定
+    thread-&gt;ee = ee;
+    ee-&gt;thread = jThread;
+    ee-&gt;stack_size = stack_size;
+    ...
+
+    disableSuspend(self);
+	// 通过系统调用创建native线程, `threadStart`是创建成功后的回掉函数指针
+    if(pthread_create(&amp;thread-&gt;tid, &amp;attributes, threadStart, thread)) {
+        ...
+        return;
+    }
+
+  	/* 自旋等待线程变更状态，这里一般来说将会变为 RUNNING */
+    pthread_mutex_lock(&amp;lock);
+    /* Wait for thread to start */
+    while(classlibGetThreadState(thread) == CREATING)
+        pthread_cond_wait(&amp;cv, &amp;lock);
+    pthread_mutex_unlock(&amp;lock);
+    enableSuspend(self);
+}
+</code></pre>
+<p>当通过系统调用创建线程完成后，在新的线程中调用<code>threadStart</code>函数指针</p>
+<pre><code class="language-c">// 新线程启动后将立刻调用的函数
+void *threadStart(void *arg) {
+    Thread *thread = (Thread *)arg;
+    Object *jThread = thread-&gt;ee-&gt;thread;
+
+    /* Parent thread created thread with suspension disabled.
+       This is inherited so we need to enable */
+    enableSuspend(thread);
+
+    /* Complete initialisation of the thread structure, create the thread
+       stack and add the thread to the thread list */
+    initThread(thread, INST_DATA(jThread, int, daemon_offset), &amp;thread);
+
+    /* Add thread to thread ID map hash table. */
+    addThreadToHash(thread);
+
+    /* Set state to running and notify creating thread */
+  	// 设置状态为 RUNNING，通过`pthread_cond_broadcast`结束`pthread_cond_wait`的状态
+    signalThreadRunning(thread);
+
+    /* Execute the thread's run method */
+  	/* 开始执行Java代码 class=java.lang.Thread,nam=run,sign=`()v` */
+    executeMethod(jThread, CLASS_CB(jThread-&gt;class)-&gt;method_table[run_mtbl_idx]);
+
+    /* Run has completed.  Detach the thread from the VM and exit */
+  	/* 这里执行了java.lang.ThreadGroup: removeThread(Ljava/lang/Thread;)V */
+    detachThread(thread);
+
+    TRACE(&quot;Thread %p id: %d exited\n&quot;, thread, thread-&gt;id);
+    return NULL;
+}
+</code></pre>
+<blockquote>
+<p>如何通过Class引用打印名称 slash2DotsDup(CLASS_CB(class)-&gt;name)</p>
+</blockquote>
+<p>可以发现，总体流程是非常清晰的</p>
+<ol>
+<li>主线程通过pthread_create创建新线程</li>
+<li>新线程执行<code>Thread.run()</code> 的Java代码段，执行完成后detach，移除ThreadGroup，结束线程</li>
+</ol>
+<p>总的来说，这里分析并不是非常细致，主要是把流程先通起来，后续有具体例子(比如线程池)时再分析</p>
+<h2 id="总结-1"><a class="header" href="#总结-1">总结</a></h2>
+<p>在JamVM中</p>
+<ul>
+<li>Java线程与pthread线程一一对应，通过内核调度实现。但是不同厂商不一定。</li>
+<li>在Java代码中Runnable中的<strong>代码段</strong>的执行实际上通过<code>pthread_create</code>的函数指针<code>threadStart</code>进行包装后，最终调用<code>executeMethod</code>实现解释字节码</li>
+</ul>
+<h2 id="附录-1"><a class="header" href="#附录-1">附录</a></h2>
+<h4 id="pthead相关知识"><a class="header" href="#pthead相关知识">pthead相关知识</a></h4>
+<p>在<a href="http://www.jianshu.com/p/4bc9bd138034">线程模型的综述</a>中已经讲过pthread相关知识，这里再回顾一下。JamVM使用pthread的头文件进行开发，在Linux中一般由Glibc实现，最后通过SYSCALL<a href="http://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/">系统调用</a>通过内核去创建线程。</p>
+<pre><code>java.lang.Thread
+    |
+POSIX thread(user mode){
+    1. pthread_create(pthread.h，标准库头文件)
+    2. bionic/glibc等标准库下的so文件，进行SystemCall
+    3. 用户态陷入内核态
+}
+    |
+Kernal thread(kernal mode)
+</code></pre>
+<h4 id="pthead_create参数解释"><a class="header" href="#pthead_create参数解释">pthead_create参数解释</a></h4>
+<p>入参如下</p>
+<pre><code class="language-c">extern int pthread_create (pthread_t *__restrict __newthread,
+			   const pthread_attr_t *__restrict __attr,
+			   void *(*__start_routine) (void *),
+			   void *__restrict __arg) __THROWNL __nonnull ((1, 3));
+</code></pre>
+<p>相关参数</p>
+<ul>
+<li><code>_newthread</code>: 即tid, 通过某种算法计算出唯一的Id</li>
+<li><code>_attr</code>: 线程类型，初学者可以配置为默认，即NULL</li>
+<li><code>_start_routine</code>: 是一个函数指针，类似于动态语言中的闭包(Closure)。线程创建后将执行此函数</li>
+<li><code>_arg</code>: 供<code>_start_routine</code>使用的入参</li>
+</ul>
+<h4 id="glibc中nptl的pthread_create的实现"><a class="header" href="#glibc中nptl的pthread_create的实现">Glibc中NPTL的pthread_create的实现</a></h4>
+<p>下次有人再问你线程与进程的区别这种烂大街的问题，你就回答它们就是flag不同，导致(通过COW)共享的内存也不同而已</p>
+<pre><code class="language-java">// glibc-2.25/sysdeps/unix/sysv/linux/createthread.c
+const int clone_flags = (CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SYSVSEM
+			   | CLONE_SIGHAND | CLONE_THREAD
+			   | CLONE_SETTLS | CLONE_PARENT_SETTID
+			   | CLONE_CHILD_CLEARTID
+			   | 0);
+
+TLS_DEFINE_INIT_TP (tp, pd);
+
+// 此部分调用 external `__clone`
+if (__glibc_unlikely (ARCH_CLONE (&amp;start_thread, STACK_VARIABLES_ARGS,
+                                  clone_flags, pd, &amp;pd-&gt;tid, tp, &amp;pd-&gt;tid)
+                      == -1))
+  return errno;
+</code></pre>
+<p><code>__clone</code>的实现在内核中，通过 x86_64 ABI与<a href="https://stackoverflow.com/questions/26812977/linux-x86-64-assembly-examples-of-threading-sys-clone">网上找的例子</a>，最终汇编代码如下</p>
+<pre><code class="language-asm">eax = 120 (syscall number for sys_clone)
+ebx = unsigned long flags
+ecx = void *child_stack
+edx = void *ptid
+esi = void *ctid
+edi = struct pt_regs *regs  
+int 80H
+</code></pre>
+<p>内核收到80H中断请求后，将进行内核态线程的创建与调度，后面内核线程以后再写...</p>
+<h4 id="jvm中自动启动的线程"><a class="header" href="#jvm中自动启动的线程">JVM中自动启动的线程</a></h4>
+<p>在JVM中，创建了main线程(Native线程，对应 JVM下的用户主线程) + 如下4个Java-level的线程 ，可以通过对<code>createVMThread</code>进行findUsage定位</p>
+<h5 id="1-gc线程"><a class="header" href="#1-gc线程">1. GC线程</a></h5>
+<p>通过WhileLoop与Sleep每隔1000ms进行一次GC，这里后期将专门分析GC流程(当初买的一本GC实现终于可以用啦)</p>
+<pre><code class="language-c">/* Create and start VM thread for asynchronous GC */
+if(args-&gt;asyncgc)
+  createVMThread(&quot;Async GC&quot;, asyncGCThreadLoop);
+</code></pre>
+<h5 id="2-reference处理线程"><a class="header" href="#2-reference处理线程">2. Reference处理线程</a></h5>
+<p>这里配合GC的线程，共2个，日后在详细讲</p>
+<pre><code class="language-c">/* Create and start VM threads for the reference handler and finalizer */
+createVMThread(&quot;Finalizer&quot;, finalizerThreadLoop);
+createVMThread(&quot;Reference Handler&quot;, referenceHandlerThreadLoop);
+</code></pre>
+<h5 id="3-信号处理线程"><a class="header" href="#3-信号处理线程">3. 信号处理线程</a></h5>
+<p>通过WhileLoop+<code>sigwait()</code>系统阻塞监听信号实现处理 <code>SIGINT</code> 与 <code>SIGQUIT</code></p>
+<pre><code class="language-c"> /* Create the signal handler thread.  It is responsible for
+ catching and handling SIGQUIT (thread dump) and SIGINT
+ (user-termination of the VM, e.g. via Ctrl-C).  Note it
+ must be a valid Java-level thread as it needs to run the
+ shutdown hooks in the event of user-termination */
+createVMThread(&quot;Signal Handler&quot;, classlibSignalThread);
+</code></pre>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ul>
+<li><a href="http://www.epubit.com.cn/book/details/4222">操作系统真象还原</a>: 类似于读书笔记吧，功力在普通国产书之上</li>
+<li><a href="http://syscalls.kernelgrok.com/">http://syscalls.kernelgrok.com/</a>: 在线查阅各种系统调用</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="开源项目中的线程池"><a class="header" href="#开源项目中的线程池">开源项目中的线程池</a></h2>
+<p>下面介绍几个开源项目中如何配置的线程池</p>
+<h4 id="jdk自带executors里面几个线程池"><a class="header" href="#jdk自带executors里面几个线程池">JDK自带Executors里面几个线程池</a></h4>
+<p>这几个就不介绍了，可以直接看JavaDoc</p>
+<table><thead><tr><th></th><th>corePoolSize</th><th>maximumPoolSize</th><th>keepAlive</th><th>BlockingQueue</th></tr></thead><tbody>
+<tr><td>newCachedThreadPool</td><td>0</td><td>Integer.MAX_VALUE</td><td>60s</td><td>SynchronousQueue</td></tr>
+<tr><td>newFixedThreadPool</td><td>${nThreads}</td><td>${nThreads}</td><td>0s</td><td>LinkedBlockingQueue</td></tr>
+<tr><td>newSingleThreadExecutor</td><td>1</td><td>1</td><td>0s</td><td>LinkedBlockingQueue</td></tr>
+</tbody></table>
+<blockquote>
+<p>初始线程数并不是越大越好，它最终取决于代码中可以并行运算的比例。当并发线程太多时，系统整体性能反而会下降，因为系统把很多时间花在了线程调度上，详见<a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%A7%86%E8%BE%BE%E5%B0%94%E5%AE%9A%E5%BE%8B">阿姆达尔定律</a><br />
+<img src="http://upload-images.jianshu.io/upload_images/98641-93f1387fd3741cd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="AmdahlsLaw.svg.png" /></p>
+</blockquote>
+<h4 id="rxjava中几个线程池"><a class="header" href="#rxjava中几个线程池">RxJava中几个线程池</a></h4>
+<p>在RxJava2中主要有如下4个线程池(划掉的不进行分析)</p>
+<ul>
+<li><del>SingleScheduler</del></li>
+<li>ComputationScheduler</li>
+<li>IoScheduler</li>
+<li><del>NewThreadScheduler</del></li>
+</ul>
+<p>本文只专注于它的“执行”过程，而不是调度过程，最重要的部分在<code>Worker</code>中，因此可以这样构造代码研究</p>
+<pre><code class="language-groovy">// Groovy代码
+5.times {
+    Scheduler.Worker worker = Schedulers.io().createWorker();
+    worker.schedule(new Runnable() {
+        @Override
+        void run() {
+            println &quot;inner = &quot; + Thread.currentThread().getStackTrace().join('\n')
+            println &quot;inner = &quot; + Thread.currentThread().getName()
+        }
+    });
+}
+Thread.currentThread().join()
+</code></pre>
+<p>下面假设你已经把上面流程全部调通。以下为我的调试结果</p>
+<ul>
+<li><code>线程池</code>: 一群只会干活的奋斗者，所有线程池构造都是<code>newScheduledThreadPool(1, factory)</code>。</li>
+<li><code>Worker</code>: Worker是对线程池的包装，类似于基层领导，一个Worker被分配一个线程池，当然这个线程池可能身兼数职。</li>
+<li><code>EventLoopWorker</code>: 对线程池外部状态进行维护，可以看作某些公司的HR</li>
+</ul>
+<h4 id="worker状态"><a class="header" href="#worker状态">Worker状态</a></h4>
+<h5 id="创建"><a class="header" href="#创建">创建</a></h5>
+<p>调用createWorker创建一个Worker</p>
+<pre><code class="language-java">//IoScheduler
+public Worker createWorker() {
+    //CachedWorkerPool: 变长队列，可以创建与缓存无数个线程池
+    return new EventLoopWorker(pool.get());
+}
+
+//ComputationScheduler
+public Worker createWorker() {
+    //FixedSchedulerPool: 用数组pool[CPUSize]实现，通过取余调用(实现代码为`pool[i++%4]`)分配任务，不能创建更多的线程池
+    return new EventLoopWorker(pool.get().getEventLoop());
+}
+</code></pre>
+<h5 id="干活"><a class="header" href="#干活">干活</a></h5>
+<p>work执行<code>schedule</code>，最终调用线程池的<code>executor.submit()</code>，并返回一个包装后的Future，这里没什么可讲的。</p>
+<h5 id="任务结束"><a class="header" href="#任务结束">任务结束</a></h5>
+<p><code>onComplete</code>后RxJava框架调用<code>FlowableSubscribeOn</code>的<code>dispose</code>方法，最终主动调用<code>worker.dispose()</code></p>
+<pre><code class="language-java">//IoScheduler.EventLoopWorker
+@Override
+public void dispose() {
+  if (once.compareAndSet(false, true)) {
+    // 让线程池执行cancel命令，并清空所有Future
+    tasks.dispose();
+    // 设置Worker超时，加入“短命单”，60s后定时清理一次
+    // 这里原理是构造了每隔60s自动执行的`evictorService`，它是一个清洁线程池，定期执行`evictExpiredWorkers`方法，移除队列`expiringWorkerQueue`中超时的Worker
+    // releasing the pool&lt;threadWorker&gt; should be the last action
+    pool.release(threadWorker);
+  }
+}
+
+ //ComputationScheduler.EventLoopWorker
+ @Override
+ public void dispose() {
+   if (!disposed) {
+     disposed = true;
+     // 斩立决，让线程池执行cancel命令，并清空所有Future
+     both.dispose();
+   }
+ }
+</code></pre>
+<blockquote>
+<p>IoScheduler的模式正是某些私营公司在工作量大时海量招聘时堆人，加班奋斗后变成甘蔗渣，最后进入短名单被HR定期优化的流程。</p>
+<p>ComputationScheduler的模式是某些公司工作量大时加班再多也不招人，加班奋斗后变成甘蔗渣，最后直接被通知斩立决马上走人的流程。</p>
+</blockquote>
+<p>通过断点也可以发现，由于IoScheduler是在static初始化并启动，因此无论是否使用IoScheduler，清洁工线程池evictorService将自动启动且<strong>永远不会</strong>自动关闭，除非将IoScheduler进行主动shutdown。发现了什么了吗，执行者只是可替代的资源，只有Pool才是核心竞争力！</p>
+<h4 id="dubbo中的线程池"><a class="header" href="#dubbo中的线程池">Dubbo中的线程池</a></h4>
+<p>Dubbo是一款事务框架，这种纯框架中使用的线程池一般可以作为各种场景负载下的教科书，我们将<code>Executors</code>作为关键字进行统计</p>
+<blockquote>
+<p>打开IDEA，运行<code>cmd</code>+<code>shift</code>+<code>F</code>，搜索<code>Executors.</code>即可</p>
+</blockquote>
+<p>如果不使用IDEA，可以通过Shell的grep暴力搜索</p>
+<pre><code class="language-sh">grep 'Executors.' * -R|grep -v test|grep -v import|grep -v class
+</code></pre>
+<p>经过统计，最终如下</p>
+<p><strong>newCachedThreadPool</strong>: 10<br />
+最低线程限制为1个，处理实际业务与Socket(JBOSS、Netty、bootstrap)等</p>
+<p><strong>newScheduledThreadPool</strong>: 11<br />
+最低线程数在1~3之间</p>
+<p>URL: 定期重连，清除过期者，心跳，延期等。调用BO失败后定期重试</p>
+<p>文件: 更新定时统计/图表/日志, 检查文件更新(可用于热部署),</p>
+<p><strong>newFixedThreadPool</strong>: 1<br />
+线程限制固定为1个，用于文件缓存写入</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>在并发业务中，一般分为有状态的与无状态的服务，其中【有状态】的服务需要处理竞态场景(比如a++这样的操作)，主要有两种解决方案</p>
+<ul>
+<li>使用互斥锁保证独立性，但是由于需要线程挂起/切换/调度，导致效率较低，因此对它的要求是包裹越小越好，详情看这里的<a href="https://flex4java.blogspot.in/2015/03/is-multi-threading-really-worth-it.html">对比</a>与以前写的<a href="http://www.jianshu.com/p/99ecdbc9c664">理论分析</a>。这里典型的实现有Java的<code>synchronized</code>以及其它语言的Mutex</li>
+<li>通过<a href="http://en.wikipedia.org/wiki/Busy_waiting">busy waiting</a>不断尝试，即<code>while(CAS(old,new)) {};</code>。这里主要有JDK5.0以上的atomic库，以及常见的自旋锁(<a href="https://en.wikipedia.org/wiki/Spinlock">SpinLock</a>，比如Linux内核/通信设备就有使用)，它们底层均通过<a href="https://en.wikipedia.org/wiki/Compare-and-swap">CAS指令</a>保证原子性，这个是本文将要介绍的内容。</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="快速结论"><a class="header" href="#快速结论">快速结论</a></h2>
+<ul>
+<li>Java的CAS是通过汇编命令<code>cmpxchg</code>进行的包装与定制实现atomic memory operation (AMO) i</li>
+<li>CAS由于是进行主动比较，因此<code>compareAndSet</code>一定会放在一个自旋中，它适用于冲突(自旋次数)比较少的场景。在某些激烈的场景下可能性能还不如互斥锁。</li>
+<li>CPU汇编层面没有实现CAS的公平调用，需要上层业务自行实现</li>
+</ul>
+<h2 id="cas的简介"><a class="header" href="#cas的简介">CAS的简介</a></h2>
+<p>如果没有听过CAS的话，下面是简要入门，比如下面可以达到最终总是100，而不会小于100</p>
+<pre><code class="language-groovy">AtomicInteger a = new AtomicInteger(0)
+def runnable = {
+    println &quot;a=${a.incrementAndGet()}, ${Thread.currentThread().getName()}&quot;
+}
+100.times {
+    new Thread(runnable).start()
+}
+Thread.currentThread().join()
+</code></pre>
+<blockquote>
+<p><a href="https://dzone.com/articles/how-cas-compare-and-swap-java">CAS入门文章</a></p>
+</blockquote>
+<h2 id="配置gdb断点选读"><a class="header" href="#配置gdb断点选读">配置GDB断点(选读)</a></h2>
+<p>本文将通过GDB调试JamVM实现对CAS的源码分析，首先要搭建GDB调试环境，然后才能进行测试</p>
+<p>测试代码如下</p>
+<pre><code class="language-java">import java.util.concurrent.atomic.AtomicInteger;
+
+class A{
+    public static void main(String[] args){
+        AtomicInteger a = new AtomicInteger(1);
+        System.out.println(&quot;a = &quot; + a.incrementAndGet());
+    }
+}
+</code></pre>
+<p>接着使用Javac进行编译</p>
+<pre><code class="language-sh">javac A.java
+</code></pre>
+<p>最后使用JamVM与GDB进行断点测试</p>
+<pre><code class="language-sh">jamvm -cp . A
+</code></pre>
+<p>断点打在<code>natives.c</code>的<code>compareAndSwapInt</code>方法中，就可以分析调用栈了</p>
+<h2 id="cas在jvm上的流程分析"><a class="header" href="#cas在jvm上的流程分析">CAS在JVM上的流程分析</a></h2>
+<h4 id="cas在java层上的实现"><a class="header" href="#cas在java层上的实现">CAS在Java层上的实现</a></h4>
+<p>CAS在Java中最后的实现都是<code>sun.misc.Unsafe</code>类，而它几乎全部是Native方法，几乎没有什么可以分析，值得注意的是，在不同JVM中实现的过程不一定一样，但是最后肯定都有一个循环与CAS，下文是OracleJDK的实现</p>
+<pre><code class="language-java">// 1. 开发者调用JDK
+AtomicInteger.incrementAndGet();
+// 2. JDK内部自旋并不断尝试(getAndAddInt)
+int var5;
+do {
+  var5 = getIntVolatile(this, offset);
+} while(!compareAndSwapInt(this, offset, var5, var5 + 1));
+return var5;
+</code></pre>
+<p>其中<code>offset</code>是通过Unsafe方法获取<code>var5</code>相对于AtomicInteger这个class的native内存地址偏移</p>
+<p>上面的 <code>getIntVolatile</code> 与 <code>compareAndSwapInt</code> 均是native方法，其中<code>this</code>指<code>AtomicInteger</code>这个结构体</p>
+<ul>
+<li>this与offset: 表示内存中的数值</li>
+<li>var5: 是旧的数值</li>
+<li>var5+1: 是新的数值</li>
+</ul>
+<p>在多线程下，如果没有竞争，1～2次就可以完成循环；在有一定竞争情况下，也就是memory被反复改，它通过不断自旋实现重试</p>
+<h4 id="cas在native层的实现"><a class="header" href="#cas在native层的实现">CAS在native层的实现</a></h4>
+<p>下面是迷你虚拟机JamVM的unsafe.compareAndSwapInt的C语言实现，最终还是调用到了汇编，通过CPU硬件实现</p>
+<p>首先分析<code>objectFieldOffset</code>，它本质是获取Class的Slot中的“value”对应的偏移量</p>
+<pre><code class="language-c">// 在Java中，获取结构体的偏移位置
+// Field f = AtomicInteger.class.getDeclaredField(&quot;value&quot;)
+// valueOffset = unsafe.objectFieldOffset(f);
+//JamVM natives.c
+uintptr_t *objectFieldOffset(Class *class, MethodBlock *mb, uintptr_t *ostack) {
+    FieldBlock *fb = fbFromReflectObject((Object*)ostack[1]);
+
+    *(long long*)ostack = (long long)(uintptr_t)
+                          &amp;(INST_DATA((Object*)NULL, int, fb-&gt;u.offset));
+    return ostack + 2;
+}
+</code></pre>
+<p>在本文的 <code>AtomicInteger</code> 中，valueOffset为12常量，为什么要做这一步呢，因此CAS基本上都是native操作，需要直接操作内存，后续将通过<code>valueOffset</code>获取到 <code>value</code></p>
+<p>接着分析<code>compareAndSwapInt</code></p>
+<pre><code class="language-c">// 在Java中，调用如下
+// compareAndSwapInt(this, offset, var5, var5 + 1)
+//JamVM natives.c
+uintptr_t *compareAndSwapInt(Class *class, MethodBlock *mb, uintptr_t *ostack) {
+    long long offset = *((long long *)&amp;ostack[2]);
+    unsigned int *addr = (unsigned int*)((char *)ostack[1] + offset);
+    unsigned int expect = ostack[4];
+    unsigned int update = ostack[5];
+    int result;
+      //调用平台CPU特定的汇编代码实现
+    result = COMPARE_AND_SWAP_32(addr, expect, update);
+    *ostack++ = result;
+    return ostack;
+}
+
+// x86-64 的汇编实现宏
+#define COMPARE_AND_SWAP_32(addr, old_val, new_val)        \
+({                                                         \
+    char result;                                           \
+    __asm__ __volatile__ (&quot;                                \
+        lock;                                              \
+        cmpxchgl %4, %1;                                   \
+        sete %0&quot;                                           \
+    : &quot;=q&quot; (result), &quot;=m&quot; (*addr)/*out*/                   \
+    : &quot;m&quot; (*addr), &quot;a&quot; (old_val), &quot;r&quot; (new_val) /*in*/     \
+    : &quot;memory&quot;);     /*Clobbers, reload from memory*/      \
+    result;                                                \
+})
+</code></pre>
+<blockquote>
+<p>通过使用CLion对源码进行文本搜索<code>compareAndSwapInt</code>方法，可以快速找到CAS的实现类</p>
+</blockquote>
+<p>`</p>
+<p>这里的汇编格式阅读起来就比较费劲了，你可以选择<a href="https://www.ibm.com/developerworks/library/l-ia/">学一下</a>它的格式(如果要看JVM代码，早晚都得学)，并通过<a href="https://gcc.gnu.org/onlinedocs/gcc-6.3.0/gcc/Machine-Constraints.html#Machine-Constraints">这里</a>与<a href="https://gcc.gnu.org/viewcvs/gcc/trunk/gcc/config/i386/constraints.md?view=co&amp;revision=198401&amp;content-type=text/plain">这里</a>的文档了解<code>q,m,r</code>是什么意思</p>
+<p>如果你不想看的话，直接上HopperDisassembler将二进制的进行反编译，注意这里正好操作是反过来的</p>
+<pre><code class="language-asm">                     compareAndSwapInt:
+0000000000030e80         mov        rcx, qword [ds:rdx+0x10]
+0000000000030e84         mov        rax, qword [ds:rdx+0x20]
+0000000000030e88         add        rcx, qword [ds:rdx+0x8]
+0000000000030e8c         mov        rsi, qword [ds:rdx+0x28]
+/* COMPARE_AND_SWAP_32 start */
+0000000000030e90         lock cmpxchg dword [ds:rcx], esi
+0000000000030e94         sete       al
+0000000000030e97         movsx      rax, al
+/* COMPARE_AND_SWAP_32 end */
+0000000000030e9b         mov        qword [ds:rdx], rax
+0000000000030e9e         lea        rax, qword [ds:rdx+0x8]
+0000000000030ea2         ret
+</code></pre>
+<blockquote>
+<p>你可能需要知道各个寄存器的<a href="https://zh.wikipedia.org/wiki/X86%E8%B0%83%E7%94%A8%E7%BA%A6%E5%AE%9A">相关约定</a></p>
+</blockquote>
+<p>最终<code>COMPARE_AND_SWAP_32</code>的伪代码如下，如果兴趣非常强，可以看网上开源的Verilog实现</p>
+<pre><code class="language-asm">//下文的 &lt;- 指赋值的意思，Intel文档也是这样写的
+--INPUT:
+rcx &lt;- memory &lt;- addr
+al &lt;- old_val
+esi &lt;- new_val
+--OUTPUT:
+rax &lt;- result
+rcx &lt;-memory &lt;- addr
+--PROCEDURE:
+//cmpxchg dword [ds:rcx], esi
+IF al == rcx
+THEN
+  ZF &lt;- 1;
+  rcx &lt;- esi;
+ELSE
+  ZF &lt;- 0;
+  al &lt;- rcx;
+FI;
+//sete       al
+IF ZF == 1
+THEN
+  al &lt;- 0;
+ELSE
+  al &lt;- 1;
+FI;
+//movsx      rax, al
+rax &lt;- al
+return rax
+</code></pre>
+<p>用C语言简化是这样的</p>
+<pre><code class="language-c">if(old_val == *addr){
+  *addr = new_val;
+  return true;
+} else{
+  old_val = *addr;
+  return false;
+}
+</code></pre>
+<p>详细汇编分析可以参考这篇类似的<a href="http://www.lenky.info/archives/2012/11/2028">文章</a>与<a href="https://stackoverflow.com/questions/27837731/is-x86-cmpxchg-atomic">Is x86 CMPXCHG atomic?</a></p>
+<blockquote>
+<p>注意上面CPU里的Lock是用来锁多核下的Bus实现内存屏障，而不是高级语言中锁代码段的，只是碰巧名称类似而已</p>
+</blockquote>
+<h2 id="附录-2"><a class="header" href="#附录-2">附录</a></h2>
+<h4 id="cmpxchg-的一些介绍"><a class="header" href="#cmpxchg-的一些介绍">CMPXCHG 的一些介绍</a></h4>
+<p>通过查询Intel<a href="http://faydoc.tripod.com/cpu/cmpxchg.htm">文档</a>，可以得知</p>
+<table><thead><tr><th>Opcode</th><th>Instruction</th><th>Description</th></tr></thead><tbody>
+<tr><td>0F B0/<em>r</em></td><td>CMPXCHG <em>r/m8,r8</em></td><td>Compare AL(accumulator, 累加器) with <em>r/m8</em>. If equal, ZF is set and <em>r8</em> is loaded into <em>r/m8</em>. Else, clear ZF and load <em>r/m8</em> into AL.</td></tr>
+</tbody></table>
+<p>调用方法</p>
+<pre><code class="language-asm">CMPXCHG DEST, SRC
+</code></pre>
+<p>伪代码</p>
+<pre><code>IF accumulator == DEST
+THEN
+  ZF &lt;- 1;
+  DEST &lt;- SRC;
+ELSE
+  ZF &lt;- 0;
+  accumulator &lt;- DEST;
+FI;
+</code></pre>
+<h2 id="cas中aba的问题"><a class="header" href="#cas中aba的问题">CAS中ABA的问题</a></h2>
+<p>使用<code>AtomicStampedReference</code></p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>todo</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h4 id="简单的例子"><a class="header" href="#简单的例子">简单的例子</a></h4>
+<p>自增</p>
+<pre><code class="language-groovy">int a = 0
+ReentrantLock lock = new ReentrantLock()
+100.times {
+    new Thread(new Runnable() {
+        @Override
+        void run() {
+            try {
+                lock.lock()
+                a++;
+            } finally {
+                lock.unlock()
+            }
+        }
+    }).run()
+}
+println &quot;a = $a&quot;
+</code></pre>
+<h4 id="与-synchronized-的区别"><a class="header" href="#与-synchronized-的区别">与 synchronized 的区别</a></h4>
+<p>下面是使用object作为lock实现</p>
+<pre><code class="language-java">int a = 0
+def lock = new Object()
+100.times {
+    new Thread(new Runnable() {
+        @Override
+        void run() {
+            synchronized (lock){
+                a++
+            }
+        }
+    }).run()
+}
+println &quot;a = $a&quot;
+</code></pre>
+<p>在功能上，ReentrantLock 比 synchronized 多了tryLock，超时，公平调度等额外功能</p>
+<p>在native实现上</p>
+<ul>
+<li>synchronized使用了Object中的monitor作为lock，调度通过OS实现(比如pthread_mutex等调用)</li>
+<li>ReentrantLock使用了AQS实现Java层的公平与非公平调度</li>
+</ul>
+<h4 id="在groovy中通过闭包去掉模版代码"><a class="header" href="#在groovy中通过闭包去掉模版代码">在Groovy中通过闭包去掉模版代码</a></h4>
+<p>参考这里: http://blog.johanneslink.net/2011/10/25/simplified-use-of-locks-in-groovy/</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="countdownlatch"><a class="header" href="#countdownlatch">CountDownLatch</a></h2>
+<h3 id="英文名词"><a class="header" href="#英文名词">英文名词</a></h3>
+<ul>
+<li>predecessor| ˈpriːdɪsɛsə |: 前任者; 先輩. eg: the Prime Minister learned from his predecessor's mistakes.</li>
+<li>latch: 门闩，CountDownLatch表示自动倒计时关上的门锁</li>
+<li>elide | ɪˈlʌɪd |: 省略. eg: the null check may be elided.</li>
+</ul>
+<h3 id="应用"><a class="header" href="#应用">应用</a></h3>
+<p>CountDownLatch一般用于异步转同步操作，比如SpringCloud/ElasticSearch中在主线程实现阻塞等待Response</p>
+<p>比如SpringCloud中的Feign框架利用Rxjava等待异步网络请求，并转为同步操作</p>
+<pre><code class="language-groovy">return command.submit(request)
+    // 类似于前端的await，在Java中用CountDownLatch实现
+    .toBlocking()
+    .single();
+</code></pre>
+<p>再比如ElasticSearch客户端中基于Netty异步请求，同样也是基于await实现的</p>
+<p>CountDownLatch是并发编程中通过CAS队列包装实现的锁，先举个例子(Groovy代码)</p>
+<pre><code class="language-groovy">def s = Executors.newCachedThreadPool()
+def latch = new CountDownLatch(3)
+3.times{
+    s.execute(new Runnable() {
+        @Override
+        void run() {
+            try {
+                println &quot;start ${it}&quot;
+                TimeUnit.SECONDS.sleep(2)
+                println &quot;end ${it}&quot;
+            }catch (Exception e){
+                e.printStackTrace()
+            }finally{
+                latch.countDown()
+            }
+        }
+    })
+}
+latch.await()
+println &quot;latch complete&quot;
+</code></pre>
+<p>通过执行上面的Groovy代码段可以发现，无论executor线程池中怎么运行，只要不阻塞死，主线程一定会在所有线程池计数归零时才开始运行。</p>
+<h4 id=""><a class="header" href="#"></a></h4>
+<h2 id="countdownlatch的应用"><a class="header" href="#countdownlatch的应用">CountDownLatch的应用</a></h2>
+<h4 id="app启动页"><a class="header" href="#app启动页">App启动页</a></h4>
+<p>在某些App启动时，既要加载广告，又要加载首屏数据，涉及到两个请求，这时可以让两个线程同时跑，主线程</p>
+<h4 id="流式链式调用回掉"><a class="header" href="#流式链式调用回掉">流式/链式调用回掉</a></h4>
+<h4 id="watchdog"><a class="header" href="#watchdog">WatchDog</a></h4>
+<h2 id="countdownlatch的源码分析"><a class="header" href="#countdownlatch的源码分析">CountDownLatch的源码分析</a></h2>
+<p>CountDownLatch代码很少，去掉注释只有100多行。它本质上是对队列<code>AbstractQueuedSynchronizer</code>的包装，底层通过CAS实现了原子性，其中CAS之前文章已经写过了，本质是自旋与CPU硬件实现。</p>
+<h4 id="abstractqueuedsynchronizer分析"><a class="header" href="#abstractqueuedsynchronizer分析">AbstractQueuedSynchronizer分析</a></h4>
+<pre><code class="language-java">private void doAcquireSharedInterruptibly(int arg)
+  throws InterruptedException {
+  // 此处通过包装CAS实现原子性
+  final Node node = addWaiter(Node.SHARED);
+  boolean failed = true;
+  try {
+    for (;;) {
+      final Node p = node.predecessor();
+      if (p == head) {
+        int r = tryAcquireShared(arg);
+        if (r &gt;= 0) {
+          setHeadAndPropagate(node, r);
+          p.next = null; // help GC
+          failed = false;
+          return;
+        }
+      }
+      if (shouldParkAfterFailedAcquire(p, node) &amp;&amp;
+          parkAndCheckInterrupt())
+        throw new InterruptedException();
+    }
+  } finally {
+    if (failed)
+      cancelAcquire(node);
+  }
+}
+</code></pre>
+<h4 id="unsafecompareandswapobject在jvm侧的c实现"><a class="header" href="#unsafecompareandswapobject在jvm侧的c实现">Unsafe.compareAndSwapObject在JVM侧的C实现</a></h4>
+<p>其实这部分以前<a href="http://www.jianshu.com/p/8c3c0426e4f7">已经分析过</a>，下面的代码是JamVM的实现，本质上是CPU硬件帮你把事情搞定了</p>
+<pre><code class="language-c">//  unsafe.compareAndSwapObject(node, nextOffset, expect, update)
+uintptr_t *compareAndSwapObject(Class *class, MethodBlock *mb,
+                                uintptr_t *ostack) {
+
+    long long offset = *((long long *)&amp;ostack[2]);
+    uintptr_t *addr = (uintptr_t*)((char *)ostack[1] + offset);
+    uintptr_t expect = ostack[4];
+    uintptr_t update = ostack[5];
+    int result;
+	// 此部分通过 __asm__ 汇编代码段实现
+    result = COMPARE_AND_SWAP(addr, expect, update);
+    *ostack++ = result;
+    return ostack;
+}
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="readwritelock"><a class="header" href="#readwritelock">ReadWriteLock</a></h1>
+<p>读写锁</p>
+<h4 id="真实项目使用"><a class="header" href="#真实项目使用">真实项目使用</a></h4>
+<ul>
+<li>Mybatis的缓存组件</li>
+<li>Redisson(基于Redis)的读写锁</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>Synchronization is not guaranteed to work unless both read and write operations are synchronized.</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>the implementation of Synchnornized in JVM</p>
+<hr />
+<h2 id="快速结论-1"><a class="header" href="#快速结论-1">快速结论</a></h2>
+<p>在JamVM中的实现如下</p>
+<ul>
+<li>通过Object中的C结构体的<code>object-&gt;lock-&gt;monitor</code>实现锁的标志</li>
+<li>调度通过pThread的<code>pthread_mutex_lock</code>等操作进行lock与unlock，相当于把最难的调度通过系统调用甩锅给操作系统了</li>
+<li>Synchnornized是java中互斥锁的实现，用于对并发编程进行支持</li>
+</ul>
+<h2 id="object的线程方法"><a class="header" href="#object的线程方法">Object的线程方法</a></h2>
+<p>在了解Java的同步之前，先复习一下Java的线程模型，在Java中，使用Object作为最常用的锁。在Object中，有许多native方法，主要如下</p>
+<table><thead><tr><th align="left">函数</th><th align="left">功能</th></tr></thead><tbody>
+<tr><td align="left">wait()</td><td align="left">释放monitor与时间片，只能超时或者有其他线程notify才能恢复</td></tr>
+<tr><td align="left">sleep()</td><td align="left">释放时间片，但是持有monitor</td></tr>
+<tr><td align="left">notify()</td><td align="left">通知调度器唤醒等待此monitor的BLOCKED线程队列中的一个，转为blocked状态</td></tr>
+<tr><td align="left">notifyAll()</td><td align="left">唤醒所有等待此monitor的线程队列，转为blocked状态</td></tr>
+</tbody></table>
+<p>线程的状态有如下几种</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-f529c1608fd10ffe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="source: &amp;lt;http://n.ethz.ch/~anoever/recitation05.pdf&amp;gt;" /></p>
+<blockquote>
+<p>提醒一下，被<code>notify()</code>调用后是进入了block的队列，需要通过调度器“摇号”挑选其中一个后才能进入同步区块</p>
+</blockquote>
+<h2 id="互斥锁synchnornized"><a class="header" href="#互斥锁synchnornized">互斥锁(Synchnornized)</a></h2>
+<p>互斥锁在其它编程语言中一般叫做<code>Mutex(|mjuːtex|)</code>，用于实现对共享资源的独占性，当进入同步代码块时，获取并独占锁，离开时释放锁。在这段时间中，其它线程访问此资源时，会成为上图的BLOCKED状态。</p>
+<blockquote>
+<p>在Java中线程是通过对C中的pThread包装实现的，pThread接口通过systemcall在内核实现，因此线程的管理本质都是在进行系统调用，有一定的切换消耗，故Synchnornized是一种比较重的锁。</p>
+</blockquote>
+<p>在Java中，Synchnornized可以看作一种语法糖，不需要自己去判断、配置Mutex，只需要用<code>synchnornized(object){}</code>进行包裹即可，接下来我们对这个字段进行一下入门。</p>
+<h3 id="1-对象同步"><a class="header" href="#1-对象同步">1. 对象同步</a></h3>
+<p>对象同步中有两种方法，第一种是通过代码块<code>{}</code>的包裹，编译时通过<code>MONITORENTER</code>与<code>MONITOREXIT</code>将<code>Sample.this</code>作为锁对象；第二种是为method添加<code>access_flag</code>为synchronized，JVM在执行时将根据FLAG自动加\减锁，如下两种写法在JVM中调用是效果相同的</p>
+<pre><code class="language-java">public class Sample {
+
+  public void do_work() {
+    synchronized (Sample.this) {
+      //do synchronized work
+    }
+  }
+
+  public synchronized void do_work() {
+    //do synchronized work
+  }
+}
+</code></pre>
+<p>详见: <a href="https://www.zhihu.com/question/27486803">Java中非static的synchronized方法和synchronized(this)用的是一个锁么?</a>。</p>
+<blockquote>
+<p>synchronized在方法中不会被继承，虽然继承synchronized方法有点诡异</p>
+<p>再说个题外话，synchronized的锁范围越小越好，不建议放在方法上作为修饰，而是使用<code>synchronized (xxx.this)</code>代码块。common-pool旧版代码中就出现过此问题，导致上游业务出现死锁。</p>
+</blockquote>
+<h3 id="2-类同步"><a class="header" href="#2-类同步">2. 类同步</a></h3>
+<p>类同步的对象是<code>Sample.class</code>,以下两种是相同的</p>
+<pre><code>public static synchronized do_work(){
+    //do synchronized work
+}
+
+public void do_work(){
+    synchronized (Sample.class){
+          //do synchronized work
+    }
+}
+</code></pre>
+<blockquote>
+<p>单例的同步方法看这里：<a href="http://www.jianshu.com/p/eebcb81b1394">http://www.jianshu.com/p/eebcb81b1394</a></p>
+</blockquote>
+<h3 id="3-synchronized的应用"><a class="header" href="#3-synchronized的应用">3. synchronized的应用</a></h3>
+<p>除了网上用烂的单例同步，多线程for循环自增，并发HashMap等例子外，还可以再举例</p>
+<h4 id="31-释放锁与时间片"><a class="header" href="#31-释放锁与时间片">3.1. 释放锁与时间片</a></h4>
+<p>我曾经在OkHttp中，介绍过Socket的KeepAlive连接自动清理的实现，这里使用了wait进行阻塞，避免无谓的自旋(Spin-waiting)损耗。</p>
+<pre><code>while (true) {
+  //执行清理并返回下场需要清理的时间
+  long waitNanos = cleanup(System.nanoTime());
+  if (waitNanos == -1) return;
+  if (waitNanos &gt; 0) {
+    synchronized (ConnectionPool.this) {
+      try {
+        //在timeout内释放锁与时间片
+        ConnectionPool.this.wait(TimeUnit.NANOSECONDS.toMillis(waitNanos));
+      } catch (InterruptedException ignored) {
+      }
+    }
+  }
+}
+</code></pre>
+<p>注意wait在Java中一般都是需要在while循环中的，否则你的wait可能被路人线程给wakeup了，上文代码就是Best practice。</p>
+<h4 id="32-dead-lock"><a class="header" href="#32-dead-lock">3.2. Dead Lock</a></h4>
+<p>虽然同步简化了编程，但是还有可能发生死锁，如下例子，当两个不同线程分别调用<code>a.swap(b)</code>与<code>b.swap(a)</code>时，在<code>getValue()</code>时可能发生死锁。</p>
+<pre><code>//code from &lt;Concurrent Programming in Java&gt;
+class Cell {      // Do not use
+ private long value;
+ synchronized long getValue() { return value; }
+
+ synchronized void setValue(long v) { value = v; }
+ synchronized void swapValue(Cell other) {
+  long t = getValue();
+  long v = other.getValue();
+  setValue(v);
+  other.setValue(t);
+ }
+}
+</code></pre>
+<h2 id="monitor管程"><a class="header" href="#monitor管程">Monitor(管程)</a></h2>
+<p>重点来了！管程是JVM中的互斥锁的实现，在Java中，Object.wait/notify，以及线程的wait/notify，synchronized生成的字节码MONITORENTER/EXIT等操作在JVM中都是通过Monitor控制与实现的。</p>
+<p>在JVM中，每个<code>java.lang.object</code>对象对应的C结构体均拥有一个lock指针，指针对应一个Monitor（也就是说，对象、lock指针与Monitor是一一对应的）。一个Monitor只能同时被一个线程持有。</p>
+<p>管程的工作机制如下图</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-6e1cb7f13a83fb2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300/interlace/1/q/100" alt="source: http://en.wikipedia.org/wiki/Monitor_(synchronization)" /></p>
+<p>本图来自于维基百科，可以看作是对<code>阻塞式条件变量</code>的一种封装</p>
+<ul>
+<li><code>e</code>表示入口队列的线程，它将尝试获取对象的锁，处于blocked状态</li>
+<li><code>q</code>表示等待队列的线程，处于waiting状态</li>
+<li><code>wait</code>表示调用<code>pThread_wait()</code>进行等待，进入<code>q</code>队列，大多数由开发者手动调用与恢复，下文暂不考虑</li>
+<li><code>notified</code>表示调用<code>pThread_notify()</code>后进入<code>e</code>队列</li>
+<li><code>enter</code>与<code>leave</code>表示独占线程对锁的获取与释放</li>
+</ul>
+<p>比如现在有线程队列<code>e</code>同时竞争一个对象，第一个跑的最快的线程enter后，立刻获取到了object的monitor，剩下的线程由于无法获得到monitor，就在<code>e</code>队列中阻塞等待锁的释放。</p>
+<pre><code> enter the monitor:
+    enter the method
+    if the monitor is locked
+        add this thread to e
+        block this thread
+    else
+        lock the monitor
+</code></pre>
+<p>当任务完成后，调用调度器</p>
+<pre><code> leave the monitor:
+    schedule
+    return from the method
+</code></pre>
+<p>调度器将会释放monitor，并通过某种调度公平的调度策略（可能是FIFO，也可能是优先权值等）将monitor分配给下一个处于blocked态的线程。</p>
+<pre><code>  schedule :
+    if there is a thread on e
+      select and remove one thread from e and restart it
+      (this thread will occupy the monitor next)
+    else
+      unlock the monitor
+      (the monitor will become unoccupied)
+</code></pre>
+<blockquote>
+<p>以Android6.0的vm为例，参考源码如下：</p>
+<ul>
+<li><a href="https://android.googlesource.com/platform/art/+/android-6.0.1_r46/runtime/monitor.h">monitor.h</a></li>
+<li><a href="https://android.googlesource.com/platform/art/+/android-6.0.1_r46/runtime/monitor.cc">monitor.cc</a></li>
+</ul>
+</blockquote>
+<h2 id="使用object作为锁好不好"><a class="header" href="#使用object作为锁好不好">使用Object作为锁好不好？</a></h2>
+<p>Java中，通过设置Object结构体中的某个字段映射为锁，所有对象都可以成为锁，这样固然简化了编程，但是相比Ruby等语言使用Mutex作为专用锁，Java所耗用的结构体内存更多</p>
+<h2 id="参考-1"><a class="header" href="#参考-1">参考</a></h2>
+<ol>
+<li><a href="http://android.group.iteye.com/group/wiki/3083-java-sync-communication">http://android.group.iteye.com/group/wiki/3083-java-sync-communication</a></li>
+<li><a href="http://ibruce.info/2013/12/07/java-interview-questions-concurrency/">http://ibruce.info/2013/12/07/java-interview-questions-concurrency/</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E7%9B%A3%E8%A6%96%E5%99%A8_%28%E7%A8%8B%E5%BA%8F%E5%90%8C%E6%AD%A5%E5%8C%96%29">https://zh.wikipedia.org/wiki/%E7%9B%A3%E8%A6%96%E5%99%A8_(%E7%A8%8B%E5%BA%8F%E5%90%8C%E6%AD%A5%E5%8C%96)</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/java/j-threads/">https://www.ibm.com/developerworks/cn/java/j-threads/</a></li>
+</ol>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>下面是在业务中常见的并发问题，优先用findBugs等工具扫描，并清空IDE的黄色报警，否则...</p>
+<h4 id="错误的单例"><a class="header" href="#错误的单例">错误的单例</a></h4>
+<p>下面的double-lock单例代码是被FindBugs扫出的，改正如下。这里在底层主要是为汇编码加入了<code>lock</code>指令防止指令重排</p>
+<pre><code class="language-diff">public class AESUtil{
+-   private static AES aes;
++   private static volatile AES  aes;
+    static public AES getAES(){
+        if(aes == null){
+        synchronized(AESUtil.class){
+            if(aes == null){
+                aes = new AES();
+            }
+        }
+        return aes;
+    }
+
+}
+</code></pre>
+<p>其实还有更简单的单例方法，就是在static代码段中构造field的实例化，由于ClassLoader加载class时`&lt;clinit()&gt;`阶段由JVM保证线程安全的，因此可以放心用，比如JDBC各种驱动就是这样初始化的。</p>
+<h4 id="错误的dataformat"><a class="header" href="#错误的dataformat">错误的DataFormat</a></h4>
+<p>这个是在进行报表时出现的，当报表耗时大于定时任务间隔时，两个报表服务就会同时执行。如果`SimpleDateFormat`使用的是同一个，那么它的parse方法可能出现报错。具体原理我没有分享JDK源码，可能是它内部eval的状态机不是线程安全的。</p>
+<p>解决方法: 1. 每次new一个 2. 使用ThreadLocal</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><hr />
+<p>title: Copy-on-write的介绍与应用
+categories:</p>
+<ul>
+<li>数据结构</li>
+</ul>
+<hr />
+<p>本文目录</p>
+<ul>
+<li>什么是写时复制</li>
+<li>写时复制的应用场景</li>
+<li>写时复制的实现</li>
+</ul>
+<hr />
+<p>在并发编程中，如果需要实现对资源的冲突处理，一般采用互斥锁，队列、不可变来实现。上面的技术实现在很多书籍中都有，不过今天介绍的是一种新的方法--<code>写时复制(Copy-on-write, COW)</code>。</p>
+<p>关键词: COW,  Copy on write, Redis</p>
+<p>如果看的懂英文就直接看这里：</p>
+<blockquote>
+<p>Copy on write (COW) is an optimization strategy that avoids copying large sized objects.</p>
+</blockquote>
+<blockquote>
+<p>In a lot of real world programs, a value is copied to another variable and often is never written to. In most languages other than C++, all large sized objects are actually references. When you copy an object, all you copy is a pointer (shallow copy semantics). In such languages, COW is implemented at the language/runtime level, and not in the standard library.</p>
+</blockquote>
+<blockquote>
+<p>In C++, copies are deep copies by default (value semantics), thus assigning large structures and strings are expensive, because the entire data is duplicated.</p>
+</blockquote>
+<blockquote>
+<p>To avoid this, one can make a system where a copy is always shallow, but when you modify a copied object, the underlying object is duplicated, and then the changes are applied to the new copy. </p>
+</blockquote>
+<p>总的来说，COW通过浅拷贝(shallow copy)只复制引用而避免复制值；当的确需要进行写入操作时，首先进行值拷贝，再对拷贝后的值执行写入操作，这样减少了无谓的复制耗时。</p>
+<p>特点如下</p>
+<ul>
+<li>读取安全（但是不保证缓存一致性），写入安全（代价是加了锁，而且需要全量复制）</li>
+<li>不建议用于频繁读写场景下，全量复制很容易造成GC停顿，因此建议使用平时的ConcurrentXX包来实现。</li>
+<li>适用于对象空间占用大，修改次数少，而且对数据实效性要求不高的场景。</li>
+</ul>
+<blockquote>
+<p>这里的安全指在进行读取或者写入的过程中，数据不被修改。</p>
+</blockquote>
+<h2 id="写时复制的应用场景"><a class="header" href="#写时复制的应用场景">写时复制的应用场景</a></h2>
+<p>写时复制最擅长的是并发读取场景，即多个线程/进程可以通过对一份相同快照，去处理实效性要求不是很高但是仍然要做的业务（比如实现FS\DB备份、日志、分布式路由），举例如下。</p>
+<h3 id="1-unix下的fork系统调用"><a class="header" href="#1-unix下的fork系统调用">1. Unix下的fork()系统调用</a></h3>
+<p>fork()是一个系统调用，用于创建新的进程(process)。</p>
+<blockquote>
+<p>fork() creates a new process by duplicating the calling process. The new process, referred to as the child, is an exact duplicate of the calling process, referred to as the parent.</p>
+</blockquote>
+<p>在以前的文章中说过，fork内部实际上是对clone()系统函数的调用，它的参数<code>CLONE_FLAG</code>决定了需要共享哪些数据。在fork中，没有<code>CLONE_VM</code>参数，也就意味着不会共享\竞争同一个内存，而是复制一个内存快照给子进程，这个内存在32位下是4G的大小，占用空间相当的大，如果通过类似memcpy进行内存复制的话，fork调用的耗时将相当显著，甚至阻塞业务，那么为什么在真正开发调用时却没有发生呢？因为内部也是通过COW机制实现的。</p>
+<p>内核实现：</p>
+<p>在内核侧，在进行了内存“复制”后，子进程与父进程指向同一个只读的Page分页。当子进程或者父进程发送修改内存请求后，由于是分页是只读的，OS此时才将内存进行复制为两份，并将这两份内存设置为可写权限，最后再处理刚刚发送的修改内存请求。通过上述策略，实现了延迟复制，进程的创建是不是变快了？</p>
+<h4 id="2-redis的持久化"><a class="header" href="#2-redis的持久化">2. Redis的持久化</a></h4>
+<p>Redis是一个基于KV的MemCache框架，可以将数据全部存储在内存中，特别适用于抢购、红包等高并发场景，当你希望对数据进行全量Dump(bgsave)到文件中或者进行主从同步时，将进行<a href="https://github.com/antirez/redis/blob/0a628e51025c4307c70cb00094dff9cdd1732f31/src/rdb.c#L996">下面</a>的步骤。</p>
+<ul>
+<li>Redis forks. We now have a child and a parent process.</li>
+<li>The child starts to write the dataset to a temporary RDB file.</li>
+<li>When the child is done writing the new RDB file, it replaces the old one.</li>
+</ul>
+<p>可以看出，Redis通过fork()系统调用实现了写时复制，而没有自己去造轮子</p>
+<pre><code class="language-c">int rdbSaveBackground(char *filename) {
+    pid_t childpid;
+    long long start;
+
+    if (server.aof_child_pid != -1 || server.rdb_child_pid != -1) return C_ERR;
+
+    server.dirty_before_bgsave = server.dirty;
+    server.lastbgsave_try = time(NULL);
+
+    start = ustime();
+    //指向子线程的pid如果为0，表示fork成功，为正表示为parent线程
+    if ((childpid = fork()) == 0) {
+        int retval;
+
+        /* Child进程要执行的代码 */
+        closeListeningSockets(0);
+        redisSetProcTitle(&quot;redis-rdb-bgsave&quot;);
+        retval = rdbSave(filename);
+        if (retval == C_OK) {
+            size_t private_dirty = zmalloc_get_private_dirty();
+
+            if (private_dirty) {
+                serverLog(LL_NOTICE,
+                    &quot;RDB: %zu MB of memory used by copy-on-write&quot;,
+                    private_dirty/(1024*1024));
+            }
+        }
+        exitFromChild((retval == C_OK) ? 0 : 1);
+    } else {
+        /* Parent */
+        ...
+        return C_OK;
+    }
+    return C_OK; /* unreached */
+}
+</code></pre>
+<p>在rdbSave中(目前已经为子线程中)，具体实现如下，代码太长就不贴了</p>
+<ol>
+<li>创建了一个<code>temp-${getPid()}.rdb</code>的文件</li>
+<li>调用<code>rioInitWithFile(rio *r, FILE *tmp)</code>，将<code>r</code>初始化为<code>rioBufferIO</code></li>
+<li>对全局变量<code>server</code>进行forEach反序列化，并保持到缓存r中，并写入文件，注意这个Server指针已经与父进程无关了</li>
+<li>进行fflush、fsync、fclose系统调用清除OS的FS缓存（这也是OS内部的COW优化）</li>
+<li>进行<code>rename</code>系统调用，进行重命名</li>
+</ol>
+<blockquote>
+<p>系统调用都是默认线程安全的，所以不用担心多次重命名等问题</p>
+</blockquote>
+<p>可以看出，在Redis中没有memcpy等内存复制过程，而是直接使用server指针进行读取并写入文件，因为在fork时，已经duplicated了快照。</p>
+<h2 id="写时复制的实现"><a class="header" href="#写时复制的实现">写时复制的实现</a></h2>
+<p>以Java为例，在CopyOnWriteArrayList中，写数据在锁的保护下，而读取可以任意进行，代码如下。</p>
+<pre><code class="language-java">private transient volatile Object[] array;
+
+
+public boolean add(E e) {
+    final ReentrantLock lock = this.lock;
+    lock.lock();
+    try {
+        Object[] elements = getArray();
+        int len = elements.length;
+        //类似于memcpy，构造一个新的对象
+        Object[] newElements = Arrays.copyOf(elements, len + 1);
+        newElements[len] = e;
+        //重新设置引用
+        setArray(newElements);
+        return true;
+    } finally {
+        lock.unlock();
+    }
+}
+
+public E get(int index) {
+	//获取到的数据没有实效性
+    return get(getArray(), index);
+}
+
+final Object[] getArray() {
+        return array;
+}
+</code></pre>
+<h2 id="其它可能需要深入了解的技能"><a class="header" href="#其它可能需要深入了解的技能">其它可能需要深入了解的技能</a></h2>
+<p>#####1. 如何实现String\Map的写时复制？</p>
+<p>这个一般只在糟糕的面试题中出现，因为写时复制主要用于处理大的数据，而大型的字符串、Map却很少见到场景(如果说非要来一个场景的话，就是Zookeeper中读取服务时，可能需要一个Map&lt;String,Class&gt;来实现)。在C++中，写时复制的String已经被废弃，并且Redis中设计的字符串可以更加优雅地扩容，在Java中，各类并发库已经很成熟，写时复制主要用于实现安全迭代，而没有String或者Map的需求。</p>
+<p>如果非要让你写，可以这样处理:</p>
+<ul>
+<li>在构造函数、写入函数中实现深拷贝，并加锁，比如put中就再包装一道HashMap。</li>
+<li>在getter函数，实现无锁直接获取。</li>
+</ul>
+<p>#####2. ConcurrentHashXXX与CopyOnWriteXXX的对比？</p>
+<p>一个适用于写入量大的场景，一个适用于读取量大的场景，它们的线程安全关系如下</p>
+<table><thead><tr><th align="left"></th><th align="left">Normal</th><th align="left">Concurrent</th><th align="left">COW</th></tr></thead><tbody>
+<tr><td align="left">Read</td><td align="left">Unsafe</td><td align="left">Safe</td><td align="left">Safe, may dirtyData</td></tr>
+<tr><td align="left">Write</td><td align="left">Unsafe</td><td align="left">Safe</td><td align="left">Safe, may slowest</td></tr>
+</tbody></table>
+<h2 id="ref"><a class="header" href="#ref">Ref</a></h2>
+<ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%AF%AB%E5%85%A5%E6%99%82%E8%A4%87%E8%A3%BD">https://zh.wikipedia.org/wiki/%E5%AF%AB%E5%85%A5%E6%99%82%E8%A4%87%E8%A3%BD</a></li>
+<li><a href="http://ifeve.com/java-copy-on-write/">http://ifeve.com/java-copy-on-write/</a></li>
+<li><a href="http://www.ibm.com/developerworks/tivoli/library/t-snaptsm1/">http://www.ibm.com/developerworks/tivoli/library/t-snaptsm1/</a></li>
+<li><a href="http://blog.csdn.net/jason314/article/details/5640969">http://blog.csdn.net/jason314/article/details/5640969</a></li>
+<li><a href="https://www.reddit.com/r/compsci/comments/31szui/trying_to_understand_fork_and_copyonwrite_cow/">https://www.reddit.com/r/compsci/comments/31szui/trying_to_understand_fork_and_copyonwrite_cow/</a></li>
+<li><a href="http://stackoverflow.com/questions/1570589/is-the-volatile-keyword-required-for-fields-accessed-via-a-reentrantlock">http://stackoverflow.com/questions/1570589/is-the-volatile-keyword-required-for-fields-accessed-via-a-reentrantlock</a></li>
+<li><a href="https://www.quora.com/What-is-Copy-on-Write-and-how-is-it-used-in-C++">https://www.quora.com/What-is-Copy-on-Write-and-how-is-it-used-in-C++</a></li>
+</ol>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>详见 <a href="microservice//tags/PaaS">PaaS</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
