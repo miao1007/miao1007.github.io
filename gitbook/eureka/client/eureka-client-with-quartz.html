@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>基于Eureka的分布式定时任务</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../introduce/index.html"><strong aria-hidden="true">2.</strong> Eureka简介</a></li><li class="chapter-item expanded "><a href="../client/index.html"><strong aria-hidden="true">3.</strong> Eureka客户端</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../client/eureka-client-springboot.html"><strong aria-hidden="true">3.1.</strong> EurekaClient与SpringBoot</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-rpc.html"><strong aria-hidden="true">3.2.</strong> EurekaClient的RPC流程与心跳</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-without-spring-boot.html"><strong aria-hidden="true">3.3.</strong> Eureka集成遗留项目</a></li><li class="chapter-item expanded "><a href="../client/generate-stub-by-swagger.html"><strong aria-hidden="true">3.4.</strong> 使用Swagger生成Feign桩</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-with-quartz.html" class="active"><strong aria-hidden="true">3.5.</strong> 基于Eureka的分布式定时任务</a></li></ol></li><li class="chapter-item expanded "><a href="../server/index.html"><strong aria-hidden="true">4.</strong> Eureka服务端</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../server/eureka-server-naming.html"><strong aria-hidden="true">4.1.</strong> 命名服务</a></li><li class="chapter-item expanded "><a href="../server/replicate.html"><strong aria-hidden="true">4.2.</strong> Replicate</a></li></ol></li><li class="chapter-item expanded "><a href="../third/index.html"><strong aria-hidden="true">5.</strong> 第三方组件</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../third/feign.html"><strong aria-hidden="true">5.1.</strong> Feign简介与Spring代理自动注入</a></li><li class="chapter-item expanded "><a href="../third/ribbon.html"><strong aria-hidden="true">5.2.</strong> Ribbon与负载均衡</a></li><li class="chapter-item expanded "><a href="../third/sleuth-log-collector.html"><strong aria-hidden="true">5.3.</strong> Sleuth与日志收集</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../other/reference.html"><strong aria-hidden="true">6.</strong> 参考文献与Wiki</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="基于springcloud的分布式定时调度任务"><a class="header" href="#基于springcloud的分布式定时调度任务">基于SpringCloud的分布式定时调度任务</a></h2>
+<p>本文讲如何设计一款对开发者友好的定时任务调度框架。</p>
+<blockquote>
+<p>根据相关规定，具体实现将不开源。不过本文可以介绍此框架的分析过程以及使用的技术。</p>
+</blockquote>
+<p>如果当前有PaaS，那么基于PaaS实现最推荐：比如Kubernetes、Nomad进行容器级、无状态的调度。不推荐阅读下文。</p>
+<h2 id="1-backgroud"><a class="header" href="#1-backgroud">1. Backgroud</a></h2>
+<p>定时任务几乎在每个项目都广泛存在，普通项目中一般通过注解或者Bean等形式进行管理Job。不过当你的任务比较多时，你就会发现来坑了(开源软件啥都有，但啥都不全) —— </p>
+<ul>
+<li>Quartz调度过程为黑盒，无法查看历史，也不支持各种调度管理(暂停/新增/下线/立刻执行等)功能</li>
+<li>基于Xml/Java的Bean很难统一维护，后面接手的人谁也不敢动</li>
+<li>Quartz如同它的名字（QuartzCrystal，晶振，也就是时钟发生器，类似CPU中的PLL电路），只是触发器而已，它本身不要与负载均衡混到一起(内部本身通过竞争Row锁实现，连均分都做不到)</li>
+</ul>
+<p>虽然当当等调度开源框架进行了二次定制，但是它们仍然属于库文件，侵入式太强(需要继承某个类或者注解等代码污染)，因此把上面的逻辑SAAS(Schedule-As-A-Service)化可能是更好的选择</p>
+<h1 id="2-requirement"><a class="header" href="#2-requirement">2. Requirement</a></h1>
+<p>针对以上问题，做出如下愿景</p>
+<h4 id="服务化"><a class="header" href="#服务化">服务化</a></h4>
+<p>将原有的Java方法调用换为RPC，调度逻辑（触发实现，同步还是异步）与业务分离</p>
+<table><thead><tr><th></th><th>Quartz</th><th>新定时任务</th></tr></thead><tbody>
+<tr><td>调度逻辑</td><td>硬编码到Java/XML中，修改需要重启</td><td>通过外部DSL(比如JSON)以Web界面的形式实时管理(暂停/新增/下线/立刻执行等)，作为调度客户端RPC请求执行器</td></tr>
+<tr><td>侵入性</td><td>与业务框架强耦合</td><td>连Quartz都不用引入，通过Eureka以<a href="https://zh.wikipedia.org/zh-hant/%E8%A6%86%E7%9B%96%E7%BD%91%E7%BB%9C">覆盖网络</a>的形式进行节点间通信。甚至连Eureka都可以不用，而使用Nginx作为命名服务。</td></tr>
+<tr><td>运维特性</td><td>黑盒</td><td>能够记录JobHistory，以便以后<strong>有据可查</strong></td></tr>
+</tbody></table>
+<h4 id="用户侧执行器需要做什么改造"><a class="header" href="#用户侧执行器需要做什么改造">用户侧(执行器)需要做什么改造？</a></h4>
+<ol>
+<li>用户侧暴露任务的Endpoint，最简单的是暴露为RestController</li>
+<li>用户在定时任务Web管理界面上传配置，如下，其中url中的host是VIP，VIP的可用性由执行器自己保证</li>
+</ol>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;SendMail&quot;,
+    &quot;url&quot;: &quot;http://eureka-busi-sz1/app/task/sendmail.task&quot;,
+    &quot;cron&quot;: &quot; */2 * * * *&quot;,
+    &quot;fail&quot;: &quot;miao1007@gitbook.com&quot;
+}
+</code></pre>
+<p>这样，定时任务调度就会在相应的时间间隔发送RPC请求，客户自己就不用维护调度逻辑了。</p>
+<h2 id="3-action"><a class="header" href="#3-action">3. Action</a></h2>
+<p>针对上面的需求，我们可以把</p>
+<h4 id="31-定时任务后台rpc请求流程图"><a class="header" href="#31-定时任务后台rpc请求流程图">3.1. 定时任务后台RPC请求流程图</a></h4>
+<p>总体设计如下，只要服务注册到Eureka即可获取到IP，并执行RPC</p>
+<pre><code class="language-mermaid">sequenceDiagram
+  	Scheduler-&gt;&gt;EurekeServer: &quot;eureka-busi-sz1&quot;的IP是多少
+    activate EurekeServer
+    EurekeServer--&gt;&gt;Scheduler: 它的IP是[a,b,c]
+    deactivate EurekeServer
+    loop 客户端负载均衡
+        Scheduler-&gt;&gt;Scheduler: 选出一个IP
+    end
+    Scheduler -&gt;&gt; Business: RPC call
+    activate Business
+    Business --&gt;&gt; Scheduler: 完成业务
+    deactivate Business
+</code></pre>
+<p>高可用方案</p>
+<ul>
+<li>定时任务本身复用Quartz的统一数据库中心，多台横向部署即可。部署时建议在相同的Region中，<strong>时间间隔必须小于1s</strong></li>
+<li>EurekaServer: 参考Netflix的HA教程，配置多台即可</li>
+<li>Business高可用: 取决于业务，一般来说横向部署多台，注册到Eureka即可。</li>
+</ul>
+<h4 id="32-eurekaokhttpquartz解决方案"><a class="header" href="#32-eurekaokhttpquartz解决方案">3.2. Eureka+OkHttp+Quartz解决方案</a></h4>
+<p>针对上述选型，实现如下功能</p>
+<ul>
+<li>Web界面: 对于编程人员全部通过鼠标或者脚本导入导出定时任务，我个人通过 Angular搞了一套简单的表格式管理页面</li>
+<li>调度管理: 通过对Quartz的Scheduler进行封装暴露，使用JobStoreTX(持久化)</li>
+<li>分布式锁: 通过Quartz默认内置Row级Lock(SELECT FOR UPDATE)</li>
+<li>命名服务: 通过Eureka实现服务实例的获取(代码中利用OkHttp的DNS进行Override)</li>
+<li>负载均衡: 使用Ribbon，如果你不喜欢它的数组轮询方式，可以自己实现IRule。这里需要结合业务实现，<strong>无状态的数组轮询/Hash即可，有状态的需要维护一个结构体</strong>。</li>
+<li>RPC: 默认HTTP阻塞调用，不过受限于SpringMVC/Tomcat的<a href="https://tomcat.apache.org/connectors-doc/common_howto/timeouts.html">超时</a>，此方案不支持获取阻塞时间过长的<strong>任务结果</strong>（这类更应该用MQ来实现，比如索引任务，这类可以参考<a href="https://www.cloud.alipay.com/docs/2/56108">SofaBoot</a>的实现），当然如果你只要求能发送请求而不在乎返回结果，那么这个功能就已经够了，可以考虑加入回写。这个是方案的短板，长期阻塞IO将导致线程并发数能力弱。</li>
+<li>RPC鉴权: 此部分与调度是无关的，但是可以采用定制Header的Interceptor等方法实现</li>
+</ul>
+<p>最终通过SpringBoot一个Jar包进行多机部署，此架构<strong>单点故障主要在中心的JobStore（比如数据库）上</strong></p>
+<h4 id="33-quartz的定制"><a class="header" href="#33-quartz的定制">3.3. Quartz的定制</a></h4>
+<p>本文不会过多涉及到非Eureka的篇章，因此建议如下</p>
+<ul>
+<li>使用Plugin注册Job监听器，并模仿LogBack的DBAppender实现历史日志记录，如果你的日志是非结构化的(比如返回了JSON报文)，我建议放到ElasticSearch上</li>
+<li>多看多学Quartz的调度API，并封装为RESTful接口</li>
+<li>由于是给所有小组用，而且很多人都喜欢放在6点跑定时任务，因此Quartz的<strong>执行线程池必须调大</strong>，而不是默认的10条，否则会Missfire</li>
+</ul>
+<h4 id="34-定制okhttp的dns接口实现命名服务"><a class="header" href="#34-定制okhttp的dns接口实现命名服务">3.4. 定制OkHttp的Dns接口实现命名服务</a></h4>
+<p>Eureka从客户端来看，它非常像HTTP DNS。虽然在Android中经常使用，不过我们的Quartz也相当于是客户端，因此可以在Quartz中的请求Job的RPC中，定制如下</p>
+<pre><code class="language-java">LoadBalancerClient client;
+final Dns eurekaDns = new Dns() {
+    @Override
+    List&lt;InetAddress&gt; lookup(String vip) throws UnknownHostException {
+        if (!vip?.trim()){
+            throw new UnknownHostException(&quot;hostname is null&quot;)
+        }
+        ServiceInstance instance = client.choose(vip)
+        if (instance){
+            String realHost = instance.getHost()
+            return InetAddress.getAllByName(realHost)
+        } else {//这种场景仅用于输入的不是VIP
+            return Dns.SYSTEM.lookup(vip)
+        }
+    }
+}
+OkHttpClient ok = new OkHttpClient.Builder().dns(eurekaDns).build()
+//注意这里输入的HostName是Eureka中的VIP(Virtual IP)
+Request request = new Request.Builder().url(&quot;http://eureka-instance/api/xxx.json&quot;).build()
+ok.newCall(request)
+</code></pre>
+<p>这样，非常简单复用了各种开源软件的接口，没有造一点轮子，就搞定了找服务的问题</p>
+<ul>
+<li>OkHttp自动帮你Parse了URL，因此你不用自己手动获取HostName，OkHttp内部的双端Dequeue队列可以保证所有任务按序发送。</li>
+<li>Ribbon帮你实现了<a href="https://github.com/Netflix/ribbon/wiki/Working-with-load-balancers">负载均衡</a>，注意这里是客户端负载均衡算法，本文场景仅供应用服务层调度，不支持cgroup/namespace层的调度（比如nomad/k8s）。</li>
+<li>Eureka帮你实现了VIP的服务发现(这里被Ribbon给封装了看不见)</li>
+<li>InetAddress.getAllByName这个调用只是本地拼装IP，没有再次进行DNS请求</li>
+</ul>
+<p>此方案的好处是，假如后续你的服务换成了Consul/etcd/kubernertes，也能无损切换。定时任务就要做到功能单一，不要和“调度”混到一起。</p>
+<h2 id="4-summary"><a class="header" href="#4-summary">4. Summary</a></h2>
+<h4 id="项目收益"><a class="header" href="#项目收益">项目收益</a></h4>
+<p>上述方案已经在生产环境中使用，目前收益如下</p>
+<ul>
+<li>比较俗的，就是个人搞到一个演讲分享的机会，然后部门内评了一个奖并推广</li>
+<li>通过定时执行日志统计出了很多特殊业务场景下的失败BUG并改进，晚上睡觉再也不心虚了</li>
+<li>任务调度与业务真正解藕，没有代码污染，业务代码中可以只留一份JSON作为存档</li>
+<li>统一邮件警报功能，任务挂掉后马上掌握</li>
+</ul>
+<p>特别发现了一些严重的编码问题，比如某些不负责的员工代码中<strong>把异常全局try/catch住，打印一个报错，就认为“我已经处理好异常”了</strong>，这种代码导致了很多任务看似成功实则失败，这种行为的确让人心累，以后招聘一定要好好把关！</p>
+<h4 id="方案缺点"><a class="header" href="#方案缺点">方案缺点</a></h4>
+<p>虽然本方案在小项目组内（也就是200多个任务）完全ok，但是</p>
+<ul>
+<li>阻塞架构：受限于被请求端的超时配置，不支持长阻塞任务获取结果；过多的长阻塞任务<strong>占用数据库大量连接池</strong>。需要用MQ/Webhook来进行回写处理(没做)</li>
+<li>无法检测到Missfired的任务(因为只配置了Job监听器，而没有配置Trigger监听器)</li>
+<li>受限于Quartz本身处理Missfired的逻辑(可以看那个For循环源码)，<strong>重启后cron任务会一次性跑完</strong>，导致可能影响业务，比如邮件集中发一堆被客户吊（这个需要定制Quartz源码）</li>
+</ul>
+<h2 id="5-附录"><a class="header" href="#5-附录">5. 附录</a></h2>
+<h4 id="其它技术调研"><a class="header" href="#其它技术调研">其它技术调研</a></h4>
+<p>通过技术调研(<del>搜索开源项目</del>)，有如下方法</p>
+<ul>
+<li>最原始的crontab+curl脚本实现Trigger: 这样一套做下来，基本上除了开发本人，谁也不敢碰代码了。缺点也非常明显，Shell维护性差</li>
+<li>使用Quartz+分布式锁实现调度(现有状态): 目前还算是比较主流的实现，毕竟不是所有的业务都需要“云化”，很可能几台就够用了，缺点是每台机子都要折腾自己的Bean，只要有人离职就心慌</li>
+<li>使用zk+Quartz实现: 比较完善的一种方案，当然这套系统需要自研要耗费人力，而网上似乎只有<a href="http://www.infoq.com/cn/articles/dangdang-distributed-work-framework-elastic-job">当当网的分布式作业框架elastic-job</a>进行了开源，这个写的很有水平，但是当当的是通过zk注册Bean实现调用Java类，对老系统侵入较强: 需要引入新的Jar包(开源合规/信息安全等等)，还要继承一个黑盒Class，同时它对zk暴露的是Class，不支持微服务RPC调用。</li>
+<li>某闭源zk实现: 某电信级项目中间件，通过定制Zk服务发现，自研线程池与DSL脚本实现，此方案优点是高度定制适配业务，缺点是普通业务团队养不起。</li>
+<li>其它国产框架: XXL-Job等框架. 虽然架构框图画一堆，评奖也很多，但是并没有看出针对上述Quartz缺点(比如阻塞，抽取Loadbalancer，Misfire，上下文持久化)的定制改造，说白了就是一个Wrapper而已，没有达到中间件团队的能力。虽然我认可作者的能力，但我对国产(包括阿里的)开源还是比较谨慎的。(国产开源特点: 面相KPI与个人品牌而开源)</li>
+</ul>
+<p>最后结论是，现有的开源调度系统<strong>都有侵入式</strong>，而且都不支持微服务，因此只好自己进行开发了，上面是我的探索思路，希望会有帮助。我个人还是建议项目组自行定制定时任务，因为每个项目的鉴权，微服务框架，业务执行时间都是不同的，这也是业界好用的不开源，开源的不好用的原因。</p>
+<h4 id="附加题调度器实现bin-packing-systen-design"><a class="header" href="#附加题调度器实现bin-packing-systen-design">附加题：调度器实现（Bin Packing Systen Design）</a></h4>
+<p>某项目需要专门的编译器集群去跑编译任务</p>
+<ul>
+<li>任务是一堆代码，它将消耗一种特殊的硬件进行运行。</li>
+<li>某种硬件设备集群，有两个指标，一个是存放软件源码的磁盘容量【S】，一个是编译速度【V】MB/H；编译器始终高可用，但是可以中途新增编译器；不考虑磁盘加载等非编译时间消耗。</li>
+<li>软件项目不能分拆到两个编译器上跑；同一个编译器可以跑多个项目。</li>
+</ul>
+<p>求给出两个调度设计（均分负载到多台/优先堆满一台）的SASS的方案。如果读者有兴趣的话，可以联系本人内推。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../client/generate-stub-by-swagger.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../server/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../client/generate-stub-by-swagger.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../server/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

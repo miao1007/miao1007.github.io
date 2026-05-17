@@ -1,0 +1,512 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Feign简介与Spring代理自动注入</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../introduce/index.html"><strong aria-hidden="true">2.</strong> Eureka简介</a></li><li class="chapter-item expanded "><a href="../client/index.html"><strong aria-hidden="true">3.</strong> Eureka客户端</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../client/eureka-client-springboot.html"><strong aria-hidden="true">3.1.</strong> EurekaClient与SpringBoot</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-rpc.html"><strong aria-hidden="true">3.2.</strong> EurekaClient的RPC流程与心跳</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-without-spring-boot.html"><strong aria-hidden="true">3.3.</strong> Eureka集成遗留项目</a></li><li class="chapter-item expanded "><a href="../client/generate-stub-by-swagger.html"><strong aria-hidden="true">3.4.</strong> 使用Swagger生成Feign桩</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-with-quartz.html"><strong aria-hidden="true">3.5.</strong> 基于Eureka的分布式定时任务</a></li></ol></li><li class="chapter-item expanded "><a href="../server/index.html"><strong aria-hidden="true">4.</strong> Eureka服务端</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../server/eureka-server-naming.html"><strong aria-hidden="true">4.1.</strong> 命名服务</a></li><li class="chapter-item expanded "><a href="../server/replicate.html"><strong aria-hidden="true">4.2.</strong> Replicate</a></li></ol></li><li class="chapter-item expanded "><a href="../third/index.html"><strong aria-hidden="true">5.</strong> 第三方组件</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../third/feign.html" class="active"><strong aria-hidden="true">5.1.</strong> Feign简介与Spring代理自动注入</a></li><li class="chapter-item expanded "><a href="../third/ribbon.html"><strong aria-hidden="true">5.2.</strong> Ribbon与负载均衡</a></li><li class="chapter-item expanded "><a href="../third/sleuth-log-collector.html"><strong aria-hidden="true">5.3.</strong> Sleuth与日志收集</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../other/reference.html"><strong aria-hidden="true">6.</strong> 参考文献与Wiki</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="feign简介与spring代理自动注入"><a class="header" href="#feign简介与spring代理自动注入">Feign简介与Spring代理自动注入</a></h2>
+<p>Feign是一款Java的基于注解的HTTP客户端，主要在服务端使用较广，属于Netflix系列。本文从动态代理开始介绍，然后推广到如何分离硬编码，到最后基于Spring的扫描装配实现。</p>
+<p>面向读者</p>
+<ul>
+<li>有一定的Feign, Retrofit, Mybatis等基础</li>
+<li>了解Spring，反射，动态代理等技术</li>
+</ul>
+<p>读者将学到</p>
+<ul>
+<li>Feign的关键代码位置</li>
+<li>如何持续改进项目，降低硬编码</li>
+<li>如何自己实现Spring的自动注入</li>
+</ul>
+<h2 id="feign的简单介绍"><a class="header" href="#feign的简单介绍">Feign的简单介绍</a></h2>
+<h4 id="注解与动态代理"><a class="header" href="#注解与动态代理">注解与动态代理</a></h4>
+<p><a href="https://github.com/OpenFeign/feign">Feign</a>本身只是一个注解的Parser，<strong>并没有</strong>负载均衡的功能。它与Retrofit类似，通过注解这种外部DSL拼装出容易理解的HTTP请求，并通过JDK动态代理实现</p>
+<pre><code class="language-java">feign.ReflectiveFeign#newInstance
+</code></pre>
+<p>默认的Handler实现</p>
+<pre><code class="language-java">feign.InvocationHandlerFactory.Default#create
+</code></pre>
+<p>默认动态代理调用实现是</p>
+<pre><code class="language-java">feign.SynchronousMethodHandler#invoke
+</code></pre>
+<h4 id="网络请求客户端"><a class="header" href="#网络请求客户端">网络请求客户端</a></h4>
+<p>网络传输Client是通过对OkHttp/自带/RxJava等客户端的包装实现，只用实现Client接口，就可以对业务进行定制。比如自带的如下</p>
+<pre><code class="language-java">// 自带网络请求实现
+feign.Client.Default#execute
+</code></pre>
+<p>再比如SpringCloud中的负载均衡客户端如下</p>
+<pre><code class="language-java">// Ribbon负载均衡
+org.springframework.cloud.netflix.feign.ribbon.LoadBalancerFeignClient#execute
+</code></pre>
+<p>总的来说，有读过Retrofit的人再看这个难度不大，相反由于使用了Java8，代码量进一步减小</p>
+<blockquote>
+<p>上述过程可以参考Retrofit的相关资料，比如参考<a href="https://www.jianshu.com/p/a56c61da55dd">这里</a></p>
+</blockquote>
+<h4 id=""><a class="header" href="#"></a></h4>
+<h2 id="使用feign一步步简化业务硬编码"><a class="header" href="#使用feign一步步简化业务硬编码">使用Feign一步步简化业务硬编码</a></h2>
+<p>在IT业务开发中，一般会涉及到与其它小组进行对接，其它组可能并没有用Eureka，而是采用了传统的HTTP接口。这时问题就来了，如果有多个业务需要拉通，就需要维护多个URL，传统的手段是采用多个HTTPClient类进行拼装与解析JSON，但是效率非常低（比如某些外包，拿着上万的工资，宁可复制20份url，写20个HTTPClient，也不想办法去思考改进，害人害己，30岁就废了），这个代码例子就不举例了。</p>
+<p>对此，我们可以参考MybatisSpring的Mapper搜索，SpringCloud等源码中的实现方法，并进行学习吸收，实现简化与第三方的拉通。</p>
+<h4 id="使用feign干掉模版代码"><a class="header" href="#使用feign干掉模版代码">使用Feign干掉模版代码</a></h4>
+<p>假如说，我们现有业务系统需要集成对接一个HTTP DNS的服务</p>
+<pre><code class="language-sh"># 下为DNSPod的例子
+$ curl http://119.29.29.29/d?dn=gitbook.com
+104.25.212.20;104.25.213.20  
+</code></pre>
+<p>现在我们可以仿照Feign官网的例子，写一个Demo</p>
+<pre><code class="language-java">DNSPodService service = Feign.builder().decoder(new Decoder() {
+    @Override
+    public List&lt;String&gt; decode(Response response, Type type) throws IOException, DecodeException, FeignException {
+        // 下面没有校验，为了节约版面
+        String s = Util.toString(response.body().asReader());
+        if (s.contains(&quot;;&quot;)) {
+            return Arrays.asList(s.split(&quot;;&quot;));
+        }
+        return Collections.singletonList(s);
+    }
+}).target(DNSPodService.class, &quot;http://119.29.29.29&quot;);
+List&lt;String&gt; ipInfo = service.getIpInfo(&quot;gitbook.io&quot;);
+</code></pre>
+<p>接口如下</p>
+<pre><code class="language-java">// 下面的dn是硬编码，不要在意这些细节，因为我没有引入复杂的Encoder
+public interface DNSPodService {
+    @RequestLine(&quot;GET /d?dn={domain}&quot;)
+    List&lt;String&gt; getIpInfo(@Param(&quot;domain&quot;) String domain);
+}
+</code></pre>
+<p>这样，我们的一个服务就完成了，当接口中的方法比较多时，相对于纯HTTPClient的写法，这种收益就比较明显了。</p>
+<h4 id="通过注解替换java中的地址硬编码"><a class="header" href="#通过注解替换java中的地址硬编码">通过注解替换Java中的地址硬编码</a></h4>
+<p>上面的代码中的Url是在Java中硬编码写死的，这样肯定不好维护。我们考虑加入如下注解</p>
+<pre><code class="language-java">@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface HTTPUrl {
+    String value() default &quot;&quot;;
+}
+</code></pre>
+<p>然后加到接口中</p>
+<pre><code class="language-java">@HTTPUrl(&quot;http://119.29.29.29&quot;)
+public interface DNSPodService {
+	...
+}
+</code></pre>
+<p>接着，使用反射获取值</p>
+<pre><code class="language-java">HTTPUrl anno = DNSPodService.class.getAnnotation(HTTPUrl.class);
+// 此处可以用CucurrentHashMap&lt;Class,String&gt;来做缓存
+String url = anno.value();
+// 下文省略了Decoder
+Feign.builder().target(DNSPodService.class, url)
+</code></pre>
+<p>通过注解标记，看起来更加连贯，读者心理上阅读代码会更加顺畅，看到这个接口就能想到有哪些服务需要维护。</p>
+<h4 id="通过properties配置中心数据字典干掉注解硬编码"><a class="header" href="#通过properties配置中心数据字典干掉注解硬编码">通过Properties/配置中心/数据字典干掉注解硬编码</a></h4>
+<p>虽然这样修改有了一定改进，但是这样做仍然没有解决硬编码的问题，我们首先修改接口为如下</p>
+<pre><code class="language-diff">+ @HTTPUrl(&quot;dnspod.addr&quot;)
+- @HTTPUrl(&quot;http://119.29.29.29&quot;)
+public interface DNSPodService {
+
+}
+</code></pre>
+<p>接着新增一个命名服务的接口 </p>
+<pre><code class="language-java">// 此接口将读取&quot;dnspod.addr&quot;，并返回真正的url
+public interface Resolvable {
+    String resolve(String key);
+}
+</code></pre>
+<p>然后我们先实现一个基于properties的实现类</p>
+<pre><code class="language-java">public class PropertiesResolvable implements  Resolvable {
+    Environment env;
+    public PropertiesResolvable(Environment env) {
+        this.env = env;
+    }
+    @Override
+    public String resolve(String key) {
+        return env.getProperty(key);
+    }
+}
+</code></pre>
+<p>然后在<code>application.properties</code>中配置好这个kv，接着跑起来</p>
+<pre><code class="language-java">// 你的SpringBoot项目实现CommandLineRunner接口
+@Autowired
+Environment env;
+
+@Override
+public void run(String... args) throws Exception {
+    HTTPUrl anno = DNSPodService.class.getAnnotation(HTTPUrl.class);
+    String value = anno.value();
+    Resolvable resolvable = new PropertiesResolvable(env);
+    String realAddr = resolvable.resolve(value);
+    // 下文省略了Decoder
+    DNSPodService service = Feign.builder().target(DNSPodService.class, realAddr);
+    List&lt;String&gt; ipInfo = service.getIpInfo(&quot;gitbook.io&quot;);
+    System.out.println(&quot;ipInfo = &quot; + ipInfo);
+}
+</code></pre>
+<p>可以发现，目前我们实现了将硬编码管理转移到了Properties上，同时没有丢失Java代码的可读性</p>
+<p>使用配置中心/数据字典的例子同上，只要实现了<code>Resolvable</code>接口即可热部署。</p>
+<h2 id="使用spring与扫描器实现自动注册"><a class="header" href="#使用spring与扫描器实现自动注册">使用Spring与扫描器实现自动注册</a></h2>
+<h4 id="制定目标----通过autowired自动生成feign实例"><a class="header" href="#制定目标----通过autowired自动生成feign实例">制定目标----通过<code>@Autowired</code>自动生成Feign实例</a></h4>
+<p>我们希望通过自动/主动装配实现Feign自动生成接口</p>
+<pre><code class="language-java">@Autowired
+private DNSPodService service;
+//然后直接使用
+</code></pre>
+<p>在本文开始时，曾经讲过可以参考Mybatis扫描Mapper的形式，或者SpringCloud的形式实现Feign的自动注入。</p>
+<p>比如Mybatis通过如下注解实现注入</p>
+<pre><code class="language-java">org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.AutoConfiguredMapperScannerRegistrar
+</code></pre>
+<p>再比如SpringCloud中通过如下注解实现注入</p>
+<pre><code class="language-java">org.springframework.cloud.netflix.feign.FeignClientsRegistrar#registerFeignClients
+</code></pre>
+<h4 id="准备工作"><a class="header" href="#准备工作">准备工作</a></h4>
+<p>我们首先仿照Mybatis等框架，写一个<code>@Enable</code>的注解</p>
+<pre><code class="language-java">@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@Documented
+@Import(ClientRegistrar.class)
+public @interface EnableScanFeign {
+    String path() default &quot;&quot;;
+}
+</code></pre>
+<p>并注解到Application中</p>
+<pre><code class="language-java">@SpringBootApplication
+@EnableScanFeign(path = &quot;com.example.demo.feign&quot;)
+public class DemoApplication{}
+</code></pre>
+<blockquote>
+<p><code>@import</code>这个注解除了直接注入各种Config外，也可以使用自定义的Selector</p>
+</blockquote>
+<p>接着实现<code>ClientRegistrar</code>，它将在启动时读取注解的上下文</p>
+<pre><code class="language-java">
+public class ClientRegistrar implements ImportBeanDefinitionRegistrar {
+
+    @Override
+    public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
+        String path = ((String) metadata.getAnnotationAttributes(EnableScanFeign.class.getName()).get(&quot;path&quot;));
+        ResolverUtil&lt;Class&lt;?&gt;&gt; resolverUtil = new ResolverUtil&lt;Class&lt;?&gt;&gt;();
+        resolverUtil.findAnnotated(HTTPUrl.class, path);
+        Set&lt;Class&lt;? extends Class&lt;?&gt;&gt;&gt; classes = resolverUtil.getClasses();
+        System.out.println(&quot;classes = &quot; + classes);
+    }
+}
+</code></pre>
+<p>这样如果顺利的话，你就可以看到被扫描的接口了，不过目前这些只是接口，而没有实现类</p>
+<blockquote>
+<p>为了降低文章难度，我们这里借用了Mybatis的VFS工具类，因此暂时需要导入Mybatis的包，你可以学习扫描jar包是如何实现的。此外，还有更简单的ClassPathMapperScanner或者更简单的ClassPathScanningCandidateComponentProvider也可以学习一个</p>
+</blockquote>
+<h4 id="bean的注册流程"><a class="header" href="#bean的注册流程">Bean的注册流程</a></h4>
+<p>在Spring第三方库的开发中，我们可以从中学到常见的注册方法如下</p>
+<pre><code class="language-java">// 接着上文的System.out来写
+classes.stream()
+    .map(this::generateHolder)// todo 生成BeanDefinitionHolder
+    .forEach(holder -&gt;
+         BeanDefinitionReaderUtils.registerBeanDefinition(holder, registry)
+);
+</code></pre>
+<p>其中generateHolder就是我们抽出来的需要完善的方法，本文没有直接用Spring自带的来生成</p>
+<h4 id="配置factorybean"><a class="header" href="#配置factorybean">配置FactoryBean</a></h4>
+<p>FactoryBean也是一种Bean，在真实项目中一般定制的就是这里</p>
+<pre><code class="language-java">public static class ClientFactoryBean implements FactoryBean {
+
+    // 这里通过properties写入
+    private Class type;
+    private String path;
+
+    public Class getType() {
+        return type;
+    }
+    public void setType(Class type) {
+        this.type = type;
+    }
+    public String getPath() {
+        return path;
+    }
+    public void setPath(String path) {
+        this.path = path;
+    }
+    @Override
+    public Object getObject() throws Exception {
+        return Feign.builder()
+            .decoder(/*同上*/)
+            .target(DNSPodService.class, path);
+    }
+    @Override
+    public Class&lt;?&gt; getObjectType() {
+        return type;
+    }
+    @Override
+    public boolean isSingleton() {
+        return false;
+    }
+}
+</code></pre>
+<h4 id="beanholder的实现"><a class="header" href="#beanholder的实现">BeanHolder的实现</a></h4>
+<p>这里其实很简单，就是首先构造一个beanDefinition，接着通过property传递参数给Factory即可</p>
+<pre><code class="language-java">// 带 Aware 的继承，都可以在生命周期中获得某个上下文对象
+public class ClientRegistrar implements ImportBeanDefinitionRegistrar, EnvironmentAware {
+
+    Environment environment;
+
+    @Override
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
+    }
+
+    // 除了样板代码外，主要就是传递property
+    private BeanDefinitionHolder generateHolder(Class&lt;? extends Class&lt;?&gt;&gt; aClass) {
+        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(ClientFactoryBean.class);
+        beanDefinitionBuilder.addPropertyValue(&quot;type&quot;, aClass);
+        String value = aClass.getAnnotation(HTTPUrl.class).value();
+        beanDefinitionBuilder.addPropertyValue(&quot;path&quot;, environment.getProperty(value));
+        BeanDefinition beanDefinition = beanDefinitionBuilder.getBeanDefinition();
+        return new BeanDefinitionHolder(beanDefinition, aClass.getName());
+    }
+}
+</code></pre>
+<h4 id="测试用例"><a class="header" href="#测试用例">测试用例</a></h4>
+<p>测试如下，发现只要是Autowired即可自动注解</p>
+<pre><code class="language-java">@SpringBootApplication
+@EnableScanFeign(path = &quot;com.example.demo.feign&quot;)
+public class DemoApplication implements ApplicationRunner {
+
+    @Autowired
+    DNSPodService service;
+
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+    
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        List&lt;String&gt; ipInfo = service.getIpInfo(&quot;www.qq.com&quot;);
+        System.out.println(&quot;ipInfo = &quot; + ipInfo);
+    }
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../third/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../third/ribbon.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../third/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../third/ribbon.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

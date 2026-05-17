@@ -1,0 +1,8 @@
+GET localhost:9200/_analyze
+Content-Type: application/json
+
+{
+  "analyzer": "ik_smart",
+  "text":     "我对普通的人类没有兴趣。你们之中要是有外星人、未来人、异世界人、超能力者，就尽管来找我吧"
+}
+###

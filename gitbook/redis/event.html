@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Event loop</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="event.html" class="active"><strong aria-hidden="true">2.</strong> Event loop</a></li><li class="chapter-item expanded "><a href="cow.html"><strong aria-hidden="true">3.</strong> Copy on write</a></li><li class="chapter-item expanded "><a href="rehash.html"><strong aria-hidden="true">4.</strong> Incremental Rehash</a></li><li class="chapter-item expanded "><a href="distribute-lock.html"><strong aria-hidden="true">5.</strong> Distribute Lock</a></li><li class="chapter-item expanded "><a href="session.html"><strong aria-hidden="true">6.</strong> Spring-session</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Redis网络事件端到端流程流程</p>
+<hr />
+<h2 id="文章速读"><a class="header" href="#文章速读">文章速读</a></h2>
+<p>下面为Redis在运行时处理Socket事件的伪代码，Select的本质上是模式匹配与高阶函数(在C中用函数指针进行模拟)，全程单线程运行(BGSAVE需要fork除外)。</p>
+<pre><code class="language-java">// Redis 中 Socket 事件的循环处理伪代码
+while(true){
+  // 通过Epoll,Select等方法获取当前的可用的SocketDescriptor数组
+  aeApiPoll(eventLoop, ...);
+  // 对可用Socket依次进行调用函数
+  eventLoop.forEach(event -&gt; {
+    switch(event.mask){
+      case AE_READABLE:
+        // 调用相应的函数指针，即业务代码...
+        rfileProc(event, ...);
+        break;
+      case AE_WRITABLE:
+        wfileProc(event, ...);
+        break;
+    }
+  })
+}
+</code></pre>
+<h2 id="io-multiplexing--与-select系统调用"><a class="header" href="#io-multiplexing--与-select系统调用">IO multiplexing  与 Select系统调用</a></h2>
+<p>Redis在内部采用非阻塞同步IO作为底层库实现，看起来很高大上，实际上就是一个不断循环搜索可用<code>I/O descriptor</code>的系统调用，它在OS上有select, epoll, kqueue等实现。在本篇中，将以Select为例介绍I/O多路复用。</p>
+<p>Select是一个网络相关的POSIX调用，可以用 <a href="https://linux.die.net/man/2/select">man 2 select</a> 查看具体的介绍。</p>
+<blockquote>
+<p>select() examines the I/O descriptor sets whose addresses are passed in readfds, writefds, and errorfds to see if some of their descriptors <strong>are ready for reading, are ready for writing</strong>, or have an exceptional condi-tion pending, respectively. </p>
+</blockquote>
+<p>它内部通过轮询一个默认长度为1024的数组查询<code>可读</code> 或者 <code>可写</code>的<a href="https://linux.die.net/man/3/fd_set">Socket descriptor</a>(在C中用 <em>fd_set</em> 表示, a fixed size buffer)，并返回给用户，比如下图就是一个查询可读Socket的Select流程。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-bf277cfe37275b25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Select" /></p>
+<p>通过Select可以一次性单线程通过内核遍历大量的Socket连接，再依次进行事件处理。</p>
+<ol>
+<li>把大量IO管理的脏活交给内核了，可以轻松设计基于Event loop的模型，单线程就搞定IO，之后产生的事件再交给其他模块(比如执行线程池)，业务代码更容易维护</li>
+<li>相比于以前每次新来一个连接就开一个线程的做法，Select节约了线程创建、切换等资源损失</li>
+</ol>
+<blockquote>
+<p>至于Select具体实现的源码，已经属于SystemCall层，可以翻下在线或者教学用的迷你Linux学习下<a href="http://lxr.free-electrons.com/source/fs/select.c">源码</a>，本文就不深挖了。此外，这里有一个对比阻塞与非阻塞的<a href="https://codereview.stackexchange.com/questions/98558/non-blocking-unix-domain-socket">问答</a></p>
+</blockquote>
+<h4 id="select在redis中的封装"><a class="header" href="#select在redis中的封装">Select在Redis中的封装</a></h4>
+<p>Redis实现了对底层的系统调用  Select, epoll, export, kqueue 的适配，以支持多个平台。接下来以Select为例，看一下Redis是如何封装Select的</p>
+<pre><code class="language-c">// ae_select.c
+// Redis 对 Select 的封装入口
+static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {
+    aeApiState *state = eventLoop-&gt;apidata;
+    int retval, j, numevents = 0;
+	
+    memcpy(&amp;state-&gt;_rfds,&amp;state-&gt;rfds,sizeof(fd_set));
+    memcpy(&amp;state-&gt;_wfds,&amp;state-&gt;wfds,sizeof(fd_set));
+    // 遍历是否有可读可写的 Socket 描述符
+    // 1. eventLoop-&gt;maxfd+1: 文件描述符数量+1
+    // 2. &amp;state-&gt;_rfds:可读的 Socket descriptor
+    // 3. &amp;state-&gt;_wfds: 可写的 Socket descriptor
+    // 4. NULL: 错误的 Socket descriptor，NUll表示在Redis中没有监听
+    // 5. tvp: 超时配置 timeval {秒 + 毫秒}, 为0时不等待, 为null时阻塞等待
+    retval = select(eventLoop-&gt;maxfd+1,
+                &amp;state-&gt;_rfds,&amp;state-&gt;_wfds,NULL,tvp);
+  	// 如果刚刚Select遍历搜索到的话
+    if (retval &gt; 0) {
+      	// 就再遍历一遍，并添加 Mask
+        for (j = 0; j &lt;= eventLoop-&gt;maxfd; j++) {
+            int mask = 0;
+            aeFileEvent *fe = &amp;eventLoop-&gt;events[j];
+			
+            if (fe-&gt;mask == AE_NONE) continue;
+            if (fe-&gt;mask &amp; AE_READABLE &amp;&amp; FD_ISSET(j,&amp;state-&gt;_rfds))
+                mask |= AE_READABLE;
+            if (fe-&gt;mask &amp; AE_WRITABLE &amp;&amp; FD_ISSET(j,&amp;state-&gt;_wfds))
+                mask |= AE_WRITABLE;
+          	//fire这里翻译为`触发事件`比较合理，为将要触发的事件放入fd与mask
+            eventLoop-&gt;fired[numevents].fd = j;
+            eventLoop-&gt;fired[numevents].mask = mask;
+            numevents++;
+        }
+    }
+    return numevents;
+}
+</code></pre>
+<p>通过将此函数放在一个while循环中，Redis就可以通过一个线程对IO事件进行高效处理，下文将详细讲。</p>
+<h2 id="redis-套接字处理流程"><a class="header" href="#redis-套接字处理流程">Redis 套接字处理流程</a></h2>
+<p>我们首先从main函数开始</p>
+<h4 id="事件循环event-loop"><a class="header" href="#事件循环event-loop">事件循环(Event loop)</a></h4>
+<p>可以看出这里是一个简单的事件循环，关键点是<code>aeProcessEvents</code>函数</p>
+<pre><code class="language-c">// server.c 的 main 方法中调用 ae.c 的事件循环函数 aeMain
+void aeMain(aeEventLoop *eventLoop) {
+    eventLoop-&gt;stop = 0;
+    while (!eventLoop-&gt;stop) {
+        if (eventLoop-&gt;beforesleep != NULL)
+            eventLoop-&gt;beforesleep(eventLoop);
+        aeProcessEvents(eventLoop, AE_ALL_EVENTS);
+    }
+}
+</code></pre>
+<h4 id="事件处理"><a class="header" href="#事件处理">事件处理</a></h4>
+<p>接着分析 aeProcessEvents，它用于处理Redis的所有事件</p>
+<pre><code class="language-c">// ae.c 的 aeProcessEvents 函数，处理Redis事件
+// 本文只分析Socket事件，为了版面，将删除与Socket无关的代码
+int aeProcessEvents(aeEventLoop *eventLoop, int flags)
+{
+    int processed = 0, numevents;
+
+    /* Nothing to do? return ASAP */
+    if (!(flags &amp; AE_TIME_EVENTS) &amp;&amp; !(flags &amp; AE_FILE_EVENTS)) return 0;
+    // 此处略去定时相关代码...
+    if (eventLoop-&gt;maxfd != -1 ||
+        ((flags &amp; AE_TIME_EVENTS) &amp;&amp; !(flags &amp; AE_DONT_WAIT))) {
+        int j;
+        aeTimeEvent *shortest = NULL;
+        struct timeval tv, *tvp;
+        // 设置 select 的超时事件
+     	if (flags &amp; AE_DONT_WAIT) {  	
+            tv.tv_sec = tv.tv_usec = 0;
+            // tvp 为 0 时 不等待                     
+            tvp = &amp;tv;
+        } else {
+            // tvp 为 null 时 阻塞等待
+            tvp = NULL;
+        }
+        // 调用对 Select 的包装，这个刚刚讲过了
+        numevents = aeApiPoll(eventLoop, tvp);
+        // 对可读与可写的事件进行处理
+        for (j = 0; j &lt; numevents; j++) {
+            // 读取刚刚通过Select获得的Event
+            aeFileEvent *fe = &amp;eventLoop-&gt;events[eventLoop-&gt;fired[j].fd];
+            int mask = eventLoop-&gt;fired[j].mask;
+            int fd = eventLoop-&gt;fired[j].fd;
+            int rfired = 0;
+            // 可读Socket处理
+            if (fe-&gt;mask &amp; mask &amp; AE_READABLE) {
+                rfired = 1;
+                // 调用函数指针           
+                fe-&gt;rfileProc(eventLoop,fd,fe-&gt;clientData,mask);
+            }
+            // 可写Socket处理
+            if (fe-&gt;mask &amp; mask &amp; AE_WRITABLE) {
+                if (!rfired || fe-&gt;wfileProc != fe-&gt;rfileProc)
+                    fe-&gt;wfileProc(eventLoop,fd,fe-&gt;clientData,mask);
+            }
+            processed++;
+        }
+    }
+	// 此处略去定时相关代码...
+    return processed; /* return the number of processed file/time events */
+}
+</code></pre>
+<h4 id="调用业务-调用函数指针"><a class="header" href="#调用业务-调用函数指针">调用业务( 调用函数指针)</a></h4>
+<p>接下来就进行具体的调用<a href="https://zh.wikipedia.org/wiki/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88">函数指针</a>了。这部分进行反序列化操作并执行读写事务，C中的函数指针在一定程度上类似于高级语言中的闭包(<em>Closure</em>)，比如这里的<em>aeFileProc</em>就有多个实现，下面是它的原型与某个实现</p>
+<pre><code class="language-c">// 对函数的定义
+typedef void aeFileProc(struct aeEventLoop *eventLoop, int fd, void *clientData, int mask);
+// 对函数的实现
+void sendReplyToClient(aeEventLoop *el, int fd, void *privdata, int mask) {
+    UNUSED(el);
+    UNUSED(mask);
+    // 业务代码...
+    writeToClient(fd,privdata,1);
+}
+</code></pre>
+<blockquote>
+<p>可以在Clion使用<code>cmd</code> + <code>shift</code> + <code>f</code>进行全局文本搜索<code>aeCreateFileEvent</code>，就可以找到所有的业务了。</p>
+</blockquote>
+<h2 id="附录"><a class="header" href="#附录">附录</a></h2>
+<h4 id="为什么nio中select调用操作有时会占用很多cpu"><a class="header" href="#为什么nio中select调用操作有时会占用很多cpu">为什么NIO中Select调用操作有时会占用很多CPU？</a></h4>
+<p>说个NIO相关的吧，最近在用JVisualvm抽样CPU使用时，发现MQ的Select调用占用非常高的CPU时间。通过定位，发现：</p>
+<ol>
+<li>有大量的连接通过MQ发出后无响应</li>
+<li>自身由于积压导致可写的连接没被处理</li>
+<li>进而引发FullGC，导致更加恶化</li>
+</ol>
+<p>个人猜测，Select在某些恶劣环境下<strong>不擅长于长连接或者不稳定的连接</strong>而出现空转循环。我的建议：</p>
+<ol>
+<li>配置Unix参数，减小栈内存的分配量，减少Socket的等待超时</li>
+<li>切忌在此循环线程上执行耗时任务，建议将产生的事件交给线程池</li>
+<li>将Select超时设计为阻塞等待，减少空转次数</li>
+</ol>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<ol>
+<li>http://origin.redisbook.com/</li>
+<li><a href="https://www.amazon.cn/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0-%E9%BB%84%E5%81%A5%E5%AE%8F-%E8%91%97/dp/B00LZNV5B4/ref=sr_1_2?ie=UTF8&amp;qid=1482049301&amp;sr=8-2&amp;keywords=redis">Redis设计与实现 (数据库技术丛书)</a></li>
+<li><a href="https://www.amazon.cn/%E5%9B%BE%E4%B9%A6/dp/B00GOM5IL4">深入浅出Node.js</a> </li>
+<li>https://www.zhihu.com/question/28594409</li>
+<li><a href="https://www.ibm.com/developerworks/cn/aix/library/0807_liugb_tcpip/#ibm-pcon">TCP/IP 应用程序的通信连接模式</a></li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="cow.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="cow.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

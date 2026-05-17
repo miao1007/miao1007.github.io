@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>EurekaClient与SpringBoot</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../introduce/index.html"><strong aria-hidden="true">2.</strong> Eureka简介</a></li><li class="chapter-item expanded "><a href="../client/index.html"><strong aria-hidden="true">3.</strong> Eureka客户端</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../client/eureka-client-springboot.html" class="active"><strong aria-hidden="true">3.1.</strong> EurekaClient与SpringBoot</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-rpc.html"><strong aria-hidden="true">3.2.</strong> EurekaClient的RPC流程与心跳</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-without-spring-boot.html"><strong aria-hidden="true">3.3.</strong> Eureka集成遗留项目</a></li><li class="chapter-item expanded "><a href="../client/generate-stub-by-swagger.html"><strong aria-hidden="true">3.4.</strong> 使用Swagger生成Feign桩</a></li><li class="chapter-item expanded "><a href="../client/eureka-client-with-quartz.html"><strong aria-hidden="true">3.5.</strong> 基于Eureka的分布式定时任务</a></li></ol></li><li class="chapter-item expanded "><a href="../server/index.html"><strong aria-hidden="true">4.</strong> Eureka服务端</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../server/eureka-server-naming.html"><strong aria-hidden="true">4.1.</strong> 命名服务</a></li><li class="chapter-item expanded "><a href="../server/replicate.html"><strong aria-hidden="true">4.2.</strong> Replicate</a></li></ol></li><li class="chapter-item expanded "><a href="../third/index.html"><strong aria-hidden="true">5.</strong> 第三方组件</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../third/feign.html"><strong aria-hidden="true">5.1.</strong> Feign简介与Spring代理自动注入</a></li><li class="chapter-item expanded "><a href="../third/ribbon.html"><strong aria-hidden="true">5.2.</strong> Ribbon与负载均衡</a></li><li class="chapter-item expanded "><a href="../third/sleuth-log-collector.html"><strong aria-hidden="true">5.3.</strong> Sleuth与日志收集</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../other/reference.html"><strong aria-hidden="true">6.</strong> 参考文献与Wiki</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="springboot的eureka-client分析"><a class="header" href="#springboot的eureka-client分析">SpringBoot的Eureka-client分析</a></h2>
+<p>虽然本文主要讲的是Eureka，但是绝大部分初级中级读者应该还是从SpringBoot开始上手，因此本部分将讲解SpringBoot下Eureka的启动流程。</p>
+<blockquote>
+<p>首先要注意的是，由于作者不精通SpringBoot，下面断点方法有投机取巧的意味，仅用于拉通对齐端到端主流程，而不能让你深入理解SpringBoot的启动原理</p>
+</blockquote>
+<h2 id="结论"><a class="header" href="#结论">结论</a></h2>
+<p>通过进一步的封装，将原生的<code>eureka-client</code>转换为SpringBoot常用的yaml，通过AutoConfiguration这种注解DSL帮你节约样板代码的配置时间</p>
+<ul>
+<li>SpringBoot-starter等框架大部分均是一层包装，千万不要畏惧</li>
+<li>善于用工具解决问题，避免把时间耗在Spring的细节中</li>
+<li>充分利用构造函数来断点分析Bean</li>
+</ul>
+<h2 id="预先准备"><a class="header" href="#预先准备">预先准备</a></h2>
+<ul>
+<li>按照网上任意教程搭建Server与Client的环境，比如<a href="http://www.baeldung.com/spring-cloud-netflix-eureka">这里</a></li>
+<li>旗舰版IntellijIDEA工具</li>
+</ul>
+<h2 id="springboot自动装箱扫盲"><a class="header" href="#springboot自动装箱扫盲">SpringBoot自动装箱扫盲</a></h2>
+<h4 id="configuration注解的含义"><a class="header" href="#configuration注解的含义">@Configuration注解的含义</a></h4>
+<p>我们首先复习一下传统Spring的Java注解。除了传统的XML标记Bean以外，专业书籍中更推荐使用JavaConfig配置来代替繁琐的Xml标记</p>
+<blockquote>
+<p>比如在《Spring In Action》中，作者是这样推荐的
+&quot;I’d favor the type-safe and more powerful JavaConfig over XML.&quot;</p>
+</blockquote>
+<p>通过在传统项目的<code>web.xml(WebApplicationInitializer)</code>中配置<code>@ComponentScan</code>或者SpringBoot中配置<code>@SpringBootApplication</code>进行扫描，带有<code>@Configuration</code>的Class将被自动注入，比如下面就是一个Bean。</p>
+<pre><code class="language-java">@Configuration
+public class WebConfig{
+    @Bean
+    public SSOFilter ssofilter(){
+        ....
+    }
+}
+</code></pre>
+<h4 id="enableautoconfiguration的含义"><a class="header" href="#enableautoconfiguration的含义">@EnableAutoConfiguration的含义</a></h4>
+<p>在<code>@SpringBootApplication</code>注解中，最重要的是<code>EnableAutoConfiguration</code>这个注解，它就是SpringBoot自动装配各种配置的关键</p>
+<pre><code class="language-java">// EnableAutoConfiguration注解对应的代码
+@Import({EnableAutoConfigurationImportSelector.class})
+public @interface EnableAutoConfiguration {
+   ...
+}
+</code></pre>
+<p>我们对它的最终实现类进行如下断点</p>
+<pre><code class="language-java">org.springframework.boot.autoconfigure.AutoConfigurationImportSelector#selectImports
+</code></pre>
+<p>可以发现这里调用了SpringFactoriesLoader读取factories并返回了一个数组</p>
+<pre><code class="language-java">org.springframework.core.io.support.SpringFactoriesLoader#loadSpringFactories
+</code></pre>
+<blockquote>
+<p>SpringFactoriesLoader是老Spring项目中已经存在的工具类(比如Dubbo中对Bean的xsd进行定制以支持Zookeeper)，而非SpringBoot新造的轮子。它硬编码了<code>META-INF/spring.factories</code>作为properties配置读取并反序列化，并通过反射实例化标记为<code>@Configuration</code>的JavaConfig</p>
+<p>—— 此部分可以参考《SpringBoot揭秘: 快速构建微服务》</p>
+</blockquote>
+<p>所以说 ，<code>EnableAutoConfiguration</code>并不是什么黑科技，它只是反序列化了properties配置并读取JavaConfig，并没有很高深的技巧。</p>
+<p>这里就不详细讲了，在本场景中返回了70多个bean，这些将后续被实例化并加载到上下文后进行Refresh。</p>
+<p>如果读者有兴趣的话，可以参考mybatis-starter中的配置，这个比Eureka依赖更简单，更加适合入门学习</p>
+<h2 id="eureka都自动注入了啥"><a class="header" href="#eureka都自动注入了啥">Eureka都自动注入了啥</a></h2>
+<h4 id="eureka中的autoconfiguration"><a class="header" href="#eureka中的autoconfiguration">Eureka中的AutoConfiguration</a></h4>
+<p>我们接着去查看Eureka中的配置文件(spring-cloud-netflix-eureka-client-1.4.2.RELEASE.jar!/META-INF/spring.factories)，可以发现内部有如下配置</p>
+<pre><code class="language-properties"># 注意: value的前缀被我节约版面干掉了
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+EurekaClientConfigServerAutoConfiguration,\
+EurekaDiscoveryClientConfigServiceAutoConfiguration,\
+EurekaClientAutoConfiguration,\
+RibbonEurekaAutoConfiguration,\
+EurekaDiscoveryClientConfiguration
+...
+</code></pre>
+<p>这么多配置如何分析呢，对于这类问题我们可以考虑购买高效工具(IntellijIDEA)来提高生产力</p>
+<p>首先我们最常见使用的对象是这个</p>
+<pre><code class="language-java">@Autowired
+private DiscoveryClient discoveryClient;
+</code></pre>
+<p>使用IDEA的行左边绿色的Bean分析功能，可以发现是<code>CompositeDiscoveryClientAutoConfiguration</code>注入的。</p>
+<p>打开这个Config，在构造<code>compositeDiscoveryClient</code>下打断点，可以发现实现类分别是<code>EurekaDiscoveryClient</code>与<code>SimpleDiscoveryClient</code>，明显前一个才是真正负责RPC业务的客户端。</p>
+<p>接着在<code>EurekaDiscoveryClient</code>的构造函数上打断点，发现构造这个是在<code>EurekaClientAutoConfiguration</code>被调用，两个入参均为netflix的包名，说明我们已经走到Spring封装的尽头</p>
+<pre><code class="language-java">@Bean
+public DiscoveryClient discoveryClient(EurekaInstanceConfig config, EurekaClient client) {
+  return new EurekaDiscoveryClient(config, client);
+}
+</code></pre>
+<p>接下来依次分析config与client的构造函数</p>
+<h4 id="eurekainstanceconfig"><a class="header" href="#eurekainstanceconfig">EurekaInstanceConfig</a></h4>
+<p>第一个比较好分析，它只是一个Properties类</p>
+<pre><code class="language-java">@ConfigurationProperties(&quot;eureka.instance&quot;)
+public class EurekaInstanceConfigBean {
+  //可以发现这个类就是一个单纯的反序列化类
+}
+</code></pre>
+<h4 id="eurekaclient"><a class="header" href="#eurekaclient">EurekaClient</a></h4>
+<p>这部分在断点中为动态代理，实现类是CloudEurekaClient，我们在它的构造函数上打断点</p>
+<pre><code class="language-java">public CloudEurekaClient(ApplicationInfoManager applicationInfoManager,
+                         EurekaClientConfig config,
+                         AbstractDiscoveryClientOptionalArgs&lt;?&gt; args,
+                         ApplicationEventPublisher publisher) {
+  //这里进行了耗时的注册初始化等流程，后续我们会在neflix中单独分析
+  super(applicationInfoManager, config, args);
+  this.applicationInfoManager = applicationInfoManager;
+  this.publisher = publisher;
+  this.eurekaTransportField = ReflectionUtils.findField(DiscoveryClient.class, &quot;eurekaTransport&quot;);
+  ReflectionUtils.makeAccessible(this.eurekaTransportField);
+}
+</code></pre>
+<p>可以发现，在如下位置进行<code>@Lazy</code>初始化Bean</p>
+<pre><code class="language-java">org.springframework.cloud.netflix.eureka.EurekaClientAutoConfiguration.RefreshableEurekaClientConfiguration#eurekaClient
+</code></pre>
+<p>这里注入了3个类</p>
+<ul>
+<li>ApplicationInfoManager: Spring 直接注入的Singleton</li>
+<li>EurekaClientConfigBean: 反序列化<code>eureka.client</code>的配置信息</li>
+<li>EurekaInstanceConfig: 同上,反序列化<code>eureka.instance</code>的配置信息</li>
+</ul>
+<p>这样EurekaClient的启动流程就分析完了</p>
+<h4 id="总结"><a class="header" href="#总结">总结</a></h4>
+<p>说白了SpringBoot就是自动帮你反序列化并new出来一个Client，并配置了很多默认值。</p>
+<h2 id="关于enablediscoveryclient注解"><a class="header" href="#关于enablediscoveryclient注解">关于<code>@EnableDiscoveryClient</code>注解</a></h2>
+<p>读者可能会问：为什么这个注解放到最后写呢，它明明应该是“入口”啊。</p>
+<p>关于这个入口，读者可以做一个黑盒实验，把<code>@EnableDiscoveryClient</code>注解给去掉重新跑。发现无论是否加这个注解，在默认的配置下，都会自动注入<code>EurekaClient</code>这些Bean，EurekaClient也照样会发送RPC心跳请求。</p>
+<p>首先配置日志等级</p>
+<pre><code class="language-properties">logging.level.org.springframework.boot.autoconfigure=DEBUG
+</code></pre>
+<p>我们点击进入这个注解，这个注解实际实现类是<code>EnableDiscoveryClientImportSelector</code>，在这里打上断点</p>
+<pre><code class="language-java">org.springframework.cloud.client.discovery.EnableDiscoveryClientImportSelector#selectImports
+</code></pre>
+<p>然后启动SpringBoot，在<code>Edgware.SR1</code>版本下，断点进入，返回</p>
+<pre><code class="language-java">org.springframework.cloud.client.serviceregistry.AutoServiceRegistrationConfiguration
+</code></pre>
+<p>这个类基本啥也没干，只是一个反序列化类</p>
+<p>因此网上大部分的Eureka源码分析文章从第一步入口就得出了错误的结论，这个注解与<code>@EnableAutoConfiguration</code>虽然用的都是一个<code>SpringFactoriesLoader</code>，但是<strong>并不是它帮你组装了各种类</strong>，也不是一个开关，返回的并不是同一个值。</p>
+<p>因此建议各位读者无论看我的文章还是其他的博文，都要有<a href="https://program-think.blogspot.com/2013/05/difference-between-fact-and-opinion.html">批判性思维</a>。除了精确校对的技术书籍，博客中的内容都是需要验证的。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../client/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../client/eureka-client-rpc.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../client/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../client/eureka-client-rpc.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
