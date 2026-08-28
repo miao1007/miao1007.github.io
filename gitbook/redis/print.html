@@ -1,0 +1,878 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="event.html"><strong aria-hidden="true">2.</strong> Event loop</a></li><li class="chapter-item expanded "><a href="cow.html"><strong aria-hidden="true">3.</strong> Copy on write</a></li><li class="chapter-item expanded "><a href="rehash.html"><strong aria-hidden="true">4.</strong> Incremental Rehash</a></li><li class="chapter-item expanded "><a href="distribute-lock.html"><strong aria-hidden="true">5.</strong> Distribute Lock</a></li><li class="chapter-item expanded "><a href="session.html"><strong aria-hidden="true">6.</strong> Spring-session</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Redis是一款基于内存的NoSQL，本部分分析了Redis的部分源码</p>
+<h4 id="准备工作"><a class="header" href="#准备工作">准备工作</a></h4>
+<ul>
+<li>阅读工具：Clion 与 <a href="https://gist.github.com/jroyalty/f78dbbaf31b92abe3be5">CMakeList.txt</a></li>
+<li>Redis版本: 3.2.5</li>
+</ul>
+<h4 id="redis的安装"><a class="header" href="#redis的安装">Redis的安装</a></h4>
+<p>Mac测试环境下进行如下安装</p>
+<pre><code class="language-sh">brew install redis
+</code></pre>
+<p>接着配置用户、监听、端口与鉴权，最后启动Redis-Server即可。具体操作在网上有很多<a href="https://redis.io/topics/quickstart">教程</a>，这里就不讲了。</p>
+<blockquote>
+<p>注意在公网上一定要配置<strong>鉴权</strong>、白名单与端口，否则就要交比特币赔钱了。</p>
+</blockquote>
+<h4 id="断点方法"><a class="header" href="#断点方法">断点方法</a></h4>
+<p>学习任何一个语言或者框架要做的三件事：编译、Log与断点。以前都是使用VC断点的，现在有了更先进的工具，使用方法如下</p>
+<p>导入步骤</p>
+<ol>
+<li>使用Clion打开redis源码，并复制替换刚刚的CMakeList</li>
+<li>编译时，首先直接在Clion的终端(Terminal)运行<code>make</code>编译</li>
+<li>调试时，配置Clion的<code>Run/Debug Configurations</code>，并选择Excutable为<code>./bin/redis-server</code>即可，最后打上断点，点击“虫子图标“即可使用lldb/gdb调试分析(mac上建议使用lldb)。</li>
+</ol>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>Redis网络事件端到端流程流程</p>
+<hr />
+<h2 id="文章速读"><a class="header" href="#文章速读">文章速读</a></h2>
+<p>下面为Redis在运行时处理Socket事件的伪代码，Select的本质上是模式匹配与高阶函数(在C中用函数指针进行模拟)，全程单线程运行(BGSAVE需要fork除外)。</p>
+<pre><code class="language-java">// Redis 中 Socket 事件的循环处理伪代码
+while(true){
+  // 通过Epoll,Select等方法获取当前的可用的SocketDescriptor数组
+  aeApiPoll(eventLoop, ...);
+  // 对可用Socket依次进行调用函数
+  eventLoop.forEach(event -&gt; {
+    switch(event.mask){
+      case AE_READABLE:
+        // 调用相应的函数指针，即业务代码...
+        rfileProc(event, ...);
+        break;
+      case AE_WRITABLE:
+        wfileProc(event, ...);
+        break;
+    }
+  })
+}
+</code></pre>
+<h2 id="io-multiplexing--与-select系统调用"><a class="header" href="#io-multiplexing--与-select系统调用">IO multiplexing  与 Select系统调用</a></h2>
+<p>Redis在内部采用非阻塞同步IO作为底层库实现，看起来很高大上，实际上就是一个不断循环搜索可用<code>I/O descriptor</code>的系统调用，它在OS上有select, epoll, kqueue等实现。在本篇中，将以Select为例介绍I/O多路复用。</p>
+<p>Select是一个网络相关的POSIX调用，可以用 <a href="https://linux.die.net/man/2/select">man 2 select</a> 查看具体的介绍。</p>
+<blockquote>
+<p>select() examines the I/O descriptor sets whose addresses are passed in readfds, writefds, and errorfds to see if some of their descriptors <strong>are ready for reading, are ready for writing</strong>, or have an exceptional condi-tion pending, respectively. </p>
+</blockquote>
+<p>它内部通过轮询一个默认长度为1024的数组查询<code>可读</code> 或者 <code>可写</code>的<a href="https://linux.die.net/man/3/fd_set">Socket descriptor</a>(在C中用 <em>fd_set</em> 表示, a fixed size buffer)，并返回给用户，比如下图就是一个查询可读Socket的Select流程。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-bf277cfe37275b25.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Select" /></p>
+<p>通过Select可以一次性单线程通过内核遍历大量的Socket连接，再依次进行事件处理。</p>
+<ol>
+<li>把大量IO管理的脏活交给内核了，可以轻松设计基于Event loop的模型，单线程就搞定IO，之后产生的事件再交给其他模块(比如执行线程池)，业务代码更容易维护</li>
+<li>相比于以前每次新来一个连接就开一个线程的做法，Select节约了线程创建、切换等资源损失</li>
+</ol>
+<blockquote>
+<p>至于Select具体实现的源码，已经属于SystemCall层，可以翻下在线或者教学用的迷你Linux学习下<a href="http://lxr.free-electrons.com/source/fs/select.c">源码</a>，本文就不深挖了。此外，这里有一个对比阻塞与非阻塞的<a href="https://codereview.stackexchange.com/questions/98558/non-blocking-unix-domain-socket">问答</a></p>
+</blockquote>
+<h4 id="select在redis中的封装"><a class="header" href="#select在redis中的封装">Select在Redis中的封装</a></h4>
+<p>Redis实现了对底层的系统调用  Select, epoll, export, kqueue 的适配，以支持多个平台。接下来以Select为例，看一下Redis是如何封装Select的</p>
+<pre><code class="language-c">// ae_select.c
+// Redis 对 Select 的封装入口
+static int aeApiPoll(aeEventLoop *eventLoop, struct timeval *tvp) {
+    aeApiState *state = eventLoop-&gt;apidata;
+    int retval, j, numevents = 0;
+	
+    memcpy(&amp;state-&gt;_rfds,&amp;state-&gt;rfds,sizeof(fd_set));
+    memcpy(&amp;state-&gt;_wfds,&amp;state-&gt;wfds,sizeof(fd_set));
+    // 遍历是否有可读可写的 Socket 描述符
+    // 1. eventLoop-&gt;maxfd+1: 文件描述符数量+1
+    // 2. &amp;state-&gt;_rfds:可读的 Socket descriptor
+    // 3. &amp;state-&gt;_wfds: 可写的 Socket descriptor
+    // 4. NULL: 错误的 Socket descriptor，NUll表示在Redis中没有监听
+    // 5. tvp: 超时配置 timeval {秒 + 毫秒}, 为0时不等待, 为null时阻塞等待
+    retval = select(eventLoop-&gt;maxfd+1,
+                &amp;state-&gt;_rfds,&amp;state-&gt;_wfds,NULL,tvp);
+  	// 如果刚刚Select遍历搜索到的话
+    if (retval &gt; 0) {
+      	// 就再遍历一遍，并添加 Mask
+        for (j = 0; j &lt;= eventLoop-&gt;maxfd; j++) {
+            int mask = 0;
+            aeFileEvent *fe = &amp;eventLoop-&gt;events[j];
+			
+            if (fe-&gt;mask == AE_NONE) continue;
+            if (fe-&gt;mask &amp; AE_READABLE &amp;&amp; FD_ISSET(j,&amp;state-&gt;_rfds))
+                mask |= AE_READABLE;
+            if (fe-&gt;mask &amp; AE_WRITABLE &amp;&amp; FD_ISSET(j,&amp;state-&gt;_wfds))
+                mask |= AE_WRITABLE;
+          	//fire这里翻译为`触发事件`比较合理，为将要触发的事件放入fd与mask
+            eventLoop-&gt;fired[numevents].fd = j;
+            eventLoop-&gt;fired[numevents].mask = mask;
+            numevents++;
+        }
+    }
+    return numevents;
+}
+</code></pre>
+<p>通过将此函数放在一个while循环中，Redis就可以通过一个线程对IO事件进行高效处理，下文将详细讲。</p>
+<h2 id="redis-套接字处理流程"><a class="header" href="#redis-套接字处理流程">Redis 套接字处理流程</a></h2>
+<p>我们首先从main函数开始</p>
+<h4 id="事件循环event-loop"><a class="header" href="#事件循环event-loop">事件循环(Event loop)</a></h4>
+<p>可以看出这里是一个简单的事件循环，关键点是<code>aeProcessEvents</code>函数</p>
+<pre><code class="language-c">// server.c 的 main 方法中调用 ae.c 的事件循环函数 aeMain
+void aeMain(aeEventLoop *eventLoop) {
+    eventLoop-&gt;stop = 0;
+    while (!eventLoop-&gt;stop) {
+        if (eventLoop-&gt;beforesleep != NULL)
+            eventLoop-&gt;beforesleep(eventLoop);
+        aeProcessEvents(eventLoop, AE_ALL_EVENTS);
+    }
+}
+</code></pre>
+<h4 id="事件处理"><a class="header" href="#事件处理">事件处理</a></h4>
+<p>接着分析 aeProcessEvents，它用于处理Redis的所有事件</p>
+<pre><code class="language-c">// ae.c 的 aeProcessEvents 函数，处理Redis事件
+// 本文只分析Socket事件，为了版面，将删除与Socket无关的代码
+int aeProcessEvents(aeEventLoop *eventLoop, int flags)
+{
+    int processed = 0, numevents;
+
+    /* Nothing to do? return ASAP */
+    if (!(flags &amp; AE_TIME_EVENTS) &amp;&amp; !(flags &amp; AE_FILE_EVENTS)) return 0;
+    // 此处略去定时相关代码...
+    if (eventLoop-&gt;maxfd != -1 ||
+        ((flags &amp; AE_TIME_EVENTS) &amp;&amp; !(flags &amp; AE_DONT_WAIT))) {
+        int j;
+        aeTimeEvent *shortest = NULL;
+        struct timeval tv, *tvp;
+        // 设置 select 的超时事件
+     	if (flags &amp; AE_DONT_WAIT) {  	
+            tv.tv_sec = tv.tv_usec = 0;
+            // tvp 为 0 时 不等待                     
+            tvp = &amp;tv;
+        } else {
+            // tvp 为 null 时 阻塞等待
+            tvp = NULL;
+        }
+        // 调用对 Select 的包装，这个刚刚讲过了
+        numevents = aeApiPoll(eventLoop, tvp);
+        // 对可读与可写的事件进行处理
+        for (j = 0; j &lt; numevents; j++) {
+            // 读取刚刚通过Select获得的Event
+            aeFileEvent *fe = &amp;eventLoop-&gt;events[eventLoop-&gt;fired[j].fd];
+            int mask = eventLoop-&gt;fired[j].mask;
+            int fd = eventLoop-&gt;fired[j].fd;
+            int rfired = 0;
+            // 可读Socket处理
+            if (fe-&gt;mask &amp; mask &amp; AE_READABLE) {
+                rfired = 1;
+                // 调用函数指针           
+                fe-&gt;rfileProc(eventLoop,fd,fe-&gt;clientData,mask);
+            }
+            // 可写Socket处理
+            if (fe-&gt;mask &amp; mask &amp; AE_WRITABLE) {
+                if (!rfired || fe-&gt;wfileProc != fe-&gt;rfileProc)
+                    fe-&gt;wfileProc(eventLoop,fd,fe-&gt;clientData,mask);
+            }
+            processed++;
+        }
+    }
+	// 此处略去定时相关代码...
+    return processed; /* return the number of processed file/time events */
+}
+</code></pre>
+<h4 id="调用业务-调用函数指针"><a class="header" href="#调用业务-调用函数指针">调用业务( 调用函数指针)</a></h4>
+<p>接下来就进行具体的调用<a href="https://zh.wikipedia.org/wiki/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88">函数指针</a>了。这部分进行反序列化操作并执行读写事务，C中的函数指针在一定程度上类似于高级语言中的闭包(<em>Closure</em>)，比如这里的<em>aeFileProc</em>就有多个实现，下面是它的原型与某个实现</p>
+<pre><code class="language-c">// 对函数的定义
+typedef void aeFileProc(struct aeEventLoop *eventLoop, int fd, void *clientData, int mask);
+// 对函数的实现
+void sendReplyToClient(aeEventLoop *el, int fd, void *privdata, int mask) {
+    UNUSED(el);
+    UNUSED(mask);
+    // 业务代码...
+    writeToClient(fd,privdata,1);
+}
+</code></pre>
+<blockquote>
+<p>可以在Clion使用<code>cmd</code> + <code>shift</code> + <code>f</code>进行全局文本搜索<code>aeCreateFileEvent</code>，就可以找到所有的业务了。</p>
+</blockquote>
+<h2 id="附录"><a class="header" href="#附录">附录</a></h2>
+<h4 id="为什么nio中select调用操作有时会占用很多cpu"><a class="header" href="#为什么nio中select调用操作有时会占用很多cpu">为什么NIO中Select调用操作有时会占用很多CPU？</a></h4>
+<p>说个NIO相关的吧，最近在用JVisualvm抽样CPU使用时，发现MQ的Select调用占用非常高的CPU时间。通过定位，发现：</p>
+<ol>
+<li>有大量的连接通过MQ发出后无响应</li>
+<li>自身由于积压导致可写的连接没被处理</li>
+<li>进而引发FullGC，导致更加恶化</li>
+</ol>
+<p>个人猜测，Select在某些恶劣环境下<strong>不擅长于长连接或者不稳定的连接</strong>而出现空转循环。我的建议：</p>
+<ol>
+<li>配置Unix参数，减小栈内存的分配量，减少Socket的等待超时</li>
+<li>切忌在此循环线程上执行耗时任务，建议将产生的事件交给线程池</li>
+<li>将Select超时设计为阻塞等待，减少空转次数</li>
+</ol>
+<h2 id="参考文献"><a class="header" href="#参考文献">参考文献</a></h2>
+<ol>
+<li>http://origin.redisbook.com/</li>
+<li><a href="https://www.amazon.cn/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0-%E9%BB%84%E5%81%A5%E5%AE%8F-%E8%91%97/dp/B00LZNV5B4/ref=sr_1_2?ie=UTF8&amp;qid=1482049301&amp;sr=8-2&amp;keywords=redis">Redis设计与实现 (数据库技术丛书)</a></li>
+<li><a href="https://www.amazon.cn/%E5%9B%BE%E4%B9%A6/dp/B00GOM5IL4">深入浅出Node.js</a> </li>
+<li>https://www.zhihu.com/question/28594409</li>
+<li><a href="https://www.ibm.com/developerworks/cn/aix/library/0807_liugb_tcpip/#ibm-pcon">TCP/IP 应用程序的通信连接模式</a></li>
+</ol>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>本文目录</p>
+<ul>
+<li>什么是写时复制</li>
+<li>写时复制的应用场景</li>
+<li>写时复制的实现</li>
+</ul>
+<hr />
+<p>在并发编程中，如果需要实现对资源的冲突处理，一般采用互斥锁，队列、不可变来实现。上面的技术实现在很多书籍中都有，不过今天介绍的是一种新的方法--<code>写时复制(Copy-on-write, COW)</code>。</p>
+<p>关键词: COW,  Copy on write, Redis</p>
+<p>如果看的懂英文就直接看这里：</p>
+<blockquote>
+<p>Copy on write (COW) is an optimization strategy that avoids copying large sized objects.</p>
+</blockquote>
+<blockquote>
+<p>In a lot of real world programs, a value is copied to another variable and often is never written to. In most languages other than C++, all large sized objects are actually references. When you copy an object, all you copy is a pointer (shallow copy semantics). In such languages, COW is implemented at the language/runtime level, and not in the standard library.</p>
+</blockquote>
+<blockquote>
+<p>In C++, copies are deep copies by default (value semantics), thus assigning large structures and strings are expensive, because the entire data is duplicated.</p>
+</blockquote>
+<blockquote>
+<p>To avoid this, one can make a system where a copy is always shallow, but when you modify a copied object, the underlying object is duplicated, and then the changes are applied to the new copy. </p>
+</blockquote>
+<p>总的来说，COW通过浅拷贝(shallow copy)只复制引用而避免复制值；当的确需要进行写入操作时，首先进行值拷贝，再对拷贝后的值执行写入操作，这样减少了无谓的复制耗时。</p>
+<p>特点如下</p>
+<ul>
+<li>读取安全（但是不保证缓存一致性），写入安全（代价是加了锁，而且需要全量复制）</li>
+<li>不建议用于频繁读写场景下，全量复制很容易造成GC停顿，因此建议使用平时的ConcurrentXX包来实现。</li>
+<li>适用于对象空间占用大，修改次数少，而且对数据实效性要求不高的场景。</li>
+</ul>
+<blockquote>
+<p>这里的安全指在进行读取或者写入的过程中，数据不被修改。</p>
+</blockquote>
+<h2 id="写时复制的应用场景"><a class="header" href="#写时复制的应用场景">写时复制的应用场景</a></h2>
+<p>写时复制最擅长的是并发读取场景，即多个线程/进程可以通过对一份相同快照，去处理实效性要求不是很高但是仍然要做的业务（比如实现FS\DB备份、BinLog、日志、分布式路由），举例如下。</p>
+<h3 id="1-unix下的fork系统调用"><a class="header" href="#1-unix下的fork系统调用">1. Unix下的fork()系统调用</a></h3>
+<p>fork()是一个系统调用，用于创建新的进程(process)。</p>
+<blockquote>
+<p>fork() creates a new process by duplicating the calling process. The new process, referred to as the child, is an exact duplicate of the calling process, referred to as the parent.</p>
+</blockquote>
+<p>fork内部实际上是对clone()系统函数的调用，它的参数<code>CLONE_FLAG</code>决定了需要共享哪些数据。在fork中，没有<code>CLONE_VM</code>参数，也就意味着不会共享\竞争同一个内存，而是复制一个内存快照给子进程，这个内存在32位下是4G的大小，占用空间相当的大，如果通过类似memcpy进行内存复制的话，fork调用的耗时将相当显著，甚至阻塞业务，那么为什么在真正开发调用时却没有发生呢？因为内部也是通过COW机制实现的。</p>
+<p>内核实现：</p>
+<p>在内核侧，在进行了内存“复制”后，子进程与父进程指向同一个只读的Page分页。当子进程或者父进程发送修改内存请求后，由于是分页是只读的，OS此时才将内存进行复制为两份，并将这两份内存设置为可写权限，最后再处理刚刚发送的修改内存请求。通过上述策略，实现了延迟复制，进程的创建是不是变快了？</p>
+<h4 id="2-redis的持久化"><a class="header" href="#2-redis的持久化">2. Redis的持久化</a></h4>
+<p>Redis是一个基于KV的MemCache框架，可以将数据全部存储在内存中，当你希望对数据进行全量Dump(bgsave)到文件中或者进行主从同步时，将进行<a href="https://github.com/antirez/redis/blob/0a628e51025c4307c70cb00094dff9cdd1732f31/src/rdb.c#L996">下面</a>的步骤。</p>
+<ul>
+<li>Redis forks. We now have a child and a parent process.</li>
+<li>The child starts to write the dataset to a temporary RDB file.</li>
+<li>When the child is done writing the new RDB file, it replaces the old one.</li>
+</ul>
+<p>可以看出，Redis通过fork()系统调用实现了写时复制，而没有自己去造轮子</p>
+<pre><code class="language-c">int rdbSaveBackground(char *filename) {
+    pid_t childpid;
+    long long start;
+
+    if (server.aof_child_pid != -1 || server.rdb_child_pid != -1) return C_ERR;
+
+    server.dirty_before_bgsave = server.dirty;
+    server.lastbgsave_try = time(NULL);
+
+    start = ustime();
+    //指向子线程的pid如果为0，表示fork成功，为正表示为parent线程
+    if ((childpid = fork()) == 0) {
+        int retval;
+
+        /* Child进程要执行的代码 */
+        closeListeningSockets(0);
+        redisSetProcTitle(&quot;redis-rdb-bgsave&quot;);
+        retval = rdbSave(filename);
+        if (retval == C_OK) {
+            size_t private_dirty = zmalloc_get_private_dirty();
+
+            if (private_dirty) {
+                serverLog(LL_NOTICE,
+                    &quot;RDB: %zu MB of memory used by copy-on-write&quot;,
+                    private_dirty/(1024*1024));
+            }
+        }
+        exitFromChild((retval == C_OK) ? 0 : 1);
+    } else {
+        /* Parent */
+        ...
+        return C_OK;
+    }
+    return C_OK; /* unreached */
+}
+</code></pre>
+<p>在rdbSave中(目前已经为子线程中)，具体实现如下，代码太长就不贴了</p>
+<ol>
+<li>创建了一个<code>temp-${getPid()}.rdb</code>的文件</li>
+<li>调用<code>rioInitWithFile(rio *r, FILE *tmp)</code>，将<code>r</code>初始化为<code>rioBufferIO</code></li>
+<li>对全局变量<code>server</code>进行forEach反序列化，并保持到缓存r中，并写入文件，注意这个Server指针已经与父进程无关了</li>
+<li>进行fflush、fsync、fclose系统调用清除OS的FS缓存（这也是OS内部的COW优化）</li>
+<li>进行<code>rename</code>系统调用，进行重命名</li>
+</ol>
+<blockquote>
+<p>系统调用都是默认线程安全的，所以不用担心多次重命名等问题</p>
+</blockquote>
+<p>可以看出，在Redis中没有memcpy等内存复制过程，而是直接使用server指针进行读取并写入文件，因为在fork时，已经duplicated了快照。</p>
+<h4 id="3-docker-container"><a class="header" href="#3-docker-container">3. Docker Container</a></h4>
+<p>提高启动速度与节省空间</p>
+<p>https://docs.docker.com/storage/storagedriver/#the-copy-on-write-cow-strategy</p>
+<h2 id="写时复制的实现"><a class="header" href="#写时复制的实现">写时复制的实现</a></h2>
+<p>以Java为例，在CopyOnWriteArrayList中，写数据在锁的保护下，而读取可以任意进行，代码如下。</p>
+<pre><code class="language-java">private transient volatile Object[] array;
+
+
+public boolean add(E e) {
+    final ReentrantLock lock = this.lock;
+    lock.lock();
+    try {
+        Object[] elements = getArray();
+        int len = elements.length;
+        //类似于memcpy，构造一个新的对象
+        Object[] newElements = Arrays.copyOf(elements, len + 1);
+        newElements[len] = e;
+        //重新设置引用
+        setArray(newElements);
+        return true;
+    } finally {
+        lock.unlock();
+    }
+}
+
+public E get(int index) {
+	//获取到的数据没有实效性
+    return get(getArray(), index);
+}
+
+final Object[] getArray() {
+        return array;
+}
+</code></pre>
+<h2 id="其它可能需要深入了解的技能"><a class="header" href="#其它可能需要深入了解的技能">其它可能需要深入了解的技能</a></h2>
+<p>#####1. 如何实现String\Map的写时复制？</p>
+<p>这个一般只在糟糕的面试题中出现，因为写时复制主要用于处理大的数据，而大型的字符串、Map却很少见到场景(如果说非要来一个场景的话，就是Zookeeper中读取服务时，可能需要一个Map&lt;String,Class&gt;来实现)。在C++中，写时复制的String已经被废弃，并且Redis中设计的字符串可以更加优雅地扩容，在Java中，各类并发库已经很成熟，写时复制主要用于实现安全迭代，而没有String或者Map的需求。</p>
+<p>如果非要让你写，可以这样处理:
+​	</p>
+<ul>
+<li>在构造函数、写入函数中实现深拷贝，并加锁，比如put中就再包装一道HashMap。</li>
+<li>在getter函数，实现无锁直接获取。</li>
+</ul>
+<p>#####2. ConcurrentHashXXX与CopyOnWriteXXX的对比？</p>
+<p>一个适用于写入量大的场景，一个适用于读取量大的场景，它们的线程安全关系如下</p>
+<table><thead><tr><th align="left"></th><th align="left">Normal</th><th align="left">Concurrent</th><th align="left">COW</th></tr></thead><tbody>
+<tr><td align="left">Read</td><td align="left">Unsafe</td><td align="left">Safe</td><td align="left">Safe, may dirtyData</td></tr>
+<tr><td align="left">Write</td><td align="left">Unsafe</td><td align="left">Safe</td><td align="left">Safe, may slowest</td></tr>
+</tbody></table>
+<h2 id="ref"><a class="header" href="#ref">Ref</a></h2>
+<ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%AF%AB%E5%85%A5%E6%99%82%E8%A4%87%E8%A3%BD">https://zh.wikipedia.org/wiki/%E5%AF%AB%E5%85%A5%E6%99%82%E8%A4%87%E8%A3%BD</a></li>
+<li><a href="http://ifeve.com/java-copy-on-write/">http://ifeve.com/java-copy-on-write/</a></li>
+<li><a href="http://www.ibm.com/developerworks/tivoli/library/t-snaptsm1/">http://www.ibm.com/developerworks/tivoli/library/t-snaptsm1/</a></li>
+<li><a href="http://blog.csdn.net/jason314/article/details/5640969">http://blog.csdn.net/jason314/article/details/5640969</a></li>
+<li><a href="https://www.reddit.com/r/compsci/comments/31szui/trying_to_understand_fork_and_copyonwrite_cow/">https://www.reddit.com/r/compsci/comments/31szui/trying_to_understand_fork_and_copyonwrite_cow/</a></li>
+<li><a href="http://stackoverflow.com/questions/1570589/is-the-volatile-keyword-required-for-fields-accessed-via-a-reentrantlock">http://stackoverflow.com/questions/1570589/is-the-volatile-keyword-required-for-fields-accessed-via-a-reentrantlock</a></li>
+<li><a href="https://www.quora.com/What-is-Copy-on-Write-and-how-is-it-used-in-C++">https://www.quora.com/What-is-Copy-on-Write-and-how-is-it-used-in-C++</a></li>
+</ol>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>The Implication of Incremental Rehashing in Redis</p>
+<hr />
+<p>本文适合Java中高级、有HashMap的基础，略懂C基础的读者进行阅读。</p>
+<p>关键词: <strong>incremental rehashing</strong>, <strong>Redis</strong>, <strong>HashMap</strong></p>
+<h2 id="什么是hash"><a class="header" href="#什么是hash">什么是Hash</a></h2>
+<p><strong>散列函数</strong>（或<strong>散列算法</strong>，又称<strong>哈希函数</strong>，英语：Hash Function）是一种从任何一种数据中创建小的数字“指纹”的方法。散列函数把消息或数据压缩成摘要，使得数据量变小，将数据的格式固定下来。完美的散列算法可以均匀的真正随机输出。在Redis中，通过<a href="https://zh.wikipedia.org/wiki/Murmur%E5%93%88%E5%B8%8C">MurmurHash2</a>算法（位于源码的dictGenHashFunction）返回的一个32位的unit；在Java中，HashCode由JVM的object.c 实现，同样返回uint32。</p>
+<blockquote>
+<p>在本文我们只考虑理想情况，只需要知道上述Hash算法将返回一个[0,Integer.MAX_VALUE-1]之间均匀分布，且与输入值一一对应的正整数即可。</p>
+</blockquote>
+<h2 id="hashmap的扩容操作"><a class="header" href="#hashmap的扩容操作">HashMap的扩容操作</a></h2>
+<p>在Java的HashMap源码中，当<code>put</code>操作中，如果已经使用了0.75的空间，将进行扩容(resize)操作。在不考虑链地址与红黑树等特例的情况下，步骤如下：</p>
+<ol>
+<li>Expand: 新建一个为原数组<code>oldTab</code>两倍容量的新数组<code>newTab</code></li>
+<li>Rehash: 对<code>oldTab</code>进行for循环，找出不为空的元素，并放入新数组中，伪代码如下</li>
+</ol>
+<pre><code class="language-java">int newCap = oldCap * 2;
+Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])new Node[newCap];
+oldTab.forEach((Node e) -&gt; {
+  newTab[e.hash &amp; (newCap - 1)] = e;
+})
+</code></pre>
+<p>可以看出，此操作为高耗时的O(N)操作，不仅要分配大内存，而且还要把旧数组进行for循环复制。如果HashMap的元素成千上万，在进行put操作时如果遇到了扩容，<strong>将造成极大的操作延迟</strong>。</p>
+<h2 id="redis中的hashtable"><a class="header" href="#redis中的hashtable">Redis中的HashTable</a></h2>
+<p>在Redis中，由于它对实时性要求更高，因此使用了渐进式rehash</p>
+<h4 id="hashtable的构造"><a class="header" href="#hashtable的构造">HashTable的构造</a></h4>
+<p>在Redis中，Hash表是这样定义的，可以看出，同样采用数组加链地址，redis与Java中的HashMap并没有什么不同</p>
+<pre><code class="language-c">// dict.c and dict.h
+// dict hashtable
+typedef struct dictht {
+    // 指针的指针，可以看成是一个全是指针的数组, 用Java写是这样的&lt;dictEntry*&gt;[]
+    dictEntry **table;
+    unsigned long size;
+    unsigned long sizemask;
+    unsigned long used;
+} dictht;
+
+typedef struct dictEntry {
+    void *key;
+    union {
+        void *val;
+        uint64_t u64;
+        int64_t s64;
+        double d;
+    } v;
+    // 供链地址冲突使用，本文不考虑此特例
+    struct dictEntry *next;
+} dictEntry;
+</code></pre>
+<h4 id="正常情况下添加k-v-entry的实现"><a class="header" href="#正常情况下添加k-v-entry的实现">正常情况下添加K-V Entry的实现</a></h4>
+<p>在没有冲突、没有替换、扩容的场景下，<code>SET</code>调用栈如下</p>
+<pre><code class="language-c">void setCommand(t_string.c);
+void setGenericCommand(t_string.c);
+void setKey(db.c);
+void dbAdd(db.c);
+static int dictAdd(dict.c)
+dictEntry *dictAddRaw(dict.c)
+</code></pre>
+<p>具体代码就不放了，先为Entry分配内存，接着放入ht数组的index中，最后写入指针的k-v数据。</p>
+<h2 id="redis扩容实现"><a class="header" href="#redis扩容实现">Redis扩容实现</a></h2>
+<p>当redis中所用容量达到1.0左右时，在<code>SET</code>操作时将触发扩容操作；亦或在Redis启动时也会进行初始化扩容。扩容与Java一样，首先创建了一个两倍长度的数组，接着进行reHash将旧值放入新值中。</p>
+<h4 id="expand"><a class="header" href="#expand">Expand</a></h4>
+<p>伪代码如下，ht就是上面的结构体。其中<code>ht[0]</code>是旧的hash表，<code>ht[1]</code>是新的hash表。可以看出通过zcalloc分配了一个双倍的内存。</p>
+<pre><code class="language-js">// dict.c dictExpand
+var realsize = 2 * ht[0].used;
+// 创建一个新的 dictht，并分配内存
+var ht[1] = {
+  size: realsize,
+  sizemask: realsize - 1,
+  table: zcalloc(realsize*sizeof(dictEntry*)),
+  used: 0
+}
+</code></pre>
+<h4 id="rehash实现"><a class="header" href="#rehash实现">ReHash实现</a></h4>
+<p>由于reHash需要大量的数据，很难构造出断点，因此可以在Redis初始化时，在如下代码中打断点，这样就可以分析详细过程了。</p>
+<pre><code class="language-c">// file:scr/dict.c
+static void _dictRehashStep(dict *d) {
+    if (d-&gt;iterators == 0) dictRehash(d,1);
+}
+</code></pre>
+<p>首先上结论，如果正在进行ReHash：</p>
+<ol>
+<li>当进行<code>SET</code>操作时，它将首先<code>移动一个旧元素到新数组</code>，再把K-V放入新的数组中</li>
+<li>当进行<code>GET</code>操作时，它将首先<code>移动一个旧元素到新数组</code>，再依次从旧数组、新数组中搜索Value</li>
+</ol>
+<p>上述操作每次只移动一个元素，类似于某个耐心的银行，取钱时扣一点，存钱时扣一点，最终总能扣完。这样就减少了一次性压垮导致双输的风险。</p>
+<p>接下来开始分析<code>移动一个旧元素到新数组</code>的过程，即上文<code>dictRehash(d,1)</code>的过程。由于<code>dictRehash</code>的第二个参数在<code>SET</code>与<code>GET</code>场景中始终为1，因此下文代码去掉了部分内容。</p>
+<pre><code class="language-java">int empty_visits = n*10;
+dictEntry *de, *nextde;
+// 遍历旧表ht[0]的数组，从rehashidx 到最 rehashidx+10，如果连续10次都为空，放弃此次机会
+// 当然计数器rehashidx也相应增长了10
+while(d-&gt;ht[0].table[d-&gt;rehashidx] == NULL) {
+    d-&gt;rehashidx++;
+    if (--empty_visits == 0) return 1;
+}
+// 老数组中刚刚找到的 dictEntry
+de = d-&gt;ht[0].table[d-&gt;rehashidx];
+// 移动元素到新数组，并处理链地址冲突
+while(de) {
+    unsigned int h;
+
+    nextde = de-&gt;next;
+    /* Get the index in the new hash table */
+    h = dictHashKey(d, de-&gt;key) &amp; d-&gt;ht[1].sizemask;
+    de-&gt;next = d-&gt;ht[1].table[h];
+    d-&gt;ht[1].table[h] = de;
+    d-&gt;ht[0].used--;
+    d-&gt;ht[1].used++;
+    de = nextde;
+}
+// rehash 全部完成，rehashidx置为 -1
+if (d-&gt;ht[0].used == 0) {
+  zfree(d-&gt;ht[0].table);
+  d-&gt;ht[0] = d-&gt;ht[1];
+  _dictReset(&amp;d-&gt;ht[1]);
+  d-&gt;rehashidx = -1;
+  return 0;
+}
+d-&gt;ht[0].table[d-&gt;rehashidx] = NULL;
+d-&gt;rehashidx++;
+</code></pre>
+<p>太长不看的话，总结一下rehash的过程：</p>
+<ol>
+<li>rehashidx开始为0</li>
+<li>遍历旧数组[rehashidx, rehashidx+10]共10个元素是否有entity，没有找到就等待下次机会，每处理一个值，rehashidx就加一。</li>
+<li>如果找到了，就重新计算hash值，并放入新数组中，并处理链地址冲突;否则接着执行1</li>
+<li>rehash 全部完成后，rehashidx置为 -1</li>
+</ol>
+<p>通过上述操作，每次在进行<code>SET/GET</code>操作时，<strong>都会保证向前遍历旧数组1～10步</strong>，最终ht[0]将被遍历完，而ht[1]将越来越多。</p>
+<h2 id="总结"><a class="header" href="#总结">总结</a></h2>
+<p>Redis的reHash本质上就是分而治之的方法，降低了一次压垮的风险。通过渐进式操作，分散了put/get的时间复杂度到每次操作中，当然一定程度上也增加了框架的复杂度。</p>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ol>
+<li>《Redis的设计与实现》</li>
+</ol>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="分布式锁"><a class="header" href="#分布式锁">分布式锁</a></h2>
+<p>请注意Redis的分布式锁，就算是Redlock，也不能完全实现百分百高可用，因此仅建议在能够容忍失败的场景下使用。如果有更高精度的要求，建议使用事务，zk或者etcd等工具。</p>
+<p>另外，尽可能不要用锁，共享数据的内容尽可能执行快一点，不要长期阻塞。业务逻辑也建议使用MQ/Akka等流式方案，避免分布式全局变量。</p>
+<h2 id="单机版"><a class="header" href="#单机版">单机版</a></h2>
+<h4 id="加锁"><a class="header" href="#加锁">加锁</a></h4>
+<p>通过执行如下命令实现</p>
+<pre><code class="language-sh"># EX seconds -- Set the specified EXpire time, in seconds.
+# NX -- Only set the key if it does Not already eXist.
+set key random-token EX 30 NX
+→ OK 
+</code></pre>
+<p>这里的失效时间比较难配，而且<code>random-token</code>也要是分布式唯一ID。</p>
+<p>如果一定需要获取到锁才能执行，那么需要再外面包装一层轮询才够</p>
+<p>网上有许多JedisLock的实现，我个人实现的Java代码如下</p>
+<pre><code class="language-java">// 此处没用UUID(懒得维护全局变量)，我这里注入了Eureka的InstanceId，详见我的Eureka相关文档
+String uniqueId = &quot;10.0.0.2:8080:node1-sz&quot;
+//阻塞获取锁方案
+public boolean compareAndSetSync(String lock, int waitTime, int leaseTime){
+    while(waitMs&gt;=0){
+       boolean ok = jedis.set(lock, uniqueId, &quot;EX&quot;, leaseTime, &quot;NX&quot;).equals(&quot;OK&quot;);
+       if(ok){
+            return true;
+       }
+        synchronized(JedisLock.this){
+            waitMs- = 100; //ms
+            try{ 
+                JedisLock.this.wait() 
+            }catch(ignored){
+                
+            }
+        }
+    }
+}
+</code></pre>
+<p>相对网上开源方案的变更</p>
+<ul>
+<li>将synchronized范围降低，将<code>sleep</code>改为<code>wait</code>(wait释放时间片，此处代码可以参考我以前写的OkHttp连接池分析)</li>
+<li>支持阻塞等待指定时间获取锁</li>
+</ul>
+<h4 id="移除锁"><a class="header" href="#移除锁">移除锁</a></h4>
+<p>通过EVAL单线程的Lua脚本实现合并两条Command为原子指令，有点类似CAS命令</p>
+<pre><code class="language-sh"># 1: paraments count is 1
+EVAL &quot;if redis.call('get',KEYS[1]) == ARGV[1] then return redis.call('del',KEYS[1]) else return 0 end&quot; 1 key random-token
+→ OK 
+</code></pre>
+<h4 id="总体状态"><a class="header" href="#总体状态">总体状态</a></h4>
+<p>理想情况，假设当某台机器访问某个锁时</p>
+<table><thead><tr><th>动作</th><th>无锁/失效</th><th>自己的锁</th><th>他人的锁</th></tr></thead><tbody>
+<tr><td>AcquireLock</td><td>OK</td><td>(nil)</td><td>(nil)</td></tr>
+<tr><td>ReleaseLock</td><td>0</td><td>OK</td><td>0</td></tr>
+</tbody></table>
+<p>从上面我们也看出很多缺点</p>
+<ul>
+<li>轮询阻塞: 在真实场景中，一般会通过轮询查询锁。但是轮询for循环获取锁没有优先级调度，全靠网线质量</li>
+<li>超时配置: 短了，需要业务侧维护看门狗不断延期，增加了复杂性；配置时间长了，如果当前业务挂掉，其它机器也要阻塞等待至expire。</li>
+<li>FailOver: 集群环境中（主从同步为异步），主机挂掉，而从机没有同步Lock信息时，锁失去唯一性；主机解锁后挂掉，而从机没解锁，所有人都要等到超时才行。</li>
+</ul>
+<p>针对这些问题，在真实场景中，我们并没有用Redis去完成苛刻的任务，而主要用作全局Flag（比如防止两个耗时任务同时执行），而且Redis方案也有替代品，比如Quartz中的<code>SELECT FOR UPDATE</code>就是更加完善的方案。</p>
+<h5 id="对开源方案的改进"><a class="header" href="#对开源方案的改进">对开源方案的改进</a></h5>
+<h2 id="集群版redlock"><a class="header" href="#集群版redlock">集群版(redlock)</a></h2>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="redis-with-spring-session"><a class="header" href="#redis-with-spring-session">Redis with spring session</a></h2>
+<h3 id="how-session-works-with-redis"><a class="header" href="#how-session-works-with-redis">How session works with redis?</a></h3>
+<p>Instead of Tomcat’s Embedded  <code>HttpSession </code> stored in memory, <em>Spring-Session</em> reimplements <code>HttpSesson</code> with Redis to support multiple sessions with same browser.</p>
+<h4 id="try-it-up-with-debugger"><a class="header" href="#try-it-up-with-debugger">Try it up with debugger</a></h4>
+<p>Let's first create a demo project, go to <a href="https://start.spring.io/">starter</a> page and create a demo project with following plugin:</p>
+<ul>
+<li>Redis</li>
+<li>Web</li>
+<li>Session</li>
+</ul>
+<p>Add <code>@EnableRedisHttpSession</code> to BootApplication </p>
+<pre><code class="language-diff">@SpringBootApplication
++ @EnableRedisHttpSession
+public class DemoApplication {
+	...
+}
+</code></pre>
+<p>And create a Hello Controller for <a href="https://www.jetbrains.com/help/idea/debugging-code.html">debugging</a></p>
+<pre><code class="language-java">@RestController
+@RequestMapping(&quot;/&quot;)
+public class Hello {
+
+  @GetMapping(&quot;hello&quot;)
+  public String hello(HttpServletRequest request, @RequestParam String value){
+    // add debugger here
+    request.getSession().setAttribute(&quot;key&quot;,value);
+    return value;
+  }
+}
+</code></pre>
+<p>Add debugger with <code>find usage</code> for getter/setter</p>
+<pre><code class="language-java">org.springframework.session.web.http.SessionRepositoryFilter#CURRENT_SESSION_ATTR
+</code></pre>
+<p>Cookies resolver</p>
+<pre><code>org.springframework.session.web.http.CookieHttpSessionIdResolver#resolveSessionIds
+</code></pre>
+<p>And these are the mapping between cookies and redis</p>
+<pre><code>org.springframework.session.web.http.DefaultCookieSerializer#readCookieValues
+org.springframework.session.web.http.DefaultCookieSerializer#writeCookieValue
+</code></pre>
+<p>then start a local redis(localhost:6379) and run springboot in debug mode.</p>
+<p>Let's try with a curl</p>
+<pre><code class="language-sh"> curl &quot;http://localhost:8080/hello?value=1&quot;
+</code></pre>
+<p>Finally, login to redis-cli, you will find sessions are already in Redis.</p>
+<pre><code>KEYS spring:session:sessions:*
+</code></pre>
+<h4 id="how-to-reuse-session-id"><a class="header" href="#how-to-reuse-session-id">How to reuse session-id?</a></h4>
+<p>By default, session ids are generated by UUID, they have no relation with browser or IP address.</p>
+<pre><code>org.springframework.session.MapSession#generateId
+</code></pre>
+<p>To reuse the session-id, every request from browser must have a valid session in the header(cookies or x-auth-token), I prefer header based session resolver (less payload and easier for non-browser clients).</p>
+<pre><code class="language-java">@Bean
+HttpSessionIdResolver headerResolver(){
+	return new HeaderHttpSessionIdResolver(&quot;miao-token&quot;);
+}
+</code></pre>
+<p>Recurl and your will get a <code>miao-token</code> header in response.</p>
+<pre><code class="language-properties">Content-Type: ...
+Date: ...
+miao-token: f15b28ea-15b6-4ce8-aad5-9ed0ab00d643
+</code></pre>
+<p>To keep the client's session up to date with server, just add the header in HttpInterceptor(eg: okhttp/ajax).</p>
+<pre><code class="language-js">// angular HttpInterceptor, same as okhttp
+export class AddHeaderInterceptor implements HttpInterceptor {
+  intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+    const clonedRequest = req.clone({ 
+    	headers: req.headers.set('miao-token', YOUR_GLOBAL_TOKEN) 
+		});
+    return next.handle(clonedRequest);
+  }
+}
+</code></pre>
+<p>In the end, here is the resuable process flow.</p>
+<pre><code>RESTful Request
+	|
+HttpSessionIdResolver
+	|
+(has token id)?
+	|  
+	|-------(yes): get seesion by id from redis and reuse.
+	---------(no): jump to login page and create id by UUID
+</code></pre>
+<h2 id="appendix"><a class="header" href="#appendix">Appendix</a></h2>
+<h4 id="whats-cookies-scope"><a class="header" href="#whats-cookies-scope">What's cookie's scope?</a></h4>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#Scope_of_cookies">Scope of cookies</a>, if you share two applications with same session, you need to customize the <code>DefaultCookieSerializer</code>  for wider scope(path/httpOnly attributes).</p>
+<h4 id="csrf-protection"><a class="header" href="#csrf-protection">CSRF protection</a></h4>
+<p><em>CSRF(Cross-Site Request Forgery)</em> attacks may  inject malicious code into webpages , see more at <a href="https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/csrf.html">Spring-Securiy</a> for server-side protection and <a href="https://angular.io/guide/security">Angular</a> for client-side protection.</p>
+<h4 id="alternatives"><a class="header" href="#alternatives">Alternatives</a></h4>
+<p>If you prefer a <em>lower</em> level redis store implementation, just try <a href="https://github.com/jcoleman/tomcat-redis-session-manager">tomcat-redis-session-manager</a></p>
+<pre><code>com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve
+</code></pre>
+<h4 id="sso"><a class="header" href="#sso">SSO</a></h4>
+<p>You can also use <a href="https://github.com/apereo/cas">CAS</a>, a SSO solution for your <em>authentication</em> and <em>authorization</em>, which have a redis plugin inside.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

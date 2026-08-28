@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Incremental Rehash</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="event.html"><strong aria-hidden="true">2.</strong> Event loop</a></li><li class="chapter-item expanded "><a href="cow.html"><strong aria-hidden="true">3.</strong> Copy on write</a></li><li class="chapter-item expanded "><a href="rehash.html" class="active"><strong aria-hidden="true">4.</strong> Incremental Rehash</a></li><li class="chapter-item expanded "><a href="distribute-lock.html"><strong aria-hidden="true">5.</strong> Distribute Lock</a></li><li class="chapter-item expanded "><a href="session.html"><strong aria-hidden="true">6.</strong> Spring-session</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>The Implication of Incremental Rehashing in Redis</p>
+<hr />
+<p>本文适合Java中高级、有HashMap的基础，略懂C基础的读者进行阅读。</p>
+<p>关键词: <strong>incremental rehashing</strong>, <strong>Redis</strong>, <strong>HashMap</strong></p>
+<h2 id="什么是hash"><a class="header" href="#什么是hash">什么是Hash</a></h2>
+<p><strong>散列函数</strong>（或<strong>散列算法</strong>，又称<strong>哈希函数</strong>，英语：Hash Function）是一种从任何一种数据中创建小的数字“指纹”的方法。散列函数把消息或数据压缩成摘要，使得数据量变小，将数据的格式固定下来。完美的散列算法可以均匀的真正随机输出。在Redis中，通过<a href="https://zh.wikipedia.org/wiki/Murmur%E5%93%88%E5%B8%8C">MurmurHash2</a>算法（位于源码的dictGenHashFunction）返回的一个32位的unit；在Java中，HashCode由JVM的object.c 实现，同样返回uint32。</p>
+<blockquote>
+<p>在本文我们只考虑理想情况，只需要知道上述Hash算法将返回一个[0,Integer.MAX_VALUE-1]之间均匀分布，且与输入值一一对应的正整数即可。</p>
+</blockquote>
+<h2 id="hashmap的扩容操作"><a class="header" href="#hashmap的扩容操作">HashMap的扩容操作</a></h2>
+<p>在Java的HashMap源码中，当<code>put</code>操作中，如果已经使用了0.75的空间，将进行扩容(resize)操作。在不考虑链地址与红黑树等特例的情况下，步骤如下：</p>
+<ol>
+<li>Expand: 新建一个为原数组<code>oldTab</code>两倍容量的新数组<code>newTab</code></li>
+<li>Rehash: 对<code>oldTab</code>进行for循环，找出不为空的元素，并放入新数组中，伪代码如下</li>
+</ol>
+<pre><code class="language-java">int newCap = oldCap * 2;
+Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])new Node[newCap];
+oldTab.forEach((Node e) -&gt; {
+  newTab[e.hash &amp; (newCap - 1)] = e;
+})
+</code></pre>
+<p>可以看出，此操作为高耗时的O(N)操作，不仅要分配大内存，而且还要把旧数组进行for循环复制。如果HashMap的元素成千上万，在进行put操作时如果遇到了扩容，<strong>将造成极大的操作延迟</strong>。</p>
+<h2 id="redis中的hashtable"><a class="header" href="#redis中的hashtable">Redis中的HashTable</a></h2>
+<p>在Redis中，由于它对实时性要求更高，因此使用了渐进式rehash</p>
+<h4 id="hashtable的构造"><a class="header" href="#hashtable的构造">HashTable的构造</a></h4>
+<p>在Redis中，Hash表是这样定义的，可以看出，同样采用数组加链地址，redis与Java中的HashMap并没有什么不同</p>
+<pre><code class="language-c">// dict.c and dict.h
+// dict hashtable
+typedef struct dictht {
+    // 指针的指针，可以看成是一个全是指针的数组, 用Java写是这样的&lt;dictEntry*&gt;[]
+    dictEntry **table;
+    unsigned long size;
+    unsigned long sizemask;
+    unsigned long used;
+} dictht;
+
+typedef struct dictEntry {
+    void *key;
+    union {
+        void *val;
+        uint64_t u64;
+        int64_t s64;
+        double d;
+    } v;
+    // 供链地址冲突使用，本文不考虑此特例
+    struct dictEntry *next;
+} dictEntry;
+</code></pre>
+<h4 id="正常情况下添加k-v-entry的实现"><a class="header" href="#正常情况下添加k-v-entry的实现">正常情况下添加K-V Entry的实现</a></h4>
+<p>在没有冲突、没有替换、扩容的场景下，<code>SET</code>调用栈如下</p>
+<pre><code class="language-c">void setCommand(t_string.c);
+void setGenericCommand(t_string.c);
+void setKey(db.c);
+void dbAdd(db.c);
+static int dictAdd(dict.c)
+dictEntry *dictAddRaw(dict.c)
+</code></pre>
+<p>具体代码就不放了，先为Entry分配内存，接着放入ht数组的index中，最后写入指针的k-v数据。</p>
+<h2 id="redis扩容实现"><a class="header" href="#redis扩容实现">Redis扩容实现</a></h2>
+<p>当redis中所用容量达到1.0左右时，在<code>SET</code>操作时将触发扩容操作；亦或在Redis启动时也会进行初始化扩容。扩容与Java一样，首先创建了一个两倍长度的数组，接着进行reHash将旧值放入新值中。</p>
+<h4 id="expand"><a class="header" href="#expand">Expand</a></h4>
+<p>伪代码如下，ht就是上面的结构体。其中<code>ht[0]</code>是旧的hash表，<code>ht[1]</code>是新的hash表。可以看出通过zcalloc分配了一个双倍的内存。</p>
+<pre><code class="language-js">// dict.c dictExpand
+var realsize = 2 * ht[0].used;
+// 创建一个新的 dictht，并分配内存
+var ht[1] = {
+  size: realsize,
+  sizemask: realsize - 1,
+  table: zcalloc(realsize*sizeof(dictEntry*)),
+  used: 0
+}
+</code></pre>
+<h4 id="rehash实现"><a class="header" href="#rehash实现">ReHash实现</a></h4>
+<p>由于reHash需要大量的数据，很难构造出断点，因此可以在Redis初始化时，在如下代码中打断点，这样就可以分析详细过程了。</p>
+<pre><code class="language-c">// file:scr/dict.c
+static void _dictRehashStep(dict *d) {
+    if (d-&gt;iterators == 0) dictRehash(d,1);
+}
+</code></pre>
+<p>首先上结论，如果正在进行ReHash：</p>
+<ol>
+<li>当进行<code>SET</code>操作时，它将首先<code>移动一个旧元素到新数组</code>，再把K-V放入新的数组中</li>
+<li>当进行<code>GET</code>操作时，它将首先<code>移动一个旧元素到新数组</code>，再依次从旧数组、新数组中搜索Value</li>
+</ol>
+<p>上述操作每次只移动一个元素，类似于某个耐心的银行，取钱时扣一点，存钱时扣一点，最终总能扣完。这样就减少了一次性压垮导致双输的风险。</p>
+<p>接下来开始分析<code>移动一个旧元素到新数组</code>的过程，即上文<code>dictRehash(d,1)</code>的过程。由于<code>dictRehash</code>的第二个参数在<code>SET</code>与<code>GET</code>场景中始终为1，因此下文代码去掉了部分内容。</p>
+<pre><code class="language-java">int empty_visits = n*10;
+dictEntry *de, *nextde;
+// 遍历旧表ht[0]的数组，从rehashidx 到最 rehashidx+10，如果连续10次都为空，放弃此次机会
+// 当然计数器rehashidx也相应增长了10
+while(d-&gt;ht[0].table[d-&gt;rehashidx] == NULL) {
+    d-&gt;rehashidx++;
+    if (--empty_visits == 0) return 1;
+}
+// 老数组中刚刚找到的 dictEntry
+de = d-&gt;ht[0].table[d-&gt;rehashidx];
+// 移动元素到新数组，并处理链地址冲突
+while(de) {
+    unsigned int h;
+
+    nextde = de-&gt;next;
+    /* Get the index in the new hash table */
+    h = dictHashKey(d, de-&gt;key) &amp; d-&gt;ht[1].sizemask;
+    de-&gt;next = d-&gt;ht[1].table[h];
+    d-&gt;ht[1].table[h] = de;
+    d-&gt;ht[0].used--;
+    d-&gt;ht[1].used++;
+    de = nextde;
+}
+// rehash 全部完成，rehashidx置为 -1
+if (d-&gt;ht[0].used == 0) {
+  zfree(d-&gt;ht[0].table);
+  d-&gt;ht[0] = d-&gt;ht[1];
+  _dictReset(&amp;d-&gt;ht[1]);
+  d-&gt;rehashidx = -1;
+  return 0;
+}
+d-&gt;ht[0].table[d-&gt;rehashidx] = NULL;
+d-&gt;rehashidx++;
+</code></pre>
+<p>太长不看的话，总结一下rehash的过程：</p>
+<ol>
+<li>rehashidx开始为0</li>
+<li>遍历旧数组[rehashidx, rehashidx+10]共10个元素是否有entity，没有找到就等待下次机会，每处理一个值，rehashidx就加一。</li>
+<li>如果找到了，就重新计算hash值，并放入新数组中，并处理链地址冲突;否则接着执行1</li>
+<li>rehash 全部完成后，rehashidx置为 -1</li>
+</ol>
+<p>通过上述操作，每次在进行<code>SET/GET</code>操作时，<strong>都会保证向前遍历旧数组1～10步</strong>，最终ht[0]将被遍历完，而ht[1]将越来越多。</p>
+<h2 id="总结"><a class="header" href="#总结">总结</a></h2>
+<p>Redis的reHash本质上就是分而治之的方法，降低了一次压垮的风险。通过渐进式操作，分散了put/get的时间复杂度到每次操作中，当然一定程度上也增加了框架的复杂度。</p>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ol>
+<li>《Redis的设计与实现》</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="cow.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="distribute-lock.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="cow.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="distribute-lock.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

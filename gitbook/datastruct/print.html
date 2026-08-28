@@ -1,0 +1,1502 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduce</a></li><li class="chapter-item expanded "><a href="number/index.html"><strong aria-hidden="true">2.</strong> Number</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="number/bignumber.html"><strong aria-hidden="true">2.1.</strong> BigNumber</a></li></ol></li><li class="chapter-item expanded "><a href="string/index.html"><strong aria-hidden="true">3.</strong> String</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="string/editdistance.html"><strong aria-hidden="true">3.1.</strong> EditDistance</a></li><li class="chapter-item expanded "><a href="string/literal-expression.html"><strong aria-hidden="true">3.2.</strong> Literal-expression</a></li><li class="chapter-item expanded "><a href="string/similar.html"><strong aria-hidden="true">3.3.</strong> Similar</a></li></ol></li><li class="chapter-item expanded "><a href="map/index.html"><strong aria-hidden="true">4.</strong> Map</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="map/hashmap.html"><strong aria-hidden="true">4.1.</strong> HashMap</a></li><li class="chapter-item expanded "><a href="map/currenthashmap.html"><strong aria-hidden="true">4.2.</strong> CurrentHashMap(zk)</a></li><li class="chapter-item expanded "><a href="map/copyonwritemap.html"><strong aria-hidden="true">4.3.</strong> CopyonWritMap(zk)</a></li><li class="chapter-item expanded "><a href="map/lrumap.html"><strong aria-hidden="true">4.4.</strong> LinkedHashMap(LRU)</a></li></ol></li><li class="chapter-item expanded "><a href="tree/index.html"><strong aria-hidden="true">5.</strong> Tree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tree/traverse/index.html"><strong aria-hidden="true">5.1.</strong> Traverse</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tree/traverse/dfs.html"><strong aria-hidden="true">5.1.1.</strong> Depth-First</a></li><li class="chapter-item expanded "><a href="tree/traverse/bfs.html"><strong aria-hidden="true">5.1.2.</strong> Breed-First</a></li></ol></li><li class="chapter-item expanded "><a href="tree/b-tree/index.html"><strong aria-hidden="true">5.2.</strong> BinaryTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tree/b-tree/binarytree.html"><strong aria-hidden="true">5.2.1.</strong> BasicBinaryTree</a></li><li class="chapter-item expanded "><a href="tree/b-tree/binarysearchtree/index.html"><strong aria-hidden="true">5.2.2.</strong> BinarySearchTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tree/b-tree/binarysearchtree/redblacktree.html"><strong aria-hidden="true">5.2.2.1.</strong> RedBlackTree</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tree/redblack-and-avl-tree.html"><strong aria-hidden="true">5.2.2.1.1.</strong> Redblack and AVL Tree</a></li><li class="chapter-item expanded "><a href="tree/treemap.html"><strong aria-hidden="true">5.2.2.1.2.</strong> TreeMap</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="tree/heap.html"><strong aria-hidden="true">5.3.</strong> Heap</a></li><li class="chapter-item expanded "><a href="tree/treeset.html"><strong aria-hidden="true">5.4.</strong> TreeSet</a></li></ol></li><li class="chapter-item expanded "><a href="quene/index.html"><strong aria-hidden="true">6.</strong> Quene</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="quene/dequeue.html"><strong aria-hidden="true">6.1.</strong> Deque</a></li><li class="chapter-item expanded "><a href="quene/priorityqueue.html"><strong aria-hidden="true">6.2.</strong> PriorityQueue</a></li></ol></li><li class="chapter-item expanded "><a href="list/index.html"><strong aria-hidden="true">7.</strong> List</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="list/arr-linked-list.html"><strong aria-hidden="true">7.1.</strong> Array&amp;LinkedList</a></li><li class="chapter-item expanded "><a href="list/skiplist.html"><strong aria-hidden="true">7.2.</strong> SkipList</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>本书是对数据结构与算法的归档，正在撰写中，欢迎各位Star与PR</p>
+<h4 id="面向读者"><a class="header" href="#面向读者">面向读者</a></h4>
+<ul>
+<li>有工作经验，不适用于应届生（应届生推荐直接读书）</li>
+<li>已经有一定知识体系，但是希望达到Middle或者更高级别</li>
+</ul>
+<h4 id="为读者提供了"><a class="header" href="#为读者提供了">为读者提供了</a></h4>
+<ul>
+<li>数据结构与算法，需要达到手写水平</li>
+<li>常见眼高手低的误区</li>
+<li>本书尽量给所有数据结构提供业界使用的示例（比如OkHttp内部为何使用了队列），而非画出一堆公式与框框</li>
+</ul>
+<h4 id="最终希望"><a class="header" href="#最终希望">最终希望</a></h4>
+<p>白板手写各种结构与算法</p>
+<h4 id="技术交流"><a class="header" href="#技术交流">技术交流</a></h4>
+<p>邮件: <a href="mailto:miao1007@gmail.com">miao1007@gmail.com</a></p>
+<h4 id="license"><a class="header" href="#license">license</a></h4>
+<p>本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可。</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>https://leetcode.com/problems/multiply-strings/</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="string"><a class="header" href="#string">String</a></h2>
+<p>String本身不难，主要它作为可读编码，需要各种转换</p>
+<p>单个计算的</p>
+<ul>
+<li>
+<p>转换为Hex，Integer，Array，特别是LeadingZero的定义可能不同: 这种问题说实话就是拼手速与用例，一般是Easy与Middle的难度。比如https://leetcode.com/problems/string-to-integer-atoi/</p>
+</li>
+<li>
+<p>作为Tokenizer的输入源，实现简易的Inteceptor/Decoder，需要通过PatternMatch维护状态机（最简单的boolean到较为复杂的枚举），不同嵌套级别的ContextScope（比如Stack/Map），这个王垠比较在行</p>
+<p>eg: https://leetcode.com/problems/decode-string/</p>
+</li>
+</ul>
+<p>需要对比的</p>
+<ul>
+<li>与Regex混用（Greedy/DP）需要掌握表达式，比如 https://leetcode.com/problems/valid-parenthesis-string/，Kleene closure</li>
+<li>Elastic搜索相关，比如编辑距离，共同拥有的某个特点，倒排索引，NGram等</li>
+</ul>
+<p>Substing类型</p>
+<ul>
+<li>排列组合，比如不能连续N个值，很容易转为数组类问题，滑动窗口等</li>
+</ul>
+<h4 id="常见问题"><a class="header" href="#常见问题">常见问题</a></h4>
+<ul>
+<li>StringBuilder一个个append性能不如subString()</li>
+<li>不熟悉的业务，不要上来就抽象出公共method</li>
+</ul>
+<h4 id="常见方法"><a class="header" href="#常见方法">常见方法</a></h4>
+<pre><code class="language-java">// avoid for loop
+String.join(&quot;|&quot;,Collections.emptyList());
+
+// clear stringBuilder cache
+sb.setLength(0);
+
+// str &lt;--&gt; number
+int n = 0;
+for(int i = 0; i&lt; s.length();i++){
+  char c = s.charAt(i);
+  if(Character.isDigit(c)){
+  	n = n*10 + c - '0';
+	}
+}
+// or Integer.valueOf(str)
+
+// char &lt;--&gt; string
+Character.toString('c');
+&quot;aaa&quot;.toCharArray();
+
+
+// 高性能StringBuilder，用于冲top1 然而这里一般不是瓶颈,一般也就是8ms的差距
+char[] arr = new char[SIZE];
+int size = 0;
+new String(Arrays.copyOfRange(sb,0,size));// size is excluded.
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>编辑距离</p>
+<h2 id="应用场景"><a class="header" href="#应用场景">应用场景</a></h2>
+<ul>
+<li>Elastic中项目要用的真实例子: https://www.elastic.co/blog/found-fuzzy-search 模糊（Fuzzy）搜索以及拼写错误（Spell checker）</li>
+<li>OJ例子: https://leetcode.com/problems/edit-distance/</li>
+<li>更难的例子: https://leetcode.com/problems/regular-expression-matching/</li>
+<li>Java业务: 通过EditDistance反射找到Bean（使用Common库实现）</li>
+</ul>
+<h2 id="理论教程"><a class="header" href="#理论教程">理论教程</a></h2>
+<p>详见这个胶片 <a href="https://web.stanford.edu/class/cs124/lec/med.pdf">https://web.stanford.edu/class/cs124/lec/med.pdf</a></p>
+<h2 id="实现"><a class="header" href="#实现">实现</a></h2>
+<p>本处实现是参考算法书中最通用的动态规划实现(其中replace复杂度为1)，与Elastic/<a href="https://github.com/apache/lucene-solr/blob/master/lucene/suggest/src/java/org/apache/lucene/search/spell/LuceneLevenshteinDistance.java">Lucene</a>等专业实现肯定还是有很大性能区别。还有值得注意的是，编辑距离不要求枚举所有的路线图，而只要求计算结果。如果需要保存路线，那么就相当于实现了一份Diff了</p>
+<pre><code class="language-java">// https://leetcode.com/problems/edit-distance/
+</code></pre>
+<p>相比Fibonacci中使用Map作为缓存，由于EditDistance有两个入参，因此需要一个二维数组(cost array)来实现记忆化</p>
+<p><code>cost[m][n]</code>表示缓存了字符串<code>word1</code>前m个字符串与<code>word2</code>前n个字符串，从<code>word1</code>到<code>word2</code>的编辑距离</p>
+<pre><code>// 前N个含有0，因此需要加一
+int[][] cost = new int[word1.length+1][word2.length+1];
+</code></pre>
+<p>比如现在有两个字符串，分别是 abcd 与 ccd，通过大脑计算显然可以看出需要删1换1，最终是2，我们现在用记忆化实现一下，我们将数组维护为一个Table，</p>
+<p>首先完成边界起始迭代，由于是纯ADD/DEL操作，比如<code>cost[3][0]</code>表示将abc删成&quot;&quot;，操作数当然是3</p>
+<table><thead><tr><th>0</th><th>1(c)</th><th>2(c)</th><th>3(d)</th><th>4</th><th>5</th></tr></thead><tbody>
+<tr><td>1(a)</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2(b)</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>3(c)</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>4(d)</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table>
+<p>这一部分可以用如下Java代码实现</p>
+<pre><code class="language-java">// for word1 delete to word2
+for (int i = 0; i&lt; word1.length+1;i++){
+  cost[i][0] = i;
+}
+// for word1 add to word2
+for (int i = 0; i&lt; word2.length+1;i++){
+  cost[0][i] = i;
+}
+</code></pre>
+<p>然后我们就可以基于预知条件，做一套从它的上面，左边与左对角线的迁移状态机，在上面的预制条件找最优解了</p>
+<p>比如求值</p>
+<ul>
+<li><code>cost[1][1]</code>=distance('a','c')
+<ul>
+<li>REPLACE: 由于<code>a</code>不等于<code>c</code>，因此成本是1</li>
+<li>delete_first: 先计算distance('','c') ，再计算 distance('','c') -&gt; distance('a','c')，转换成本是1 </li>
+<li>delele_second: 先计算distance('a','') ，再计算 distance('a','') -&gt; distance('a','c')，转换成本是1 </li>
+</ul>
+</li>
+<li><code>cost[1][2]</code>=distance('a','cc')
+<ul>
+<li>REPLACE: 由于<code>a</code>不等于<code>c</code>，因此成本是1</li>
+<li>delete_first: 先计算distance('','cc')，再计算 distance('','cc') -&gt; distance('a','cc')，转换成本是1</li>
+<li>delele_second: 先计算distance('a','c') ，再计算 distance('a','c') -&gt; distance('a','cc')，转换成本是1 </li>
+</ul>
+</li>
+</ul>
+<p>这里代码如下</p>
+<pre><code class="language-java">// calculate every transformation cost
+for (int i = 1; i &lt; len1 + 1; i++) {
+  char c1 = word1.charAt(i - 1);
+  for (int j = 1; j &lt; len2 + 1; j++) {
+    int swapCost = (c1 == word2.charAt(j - 1) ? 0 : 1);
+    int delete_both_to_normal = cost[i - 1][j - 1] + swapCost;
+    // 网上有很多用add作为命名，但是正如上文所写，状态转移最好命名长一点，避免歧义
+    int delete_first_to_normal = cost[i][j - 1] + 1;
+    int delele_second_to_normal = cost[i - 1][j] + 1;
+    cost[i][j] = Math.min(
+      Math.min(delete_first_to_normal, delele_second_to_normal), 
+      delete_both_to_normal
+    );
+  }
+}
+return [i][j];
+</code></pre>
+<p>白板注意事项</p>
+<ul>
+<li>不要写过长代码(eg: Math.min)，防止括号中加一位置计算错误，难以定位</li>
+<li>二维数组尽量直接操作index，不要用arr.length</li>
+<li>string的length方法有括号</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="literal-expression-interceptor"><a class="header" href="#literal-expression-interceptor">literal-expression interceptor</a></h2>
+<h4 id="背景"><a class="header" href="#背景">背景</a></h4>
+<p>String作为表达式的输入源，实现简易的Interceptor/Decoder，需要通过PatternMatch维护状态机（比如栈），不同嵌套级别的ContextScope（比如Stack/Map），难度一般为Middle到Hard</p>
+<p>比如</p>
+<ul>
+<li>只涉及<a href="https://leetcode.com/problems/decoded-string-at-index/solution/">长度位置</a>的问题，连Lexer都不用使用（Middle）</li>
+<li>实现Tokenizer（用2个while）</li>
+<li>实现一个计算器/Encoder/Decoder（Middle～Hard）(涉及乘法优先级的太恶心，我是不会搞的，反正这种公司也不去)</li>
+<li>实现一个OGNL，模版引擎（支持，取属性与$取）（Hard）</li>
+<li>支持赋值与函数的<a href="https://leetcode.com/problems/parse-lisp-expression/discuss/307150/Java-4ms-95.19">Lisp表达式</a>处理器（ READ/EVAL/PRINT LOOP，Very Hard），可以参考Clojure的<a href="https://github.com/clojure/clojure/blob/master/src/jvm/clojure/lang/LispReader.java">LispReader</a>(注意它解析后S-Exp是放在表达式上下文运行的)</li>
+</ul>
+<p>其中hard的占总hard的15%，很多问题是披着String的外表，内部却干着（简易）编译器的活。</p>
+<h2 id="常见解析流程"><a class="header" href="#常见解析流程">常见解析流程</a></h2>
+<p>前三种问题均可以由下面流程搞定，注意，由于题目一般都是理想情况，因此为了时间并没有使用AST的DFS，仍然是String的startWith处理PatternMatch</p>
+<p>步骤如下</p>
+<h4 id="初始化"><a class="header" href="#初始化">初始化</a></h4>
+<p>如果涉及到env，进行Runtime的init</p>
+<h3 id="atomic处理"><a class="header" href="#atomic处理">Atomic处理</a></h3>
+<p>对于无法拆分的Atomic元素（比如int/boolean/symbol，注意这里不是最小的表达式），直接解析运算，并写好用例</p>
+<h3 id="表达式处理"><a class="header" href="#表达式处理">表达式处理</a></h3>
+<p>对于表达式 （比如某种括号/数字开头），需要扫描两次</p>
+<h4 id="切分表达式"><a class="header" href="#切分表达式">切分表达式</a></h4>
+<p>第一遍扫描（delimeter）：此处对括号split，不含嵌套（遇到多个括号嵌套时，不处理，直接append进去）。举个例子，比如计算器</p>
+<pre><code class="language-scheme">(+ (* 2 (+ 6 7)) (* 4 5))
+</code></pre>
+<p>我将解析为如下，注意保留了括号，这里本质上是一个退化的链表</p>
+<pre><code class="language-scheme">['+', '* 2 3 (+ 6 7)', '* 4 5']
+</code></pre>
+<p>而不是AST的树形结构</p>
+<pre><code class="language-java">['+', ['*', '2', '3', ['+', '6', '7']], ['*','4', '5']]
+</code></pre>
+<blockquote>
+<p>如果你看过Clojure的实现，比如执行<code>(let x 2 x)</code>时，它将在Java侧通过LispReader解析为List表达式，后续步骤将在Clojure的Runtime进行invoke，而不是把工作全部扔到了Reader中，这样做当然是最工程化的；而如果你是在做题时，如果通过嵌套List，那么类型强制转换、Symbol状态保存、env与String的编码将比较繁琐，因此我个人建议通过保留括号String而不是维护嵌套List</p>
+</blockquote>
+<h4 id="执行表达式"><a class="header" href="#执行表达式">执行表达式</a></h4>
+<p>第二遍扫描（eval）：通过匹配startWith（使用下面的readInt与readLetter等工具实现，没有转为单独的Tree，没有达到Parser的级别）实现DFA，并根据表达式进行eval（递归/Stack ，复杂度为N!）</p>
+<p>这里扫描两次并不会太慢，因为如果只扫描一遍就全部搞定的话，需要维护很多全局变量与If判断（而且很难总结为经验），即通过很多goto语句实现DFA与AST，也就是所谓的意大利面式代码，导致调试中的index位置非常复杂。同时，由于你经常通过两次扫描进行训练，可以更专注在核心eval上，而不是反复折腾全局变量，真正白板时，对bugfree要求还是很高的。</p>
+<h2 id="例子"><a class="header" href="#例子">例子</a></h2>
+<p>我们挑一个中等的题目，要求如下 </p>
+<p>https://leetcode.com/problems/number-of-atoms/</p>
+<p>解决方法就是构造DFA遍历执行</p>
+<pre><code>
+</code></pre>
+<h2 id="附录"><a class="header" href="#附录">附录</a></h2>
+<h4 id="表达式到底扫描几遍"><a class="header" href="#表达式到底扫描几遍">表达式到底扫描几遍</a></h4>
+<p>王垠曾经说过，在TOKEN扫描的时候不要为了节约遍历而做Parse/eval的工作，否则额外的判断与全局变量等问题会提高复杂度，我个人也赞成垠神的说法，因为这类问题一般不会有性能问题，N与2N不会太大。</p>
+<blockquote>
+<p>此外，如果是为了做题/最小复杂度，那么尽可能不形成AST，而是直接保存split后的String，因为时间可能不够。</p>
+</blockquote>
+<h4 id="使用栈还是递归"><a class="header" href="#使用栈还是递归">使用栈还是递归</a></h4>
+<p>用递归代码简洁优雅，不用维护额外的栈，时间性能可以达到Top1%；但是技巧性较高，不好记住，涉及到缓存时代码也不简单。</p>
+<p>使用Deque：工程最常用，模版可以背，可以轻易颠倒顺序。如果为了性能可以维护一个array based stack。</p>
+<h4 id="要不要使用正则表达式"><a class="header" href="#要不要使用正则表达式">要不要使用正则表达式</a></h4>
+<p>虽然使用此工具匹配很快，但是不推荐平时使用，因为套路还是以手动匹配为主</p>
+<h4 id="手写dfa常见工具类"><a class="header" href="#手写dfa常见工具类">手写DFA常见工具类</a></h4>
+<p>下面两个可以实现返回多个值，完全通用各种场景</p>
+<pre><code class="language-java">// array x is to fix immutable primary type
+// x 的管理也由上游控制
+int readDigit(String s, int i, int[] x){
+    int n = s.charAt(i) - '0';
+    while(i + 1 &lt; s.length() &amp;&amp; Character.isDigit(s.charAt(i+1))){
+       n = n*10 + s.charAt(i+1) - '0';
+       i++;
+    }
+  	x[0] = n;
+    return i;
+}
+
+// StringBuilder是为了方便上游滑动窗口等复用， sb的释放由上游负责
+public int readLetter(String s, int i, StringBuilder sb){
+    sb.append(s.charAt(i));
+    while(i+1 &lt; s.length() &amp;&amp; Character.isLetter(s.charAt(i+1)) ){
+        sb.append(s.charAt(i+1));
+        i++;
+    }
+    return i;
+}
+
+// usage，非常优雅，没有任何if是多余的
+for(int i = 0;i&lt;s.length();i++){
+  char c = s.charAt(i);
+  if(Character.isDigit(c)){
+    int[] num = new int[1];
+    i = readDigit(s, i, num);
+  } else if(Character.isLetter(c)){
+    i = readLetter(s, i, sb);
+  }
+}
+
+</code></pre>
+<p>除了手写，还有正则表达式匹配，但是感觉失去了本质</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="相似字符串"><a class="header" href="#相似字符串">相似字符串</a></h2>
+<ul>
+<li>组合相似</li>
+<li>符合某个规则（isomorphic）</li>
+</ul>
+<p>这类问题一般是是</p>
+<ul>
+<li>维护一个pair（或者称作Entry/Tuple）</li>
+<li>hashCode相等，或者内部相减</li>
+<li>sliding window来进行遍历计算</li>
+</ul>
+<h2 id="读题与测试用例"><a class="header" href="#读题与测试用例">读题与测试用例</a></h2>
+<p>读好英文，准备明确的测试用例</p>
+<p>比如这一个 https://leetcode.com/problems/longest-substring-without-repeating-characters/description/</p>
+<p>就一定要明确<code>abc</code>可以，但是<code>abbc</code>是不可以的</p>
+<blockquote>
+<p>有些题目就是这么low，只能靠用例补充</p>
+</blockquote>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>以下要求阅读过源码或者有输出</p>
+<h4 id="map的各种实现"><a class="header" href="#map的各种实现">Map的各种实现</a></h4>
+<ul>
+<li>
+<p>Java的<code>HashMap</code>源码实现，特别注意当冲突达到7时，变化为红黑树的操作</p>
+</li>
+<li>
+<p>Zk中为何使用<code>ConcurrentHashMap</code>作为树</p>
+</li>
+<li>
+<p>Redis的HashTable的实现，<a href="http://www.jianshu.com/p/9c84856cd5c0">渐进式rehash实现</a></p>
+</li>
+<li>
+<p>SLB中<a href="https://zh.wikipedia.org/wiki/%E4%B8%80%E8%87%B4%E5%93%88%E5%B8%8C">一致性Hash算法</a></p>
+</li>
+<li>
+<p>布隆过滤器</p>
+</li>
+<li>
+<p>LRU算法中的LinkedHashMap</p>
+</li>
+<li>
+<p>JDK8/Groovy集合类中<code>groupBy</code></p>
+</li>
+</ul>
+<h4 id="weakhashmap"><a class="header" href="#weakhashmap">WeakHashMap</a></h4>
+<p>WeakReference相比SoftReference，无论是否OOM，都会被GC。因此可以配合Map做缓存</p>
+<ul>
+<li>动态代理/反射中的缓存</li>
+<li>大对象/容易再次生成的对象</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="hashmap的优化与实践"><a class="header" href="#hashmap的优化与实践">HashMap的优化与实践</a></h2>
+<h2 id="文章速读"><a class="header" href="#文章速读">文章速读</a></h2>
+<ul>
+<li>HashMap通过计算哈希实现数据的索引</li>
+<li>当碰撞达到8时，将链表转为红黑树(一种对称的<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9">二叉查找树</a>)</li>
+<li>HashMap进行rehash时性能较差，因此需要设计一个好的容量，或者使用Redis的渐进式rehash</li>
+</ul>
+<h2 id="hashmap的复杂度"><a class="header" href="#hashmap的复杂度">HashMap的复杂度</a></h2>
+<p>如图是ArrayList/LinkedList/HashMap三个数据结构的复杂度对比，可以看出HashMap整体上性能都非常不错，但是不稳定，为O(N/Buckets)，N就是以数组中没有发生碰撞的元素，Buckets是因碰撞产生的链表。</p>
+<table><thead><tr><th align="left"></th><th align="left">获取</th><th align="left">查找</th><th align="left">添加/删除</th><th align="left">空间</th><th align="left"></th></tr></thead><tbody>
+<tr><td align="left"></td><td align="left">ArrayList</td><td align="left">O(1)</td><td align="left">O(1)</td><td align="left">O(N)</td><td align="left">O(N)</td></tr>
+<tr><td align="left"></td><td align="left">LinkedList</td><td align="left">O(N)</td><td align="left">O(N)</td><td align="left">O(1)</td><td align="left">O(N)</td></tr>
+<tr><td align="left"></td><td align="left">HashMap</td><td align="left">O(N/Bucket_size)</td><td align="left">O(N/Bucket_size)</td><td align="left">O(N/Bucket_size)</td><td align="left">O(N)</td></tr>
+</tbody></table>
+<blockquote>
+<p>注：发生碰撞实际上是非常稀少的，所以N/Bucket_size约等于1</p>
+</blockquote>
+<p>HashMap是对Array与Link的折衷处理，Array与Link可以说是两个速度方向的极端，Array注重于数据的获取，而处理修改（添加/删除）的效率非常低；Link由于是每个对象都保持着下一个对象的指针，查找某个数据需要遍历之前所有的数据，所以效率比较低，而在修改操作中比较快。</p>
+<blockquote>
+<p>复杂度是如何考察的？</p>
+<p>对于数据结构，在时间上我们需要考察Acessing ,Search, Deletion/Insertion的平均与最差的复杂度。在空间上，我们要考虑维护这个数据结构所占用的内存空间。</p>
+<p>常见的数据结构与排序的复杂度都在<a href="http://bigocheatsheet.com/">这里</a></p>
+</blockquote>
+<h2 id="hashmap的实现"><a class="header" href="#hashmap的实现">HashMap的实现</a></h2>
+<p>本文以JDK8的API实现进行分析</p>
+<h3 id="1-什么是hash什么是碰撞"><a class="header" href="#1-什么是hash什么是碰撞">1. 什么是hash，什么是碰撞？</a></h3>
+<ul>
+<li>
+<p>Hash：是一种信息摘要算法，一般用于验证完整性，它还叫做哈希，或者散列，但是它<strong>不是加密</strong>。我们平时使用的MD5,SHA1,SSL中的公私钥验证都属于Hash算法，通过输入key进行Hash计算，就可以获取key的HashCode()，比如我们通过校验MD5来验证文件的完整性。</p>
+</li>
+<li>
+<p>碰撞：好的Hash算法可以出计算几乎出独一无二的HashCode，如果出现了重复的hashCode，就称作碰撞;</p>
+</li>
+</ul>
+<blockquote>
+<p>就算是MD5这样优秀的算法也会发生碰撞，即两个不同的key也有可能生成相同的MD5。</p>
+</blockquote>
+<h3 id="2-hashmap中是如何实现写入与读取的"><a class="header" href="#2-hashmap中是如何实现写入与读取的">2. HashMap中是如何实现写入与读取的？</a></h3>
+<p>HashMap实现了Map接口，保存着K-V这样的集合。我们以put操作为例</p>
+<h4 id="21-对key进行hash计算"><a class="header" href="#21-对key进行hash计算">2.1. 对key进行Hash计算</a></h4>
+<p>在JDK8中，由于使用了红黑树来处理大的链表开销，所以hash这边可以更加省力了，只用计算hashCode并移动到低位就可以了</p>
+<pre><code class="language-java">static final int hash(Object key) {
+    int h;
+    //计算hashCode，并无符号移动到低位
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h &gt;&gt;&gt; 16);
+}
+</code></pre>
+<p>举个例子: 363771819^(363771819 &gt;&gt;&gt; 16)</p>
+<pre><code>0001 0101 1010 1110 1011 0111 1010 1011(363771819)
+0000 0000 0000 0000 0001 0101 1010 1110(5550) XOR
+--------------------------------------- =
+0001 0101 1010 1110 1010 0010 0000 0101(363766277)
+</code></pre>
+<p>这样做可以实现了高地位更加均匀地混到一起，详见<a href="http://stackoverflow.com/a/2334251/4016014">这里</a></p>
+<p>下面给出几个常用的哈希码(hashCode)的算法。</p>
+<ol>
+<li>Object类的hashCode. 返回对象的经过处理后的内存地址，由于每个对象的内存地址都不一样，所以哈希码也不一样。这个是native方法，取决于JVM的内部设计，一般是某种C地址的偏移。</li>
+<li>String类的hashCode. 根据String类包含的字符串的内容，根据一种特殊算法返回哈希码，只要字符串的内容相同，返回的哈希码也相同。</li>
+<li>Integer等包装类，返回的哈希码就是Integer对象里所包含的那个整数的数值，例如Integer i1=new Integer(100),i1.hashCode的值就是100 。由此可见，2个一样大小的Integer对象，返回的哈希码也一样。</li>
+<li>int，char这样的基础类，它们不需要hashCode，如果需要存储时，将进行自动装箱操作，计算方法同上。</li>
+</ol>
+<h4 id="22-获取到当前的位置"><a class="header" href="#22-获取到当前的位置">2.2. 获取到当前的位置</a></h4>
+<p>计算了Hash，我们现在要把它插入数组中了</p>
+<pre><code>i = (tab.length - 1) &amp; hash；
+</code></pre>
+<blockquote>
+<p>通过位运算，确定了当前的位置，因为HashMap数组的大小总是2^n，所以实际的运算就是 (0xfff...ff) &amp; hash ，这里的tab.length-1相当于一个mask，滤掉了大于当前长度位的hash，使每个i都能插入到数组中。</p>
+</blockquote>
+<h4 id="23-生成包装类"><a class="header" href="#23-生成包装类">2.3. 生成包装类</a></h4>
+<p>这个对象是一个包装类，<code>Node&lt;K,V&gt;</code>，内部有key,value,hash还有next，可以看出来它是一个链表。</p>
+<pre><code class="language-java">static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; {
+        final int hash;
+        final K key;
+        V value;
+        Node&lt;K,V&gt; next;
+        //getter and setter .etc.
+}
+</code></pre>
+<h4 id="24-插入包装类到数组"><a class="header" href="#24-插入包装类到数组">2.4. 插入包装类到数组</a></h4>
+<p>(1). 如果输入当前的位置是空的，就插进去，如图，左为插入前，右为插入后</p>
+<pre><code>0           0
+|           |
+1 -&gt; null   1 - &gt; null
+|           |
+2 -&gt; null   2 - &gt; null
+|           | 
+..-&gt; null   ..- &gt; null
+|           | 
+i -&gt; null   i - &gt; new node
+|           |
+n -&gt; null   n - &gt; null
+</code></pre>
+<p>(2). 如果当前位置已经有了node，且它们发生了碰撞，则新的放到前面，旧的放到后面，这叫做链地址法处理冲突。</p>
+<pre><code>0           0
+|           |
+1 -&gt; null   1 - &gt; null
+|           |
+2 -&gt; null   2 - &gt; null
+|           | 
+..-&gt; null   ..- &gt; null
+|           | 
+i -&gt; old    i - &gt; new - &gt; old
+|           |
+n -&gt; null   n - &gt; null
+</code></pre>
+<p>我们可以发现，失败的hashCode算法会导致HashMap的性能由数组下降为链表，所以想要避免发生碰撞，就要提高hashCode结果的均匀性。当然，在JDK8中，采用了红黑二叉树进行了处理，这个我们后面详细介绍。</p>
+<p>&gt;</p>
+<blockquote>
+<p>什么是Hash攻击?</p>
+<p>通过请求大量key不同，但是hashCode相同的数据，让HashMap不断发生碰撞，硬生生的变成了SingleLinkedList</p>
+<pre><code>0
+|
+1 -&gt; a -&gt;b -&gt; c -&gt; d(撞！撞！撞！复杂度由O(1)变成了O(N))
+|
+2 -&gt; null(本应该均匀分布，这里却是空的)
+|
+3 -&gt; null
+|
+4 -&gt; null
+</code></pre>
+<p>这样put/get性能就从O(1)变成了O(N)，CPU负载呈直线上升，形成了放大版DDOS的效果，这种方式就叫做hash攻击。在Java8中通过使用TreeMap，提升了处理性能，可以一定程度的防御Hash攻击。</p>
+</blockquote>
+<h3 id="3-扩容"><a class="header" href="#3-扩容">3. 扩容</a></h3>
+<p>如果当表中的75%已经被占用，即视为需要扩容了</p>
+<pre><code>(threshold = capacity * load factor ) &lt; size
+</code></pre>
+<p>它主要有两个步骤：</p>
+<h4 id="1-容量加倍"><a class="header" href="#1-容量加倍">1. 容量加倍</a></h4>
+<p>左移1位，就是扩大到两倍，用位运算取代了乘法运算</p>
+<pre><code>newCap = oldCap &lt;&lt; 1;
+newThr = oldThr &lt;&lt; 1;
+</code></pre>
+<h4 id="2-遍历计算hash"><a class="header" href="#2-遍历计算hash">2. 遍历计算Hash</a></h4>
+<pre><code class="language-java">for (int j = 0; j &lt; oldCap; ++j) {
+                Node&lt;K,V&gt; e;
+                //如果发现当前有Bucket
+                if ((e = oldTab[j]) != null) {
+                    oldTab[j] = null;
+                    //如果这里没有碰撞
+                    if (e.next == null)
+                        //重新计算Hash，分配位置
+                        newTab[e.hash &amp; (newCap - 1)] = e;
+                    //这个见下面的新特性介绍，如果是树，就填入树
+                    else if (e instanceof TreeNode)
+                        ((TreeNode&lt;K,V&gt;)e).split(this, newTab, j, oldCap);
+                    //如果是链表，就保留顺序....目前就看懂这点
+                    else { // preserve order
+                        Node&lt;K,V&gt; loHead = null, loTail = null;
+                        Node&lt;K,V&gt; hiHead = null, hiTail = null;
+                        Node&lt;K,V&gt; next;
+                        do {
+                            next = e.next;
+                            if ((e.hash &amp; oldCap) == 0) {
+                                if (loTail == null)
+                                    loHead = e;
+                                else
+                                    loTail.next = e;
+                                loTail = e;
+                            }
+                            else {
+                                if (hiTail == null)
+                                    hiHead = e;
+                                else
+                                    hiTail.next = e;
+                                hiTail = e;
+                            }
+                        } while ((e = next) != null);
+                        if (loTail != null) {
+                            loTail.next = null;
+                            newTab[j] = loHead;
+                        }
+                        if (hiTail != null) {
+                            hiTail.next = null;
+                            newTab[j + oldCap] = hiHead;
+                        }
+                    }
+                }
+            }
+</code></pre>
+<p>由此可以看出扩容需要遍历并重新赋值，成本非常高，所以选择一个好的初始容量非常重要。</p>
+<h2 id="如何提升性能"><a class="header" href="#如何提升性能">如何提升性能？</a></h2>
+<ol>
+<li>
+<p>解决扩容损失：如果知道大致需要的容量，把初始容量设置好以解决扩容损失；<br />
+比如我现在有1000个数据，需要 1000/0.75 = 1333 个坑位，又 1024 &lt; 1333 &lt; 2048，所以最好使用2048作为初始容量。</p>
+</li>
+<li>
+<p>解决碰撞损失：使用高效的HashCode与loadFactor，这个...由于JDK8的高性能出现，这儿问题也不大了。</p>
+</li>
+<li>
+<p>解决数据结构选择的错误：在大型的数据与搜索中考虑使用别的结构比如TreeMap，这个就是知识积累了。一般需要key排序时，建议使用TreeMap，本文暂不讨论；</p>
+</li>
+</ol>
+<h2 id="hashmap与hashtable的主要区别"><a class="header" href="#hashmap与hashtable的主要区别">HashMap与HashTable的主要区别</a></h2>
+<p>在很多的Java基础书上都已经说过了，他们的主要区别其实就是Table全局加了线程同步保护</p>
+<ul>
+<li>HashTable线程更加安全，代价就是因为它粗暴的添加了this同步锁，所以会有性能损失。</li>
+<li>其实有更好的concurrentHashMap可以替代HashTable，它采用了CAS实现了数组元素的插入</li>
+</ul>
+<h2 id="jdk8中hashmap的新特性"><a class="header" href="#jdk8中hashmap的新特性">JDK8中HashMap的新特性</a></h2>
+<p>如果某个桶中的链表记录过大的话（当前是TREEIFY_THRESHOLD = 8），就会把这个链动态变成红黑二叉树，使查询最差复杂度由O(N)变成了O(logN)。</p>
+<pre><code class="language-java">//e 为临时变量，p为当前的链
+for (int binCount = 0; ; ++binCount) {
+    if ((e = p.next) == null) {
+        p.next = newNode(hash, key, value, null);
+        if (binCount &gt;= TREEIFY_THRESHOLD - 1) // -1 for 1st
+            treeifyBin(tab, hash);
+        break;
+    }
+    if (e.hash == hash &amp;&amp;
+        ((k = e.key) == key || (key != null &amp;&amp; key.equals(k))))
+        break;
+    p = e;
+}
+</code></pre>
+<p>JDK8在其他地方也有提升，更多的可以看<a href="http://openjdk.java.net/jeps/180">这里</a>。</p>
+<h2 id="hashmap的装箱空间效率"><a class="header" href="#hashmap的装箱空间效率">HashMap的装箱空间效率</a></h2>
+<p>在笔试题中，一般“内存限制”是不考虑装箱的，而在现实中HashMap空间效率之低，你却不一定知道。</p>
+<p>比如定义了一个 <code>HashMap&lt;Long,Long&gt;</code></p>
+<h4 id="1-long的装箱"><a class="header" href="#1-long的装箱">1. Long的装箱</a></h4>
+<p>在对象头中，加入额外的指针8Bype，加入8Bype的MarkWord(hashcode与锁信息)，这里就是16Byte</p>
+<p>也就是说，long在装箱后，效率为 8/24 = 1/3</p>
+<h4 id="2-mapentry的装箱"><a class="header" href="#2-mapentry的装箱">2. Map.Entry的装箱</a></h4>
+<p>字段空间: hash(4) + padding(4) ＋ next(8) = 16Byte，这里的padding是字节对齐</p>
+<p>对象头: 16Byte，指针+MarkWord</p>
+<p>也就是说，维护一个Entry需要32Byte的空间</p>
+<pre><code class="language-java">static class Node&lt;K,V&gt; implements Map.Entry&lt;K,V&gt;
+{    
+    final int hash;    
+    final K key;    
+    V value;    
+    Node&lt;K,V&gt; next;
+}
+</code></pre>
+<h4 id="3-总效率"><a class="header" href="#3-总效率">3. 总效率</a></h4>
+<p>8/(24 + 32) = 1/7</p>
+<blockquote>
+<p>计算结果可能有差异，本文主要在强调装箱过程造成的损失</p>
+</blockquote>
+<p>如果你想挑战OJ的TOP1，必须通过数组等手段实现Map</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h4 id="concurrenthashmap与hashtable"><a class="header" href="#concurrenthashmap与hashtable">ConcurrentHashMap与HashTable</a></h4>
+<ul>
+<li><code>ConcurrentHashMap</code>通过CAS锁实现，使用了synchonized(node)搜索链表，只有输入操作有锁，输出操作无锁</li>
+<li><code>HashTable</code>通过synchronized方法实现，也就是用this作为锁，粒度过大</li>
+</ul>
+<h4 id="concurrenthashmap在开源项目的使用"><a class="header" href="#concurrenthashmap在开源项目的使用">ConcurrentHashMap在开源项目的使用</a></h4>
+<ul>
+<li>Mybatis中执行动态SQL时缓存表达式(expressionCache)</li>
+</ul>
+<h4 id="copyonwritehashmap在开源项目的使用"><a class="header" href="#copyonwritehashmap在开源项目的使用">CopyOnWriteHashMap在开源项目的使用</a></h4>
+<ul>
+<li>zk中的zkNode节点</li>
+<li>tomcat中的<a href="https://svn.apache.org/repos/asf/tomcat/trunk/java/org/apache/catalina/core/ApplicationContext.java">ApplicationContext</a>，即request.getServletContext().getAttribute(&quot;key&quot;)</li>
+</ul>
+<h4 id="guava中的localcache"><a class="header" href="#guava中的localcache">Guava中的LocalCache</a></h4>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="copyonwritmapzk"><a class="header" href="#copyonwritmapzk">CopyonWritMap(zk)</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>##1. Cache的简介</p>
+<p>缓存，顾名思义，也就是方便用户快速的获取值的一种储存方式。小到与CPU同频的昂贵的缓存颗粒，内存，硬盘，网络，CDN反代缓存，DNS递归查询，OS页面置换，Redis数据库，都可以看作缓存。它有如下的特点：</p>
+<ol>
+<li>缓存载体与持久载体总是相对的，容量远远小于持久容量，成本高于持久容量，速度高于持久容量。比如硬盘与网络，目前主流的SSD硬盘可以达到1000MB/S，而很多地区网速却只有4M，将网络中的文件存到硬盘中，硬盘就相当于缓存；再比如内存与硬盘，主流的DDR3内存的速度可以达到10GB/S，而硬盘相对的慢了很多数量级别，将硬盘的游戏加载到内存，内存就相对于硬盘是一种缓存。</li>
+<li>需要实现<code>排序依据</code>，在java中，可以使用<code>Comparable&lt;T&gt;</code>作为排序的的接口</li>
+<li>需要一种<code>页面置换算法(page replacement algorithm)</code>将旧页面去掉换成新的页面，如最久未使用算法（LFU）、先进先出算法（FIFO）、最近最少使用算法（LFU）、非最近使用算法（NMRU）等</li>
+<li>如果没有命中缓存，就需要从原始地址获取，这个步骤叫做“回源”，CDN厂商会标注“回源率”作为卖点</li>
+</ol>
+<blockquote>
+<ol>
+<li><code>Comparable&lt;T&gt;</code>是java用来排序的接口，推荐参考阅读《Java Software Structures Designing and Using Data Structures》</li>
+<li>页面置换算法可以参考阅读《现代操作系统》的中译本</li>
+</ol>
+</blockquote>
+<p>##2. LinkedHashMap原理</p>
+<p>###2.1. 源码概述分析</p>
+<p>在HashMap中，维护了一个<code>Node&lt;K,V&gt;[] table</code>，当put操作时，将元素按照计算出的Hash填到数组相应位置<code>table[Hash]</code>中，最后迭代时，从table[0]开始向后迭代，具体的顺序取决于元素的HashCode，所以我们常说HashMap的元素迭代是不可预测的。</p>
+<p>而在LinkedHashMap中，除了<code>Node&lt;K,V&gt;[] table</code>，还维护着2个<code>Entry&lt;K,V&gt; head,tail</code>，并组成了链表。当put元素后，调用下列回调函数对链表将元素移动到链尾以及清理旧的元素</p>
+<pre><code class="language-java">// move node to last
+void afterNodeAccess(Node&lt;K,V&gt; e)
+// possibly remove eldest
+void afterNodeInsertion(boolean evict)
+</code></pre>
+<p>在get元素时，如果设置<code>accessOrder</code>为true时，通过调用如下回调<strong>移动</strong>元素到链尾，这里特别强调移动，如果这个元素本身已经在链表中，那它将只会移动，而不是新建</p>
+<pre><code class="language-java">// move node to last
+void afterNodeAccess(Node&lt;K,V&gt; e)
+</code></pre>
+<p>综上，当你反复对元素进行get/put操作时，经常使用的元素会被移动到<code>tail</code>中，而长期不用的元素会被移动到<code>head</code></p>
+<p>最后迭代(Iterator)时，迭代是从旧元素迭代到新元素，这就是LRU的实现</p>
+<pre><code>head &lt;--&gt; .... &lt;--&gt; tail
+
+旧元素 &lt;-----------&gt; 反复使用的新元素
+</code></pre>
+<p>对<code>LinkedHashMap</code>进行了封装实现LRU的框架，基本上是按照下图的方法进行初始化</p>
+<pre><code class="language-java">//按照访问顺序排序的Map，设置accessOrder为true
+map = new LinkedHashMap&lt;&gt;(0, 0.75f, true);
+</code></pre>
+<p>###2.2. HashMap的对比</p>
+<p>以下是常见的3种map的区别，以下均不计算扩容时的时间复杂度</p>
+<table><thead><tr><th align="left"></th><th align="left">HashMap</th><th align="left">LinkedHashMap</th><th align="left">TreeMap</th></tr></thead><tbody>
+<tr><td align="left">Performance get/set</td><td align="left">O(1)</td><td align="left">O(1)</td><td align="left">O(logN)</td></tr>
+<tr><td align="left">Implement</td><td align="left">Array</td><td align="left">Link + Array</td><td align="left">Red-Black Tree</td></tr>
+<tr><td align="left">Iteration</td><td align="left">unpredictable</td><td align="left">put/accessOrder</td><td align="left">Comparable<code>&lt;Key&gt;</code></td></tr>
+</tbody></table>
+<blockquote>
+<p>上述具体代码没有源码分析哦</p>
+<ol start="2">
+<li>本部分基于JDK1.8.0_05，可能部分函数与网上文章相冲突</li>
+<li>在golang中，使用<code>ring</code>与<code>map</code>实现了Lru，可以看<a href="https://github.com/golang/groupcache/blob/master/lru/lru.go">这里</a></li>
+</ol>
+</blockquote>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>在树这一章中，我建议先学习LISP，学会用表结构与模式匹配后，再研究树，比Java代码表达能力强多了</p>
+<p>以下至少要能够说清楚</p>
+<ul>
+<li>编程语言中的抽象语法树(AST)</li>
+<li>通信中的Haffman编码(实现总权最小)</li>
+<li>Drools等规则引擎(RuleEngine)中的RETE算法(实现总叶子最小)</li>
+<li>数据库中的B+Tree与LSM Tree</li>
+<li>倒排索引(Inverted index)</li>
+<li>文本匹配中的双数组Trie算法</li>
+<li>优先队列</li>
+</ul>
+<p>定义</p>
+<p>see here https://www.wikiwand.com/en/Binary_tree#/Types_of_binary_trees</p>
+<pre><code class="language-plantuml">@startmindmap
+skinparam shadowing false
++ Binary Tree
+++ Heap
++++ Max-Heap\n t&gt;=t.l &amp;&amp; t&gt;=t.r
++++ Min-Heap\n t&lt;=t.l &amp;&amp; t&lt;=t.r
+++++ PriorityQueue\n 
+++ Complete tree\n filled left to right
+++ Height-balance tree\n Abs(t.l - t.r)&lt;=1
+++ Binary search tree\n t.l&lt;=t&lt;=t.r
+@endmindmap
+</code></pre>
+<p>遍历</p>
+<p>pre</p>
+<pre><code class="language-java">void traverse(TreeNode root) {
+  &lt;pre order code&gt;
+  traverse(root.left)
+  traverse(root.right)
+}
+</code></pre>
+<p>in</p>
+<pre><code class="language-java">void traverse(TreeNode root) {
+  traverse(root.left)
+  &lt;in order code&gt;
+  traverse(root.right)
+}
+</code></pre>
+<p>after</p>
+<pre><code class="language-java">void traverse(TreeNode root) {
+  traverse(root.left)
+  traverse(root.right)
+  &lt;after order code&gt;}
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="traverse"><a class="header" href="#traverse">Traverse</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="depth-first"><a class="header" href="#depth-first">Depth-First</a></h1>
+<p>深度遍历是最常见的场景，本质上也是进行模式匹配 </p>
+<p>二叉树的深度遍历，方便进行直观理解</p>
+<p>思路与其他遍历一样，先解决Atomic特例，再遍历</p>
+<pre><code class="language-scheme">; racket draw Binary Tree
+#lang racket
+; 导入绘图工具类
+(require pict pict/tree-layout)
+; 判断Token是否是单个元素
+(define (atom? x) (not (or (pair? x) (null? x))))
+; 定义一个名为gen-ast,入参为exp的函数
+(define gen-ast
+  (λ (exp)
+    (match exp
+      [(? atom? leaf)   ;如果为叶子
+       (tree-layout #:pict (text (~v leaf)))] 
+      [`(,op,l,r)        ;对S表达式进行遍历
+       (let ([v1 (gen-ast l)]
+             [v2 (gen-ast r)])
+         (tree-layout #:pict (text (~v op)) v1 v2))])))
+; 将生成的 tree-layout 赋值到 tree 变量
+(define tree (gen-ast `(+ 1 (+ (* 2 5) (/ 2 4)))))
+; 执行绘图
+(naive-layered tree)
+</code></pre>
+<p>生成的结果是这样的</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-4efd190b1cd29d84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ast.png" /></p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="breed-first"><a class="header" href="#breed-first">Breed-First</a></h1>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="二叉树"><a class="header" href="#二叉树">二叉树</a></h2>
+<h4 id="什么是binarytree"><a class="header" href="#什么是binarytree">什么是BinaryTree</a></h4>
+<p>有最多两个叶子的就是二叉树，与它的大小，排序无关</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="红黑树"><a class="header" href="#红黑树">红黑树</a></h2>
+<p>以下摘自百科</p>
+<p>红黑树是每个节点都带有颜色属性的<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9">二叉查找树</a>，颜色为红色或黑色。在二叉查找树强制一般要求以外，对于任何有效的红黑树我们增加了如下的额外要求：</p>
+<ol>
+<li>节点是红色或黑色。</li>
+<li>根是黑色。</li>
+<li>所有叶子都是黑色（叶子是NIL节点）。</li>
+<li>每个红色节点必须有两个黑色的子节点。（从每个叶子到根的所有路径上不能有两个连续的红色节点。）</li>
+<li>从任一节点到其每个叶子的所有
+<a href="https://zh.wikipedia.org/wiki/%E9%81%93%E8%B7%AF_%28%E5%9B%BE%E8%AE%BA%29">简单路径</a>
+都包含相同数目的黑色节点。</li>
+</ol>
+<p>下面是一个具体的红黑树的图例：</p>
+<p><a href="https://zh.wikipedia.org/wiki/File:Red-black_tree_example.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Red-black_tree_example.svg/450px-Red-black_tree_example.svg.png" alt="" title="An example of a red-black tree" /></a></p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="treemap"><a class="header" href="#treemap">TreeMap</a></h2>
+<h4 id="最优二叉树-通信领域中的huffman编码"><a class="header" href="#最优二叉树-通信领域中的huffman编码">最优二叉树: 通信领域中的<em>Huffman</em>编码</a></h4>
+<p>树这个数据结构一直是我的弱项。其实最开始接触树是通信领域中的<em>Huffman</em>编码+奇怪的数学符号，直接对树吓出了阴影。</p>
+<p>之前写过HashMap分析文章，它是通过Obeject的<code>equals</code>与<code>hashcode</code>进行放入与查询的。HashMap内部通过数组进行存储，Index基于Hash值，由于hash算法的“随机”均匀性，因此，如果对KeySet进行遍历的话，将是不可预料的。</p>
+<p>而TreeMap基于树，准确的说是基于红黑树实现了Map接口。</p>
+<blockquote>
+<p>Huffman的思想在很多场景都有遇到过，比如在Switch/Case/If条件链中，概率高的条件放到前面，程序的执行会更快。</p>
+</blockquote>
+<h2 id="基础知识复习"><a class="header" href="#基础知识复习">基础知识复习</a></h2>
+<h4 id="树的定义"><a class="header" href="#树的定义">树的定义</a></h4>
+<p>树是由n（n&gt;=1）个有限节点组成一个具有层次关系的<a href="https://zh.wikipedia.org/wiki/%E9%9B%86%E5%90%88">集合</a>。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。它具有以下的特点：</p>
+<ul>
+<li>每个节点有零个或多个子节点；</li>
+<li>没有父节点的节点称为根节点；</li>
+<li>每一个非根节点有且只有一个父节点；</li>
+<li>除了根节点外，每个子节点可以分为多个不相交的子树</li>
+</ul>
+<blockquote>
+<p>上面定义可以看出，树不一定有2个Child，也不是父与子、兄弟一定要满足特定的大小关系</p>
+</blockquote>
+<p>u5Y-gzU-CmQ-nge</p>
+<h4 id="堆的定义"><a class="header" href="#堆的定义">堆的定义</a></h4>
+<p>n个元素序列{k1,k2...ki...kn},当且仅当满足下列关系时称之为堆：
+(ki &lt;= k2i,ki &lt;= k2i+1)或者(ki &gt;= k2i,ki &gt;= k2i+1), (i = 1,2,3,4...n/2)</p>
+<p>这种数据结构具有以下性质。</p>
+<ul>
+<li>任意节点小于（或大于）它的所有后裔，最小元（或最大元）在堆的根上（<strong>堆序性</strong>）。</li>
+<li>堆总是一棵<a href="https://zh.wikipedia.org/wiki/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91">完全树</a>。即除了最底层，其他层的节点都被元素填满，且最底层尽可能地从左到右填入</li>
+</ul>
+<blockquote>
+<p>这里也没有说一定是二叉堆，但是平时一般说堆都是特指二叉堆</p>
+</blockquote>
+<h4 id="treemaptreesethashmap-与-priorityqueue-的对比"><a class="header" href="#treemaptreesethashmap-与-priorityqueue-的对比">TreeMap、TreeSet、HashMap 与 PriorityQueue 的对比</a></h4>
+<h4 id="计算topn"><a class="header" href="#计算topn">计算TopN</a></h4>
+<h2 id="参考"><a class="header" href="#参考">参考</a></h2>
+<ol>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%A0%91_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)">https://zh.wikipedia.org/wiki/树_(数据结构)</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%A0%86_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)">https://zh.wikipedia.org/wiki/堆_(数据结构)</a></li>
+<li><a href="http://coolshell.cn/articles/7459.html">优先队列与Huffman编码的很好翻译</a></li>
+</ol>
+<pre><code>
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="treeset"><a class="header" href="#treeset">TreeSet</a></h1>
+<h4 id="去重unique"><a class="header" href="#去重unique">去重(unique)</a></h4>
+<pre><code class="language-groovy">[&quot;222&quot;,&quot;111&quot;,'33','44','44'].unique()
+=&gt; [&quot;222&quot;,&quot;111&quot;,'33','44']
+</code></pre>
+<p>这里用TreeSet可以将它实现</p>
+<pre><code class="language-java">def unique = { List list-&gt;
+    TreeSet set = new TreeSet()
+    set.addAll(list)
+    return set.toList()
+}
+</code></pre>
+<p>其中TreeSet内部<code>addAll</code>通过for循环调用<code>treeMap</code>实现</p>
+<pre><code class="language-groovy">list.each{e-&gt;
+    //If the map previously contained a mapping for the key, the old value is replaced.
+    treeMap.put(e, PRESENT)
+}
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>Pool</p>
+<p>池虽然不是名义上的数据结构，但是它一般通过Map实现</p>
+<ul>
+<li>
+<p>CommonPool的源码实现，JedisPool中Socket连接池实现</p>
+</li>
+<li>
+<p>OkHttp中Socket连接池源码实现</p>
+</li>
+<li>
+<p>ThreadPool(线程池)的源码实现</p>
+</li>
+<li>
+<p>RxJava(Reactive式操作)的<code>SchedulerPoolFactory</code>实现</p>
+</li>
+<li>
+<p>数据库连接池实现(了解)</p>
+</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="double-queue双端队列"><a class="header" href="#double-queue双端队列">Double Queue(双端队列)</a></h2>
+<h4 id="特点"><a class="header" href="#特点">特点</a></h4>
+<p>ArrayDeque</p>
+<p>基于数组，本质上是一个SlidingWindow，性能比LinkedList或者树性能更强。`</p>
+<pre><code>// push A B C into deque
+value                A B C
+index head(min) 1 2  . . .  tail(max)
+</code></pre>
+<p><strong>录入</strong></p>
+<p>分别作为Stack与Quque</p>
+<pre><code>addFirst: push
+addLast: offer, add
+</code></pre>
+<p><strong>迭代</strong></p>
+<p>与数组一样，从head开始到tail，满足栈的先进后出与队列的先进先出。</p>
+<blockquote>
+<p>此外还有双端链表LinkedList，请在其它章节进行了解。</p>
+</blockquote>
+<h2 id="okhttp内部请求队列实现"><a class="header" href="#okhttp内部请求队列实现">OkHttp内部请求队列实现</a></h2>
+<p>(本部分基于<code>git checkout tags/parent-3.9.1</code>版本分析)</p>
+<p>在okhttp内部，采用了ArrayDeque实现请求的排队，它主要有如下两个对象</p>
+<pre><code>AsyncCall extend NamedRunnable: 对Runnable的封装，非HTTP请求
+RealCall extend Call: 真正的HTTP请求
+</code></pre>
+<h4 id="同步请求场景"><a class="header" href="#同步请求场景">同步请求场景</a></h4>
+<p>同步请求是按照顺序阻塞调用的，内部维护了排队队列</p>
+<pre><code class="language-java">// 线程不安全，但是入队与出队加了synchronized锁，自动扩容
+private final Deque&lt;RealCall&gt; runningSyncCalls = new ArrayDeque&lt;&gt;();
+</code></pre>
+<p>请求侧如下</p>
+<pre><code class="language-java">// okhttp3.RealCall#execute
+ try {
+ 	 //　enque the element to tail
+   client.dispatcher().executed(this);
+   // blocking IO works
+   Response result = getResponseWithInterceptorChain();
+   if (result == null) throw new IOException(&quot;Canceled&quot;);
+   return result;
+ } catch (IOException e) {
+   eventListener.callFailed(this, e);
+   throw e;
+ } finally {
+   // poll the head element: 注意它是head元素，删除的不一定是刚刚入队的this
+   client.dispatcher().finished(this);
+ }
+</code></pre>
+<p>同步队列主要用于多个线程阻塞调用OkHttp时Call的引用计数，方便某些场景下执行<code>cancelAll</code>，事实上把这个Queue删除，同步请求也照样能使用的。</p>
+<h4 id="异步请求场景"><a class="header" href="#异步请求场景">异步请求场景</a></h4>
+<p>异步请求中维护了两个Runnable队列，虽然Deque可以自动扩容，但是下面通过外置条件控制了running状态，注意异步请求中由于readyAsyncCalls不一定是排序，当某个Host请求多后，少的Host会优先。</p>
+<pre><code class="language-java">/** Ready async calls in the order they'll be run. */
+private final Deque&lt;AsyncCall&gt; readyAsyncCalls = new ArrayDeque&lt;&gt;();
+/** Running asynchronous calls. Includes canceled calls that haven't finished yet. */
+private final Deque&lt;AsyncCall&gt; runningAsyncCalls = new ArrayDeque&lt;&gt;();
+</code></pre>
+<p>入队实现如下</p>
+<pre><code class="language-java">synchronized void enqueue(AsyncCall call) {
+  // 某些并行MAX条件
+ 	if (runningAsyncCalls.size() &lt; maxRequests &amp;&amp; runningCallsForHost(call) &lt; maxRequestsPerHost) {
+ 	  runningAsyncCalls.add(call);
+    // 执行 AsyncCall.run()
+    // 它的finally中也会执行 finished(runningAsyncCalls, call, true); 进行出队
+    // 因此当请求没有达到并行MAX条件时，与阻塞调用类似
+ 	  executorService().execute(call);
+ 	} else {
+    // 我们只分析这里
+ 	  readyAsyncCalls.add(call);
+ 	}
+ }
+</code></pre>
+<p>当请求达到了并行MAX条件时，就会涉及排队了。当某个请求完成后，将调用finished</p>
+<pre><code class="language-java">// okhttp3.Dispatcher#finished(java.util.Deque&lt;T&gt;, T, boolean)
+// 通过同步锁实现控制两个队列的原子操作
+synchronized (this) {
+  // 将运行的队列移除，由于是异步，这里**并非**移动的是第一个元素，而是最差N次循环数组才能找
+  if (!calls.remove(call)) throw new AssertionError(&quot;Call wasn't in-flight!&quot;);
+  // 通过判断MAX条件，for循环查找尽可能将 readyAsyncCalls 移动到 runningCalls
+  promoteCalls();
+  runningCallsCount = runningCallsCount();
+}
+</code></pre>
+<p>值得注意的是，readyAsyncCalls并不是完全按照先进先出实现排序，而是外部包装了<code>maxRequestsPerHost</code>判断，因此同样是排队，Host少的就是比Host的快，同时PerHost还保持着排序</p>
+<blockquote>
+<p>声明：网上的<code>OkHttp3源码分析【任务队列】 </code>是我以前写的，但是有疏漏（这里并不是移动ready的tail到running的head，而是N次查找），所以我全删了，网上未经授权抄的我救不了啦，要有批判思维。</p>
+</blockquote>
+<p>我们可以参考这些思路去做自己的多参数场景（比如MQ基于IP分发），实现比优先队列更加灵活的排队调度</p>
+<h4 id="oj题目-cooling-interval"><a class="header" href="#oj题目-cooling-interval">OJ题目: cooling interval</a></h4>
+<p>https://leetcode.com/problems/task-scheduler/</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><p>优先队列</p>
+<hr />
+<p>优先队列基于<a href="https://en.wikipedia.org/wiki/Heap_%28data_structure%29">堆(Heap)</a>，是一种通过优先级进行调度的策略。在输入元素时，将通过Comparable实现优先级的对比，进而实现按照优先级“插队”的调度，举个例子</p>
+<ul>
+<li>Picasso在加载图片时内部的线程池使用了优先队列进行线程的调度，进而实现多个不同图片优先级的显示（这里通过优先队列实现了OkHttp的网络请求）。更广泛地说，只要涉及到调度策略，肯定要与优先队列有关系。</li>
+<li>MQ中间件: 在后台的订单派发、抢购活动中，基本上都涉及到MQ的优先级</li>
+<li>同样在笔试中，用于解决TopK问题</li>
+</ul>
+<p>为了简化目标，本文仅分析JDK(基于1.8.0_101)下 <em>PriorityQueue</em> 的入队与出队操作。</p>
+<h2 id="什么是优先队列"><a class="header" href="#什么是优先队列">什么是优先队列？</a></h2>
+<p>优先队列(PriorityQueue)由堆(<em>heap</em>)构成，即一个<a href="https://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees">完全二叉树</a>，在本文中，子(<em>child</em>)节点总是小于父(<em>parent</em>)节点。</p>
+<pre><code>     2
+ 3      5
+5 7   6
+
+`(3 `(3 5 7) `(5 6))
+</code></pre>
+<p>在JDK实现的PriorityQueue中，当输入元素时，首先将元素放到最下层的叶节点（数组的末尾），接着<strong>从叶节点向上爬</strong>，并取代比它小的元素；当移除元素时，首先移除最高的根节点，然后下面向上填坑，由下面的小元素将它取而代之。</p>
+<blockquote>
+<p>“堆”密度大的沉在下面，密度小的飘到上面。</p>
+</blockquote>
+<h4 id="heap与bst的区别"><a class="header" href="#heap与bst的区别">HEAP与BST的区别</a></h4>
+<p>假设这是一个树``(p l r)`</p>
+<ul>
+<li>BST需要保证 l &lt; p &lt; r</li>
+<li>而Heap需要保证 p &lt; (or l r)，同级的排序不涉及，因此设计与插入维护更加简单</li>
+</ul>
+<h4 id="入队操作"><a class="header" href="#入队操作">入队操作</a></h4>
+<p>入队是最常见的操作，将数据放到堆的末端叶子，一般用于生产者，比如将一个含优先级的请求放入线程池，必须实现<em>Comparable</em>或者<em>Comparator</em>接口。源代码如下</p>
+<pre><code class="language-java">//添加元素到队尾
+public boolean offer(E e) {
+  if (e == null)
+    throw new NullPointerException();
+  modCount++;
+  int i = size;
+  //如果需要扩容
+  if (i &gt;= queue.length)
+    // 通过System.arraycopy 扩容加一
+    grow(i + 1);
+  size = i + 1;
+  if (i == 0)
+    queue[0] = e;
+  els
+    siftUp(i, e);
+  return true;
+}
+</code></pre>
+<p>在siftUp中代码如下，通过此处可以看出，JDK中默认采用的是小堆(Heaps where the parent key is less than the child keys are called <em>min-heaps</em>)，也就是堆顶(<em>queue[0]</em>)是数组中最小的值，接着调用了 <em>siftUp</em> 方法进行“升迁”排序，具体实现如下</p>
+<pre><code class="language-java">//如果小于Parent，就替换掉它
+//k: queue.size();
+//E: Data to insert
+private void siftUpComparable(int k, E x) {
+  Comparable&lt;? super E&gt; key = (Comparable&lt;? super E&gt;) x;
+  // 首与parent对比，如果比它小或等，就替换掉。
+  while (k &gt; 0) {
+    int parent = (k - 1) &gt;&gt;&gt; 1;//也就是 除以2
+    Object e = queue[parent];
+    if (key.compareTo((E) e) &gt;= 0)
+      break;
+    queue[k] = e;
+    k = parent;
+  }
+  queue[k] = key;
+}
+</code></pre>
+<p>举个例子，比如我要依次插入<code>[6,3,7,9,2,1]</code>，Scheme代码如下</p>
+<pre><code class="language-scheme">(offer () 6) = (6 nil nil)
+(offer (6) 3) = (3 6 nil)
+(offer (3 6) 7) = (3 6 7)
+(offer (3 6 7) 9) = (3 (2 9 nil) 7)
+(offer (3 (6 9 nil) 7) 2) = (2 (3 9 6) 7)
+(offer (2 (3 9 6) 7) 1) = (1 (3 9 6) (2 7 nil))
+</code></pre>
+<p>从上面的例子可以看出，第一个元素，也就是根节点总是最小的值，这个<code>sitfup</code>也就是插队的流程。</p>
+<blockquote>
+<p>这里也可以看出，优先队列内部并不是全量依次排序的</p>
+</blockquote>
+<h3 id="提取元素"><a class="header" href="#提取元素">提取元素</a></h3>
+<p>此场景在消费者中经常使用，从堆顶中拿出最小的元素，空缺位置从下向上依此提拔。</p>
+<pre><code class="language-java">public E poll() {
+  if (size == 0)
+    return null;
+  int s = --size;
+  modCount++;
+  //队首最小的元素
+  E result = queue[0];
+  //队尾元素
+  E x = queue[s];
+  queue[s] = null;
+  if (s != 0)
+    //开始内部替换，并取而代之queue[0]
+    siftDown(0, x);
+  return result;
+}
+</code></pre>
+<p>具体套路是这样的</p>
+<pre><code class="language-java">//k=0 x=leaf, 
+private void siftDownComparable(int k, E x) {
+  int half = size &gt;&gt;&gt; 1;        // loop while a non-leaf
+  //不断向下
+  while (k &lt; half) {
+    // getSmallerChild start
+    int child = (k &lt;&lt; 1) + 1; // assume left child is least
+    E c = queue[child];
+    int right = child + 1;
+    if (right &lt; size &amp;&amp; c.compareTo(queue[right]) &gt; 0){
+      c = queue[child = right];      
+    }
+    // getSmallerChild end
+    if (x.compareTo(c) &lt;= 0)
+      break;
+    queue[k] = c;
+    k = child;
+  }
+  queue[k] = x;
+}
+</code></pre>
+<p>总之，这个与公司的职级晋升很像。</p>
+<h2 id="优先队列的迭代"><a class="header" href="#优先队列的迭代">优先队列的迭代</a></h2>
+<p>优先队列的默认实现是数组从左到右边依此输出，等价于树(从左到右的)广度遍历BFS，但是由于左右叶子没有规范大小，因此输出是毫无意义的。<strong>唯一有意义的就是最小值<code>queue[0]</code></strong>，因此如果需要排序结果，那么只能用循环实现，而且还只能从小到大 （或者像下面这样从0插入）。</p>
+<pre><code class="language-java">//descending order
+public &lt;T, R&gt; List&lt;R&gt; itrQueueDesc(Queue&lt;T&gt; queue, Function&lt;T, R&gt; function) {
+  List&lt;R&gt; list = new ArrayList&lt;&gt;(); //array runs faster than the link in LeetCode, haha
+  while (!queue.isEmpty()) {
+    T poll = queue.poll();
+    list.add(0, function.apply(poll));
+  }
+  return list;
+}
+</code></pre>
+<blockquote>
+<p>toString 也是同理，没有输出意义</p>
+</blockquote>
+<h2 id="oj的topk例子"><a class="header" href="#oj的topk例子">OJ的TopK例子</a></h2>
+<p>维护一个固定长度为K的队列，时间复杂度为logN，占用内存为N</p>
+<pre><code class="language-java">//215. Kth Largest Element in an Array https://leetcode.com/problems/kth-largest-element-in-an-array/
+public &lt;T&gt; Queue&lt;T&gt; fixedQueue(Collection&lt;T&gt; ts, int k, Comparator&lt;T&gt; comparator) {
+  Queue&lt;T&gt; queue = new PriorityQueue&lt;&gt;(k, comparator);
+  for (T t : ts) {
+    // 此处有判断size再插入的方法，但是性能差距不大
+    queue.add(t);
+    if (queue.size() &gt; k) {
+      queue.poll();
+    }
+  }
+  return queue;
+}
+</code></pre>
+<h2 id="oj的wordfreq问题"><a class="header" href="#oj的wordfreq问题">OJ的WordFreq问题</a></h2>
+<p>词频统计(CountBy)，先GroupBy，后TopN，注意这个与Elastic的InvertedIndex是没有关系的</p>
+<pre><code class="language-java">// 688. https://leetcode.com/problems/top-k-frequent-words
+public List&lt;String&gt; topKFrequent(String[] words, int k) {
+  // count by 
+  // 此部分在Eureka的一致性Hash中也有出现，用于校验增量更新，比如UP_3_DOWN_2
+  Map&lt;String, Long&gt; collect = new HashMap&lt;&gt;();
+  for (String w : words) {
+    collect.put(w, collect.getOrDefault(w, 0l) + 1);
+  }
+  Queue&lt;Map.Entry&lt;String, Long&gt;&gt; queue = fixedQueue(collect.entrySet(), k, 
+    (newVal, oldVal) -&gt; {
+      //  from highest to lowest
+      int i = newVal.getValue().compareTo(oldVal.getValue());
+      if (i == 0) {
+        return oldVal.getKey().compareTo(newVal.getKey()); //lower alphabetical comes first
+      }
+      return i;
+  });
+  return itrQueueDesc(queue, Map.Entry::getKey);
+}
+</code></pre>
+<p>此外还有基于Redis的<a href="https://leetcode.com/problems/top-k-frequent-words/discuss/294424/Redis-based-TopN">ZSET</a>的实现</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h2 id="数组与链表的区别"><a class="header" href="#数组与链表的区别">数组与链表的区别</a></h2>
+<p>在内存上，数组是连续地址，而链表是离散地址；数组通过下标定位，而链表只能通过指针定位；</p>
+<p>||get(index)|contain(obj)|add/remove(index,obj)|空间||
+|:
+|ArrayList |O(1)| O(N)|O(N) | O(N)|
+|LinkedList | O(N) | O(N) |O(1)* |O(N)</p>
+<blockquote>
+<ul>
+<li>这里的get可以用“定位/index”翻译，而contain可以翻译为“查找/Search”，两者翻译不可混为一谈;</li>
+<li>add/remove这里有争议，特指已经查找到了元素位置的情况下，移动数据所需要的时间;</li>
+<li>不考虑第一与最后位的特殊情况</li>
+</ul>
+</blockquote>
+<p>####1. 定位（get(index)）</p>
+<p>数组通过下标进行定位</p>
+<pre><code class="language-java"> E elementData(int index) {
+        return (E) elementData[index];
+    }
+</code></pre>
+<p>链表需要遍历整个节点</p>
+<pre><code class="language-java">Node&lt;E&gt; node(int index) {
+        // assert isElementIndex(index);
+
+        if (index &lt; (size &gt;&gt; 1)) {
+            Node&lt;E&gt; x = first;
+            for (int i = 0; i &lt; index; i++)
+                x = x.next;
+            return x;
+        } else {
+            Node&lt;E&gt; x = last;
+            for (int i = size - 1; i &gt; index; i--)
+                x = x.prev;
+            return x;
+        }
+    }
+</code></pre>
+<p>####2. 搜索（contain(obj)）</p>
+<p>在数组中，contain实际上就是indexof，因为需要遍历查表对比，所以复杂度都是O(N)</p>
+<pre><code class="language-java">public int indexOf(Object o) {
+        if (o == null) {
+            for (int i = 0; i &lt; size; i++)
+                if (elementData[i]==null)
+                    return i;
+        } else {
+            for (int i = 0; i &lt; size; i++)
+                if (o.equals(elementData[i]))
+                    return i;
+        }
+        return -1;
+    }
+</code></pre>
+<p>在链表中，是通过指针一步步遍历的</p>
+<pre><code class="language-java">public int indexOf(Object o) {
+        int index = 0;
+        if (o == null) {
+            for (Node&lt;E&gt; x = first; x != null; x = x.next) {
+                if (x.item == null)
+                    return index;
+                index++;
+            }
+        } else {
+            for (Node&lt;E&gt; x = first; x != null; x = x.next) {
+                if (o.equals(x.item))
+                    return index;
+                index++;
+            }
+        }
+        return -1;
+    }
+
+</code></pre>
+<p>####3. 添加或删除(add/remove(index,obj))</p>
+<p>在数组中，插入元素需要调整后面的所有元素，所以消耗比较多，我们以add为例，可以看出，是先复制后添加的，复杂度为O(N)；</p>
+<pre><code class="language-java">public void add(int index, E element) {
+        rangeCheckForAdd(index);
+
+        ensureCapacityInternal(size + 1);  // Increments modCount!!
+        //使用native代码以提高效率
+        System.arraycopy(elementData, index, elementData, index + 1,
+                         size - index);
+        elementData[index] = element;
+        size++;
+    }
+</code></pre>
+<p>而在链表中，add时间为{定位时间 + O(1)}，我们平时说的添加删除的复杂度O(1)是指已经获得当前定位的情况，在stackoverFlow上也有<a href="http://stackoverflow.com/questions/15732334/how-is-linkedlists-addint-e-of-o1-complexity">关于这个的讨论</a>，你要说到底我支不支持O(1)呢，那我当然支持了，毕竟都是那么写的嘛</p>
+<pre><code class="language-java">public void add(int index, E element) {
+        checkPositionIndex(index);
+		
+        if (index == size)
+            linkLast(element);
+        else
+            //这里node()定位的复杂度已经是O(N)了，但是我们不考虑
+            linkBefore(element, node(index));
+    }
+    
+/**
+ * Inserts element e before non-null Node succ.
+ * 这里的元素数据复杂度为O(1)
+ */
+void linkBefore(E e, Node&lt;E&gt; succ) {
+    // assert succ != null;
+    final Node&lt;E&gt; pred = succ.prev;
+    final Node&lt;E&gt; newNode = new Node&lt;&gt;(pred, e, succ);
+    succ.prev = newNode;
+    if (pred == null)
+        first = newNode;
+    else
+        pred.next = newNode;
+    size++;
+    modCount++;
+}
+    
+</code></pre>
+<h4 id="4-总结"><a class="header" href="#4-总结">4. 总结</a></h4>
+<p>总得来说，就是Array定位比LinkedList快，而插入删除（不包括定位时间的情况）操作LinkedList更快。</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><hr />
+<p>title: ArrayList与LinkedList
+categories:</p>
+<ul>
+<li>数据结构</li>
+</ul>
+<hr />
+<p>##1. 关系图</p>
+<p>还是只放一个UML图吧，蓝色的箭头是继承关系，绿色虚线箭头是实现的接口</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-654c0d86703d1f68.png" alt="ArrayList" /></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/98641-eaedee1b2c28bc52.png" alt="LinkedList" /></p>
+<p>##2. 数组与链表的区别</p>
+<p>在内存上，数组是连续地址，而链表是离散地址；数组通过下标定位，而链表只能通过指针定位；</p>
+<p>||get(index)|contain(obj)|add/remove(index,obj)|空间||
+|:
+|ArrayList |O(1)| O(N)|O(N) | O(N)|
+|LinkedList | O(N) | O(N) |O(1)* |O(N)</p>
+<blockquote>
+<ul>
+<li>这里的get可以用“定位/index”翻译，而contain可以翻译为“查找/Search”，两者翻译不可混为一谈;</li>
+<li>add/remove这里有争议，特指已经查找到了元素位置的情况下，移动数据所需要的时间;</li>
+<li>不考虑第一与最后位的特殊情况</li>
+</ul>
+</blockquote>
+<p>####1. 定位（get(index)）</p>
+<p>数组通过下标进行定位</p>
+<pre><code> E elementData(int index) {
+        return (E) elementData[index];
+    }
+</code></pre>
+<p>链表需要遍历整个节点</p>
+<pre><code>Node&lt;E&gt; node(int index) {
+        // assert isElementIndex(index);
+
+        if (index &lt; (size &gt;&gt; 1)) {
+            Node&lt;E&gt; x = first;
+            for (int i = 0; i &lt; index; i++)
+                x = x.next;
+            return x;
+        } else {
+            Node&lt;E&gt; x = last;
+            for (int i = size - 1; i &gt; index; i--)
+                x = x.prev;
+            return x;
+        }
+    }
+</code></pre>
+<p>####2. 搜索（contain(obj)）</p>
+<p>在数组中，contain实际上就是indexof，因为需要遍历查表对比，所以复杂度都是O(N)</p>
+<pre><code>public int indexOf(Object o) {
+        if (o == null) {
+            for (int i = 0; i &lt; size; i++)
+                if (elementData[i]==null)
+                    return i;
+        } else {
+            for (int i = 0; i &lt; size; i++)
+                if (o.equals(elementData[i]))
+                    return i;
+        }
+        return -1;
+    }
+</code></pre>
+<p>在链表中，是通过指针一步步遍历的</p>
+<pre><code>public int indexOf(Object o) {
+        int index = 0;
+        if (o == null) {
+            for (Node&lt;E&gt; x = first; x != null; x = x.next) {
+                if (x.item == null)
+                    return index;
+                index++;
+            }
+        } else {
+            for (Node&lt;E&gt; x = first; x != null; x = x.next) {
+                if (o.equals(x.item))
+                    return index;
+                index++;
+            }
+        }
+        return -1;
+    }
+
+</code></pre>
+<p>####3. 添加或删除(add/remove(index,obj))</p>
+<p>在数组中，插入元素需要调整后面的所有元素，所以消耗比较多，我们以add为例，可以看出，是先复制后添加的，复杂度为O(N)；</p>
+<pre><code>public void add(int index, E element) {
+        rangeCheckForAdd(index);
+
+        ensureCapacityInternal(size + 1);  // Increments modCount!!
+        //使用native代码以提高效率
+        System.arraycopy(elementData, index, elementData, index + 1,
+                         size - index);
+        elementData[index] = element;
+        size++;
+    }
+</code></pre>
+<p>而在链表中，add时间为{定位时间 + O(1)}，我们平时说的添加删除的复杂度O(1)是指已经获得当前定位的情况，在stackoverFlow上也有<a href="http://stackoverflow.com/questions/15732334/how-is-linkedlists-addint-e-of-o1-complexity">关于这个的讨论</a>，你要说到底我支不支持O(1)呢，那我当然支持了，毕竟都是那么写的嘛</p>
+<pre><code>public void add(int index, E element) {
+        checkPositionIndex(index);
+		
+        if (index == size)
+            linkLast(element);
+        else
+            //这里node()定位的复杂度已经是O(N)了，但是我们不考虑
+            linkBefore(element, node(index));
+    }
+    
+/**
+ * Inserts element e before non-null Node succ.
+ * 这里的元素数据复杂度为O(1)
+ */
+void linkBefore(E e, Node&lt;E&gt; succ) {
+    // assert succ != null;
+    final Node&lt;E&gt; pred = succ.prev;
+    final Node&lt;E&gt; newNode = new Node&lt;&gt;(pred, e, succ);
+    succ.prev = newNode;
+    if (pred == null)
+        first = newNode;
+    else
+        pred.next = newNode;
+    size++;
+    modCount++;
+}
+    
+</code></pre>
+<h4 id="4-总结-1"><a class="header" href="#4-总结-1">4. 总结</a></h4>
+<p>总得来说，就是Array定位比LinkedList快，而插入删除（不包括定位时间的情况）操作LinkedList更快。另外再说一下，比如Android的ListView场景中很少存在插入数据的情况，大多数情况就是在末尾添加数据，所以没必要为了这点性能而放弃ArrayList。</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="skiplist"><a class="header" href="#skiplist">SkipList</a></h1>
+<p>跳表是对排序后的有向链表优化</p>
+<p>现实生活的SkipList最恰当的例子就是岛国电车了，比如从天下茶园到关西空港，普通每一站都要停，而空港急行只停大站</p>
+<p><img src="http://www.nankai.co.jp/var/rev0/0006/6124/railmap-nankai02.gif" alt="nankai" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
