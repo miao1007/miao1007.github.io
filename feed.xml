@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>KOTOWAZA</title>
+  
+  
+  <link href="/feed.xml" rel="self"/>
+  
+  <link href="https://miao1007.github.io/"/>
+  <updated>2026-10-13T15:04:49.545Z</updated>
+  <id>https://miao1007.github.io/</id>
+  
+  <author>
+    <name>諺</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>跨境理财通简介</title>
+    <link href="https://miao1007.github.io/3c2c11d0-9f05-11f1-80f2-e386f4f46717/"/>
+    <id>https://miao1007.github.io/3c2c11d0-9f05-11f1-80f2-e386f4f46717/</id>
+    <published>2026-08-28T14:13:45.000Z</published>
+    <updated>2026-10-13T15:04:49.545Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以兴业银行与众安银行组合为例介绍跨境理财通的南向通，并分析主要投资标的与风险。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Finance" scheme="https://miao1007.github.io/tags/Finance/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>東京秋葉原女仆咖啡店体验</title>
+    <link href="https://miao1007.github.io/8108b860-4ae3-11f1-9ced-5576a259c9a3/"/>
+    <id>https://miao1007.github.io/8108b860-4ae3-11f1-9ced-5576a259c9a3/</id>
+    <published>2026-05-17T13:40:40.000Z</published>
+    <updated>2026-10-13T15:04:49.546Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在本月黄金周GW中，体验了5家面向海外游客的メイドフェー（女仆咖啡店）。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Nihongo" scheme="https://miao1007.github.io/tags/Nihongo/"/>
+    
+      <category term="Travel" scheme="https://miao1007.github.io/tags/Travel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Code Static Analysis with OpenRewrite and AI Skills</title>
+    <link href="https://miao1007.github.io/c7d964c0-3b33-11f1-9754-8f31fdfe5ab9/"/>
+    <id>https://miao1007.github.io/c7d964c0-3b33-11f1-9754-8f31fdfe5ab9/</id>
+    <published>2026-04-19T14:51:00.000Z</published>
+    <updated>2026-10-13T15:04:49.545Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Combining the structured automation of &lt;strong&gt;OpenRewrite&lt;/strong&gt; with the reasoning capabilities of &lt;strong&gt;AI&lt;/strong&gt; allows for a sophisticated approach to managing codebases risks  (like OWASP/CWE/XSS). Our dev team have found hundreds of vulnerable exploits with a local qwen3.5-27b model.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Security" scheme="https://miao1007.github.io/tags/Security/"/>
+    
+      <category term="SAST" scheme="https://miao1007.github.io/tags/SAST/"/>
+    
+      <category term="AI" scheme="https://miao1007.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>White-collar Wage Premium Polarization on AI</title>
+    <link href="https://miao1007.github.io/095f3a70-08d8-11f1-a08f-959ddcee06fe/"/>
+    <id>https://miao1007.github.io/095f3a70-08d8-11f1-a08f-959ddcee06fe/</id>
+    <published>2026-04-18T12:32:18.000Z</published>
+    <updated>2026-10-13T15:04:49.545Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;AI has a strong encoding capability that creates derivatives from an object without hardcore friction or learning curves, which indicates &lt;code&gt;inefficiency premium&lt;/code&gt; may no longer exist in the future, regardless software, SaaS or white-collar jobs.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Management" scheme="https://miao1007.github.io/tags/Management/"/>
+    
+      <category term="AI" scheme="https://miao1007.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2025 Summary</title>
+    <link href="https://miao1007.github.io/6fd638c0-6573-11f0-9a2e-1bb5be720fa7/"/>
+    <id>https://miao1007.github.io/6fd638c0-6573-11f0-9a2e-1bb5be720fa7/</id>
+    <published>2026-01-01T13:11:32.000Z</published>
+    <updated>2026-06-11T15:24:29.264Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们正在经历一个缩量与低欲望时代&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Summary" scheme="https://miao1007.github.io/tags/Summary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HPC Engineering</title>
+    <link href="https://miao1007.github.io/82366680-7459-11f0-a3af-bb61a70e816a/"/>
+    <id>https://miao1007.github.io/82366680-7459-11f0-a3af-bb61a70e816a/</id>
+    <published>2025-10-08T03:10:21.872Z</published>
+    <updated>2025-10-08T03:10:21.872Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1&gt;Infrastructure&lt;/h1&gt;
+&lt;h2&gt;On-prem/自建&lt;/h2&gt;
+&lt;h3&gt;Bare metal + Hypervisor&lt;/h3&gt;
+&lt;h3&gt;Private cloud/私有云&lt;/h3&gt;
+&lt;h3&gt;Emulator
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Pack Spring Boot JARs into a monolithic Docker image</title>
+    <link href="https://miao1007.github.io/f90ce500-08b5-11f0-b358-6fc945929be4/"/>
+    <id>https://miao1007.github.io/f90ce500-08b5-11f0-b358-6fc945929be4/</id>
+    <published>2025-06-14T18:00:30.000Z</published>
+    <updated>2025-10-08T03:10:21.877Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In this article, we describe how we successfully packaged our 10+ Spring Boot JARs into an all-in-one Docker image with minimal size, which were originally deployed on cloud Kubernetes instances.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="DevOps" scheme="https://miao1007.github.io/tags/DevOps/"/>
+    
+      <category term="Docker" scheme="https://miao1007.github.io/tags/Docker/"/>
+    
+      <category term="Kubernetes" scheme="https://miao1007.github.io/tags/Kubernetes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录DearTang博客（已关闭）</title>
+    <link href="https://miao1007.github.io/b4b791a0-d284-11ef-baca-1f08d7f5f30d/"/>
+    <id>https://miao1007.github.io/b4b791a0-d284-11ef-baca-1f08d7f5f30d/</id>
+    <published>2025-01-14T14:34:48.000Z</published>
+    <updated>2025-03-27T15:54:05.410Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;曾经在中学时期，我在网上偶然发现了一个叫做DearTang（亲爱的糖）的博客，对当初的我有很大的引导。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2024 Summary</title>
+    <link href="https://miao1007.github.io/48ad8280-cf2e-11ee-9830-35b0d0ba9c7f/"/>
+    <id>https://miao1007.github.io/48ad8280-cf2e-11ee-9830-35b0d0ba9c7f/</id>
+    <published>2024-12-31T13:53:38.000Z</published>
+    <updated>2025-03-27T15:54:05.410Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;“问题”的本质在于你期望的东西和你体验的东西之间的差距。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Summary" scheme="https://miao1007.github.io/tags/Summary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Setting up an active-passive GitLab instance</title>
+    <link href="https://miao1007.github.io/bbd6bb70-3ecb-11ef-a436-730ae0359f35/"/>
+    <id>https://miao1007.github.io/bbd6bb70-3ecb-11ef-a436-730ae0359f35/</id>
+    <published>2024-11-11T14:50:22.000Z</published>
+    <updated>2026-06-26T12:18:29.734Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;GitLab is an open-source DevOps platform widely adopted in many companies. This instruction outlines the setup of a hot standby (active-passive) GitLab instance.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="DevOps" scheme="https://miao1007.github.io/tags/DevOps/"/>
+    
+      <category term="Git" scheme="https://miao1007.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>国庆北疆游记</title>
+    <link href="https://miao1007.github.io/60f61150-87c9-11ef-9c76-d7d683e46c69/"/>
+    <id>https://miao1007.github.io/60f61150-87c9-11ef-9c76-d7d683e46c69/</id>
+    <published>2024-10-26T12:07:25.000Z</published>
+    <updated>2026-06-26T12:18:29.733Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于《阿勒泰的角落》的热播，新疆的旅游变得火热，尤其是阿勒泰独特的高海拔深林景观。本次记录了2024年国庆在北疆的走马观花游记。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Travel" scheme="https://miao1007.github.io/tags/Travel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《非对称风险》摘要</title>
+    <link href="https://miao1007.github.io/0e73a2c0-6826-11ef-aa7e-93ebcf9a064c/"/>
+    <id>https://miao1007.github.io/0e73a2c0-6826-11ef-aa7e-93ebcf9a064c/</id>
+    <published>2024-09-12T16:50:13.000Z</published>
+    <updated>2026-08-16T10:12:57.733Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本书实际上是以有机主义（Organicism）与实用主义（Pragmatism）为锚，对道德，经济与宗教等现象的分析。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>A guide to upgrade subversion to 1.14</title>
+    <link href="https://miao1007.github.io/8b3d9c20-1fbf-11ef-9ff1-b32357718a7c/"/>
+    <id>https://miao1007.github.io/8b3d9c20-1fbf-11ef-9ff1-b32357718a7c/</id>
+    <published>2024-06-08T02:35:00.000Z</published>
+    <updated>2025-10-08T03:10:21.877Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This guide outlines an approach to upgrading Subversion servers.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="DevOps" scheme="https://miao1007.github.io/tags/DevOps/"/>
+    
+      <category term="Subversion" scheme="https://miao1007.github.io/tags/Subversion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>英文的发音方法</title>
+    <link href="https://miao1007.github.io/de62da90-e9bb-11ed-b413-5990697e789d/"/>
+    <id>https://miao1007.github.io/de62da90-e9bb-11ed-b413-5990697e789d/</id>
+    <published>2024-02-12T16:00:00.000Z</published>
+    <updated>2026-10-13T15:04:49.545Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文希望帮助读者尽可能能找对发音位置，基本掌握入门原理。不求完全没有口音。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ESL" scheme="https://miao1007.github.io/tags/ESL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023 Summary</title>
+    <link href="https://miao1007.github.io/642f48a0-e725-11ed-ab4d-c32d3c7e018d/"/>
+    <id>https://miao1007.github.io/642f48a0-e725-11ed-ab4d-c32d3c7e018d/</id>
+    <published>2023-12-23T16:00:00.000Z</published>
+    <updated>2024-12-31T15:24:36.932Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;转眼间又到了年底，总体来说还算满意，没有被收割太狠。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="非技术类" scheme="https://miao1007.github.io/categories/%E9%9D%9E%E6%8A%80%E6%9C%AF%E7%B1%BB/"/>
+    
+    
+      <category term="Summary" scheme="https://miao1007.github.io/tags/Summary/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sentences, clauases and modifiers in Japanese grammar</title>
+    <link href="https://miao1007.github.io/cce9c4c0-6fff-11ee-929a-5584ee31918c/"/>
+    <id>https://miao1007.github.io/cce9c4c0-6fff-11ee-929a-5584ee31918c/</id>
+    <published>2023-10-22T10:51:34.000Z</published>
+    <updated>2025-10-01T05:22:55.853Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Learning sentences and clauses is foundamental to parse complex syntax tree in Japanese, this title describles the comprehensive classification in Japanese.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Language" scheme="https://miao1007.github.io/tags/Language/"/>
+    
+      <category term="Nihongo" scheme="https://miao1007.github.io/tags/Nihongo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Formal noun and nominalization in Japanese grammar</title>
+    <link href="https://miao1007.github.io/34108d80-6369-11ee-9eea-d5cccbce66bb/"/>
+    <id>https://miao1007.github.io/34108d80-6369-11ee-9eea-d5cccbce66bb/</id>
+    <published>2023-10-11T16:11:19.000Z</published>
+    <updated>2024-12-31T15:24:36.925Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;ruby&gt;形式名詞&lt;rt&gt;keishiki meishi&lt;/rt&gt;&lt;/ruby&gt; is a special type of Parts of Speech in Japanese. While officially translated as formal noun, grammatically it would be more accurate to categorize it as a versatile placeholder that mainly undergoes a modification of nominalization.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Language" scheme="https://miao1007.github.io/tags/Language/"/>
+    
+      <category term="Nihongo" scheme="https://miao1007.github.io/tags/Nihongo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Security design for token authenticates</title>
+    <link href="https://miao1007.github.io/29ae5b40-5e93-11ee-97ec-4104e41deaa9/"/>
+    <id>https://miao1007.github.io/29ae5b40-5e93-11ee-97ec-4104e41deaa9/</id>
+    <published>2023-10-01T07:24:04.000Z</published>
+    <updated>2026-01-16T11:11:41.500Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This article describes how to choose appreciated tokens in security design.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="System Design" scheme="https://miao1007.github.io/tags/System-Design/"/>
+    
+      <category term="Security" scheme="https://miao1007.github.io/tags/Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fate Characters&#39; Relationships</title>
+    <link href="https://miao1007.github.io/0ef49e00-3124-11ee-94ee-3d669ee645eb/"/>
+    <id>https://miao1007.github.io/0ef49e00-3124-11ee-94ee-3d669ee645eb/</id>
+    <published>2023-09-12T16:04:13.000Z</published>
+    <updated>2023-12-30T09:16:37.698Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Diagram&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/fate.svg&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2023中国银行赴港开户攻略</title>
+    <link href="https://miao1007.github.io/a8c66cc0-350c-11ee-85cb-bdb343de97b4/"/>
+    <id>https://miao1007.github.io/a8c66cc0-350c-11ee-85cb-bdb343de97b4/</id>
+    <published>2023-08-06T16:00:00.000Z</published>
+    <updated>2026-08-27T14:40:03.163Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;香港开户的问题在于政策不断更新，因此存在时效性。本文提供2023年的开通参考。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Travel" scheme="https://miao1007.github.io/tags/Travel/"/>
+    
+      <category term="Finance" scheme="https://miao1007.github.io/tags/Finance/"/>
+    
+  </entry>
+  
+</feed>
